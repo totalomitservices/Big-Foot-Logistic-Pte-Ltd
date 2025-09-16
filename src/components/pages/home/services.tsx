@@ -12,7 +12,7 @@ export default function Services() {
           We provide a full spectrum of logistics services to meet your needs, ensuring efficiency and reliability from start to finish.
         </p>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
         {servicesData.map((service) => (
           <ServiceCard key={service.id} service={service} />
         ))}
