@@ -40,7 +40,7 @@ export default function Hero() {
             </Button>
           </div>
         </div>
-        <div className="absolute bottom-12 right-12">
+        <div className="absolute bottom-12 right-12 w-[450px]">
            <ShippingQuoteForm />
         </div>
       </div>
