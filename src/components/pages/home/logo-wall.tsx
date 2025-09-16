@@ -18,7 +18,7 @@ const logos = [
   { name: 'SIA Engineering', src: 'https://raw.githubusercontent.com/swathitom1207/logo-/main/sia%20engineering%20logo.jpg' },
 ];
 
-const duplicatedLogos = [...logos, ...logos];
+const duplicatedLogos = [...logos, ...logos, ...logos, ...logos];
 
 export default function LogoWall() {
   return (
