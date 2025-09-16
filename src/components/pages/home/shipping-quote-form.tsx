@@ -1,0 +1,111 @@
+"use client";
+
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+} from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { ArrowRight, Check } from "lucide-react";
+
+const steps = [
+  { id: 1, title: "Get a Quote", status: "active" },
+  { id: 2, title: "See Details", status: "inactive" },
+  { id: 3, title: "Confirmation", status: "inactive" },
+];
+
+export default function ShippingQuoteForm() {
+  return (
+    <Card className="w-full max-w-md bg-white rounded-lg shadow-lg animate-fade-in">
+      <CardHeader>
+        <div className="flex items-center justify-between">
+          {steps.map((step, index) => (
+            <div key={step.id} className="flex flex-col items-center flex-grow">
+              <div
+                className={`flex items-center justify-center w-8 h-8 rounded-full border-2 ${
+                  step.status === "active"
+                    ? "bg-accent text-accent-foreground border-accent"
+                    : "border-gray-300 text-gray-400"
+                }`}
+              >
+                {step.status === "active" ? (
+                  <Check className="h-5 w-5" />
+                ) : (
+                  <span>{step.id}</span>
+                )}
+              </div>
+              <p
+                className={`mt-2 text-xs font-semibold ${
+                  step.status === "active" ? "text-primary" : "text-gray-400"
+                }`}
+              >
+                {step.title}
+              </p>
+              {index < steps.length - 1 && (
+                <div className="absolute top-1/3 left-1/2 w-full -translate-y-1/2">
+                   {index < steps.length - 1 && (
+                    <div
+                        className="absolute top-1/2 left-1/2 w-full h-0.5 bg-gray-300"
+                        style={{
+                        width: `calc(100% / ${steps.length - 1} * ${index + 0.5})`,
+                        transform: "translateX(-50%)"
+                        }}
+                    ></div>
+                    )}
+
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+      </CardHeader>
+      <CardContent>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div className="md:col-span-1">
+            <Input
+              type="text"
+              placeholder="Enter Origin"
+              className="bg-white border-gray-200 hover:border-accent focus:border-accent focus:ring-accent"
+            />
+          </div>
+          <div className="md:col-span-1">
+            <Input
+              type="text"
+              placeholder="Enter Destination"
+              className="bg-white border-gray-200 hover:border-accent focus:border-accent focus:ring-accent"
+            />
+          </div>
+          <div className="md:col-span-1">
+            <Select>
+              <SelectTrigger className="bg-white border-gray-200 hover:border-accent focus:border-accent focus:ring-accent">
+                <SelectValue placeholder="Select Cargo Type" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="general">General Cargo</SelectItem>
+                <SelectItem value="perishable">Perishable Goods</SelectItem>
+                <SelectItem value="hazardous">Hazardous Materials</SelectItem>
+                <SelectItem value="fragile">Fragile Items</SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
+        </div>
+      </CardContent>
+      <CardFooter>
+        <Button className="w-full bg-accent hover:bg-accent/90 text-accent-foreground rounded-full font-bold group">
+          Continue
+          <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+        </Button>
+      </CardFooter>
+    </Card>
+  );
+}
+
