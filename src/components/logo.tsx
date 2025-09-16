@@ -11,7 +11,6 @@ export function Logo({ className }: { className?: string }) {
           className="object-contain"
         />
       </div>
-      <span className="text-xl font-headline font-bold">Bigfoot Logistics</span>
     </div>
   );
 }
