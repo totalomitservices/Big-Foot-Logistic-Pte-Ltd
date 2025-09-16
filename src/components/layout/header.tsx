@@ -33,9 +33,9 @@ export default function Header() {
           </nav>
           <div className="hidden md:flex items-center justify-end space-x-4">
              <div className="text-right text-sm">
-                <a href="mailto:contact@bigfoot.log" className="flex items-center gap-2 hover:text-accent transition-colors">
+                <a href="mailto:enquiries@bigfoot.com.sg" className="flex items-center gap-2 hover:text-accent transition-colors">
                   <Mail className="h-4 w-4" />
-                  <span>contact@bigfoot.log</span>
+                  <span>enquiries@bigfoot.com.sg</span>
                 </a>
                 <a href="tel:+1234567890" className="flex items-center gap-2 hover:text-accent transition-colors mt-1">
                   <Phone className="h-4 w-4" />
