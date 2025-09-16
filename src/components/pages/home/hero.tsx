@@ -28,7 +28,7 @@ export default function Hero() {
         <p className="mt-4 max-w-lg text-sm md:text-base text-gray-200 drop-shadow">
           Global logistics and supply chain solutions, tailored for your business needs. We ensure your cargo travels safely and arrives on time, every time.
         </p>
-        <div className="mt-8">
+        <div className="mt-8 w-full flex justify-start">
           <Button asChild size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 transition-all duration-300 transform hover:scale-105 shadow-lg">
             <Link href="#services">Read More</Link>
           </Button>
