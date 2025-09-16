@@ -48,12 +48,6 @@
       "description": "A shipping container with a shield icon superimposed.",
       "imageUrl": "https://picsum.photos/seed/cargo-insurance/500/500",
       "imageHint": "cargo insurance"
-    },
-    {
-      "id": "service-project-cargo",
-      "description": "Oversized cargo being transported by a special truck.",
-      "imageUrl": "https://picsum.photos/seed/project-cargo/500/500",
-      "imageHint": "project cargo"
     }
   ]
 }

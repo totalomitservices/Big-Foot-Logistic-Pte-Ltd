@@ -48,10 +48,4 @@ export const servicesData: Service[] = [
     description: "Protect your shipments against loss or damage with our comprehensive insurance options.",
     imageId: "service-cargo-insurance",
   },
-  {
-    id: "project-cargo",
-    title: "Project Cargo",
-    description: "Specialized handling for oversized, heavy, or complex project cargo shipments.",
-    imageId: "service-project-cargo",
-  },
 ];
