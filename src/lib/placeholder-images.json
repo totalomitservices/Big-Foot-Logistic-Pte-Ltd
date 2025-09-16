@@ -1,3 +1,65 @@
+
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "hero-image",
+      "description": "A long truck driving on a highway through mountains.",
+      "imageUrl": "https://picsum.photos/seed/truck-on-road/1920/1080",
+      "imageHint": "logistics truck"
+    },
+    {
+      "id": "service-air-freight",
+      "description": "Cargo plane being loaded with containers.",
+      "imageUrl": "https://picsum.photos/seed/air-freight/500/500",
+      "imageHint": "air freight"
+    },
+    {
+      "id": "service-ocean-freight",
+      "description": "Container ship on the open ocean.",
+      "imageUrl": "https://picsum.photos/seed/ocean-freight/500/500",
+      "imageHint": "ocean freight"
+    },
+    {
+      "id": "service-road-transport",
+      "description": "A fleet of trucks at a depot.",
+      "imageUrl": "https://picsum.photos/seed/road-transport/500/500",
+      "imageHint": "road transport"
+    },
+    {
+      "id": "service-warehouse",
+      "description": "A large, modern warehouse with shelves full of boxes.",
+      "imageUrl": "https://picsum.photos/seed/warehouse-storage/500/500",
+      "imageHint": "warehouse storage"
+    },
+    {
+      "id": "service-customs",
+      "description": "A customs officer inspecting documents.",
+      "imageUrl": "https://picsum.photos/seed/customs-brokerage/500/500",
+      "imageHint": "customs brokerage"
+    },
+    {
+      "id": "service-supply-chain",
+      "description": "A diagram showing a complex supply chain network.",
+      "imageUrl": "https://picsum.photos/seed/supply-chain/500/500",
+      "imageHint": "supply chain"
+    },
+    {
+      "id": "service-cargo-insurance",
+      "description": "A shipping container with a shield icon superimposed.",
+      "imageUrl": "https://picsum.photos/seed/cargo-insurance/500/500",
+      "imageHint": "cargo insurance"
+    },
+    {
+      "id": "service-project-cargo",
+      "description": "Oversized cargo being transported by a special truck.",
+      "imageUrl": "https://picsum.photos/seed/project-cargo/500/500",
+      "imageHint": "project cargo"
+    },
+    {
+      "id": "service-last-mile",
+      "description": "A delivery person handing a package to a customer.",
+      "imageUrl": "https://picsum.photos/seed/last-mile/500/500",
+      "imageHint": "last mile"
+    }
+  ]
 }
