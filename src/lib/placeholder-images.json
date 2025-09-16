@@ -54,12 +54,6 @@
       "description": "Oversized cargo being transported by a special truck.",
       "imageUrl": "https://picsum.photos/seed/project-cargo/500/500",
       "imageHint": "project cargo"
-    },
-    {
-      "id": "service-last-mile",
-      "description": "A delivery person handing a package to a customer.",
-      "imageUrl": "https://picsum.photos/seed/last-mile/500/500",
-      "imageHint": "last mile"
     }
   ]
 }

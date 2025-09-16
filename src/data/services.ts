@@ -54,10 +54,4 @@ export const servicesData: Service[] = [
     description: "Specialized handling for oversized, heavy, or complex project cargo shipments.",
     imageId: "service-project-cargo",
   },
-  {
-    id: "last-mile",
-    title: "Last-Mile Delivery",
-    description: "Efficient and timely final-stage delivery to ensure customer satisfaction.",
-    imageId: "service-last-mile",
-  },
 ];
