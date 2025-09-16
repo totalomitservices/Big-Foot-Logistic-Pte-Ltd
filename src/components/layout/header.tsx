@@ -15,7 +15,7 @@ export default function Header() {
     <header className="absolute top-0 left-0 right-0 z-20 bg-transparent text-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-24">
-          <div className="flex-shrink-0">
+          <div className="flex-shrink-0 mt-8">
             <Link href="#home">
               <Logo className="text-white" />
             </Link>
