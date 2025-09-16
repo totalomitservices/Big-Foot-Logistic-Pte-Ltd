@@ -20,7 +20,7 @@ export const servicesData: Service[] = [
   },
   {
     id: "road-transport",
-    title: "Road Transport",
+    title: "Custom Clearance",
     description: "Flexible and efficient ground transportation for domestic and cross-border deliveries.",
     imageId: "service-road-transport",
   },
