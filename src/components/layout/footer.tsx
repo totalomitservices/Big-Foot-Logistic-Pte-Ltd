@@ -33,6 +33,17 @@ export default function Footer() {
                 <a href="tel:6563244722" className="hover:text-accent transition-colors">65 6324 4722</a>
               </li>
             </ul>
+            <div className="flex gap-6 mt-6">
+              <Link href="#" className="hover:text-accent hover:scale-125 transition-all duration-200">
+                <Facebook className="h-5 w-5" />
+              </Link>
+              <Link href="#" className="hover:text-accent hover:scale-125 transition-all duration-200">
+                <Linkedin className="h-5 w-5" />
+              </Link>
+              <Link href="#" className="hover:text-accent hover:scale-125 transition-all duration-200">
+                <Instagram className="h-5 w-5" />
+              </Link>
+            </div>
           </div>
 
           {/* Google Map */}
@@ -58,17 +69,6 @@ export default function Footer() {
       <div className="bg-primary/50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6 text-center text-primary-foreground/70">
           <p className="text-sm">© 2024 Bigfoot Logistic Pte Ltd. All Rights Reserved.</p>
-          <div className="flex justify-center gap-6 mt-4">
-            <Link href="#" className="hover:text-accent hover:scale-125 transition-all duration-200">
-              <Facebook className="h-5 w-5" />
-            </Link>
-            <Link href="#" className="hover:text-accent hover:scale-125 transition-all duration-200">
-              <Linkedin className="h-5 w-5" />
-            </Link>
-            <Link href="#" className="hover:text-accent hover:scale-125 transition-all duration-200">
-              <Instagram className="h-5 w-5" />
-            </Link>
-          </div>
         </div>
       </div>
     </footer>
