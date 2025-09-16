@@ -1,6 +1,7 @@
 'use client';
 
-import { useFormState, useFormStatus } from 'react-dom';
+import { useActionState, useEffect } from 'react';
+import { useFormStatus } from 'react-dom';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
@@ -10,7 +11,6 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { Textarea } from '@/components/ui/textarea';
 import { getOptimizedRoute } from '@/app/actions';
-import { useEffect } from 'react';
 import { useToast } from '@/hooks/use-toast';
 import { Bot, Loader2, Route, Ticket, TrendingUp } from 'lucide-react';
 
@@ -43,7 +43,7 @@ export default function RouteOptimizer() {
   const { toast } = useToast();
   
   const initialState = { success: false, message: '', data: undefined };
-  const [state, formAction] = useFormState(getOptimizedRoute, initialState);
+  const [state, formAction] = useActionState(getOptimizedRoute, initialState);
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
