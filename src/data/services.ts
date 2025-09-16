@@ -32,7 +32,7 @@ export const servicesData: Service[] = [
   },
   {
     id: "customs-brokerage",
-    title: "Customs Brokerage",
+    title: "Packers and Movers",
     description: "Hassle-free customs clearance with our expert team managing all documentation.",
     imageId: "service-customs",
   },
