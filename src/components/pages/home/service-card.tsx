@@ -12,7 +12,7 @@ export default function ServiceCard({ service }: ServiceCardProps) {
   const image = PlaceHolderImages.find((img) => img.id === service.imageId);
 
   return (
-    <div className="aspect-w-1 aspect-h-1 rounded-none relative group flip-card">
+    <div className="aspect-[3/2] rounded-none relative group flip-card">
       <div className="relative w-full h-full flip-card-inner group-hover:[transform:rotateY(180deg)]">
         {/* Front of the card */}
         <div className="absolute w-full h-full flip-card-front">
