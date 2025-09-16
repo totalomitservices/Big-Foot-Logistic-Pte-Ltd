@@ -1,19 +1,21 @@
-import {
-  TechCorpLogo,
-  InnovateLogo,
-  GlobalTradeLogo,
-  ApexIndustriesLogo,
-  QuantumLogisticsLogo,
-  EcoFreightLogo,
-} from '@/components/client-logos';
+import Image from 'next/image';
 
 const logos = [
-  { name: 'TechCorp', component: TechCorpLogo },
-  { name: 'Innovate', component: InnovateLogo },
-  { name: 'GlobalTrade', component: GlobalTradeLogo },
-  { name: 'Apex Industries', component: ApexIndustriesLogo },
-  { name: 'Quantum Logistics', component: QuantumLogisticsLogo },
-  { name: 'EcoFreight', component: EcoFreightLogo },
+  { name: 'Auric Pacific', src: 'https://raw.githubusercontent.com/swathitom1207/logo-/main/AURIC%20PACIFIC%20logo.jpg' },
+  { name: 'BC Ban Choon Marketing', src: 'https://raw.githubusercontent.com/swathitom1207/logo-/main/BC%20BAN%20CHOON%20MARKETTING%20PTE%20LTD%20logo.png' },
+  { name: 'Foodfare', src: 'https://raw.githubusercontent.com/swathitom1207/logo-/main/FOODFARE%20logo.png' },
+  { name: 'PSA', src: 'https://raw.githubusercontent.com/swathitom1207/logo-/main/PSA%20logo.jpg' },
+  { name: 'Samsung', src: 'https://raw.githubusercontent.com/swathitom1207/logo-/main/SAMSUNG%20logo.webp' },
+  { name: 'Singapore Jamco', src: 'https://raw.githubusercontent.com/swathitom1207/logo-/main/SINGAPORE%20JAMCO%20PRIVATE%20LIMITED%20logo.png' },
+  { name: 'SPH', src: 'https://raw.githubusercontent.com/swathitom1207/logo-/main/SPH%20logo.png' },
+  { name: 'Swensens', src: 'https://raw.githubusercontent.com/swathitom1207/logo-/main/SWENSENS%20logo.png' },
+  { name: 'YCH', src: 'https://raw.githubusercontent.com/swathitom1207/logo-/main/YCH%20logo.avif' },
+  { name: 'Changi Airport', src: 'https://raw.githubusercontent.com/swathitom1207/logo-/main/changi%20airport%20SINGAPORE%20logo.png' },
+  { name: 'Changi General Hospital', src: 'https://raw.githubusercontent.com/KAVI9715/sample-content/main/changi-general-hospital-logo-png_seeklogo-348653.png' },
+  { name: 'Choice Logistics', src: 'https://raw.githubusercontent.com/swathitom1207/logo-/main/choice%20logistics%20logo.avif' },
+  { name: 'DHL Express', src: 'https://raw.githubusercontent.com/swathitom1207/logo-/main/dhl%20express%20logo.png' },
+  { name: 'Fairprice', src: 'https://raw.githubusercontent.com/swathitom1207/logo-/main/fairprice%20logo.jpg' },
+  { name: 'SIA Engineering', src: 'https://raw.githubusercontent.com/swathitom1207/logo-/main/sia%20engineering%20logo.jpg' },
 ];
 
 export default function LogoWall() {
@@ -28,10 +30,17 @@ export default function LogoWall() {
             We partner with businesses of all sizes to power their supply chains and drive growth.
           </p>
         </div>
-        <div className="mt-12 grid grid-cols-2 gap-8 md:grid-cols-3 lg:grid-cols-6 items-center">
+        <div className="mt-12 grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-8 lg:gap-12 items-center">
           {logos.map((logo) => (
             <div key={logo.name} className="flex justify-center">
-              <logo.component className="h-10 text-muted-foreground/60 transition-all duration-300 filter grayscale hover:grayscale-0 hover:text-foreground" />
+              <div className="relative h-16 w-32 transition-all duration-300 filter grayscale hover:grayscale-0">
+                <Image
+                  src={logo.src}
+                  alt={logo.name}
+                  fill
+                  className="object-contain"
+                />
+              </div>
             </div>
           ))}
         </div>
