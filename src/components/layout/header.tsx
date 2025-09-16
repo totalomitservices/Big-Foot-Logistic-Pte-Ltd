@@ -37,9 +37,9 @@ export default function Header() {
                   <Mail className="h-4 w-4" />
                   <span>enquiries@bigfoot.com.sg</span>
                 </a>
-                <a href="tel:+1234567890" className="flex items-center gap-2 hover:text-accent transition-colors mt-1">
+                <a href="tel:6563244722" className="flex items-center gap-2 hover:text-accent transition-colors mt-1">
                   <Phone className="h-4 w-4" />
-                  <span>+1 (234) 567-890</span>
+                  <span>65 6324 4722</span>
                 </a>
               </div>
           </div>
