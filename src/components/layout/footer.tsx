@@ -33,16 +33,19 @@ export default function Footer() {
                 <a href="tel:6563244722" className="hover:text-accent transition-colors">65 6324 4722</a>
               </li>
             </ul>
-            <div className="flex gap-6 mt-6">
-              <Link href="#" className="hover:text-accent hover:scale-125 transition-all duration-200">
-                <Facebook className="h-5 w-5" />
-              </Link>
-              <Link href="#" className="hover:text-accent hover:scale-125 transition-all duration-200">
-                <Linkedin className="h-5 w-5" />
-              </Link>
-              <Link href="#" className="hover:text-accent hover:scale-125 transition-all duration-200">
-                <Instagram className="h-5 w-5" />
-              </Link>
+            <div className="space-y-4">
+              <h3 className="text-lg font-headline font-bold uppercase tracking-wider text-accent">Follow Us</h3>
+              <div className="flex gap-6">
+                <Link href="#" className="hover:text-accent hover:scale-125 transition-all duration-200">
+                  <Facebook className="h-5 w-5" />
+                </Link>
+                <Link href="#" className="hover:text-accent hover:scale-125 transition-all duration-200">
+                  <Linkedin className="h-5 w-5" />
+                </Link>
+                <Link href="#" className="hover:text-accent hover:scale-125 transition-all duration-200">
+                  <Instagram className="h-5 w-5" />
+                </Link>
+              </div>
             </div>
           </div>
 
