@@ -14,7 +14,7 @@ export const servicesData: Service[] = [
   },
   {
     id: "ocean-freight",
-    title: "Ocean Freight",
+    title: "Land Transit",
     description: "Cost-effective sea shipping solutions for large consignments with global reach.",
     imageId: "service-ocean-freight",
   },
