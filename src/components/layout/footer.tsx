@@ -10,7 +10,6 @@ export default function Footer() {
           {/* Company Profile */}
           <div className="md:col-span-1 space-y-4">
             <Logo className="text-primary-foreground" />
-            <h3 className="text-lg font-headline font-bold uppercase tracking-wider text-accent">Company Profile</h3>
             <p className="text-primary-foreground/80 text-sm">
               BIG FOOT LOGISTIC PTE LTD was founded in the year 1992. The Company had since developed a wide range of logistic and port services in tune with current market demands. Built with a strong customer focus as its foundation, the company has been garnering intense support from our customers, whom till today still form the backbone of the company’s continual growth.
             </p>
@@ -18,25 +17,27 @@ export default function Footer() {
 
 
           {/* Contact Info & Follow Us */}
-          <div className="space-y-4">
-            <h3 className="text-lg font-headline font-bold uppercase tracking-wider text-accent">Contact Info</h3>
-            <ul className="space-y-3 text-sm">
-              <li className="flex items-start gap-3">
-                <MapPin className="h-5 w-5 mt-1 text-accent flex-shrink-0" />
-                <span>123 Logistics Lane, Transport City, 98765, World</span>
-              </li>
-              <li className="flex items-center gap-3">
-                <Mail className="h-5 w-5 text-accent flex-shrink-0" />
-                <a href="mailto:enquiries@bigfoot.com.sg" className="hover:text-accent transition-colors">enquiries@bigfoot.com.sg</a>
-              </li>
-              <li className="flex items-center gap-3">
-                <Phone className="h-5 w-5 text-accent flex-shrink-0" />
-                <a href="tel:6563244722" className="hover:text-accent transition-colors">65 6324 4722</a>
-              </li>
-            </ul>
-            <div className="space-y-4 pt-8">
+          <div className="space-y-8">
+            <div>
+              <h3 className="text-lg font-headline font-bold uppercase tracking-wider text-accent">Contact Info</h3>
+              <ul className="space-y-3 text-sm mt-4">
+                <li className="flex items-start gap-3">
+                  <MapPin className="h-5 w-5 mt-1 text-accent flex-shrink-0" />
+                  <span>123 Logistics Lane, Transport City, 98765, World</span>
+                </li>
+                <li className="flex items-center gap-3">
+                  <Mail className="h-5 w-5 text-accent flex-shrink-0" />
+                  <a href="mailto:enquiries@bigfoot.com.sg" className="hover:text-accent transition-colors">enquiries@bigfoot.com.sg</a>
+                </li>
+                <li className="flex items-center gap-3">
+                  <Phone className="h-5 w-5 text-accent flex-shrink-0" />
+                  <a href="tel:6563244722" className="hover:text-accent transition-colors">65 6324 4722</a>
+                </li>
+              </ul>
+            </div>
+            <div className="space-y-4">
               <h3 className="text-lg font-headline font-bold uppercase tracking-wider text-accent">Follow Us</h3>
-              <div className="flex gap-6">
+              <div className="flex gap-6 mt-4">
                 <Link href="#" className="hover:text-accent hover:scale-125 transition-all duration-200">
                   <Facebook className="h-5 w-5" />
                 </Link>
