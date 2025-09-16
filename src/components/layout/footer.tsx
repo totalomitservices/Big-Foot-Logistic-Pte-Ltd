@@ -6,9 +6,9 @@ export default function Footer() {
   return (
     <footer id="contact" className="bg-primary text-primary-foreground">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
-          {/* Company Profile & Follow Us */}
-          <div className="lg:col-span-1 space-y-4">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+          {/* Company Profile */}
+          <div className="md:col-span-1 space-y-4">
             <h3 className="text-lg font-headline font-bold uppercase tracking-wider text-accent">Company Profile</h3>
             <Logo className="text-primary-foreground" />
             <p className="text-primary-foreground/80 text-sm">
