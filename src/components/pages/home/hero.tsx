@@ -25,7 +25,7 @@ export default function Hero() {
           <br />
           One Shipment at a Time.
         </h1>
-        <p className="mt-4 max-w-lg text-sm md:text-base text-gray-200 drop-shadow">
+        <p className="mt-4 max-w-md text-sm md:text-base text-gray-200 drop-shadow">
           Global logistics and supply chain solutions, tailored for your business needs. We ensure your cargo travels safely and arrives on time, every time.
         </p>
         <div className="mt-8">
