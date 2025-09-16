@@ -42,12 +42,6 @@
       "description": "A diagram showing a complex supply chain network.",
       "imageUrl": "https://picsum.photos/seed/supply-chain/500/500",
       "imageHint": "supply chain"
-    },
-    {
-      "id": "service-cargo-insurance",
-      "description": "A shipping container with a shield icon superimposed.",
-      "imageUrl": "https://picsum.photos/seed/cargo-insurance/500/500",
-      "imageHint": "cargo insurance"
     }
   ]
 }

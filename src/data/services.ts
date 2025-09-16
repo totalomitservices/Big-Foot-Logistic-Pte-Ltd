@@ -42,10 +42,4 @@ export const servicesData: Service[] = [
     description: "End-to-end supply chain management to optimize your logistics operations.",
     imageId: "service-supply-chain",
   },
-   {
-    id: "cargo-insurance",
-    title: "Cargo Insurance",
-    description: "Protect your shipments against loss or damage with our comprehensive insurance options.",
-    imageId: "service-cargo-insurance",
-  },
 ];
