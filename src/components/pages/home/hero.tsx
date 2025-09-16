@@ -29,7 +29,7 @@ export default function Hero() {
           Global logistics and supply chain solutions, tailored for your business needs. We ensure your cargo travels safely and arrives on time, every time.
         </p>
         <div className="mt-8">
-          <Button asChild size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 transition-all duration-300 transform hover:scale-105 shadow-lg">
+          <Button asChild variant="outline" className="border-2 border-white bg-transparent text-white hover:bg-white hover:text-primary transition-all duration-300 transform hover:scale-105 shadow-lg">
             <Link href="#services">Read More</Link>
           </Button>
         </div>
