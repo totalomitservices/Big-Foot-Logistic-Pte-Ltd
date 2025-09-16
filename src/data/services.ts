@@ -38,7 +38,7 @@ export const servicesData: Service[] = [
   },
   {
     id: "supply-chain",
-    title: "Supply Chain",
+    title: "Live Stock Handling",
     description: "End-to-end supply chain management to optimize your logistics operations.",
     imageId: "service-supply-chain",
   },
