@@ -8,7 +8,7 @@ export type Service = {
 export const servicesData: Service[] = [
   {
     id: "air-freight",
-    title: "Air Freight",
+    title: "Freight Forwarding",
     description: "Fast and reliable air cargo services to get your goods anywhere in the world, on time.",
     imageId: "service-air-freight",
   },
