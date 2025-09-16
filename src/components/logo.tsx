@@ -10,7 +10,6 @@ export function Logo({ className }: { className?: string }) {
           fill
           className="object-contain"
           quality={100}
-          unoptimized
         />
       </div>
     </div>
