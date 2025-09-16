@@ -7,14 +7,29 @@ export default function Footer() {
     <footer id="contact" className="bg-primary text-primary-foreground">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
-          {/* Company Profile */}
-          <div className="space-y-4">
+          {/* Company Profile & Follow Us */}
+          <div className="lg:col-span-1 space-y-4">
             <h3 className="text-lg font-headline font-bold uppercase tracking-wider text-accent">Company Profile</h3>
             <Logo className="text-primary-foreground" />
             <p className="text-primary-foreground/80 text-sm">
               BIG FOOT LOGISTIC PTE LTD was founded in the year 1992. The Company had since developed a wide range of logistic and port services in tune with current market demands. Built with a strong customer focus as its foundation, the company has been garnering intense support from our customers, whom till today still form the backbone of the company’s continual growth.
             </p>
+            <div className="space-y-4 pt-4">
+              <h3 className="text-lg font-headline font-bold uppercase tracking-wider text-accent">Follow Us</h3>
+              <div className="flex gap-6">
+                <Link href="#" className="hover:text-accent hover:scale-125 transition-all duration-200">
+                  <Facebook className="h-5 w-5" />
+                </Link>
+                <Link href="#" className="hover:text-accent hover:scale-125 transition-all duration-200">
+                  <Linkedin className="h-5 w-5" />
+                </Link>
+                <Link href="#" className="hover:text-accent hover:scale-125 transition-all duration-200">
+                  <Instagram className="h-5 w-5" />
+                </Link>
+              </div>
+            </div>
           </div>
+
 
           {/* Contact Info */}
           <div className="space-y-4">
@@ -33,20 +48,6 @@ export default function Footer() {
                 <a href="tel:6563244722" className="hover:text-accent transition-colors">65 6324 4722</a>
               </li>
             </ul>
-            <div className="space-y-4">
-              <h3 className="text-lg font-headline font-bold uppercase tracking-wider text-accent">Follow Us</h3>
-              <div className="flex gap-6">
-                <Link href="#" className="hover:text-accent hover:scale-125 transition-all duration-200">
-                  <Facebook className="h-5 w-5" />
-                </Link>
-                <Link href="#" className="hover:text-accent hover:scale-125 transition-all duration-200">
-                  <Linkedin className="h-5 w-5" />
-                </Link>
-                <Link href="#" className="hover:text-accent hover:scale-125 transition-all duration-200">
-                  <Instagram className="h-5 w-5" />
-                </Link>
-              </div>
-            </div>
           </div>
 
           {/* Google Map */}
