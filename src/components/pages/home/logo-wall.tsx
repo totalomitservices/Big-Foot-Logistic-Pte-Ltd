@@ -18,6 +18,8 @@ const logos = [
   { name: 'SIA Engineering', src: 'https://raw.githubusercontent.com/swathitom1207/logo-/main/sia%20engineering%20logo.jpg' },
 ];
 
+const duplicatedLogos = [...logos, ...logos];
+
 export default function LogoWall() {
   return (
     <section id="clients" className="py-16 lg:py-24 bg-background">
@@ -30,19 +32,21 @@ export default function LogoWall() {
             We partner with businesses of all sizes to power their supply chains and drive growth.
           </p>
         </div>
-        <div className="mt-12 grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-8 lg:gap-12 items-center">
-          {logos.map((logo) => (
-            <div key={logo.name} className="flex justify-center">
-              <div className="relative h-16 w-32 transition-all duration-300 filter grayscale hover:grayscale-0">
-                <Image
-                  src={logo.src}
-                  alt={logo.name}
-                  fill
-                  className="object-contain"
-                />
+        <div className="mt-12 relative w-full overflow-hidden">
+          <div className="flex w-max animate-scroll hover:[animation-play-state:paused]">
+            {duplicatedLogos.map((logo, index) => (
+              <div key={`${logo.name}-${index}`} className="flex-shrink-0 mx-8">
+                <div className="relative h-16 w-32 transition-all duration-300 filter grayscale hover:grayscale-0">
+                  <Image
+                    src={logo.src}
+                    alt={logo.name}
+                    fill
+                    className="object-contain"
+                  />
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>
