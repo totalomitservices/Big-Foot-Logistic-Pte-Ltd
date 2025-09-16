@@ -9,9 +9,9 @@
     },
     {
       "id": "service-air-freight",
-      "description": "Technological futuristic holograms for logistics and transport.",
-      "imageUrl": "https://raw.githubusercontent.com/Ram-0609/Tagteamsigns-1/main/technological-futuristic-holograms-logistics-means-transport.jpg",
-      "imageHint": "freight forwarding"
+      "description": "An airplane flying over a cargo port.",
+      "imageUrl": "https://picsum.photos/seed/air-freight/500/500",
+      "imageHint": "air freight"
     },
     {
       "id": "service-ocean-freight",
