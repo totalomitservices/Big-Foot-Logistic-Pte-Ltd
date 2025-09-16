@@ -35,7 +35,7 @@ export default function Footer() {
                 </li>
               </ul>
             </div>
-            <div className="space-y-4">
+            <div className="space-y-4 pt-4">
               <h3 className="text-lg font-headline font-bold uppercase tracking-wider text-accent">Follow Us</h3>
               <div className="flex gap-6 mt-4">
                 <Link href="https://www.facebook.com/BigfootGroups/" target="_blank" rel="noopener noreferrer" className="hover:text-accent hover:scale-125 transition-all duration-200">
