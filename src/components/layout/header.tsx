@@ -1,3 +1,4 @@
+
 "use client";
 
 import { ChevronDown, Mail, Phone, Menu } from 'lucide-react';
@@ -30,10 +31,15 @@ const navLinks = [
   {
     href: '#services',
     label: 'Services',
-    subLinks: servicesData.map(service => ({
-      href: service.href,
-      label: service.title
-    }))
+    subLinks: [
+      { href: '/services/land-transit', label: 'Land Transit' },
+      { href: '/services/freight-forwarding', label: 'Freight Forwarding' },
+      { href: '/services/custom-clearance', label: 'Custom Clearance' },
+      { href: '/services/warehousing', label: 'Warehousing' },
+      { href: '/services/packers-and-movers', label: 'Packers and Movers' },
+      { href: '/services/training', label: 'Training' },
+      { href: '/services/other-expertise', label: 'Other Expertise' },
+    ]
   },
   { href: '/#clients', label: 'Clients' },
   { href: '/#contact', label: 'Contact Us' },
