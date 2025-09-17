@@ -45,9 +45,6 @@ const mapLocations = [
   { lat: -35.2809, lon: 149.13, city: 'Canberra', country: 'Australia' },
 ];
 
-const WORLD_VIEW = { center: [20, 0], zoom: 2 };
-
-
 export default function ContactPage() {
   const mapRef = useRef<HTMLDivElement>(null);
   const mapInstance = useRef<L.Map | null>(null);
@@ -111,7 +108,7 @@ export default function ContactPage() {
   return (
     <div className="bg-secondary text-foreground">
       <section 
-        className="relative h-screen w-full bg-primary overflow-hidden"
+        className="relative h-[70vh] w-full bg-primary overflow-hidden"
       >
         <div ref={mapRef} className="w-full h-full absolute inset-0" id="map-container"></div>
          <div className="leaflet-top leaflet-right absolute top-0 right-0 z-[1000] p-2.5">
