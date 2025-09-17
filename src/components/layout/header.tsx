@@ -45,18 +45,34 @@ export default function Header() {
 
   useEffect(() => {
     setHasMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (!hasMounted) return;
 
     const handleScroll = () => {
       setScrolled(window.scrollY > 10);
     };
     
     window.addEventListener('scroll', handleScroll);
-    handleScroll();
+    handleScroll(); // Check on mount
     
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [hasMounted]);
 
   const isTransparent = hasMounted && pathname === '/' && !scrolled;
+
+  const handleMouseEnter = (label: string) => {
+    if (hasMounted) {
+      setOpenDropdown(label);
+    }
+  };
+
+  const handleMouseLeave = () => {
+    if (hasMounted) {
+      setOpenDropdown(null);
+    }
+  };
 
   return (
     <header
@@ -86,13 +102,17 @@ export default function Header() {
                           "font-medium hover:text-accent transition-colors duration-300 flex items-center focus-visible:ring-0 focus-visible:ring-offset-0",
                           isTransparent ? "text-primary-foreground" : "text-primary-foreground"
                         )}
-                        onMouseEnter={() => hasMounted && setOpenDropdown(link.label)}
+                        onMouseEnter={() => handleMouseEnter(link.label)}
+                        onMouseLeave={handleMouseLeave}
                       >
                         {link.label}
                         <ChevronDown className="ml-2 h-4 w-4" />
                       </Button>
                     </DropdownMenuTrigger>
-                    <DropdownMenuContent onMouseLeave={() => setOpenDropdown(null)}>
+                    <DropdownMenuContent 
+                      onMouseEnter={() => handleMouseEnter(link.label)}
+                      onMouseLeave={handleMouseLeave}
+                    >
                       {link.subLinks.map((subLink) => (
                         <DropdownMenuItem key={subLink.href} asChild>
                           <Link href={subLink.href}>{subLink.label}</Link>
