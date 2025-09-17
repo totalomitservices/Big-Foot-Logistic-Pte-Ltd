@@ -38,7 +38,7 @@ export default function ServiceCard({ service }: ServiceCardProps) {
           <h3 className="font-headline text-2xl font-bold mb-2">{service.title}</h3>
           <p className="text-sm text-primary-foreground/80 mb-4">{service.description}</p>
           <Button asChild variant="secondary">
-            <Link href="#services">Learn More</Link>
+            <Link href={service.href}>Learn More</Link>
           </Button>
         </div>
       </div>
