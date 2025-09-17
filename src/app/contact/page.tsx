@@ -5,8 +5,9 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
-import { Phone, Mail, Clock, ArrowRight, Building } from 'lucide-react';
+import { Phone, Mail, Clock, ArrowRight, Building, MapPin } from 'lucide-react';
 import Link from 'next/link';
+import { useState } from 'react';
 
 const officeLocations = [
   {
@@ -29,6 +30,12 @@ const officeLocations = [
   },
 ];
 
+const mapLocations = [
+    { name: "Singapore", x: "71%", y: "52%" },
+    { name: "India", x: "61%", y: "42%" },
+    { name: "Australia", x: "83%", y: "70%" },
+]
+
 const coreServices = [
     { name: 'Land Transit', href: '/services/land-transit'},
     { name: 'Freight Forwarding', href: '/services/freight-forwarding'},
@@ -38,11 +45,41 @@ const coreServices = [
 ]
 
 export default function ContactPage() {
+    const [isHovered, setIsHovered] = useState(false);
   return (
     <div className="bg-secondary text-foreground">
       {/* Hero Section */}
-      <section className="relative h-[70vh] w-full bg-background overflow-hidden">
-        <div className="absolute inset-0 bg-primary/30" />
+      <section 
+        className="relative h-[70vh] w-full bg-background overflow-hidden"
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+        >
+        <Image
+            src="https://picsum.photos/seed/world-map/1920/1080"
+            alt="Global logistics network"
+            fill
+            className="object-cover object-center transition-transform duration-500 ease-in-out group-hover:scale-105"
+            data-ai-hint="world map"
+        />
+        <div className="absolute inset-0 bg-primary/70" />
+
+        {isHovered && (
+            <>
+                {/* Routes */}
+                <svg className="absolute inset-0 w-full h-full" style={{ zIndex: 12 }}>
+                    <line x1="71%" y1="52%" x2="61%" y2="42%" stroke="hsl(var(--accent))" strokeWidth="2" strokeDasharray="5, 5" />
+                    <line x1="71%" y1="52%" x2="83%" y2="70%" stroke="hsl(var(--accent))" strokeWidth="2" strokeDasharray="5, 5" />
+                </svg>
+                {/* Locations */}
+                {mapLocations.map(loc => (
+                    <div key={loc.name} className="absolute" style={{ left: loc.x, top: loc.y, zIndex: 15 }}>
+                       <MapPin className="h-8 w-8 text-red-500 animate-pulse-glow" />
+                       <div className="absolute bottom-full mb-2 w-max bg-primary text-primary-foreground text-xs px-2 py-1 rounded">{loc.name}</div>
+                    </div>
+                ))}
+            </>
+        )}
+        
         <div className="relative z-10 flex h-full flex-col items-center justify-center text-center px-4">
           <h1 className="font-headline text-4xl md:text-5xl font-bold text-primary-foreground">
             Contact Us
