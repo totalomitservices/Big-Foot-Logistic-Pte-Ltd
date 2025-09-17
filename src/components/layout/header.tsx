@@ -91,7 +91,7 @@ export default function Header() {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex md:space-x-1">
-            {navLinks.map((link) => (
+            {hasMounted && navLinks.map((link) => (
               <div key={link.href}>
                 {link.subLinks ? (
                   <DropdownMenu onOpenChange={(isOpen) => setOpenDropdown(isOpen ? link.label : null)} open={openDropdown === link.label}>
@@ -137,16 +137,18 @@ export default function Header() {
 
           {/* Contact Info */}
           <div className="hidden md:flex items-center justify-end space-x-4">
-            <div className={cn("text-right text-sm", isTransparent ? "text-primary-foreground" : "text-primary-foreground")}>
-              <a href="mailto:enquiries@bigfoot.com.sg" className="flex items-center gap-2 hover:text-accent transition-colors">
-                <Mail className="h-4 w-4" />
-                <span>enquiries@bigfoot.com.sg</span>
-              </a>
-              <a href="tel:6563244722" className="flex items-center gap-2 hover:text-accent transition-colors mt-1">
-                <Phone className="h-4 w-4" />
-                <span>65 6324 4722</span>
-              </a>
-            </div>
+             {hasMounted && (
+              <div className={cn("text-right text-sm", isTransparent ? "text-primary-foreground" : "text-primary-foreground")}>
+                <a href="mailto:enquiries@bigfoot.com.sg" className="flex items-center gap-2 hover:text-accent transition-colors">
+                  <Mail className="h-4 w-4" />
+                  <span>enquiries@bigfoot.com.sg</span>
+                </a>
+                <a href="tel:6563244722" className="flex items-center gap-2 hover:text-accent transition-colors mt-1">
+                  <Phone className="h-4 w-4" />
+                  <span>65 6324 4722</span>
+                </a>
+              </div>
+            )}
           </div>
           
           {/* Mobile Menu */}
