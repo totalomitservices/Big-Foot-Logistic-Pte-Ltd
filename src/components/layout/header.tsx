@@ -31,14 +31,7 @@ const navLinks = [
   {
     href: '#services',
     label: 'Services',
-    subLinks: [
-      { href: '/services/land-transit', label: 'Land Transit' },
-      { href: '/services/freight-forwarding', label: 'Freight Forwarding' },
-      { href: '/services/custom-clearance', label: 'Custom Clearance' },
-      { href: '/services/warehousing', label: 'Warehousing' },
-      { href: '/services/packers-and-movers', label: 'Packers and Movers' },
-      { href: '/services/livestock-handling', label: 'Live Stock Handling' },
-    ]
+    subLinks: servicesData.map(s => ({ href: s.href, label: s.title }))
   },
   { href: '/#clients', label: 'Clients' },
   { href: '/#contact', label: 'Contact Us' },
@@ -46,18 +39,56 @@ const navLinks = [
 
 export default function Header() {
   const pathname = usePathname();
-  const [isHomePage, setIsHomePage] = useState(false);
+  const [isHomePage, setIsHomePage] = useState(pathname === '/');
+  const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   useEffect(() => {
     setIsHomePage(pathname === '/');
   }, [pathname]);
-  
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const headerClasses = cn(
     "absolute top-0 left-0 right-0 z-50 transition-all duration-300",
+    mounted && (isScrolled || !isHomePage) && "bg-primary text-primary-foreground shadow-md",
   );
+
+  const logoAndLinkClasses = cn("transition-colors", {
+    "text-white": isHomePage && !isScrolled,
+    "text-primary-foreground": !isHomePage || isScrolled
+  });
+
+
+  if (!mounted) {
+    return (
+       <header className="absolute top-0 left-0 right-0 z-50 transition-all duration-300">
+         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex items-center justify-between h-24">
+                <div className="flex-shrink-0">
+                    <Link href="/">
+                        <Logo className="text-white" />
+                    </Link>
+                </div>
+            </div>
+         </div>
+       </header>
+    );
+  }
+
 
   return (
     <header className={headerClasses}>
@@ -65,7 +96,7 @@ export default function Header() {
         <div className="flex items-center justify-between h-24">
           <div className="flex-shrink-0">
             <Link href="/">
-              <Logo className={cn("transition-colors", { "text-white": isHomePage, "text-primary-foreground": !isHomePage })} />
+              <Logo className={logoAndLinkClasses} />
             </Link>
           </div>
 
@@ -81,15 +112,11 @@ export default function Header() {
                   <DropdownMenuTrigger asChild>
                      <div
                       onMouseEnter={() => setOpenDropdown(link.label)}
-                      onMouseLeave={() => setOpenDropdown(null)}
                       className="flex items-center"
                     >
                     <Button
                       variant="ghost"
-                      className={cn("font-medium hover:text-accent transition-colors duration-300 text-base", {
-                        "text-white hover:text-accent": isHomePage,
-                        "text-primary-foreground hover:text-accent": !isHomePage,
-                      })}
+                      className={cn("font-medium hover:text-accent transition-colors duration-300 text-base", logoAndLinkClasses)}
                     >
                       {link.label}
                       <ChevronDown className="ml-2 h-4 w-4" />
@@ -97,7 +124,6 @@ export default function Header() {
                     </div>
                   </DropdownMenuTrigger>
                   <DropdownMenuContent
-                    onMouseEnter={() => setOpenDropdown(link.label)}
                     onMouseLeave={() => setOpenDropdown(null)}
                   >
                     {link.subLinks.map((subLink) => (
@@ -111,10 +137,7 @@ export default function Header() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={cn("font-medium hover:text-accent transition-colors duration-300 flex items-center text-base", {
-                    "text-white": isHomePage,
-                    "text-primary-foreground": !isHomePage,
-                  })}
+                  className={cn("font-medium hover:text-accent transition-colors duration-300 flex items-center text-base", logoAndLinkClasses)}
                 >
                   {link.label}
                 </Link>
@@ -124,7 +147,7 @@ export default function Header() {
 
           {/* Contact Info */}
           <div className="hidden md:flex items-center justify-end space-x-4">
-            <div className="text-right text-sm">
+            <div className={cn("text-right text-sm", logoAndLinkClasses)}>
               <a href="mailto:enquiries@bigfoot.com.sg" className="flex items-center gap-2 hover:text-accent transition-colors">
                 <Mail className="h-4 w-4" />
                 <span>enquiries@bigfoot.com.sg</span>
@@ -140,7 +163,7 @@ export default function Header() {
           <div className="md:hidden">
             <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
               <SheetTrigger asChild>
-                <Button variant="ghost" size="icon">
+                <Button variant="ghost" size="icon" className={logoAndLinkClasses}>
                   <Menu className="h-6 w-6" />
                   <span className="sr-only">Open menu</span>
                 </Button>
