@@ -28,7 +28,7 @@ const navLinks = [
     ],
   },
   {
-    href: '/#services',
+    href: '#services',
     label: 'Services',
     subLinks: servicesData.map(service => ({
       href: service.href,
@@ -75,7 +75,7 @@ export default function Header() {
           <nav className="hidden md:flex md:space-x-8">
             {navLinks.map((link) =>
               link.subLinks ? (
-                <DropdownMenu key={link.href}>
+                <DropdownMenu key={link.label}>
                   <DropdownMenuTrigger asChild>
                     <Button
                       variant="ghost"
@@ -142,7 +142,7 @@ export default function Header() {
                     <nav className="flex flex-col space-y-4">
                       {navLinks.map((link) =>
                         link.subLinks ? (
-                          <div key={link.href}>
+                          <div key={link.label}>
                             <h3 className="font-bold text-lg mb-2">{link.label}</h3>
                             <div className="flex flex-col space-y-2 pl-4">
                               {link.subLinks.map((subLink) => (

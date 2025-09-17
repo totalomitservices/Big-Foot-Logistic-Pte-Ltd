@@ -1,3 +1,4 @@
+
 export type Service = {
   id: string;
   title: string;
@@ -19,34 +20,34 @@ export const servicesData: Service[] = [
     title: "Land Transit",
     description: "Cost-effective sea shipping solutions for large consignments with global reach.",
     imageId: "service-ocean-freight",
-    href: "/services/freight-forwarding",
+    href: "/services/land-transit",
   },
   {
     id: "custom-clearance",
     title: "Custom Clearance",
     description: "Flexible and efficient ground transportation for domestic and cross-border deliveries.",
     imageId: "service-road-transport",
-    href: "/services/freight-forwarding",
+    href: "/services/custom-clearance",
   },
   {
     id: "warehousing",
     title: "Warehousing",
     description: "Secure and scalable storage solutions to manage your inventory effectively.",
     imageId: "service-warehouse",
-    href: "/services/freight-forwarding",
+    href: "/services/warehousing",
   },
   {
     id: "packers-and-movers",
     title: "Packers and Movers",
     description: "Hassle-free customs clearance with our expert team managing all documentation.",
     imageId: "service-customs",
-    href: "/services/freight-forwarding",
+    href: "/services/packers-and-movers",
   },
   {
     id: "livestock-handling",
     title: "Live Stock Handling",
     description: "End-to-end supply chain management to optimize your logistics operations.",
     imageId: "service-supply-chain",
-    href: "/services/freight-forwarding",
+    href: "/services/livestock-handling",
   },
 ];
