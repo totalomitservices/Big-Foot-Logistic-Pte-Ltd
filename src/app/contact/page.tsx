@@ -1,4 +1,5 @@
 
+'use client';
 import Image from 'next/image';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -6,6 +7,7 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Phone, Mail, Clock, ArrowRight, Building, MapPin } from 'lucide-react';
 import Link from 'next/link';
+import { useState } from 'react';
 
 const officeLocations = [
   {
@@ -40,6 +42,7 @@ const coreServices = [
 ]
 
 export default function ContactPage() {
+  const [hoveredOffice, setHoveredOffice] = useState<string | null>(null);
   return (
     <div className="bg-secondary text-foreground">
       {/* Hero Section */}
@@ -52,7 +55,13 @@ export default function ContactPage() {
         />
 
         {officeLocations.map(office => (
-             <div key={office.name} className="group location-pin" style={office.position}>
+             <div 
+                key={office.name} 
+                className="group location-pin" 
+                style={office.position}
+                onMouseEnter={() => setHoveredOffice(office.name)}
+                onMouseLeave={() => setHoveredOffice(null)}
+              >
                 <MapPin className="pin-icon" />
                 <div className="tooltip">
                     <p className="font-bold">{office.name}</p>
