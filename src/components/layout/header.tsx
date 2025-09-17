@@ -39,7 +39,7 @@ const navLinks = [
 
 export default function Header() {
   const pathname = usePathname();
-  const [isHomePage, setIsHomePage] = useState(false);
+  const [isHomePage, setIsHomePage] = useState(pathname === '/');
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
@@ -61,28 +61,50 @@ export default function Header() {
     };
 
     window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Call on mount to set initial state
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
-
-  const headerClasses = cn(
-    "fixed top-0 left-0 right-0 z-50 transition-transform duration-300",
-    isScrolled ? "-translate-y-full" : "translate-y-0",
-    isHomePage ? "bg-transparent text-white" : "bg-primary text-primary-foreground shadow-lg"
-  );
   
-  const finalHeaderClasses = isMounted ? headerClasses : "fixed top-0 left-0 right-0 z-50 bg-transparent text-white";
-  const finalLogoClasses = isMounted && (!isHomePage || isScrolled) ? 'text-primary-foreground' : 'text-white';
+  const headerClasses = cn(
+    "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
+    {
+      "bg-transparent text-white": isHomePage && !isScrolled,
+      "bg-primary text-primary-foreground shadow-lg": !isHomePage || isScrolled,
+      "-translate-y-full": isScrolled && isHomePage,
+    }
+  );
+
+  const logoClasses = cn({
+    "text-white": isHomePage && !isScrolled,
+    "text-primary-foreground": !isHomePage || isScrolled
+  });
+
+  if (!isMounted) {
+    return (
+       <header className="fixed top-0 left-0 right-0 z-50 bg-transparent text-white">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-24">
+             <div className="flex-shrink-0">
+               <Link href="/">
+                <Logo className="text-white"/>
+              </Link>
+             </div>
+          </div>
+        </div>
+      </header>
+    );
+  }
 
 
   return (
-    <header className={finalHeaderClasses}>
+    <header className={headerClasses}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-24">
           <div className="flex-shrink-0">
             <Link href="/">
-              <Logo className={finalLogoClasses}/>
+              <Logo className={logoClasses}/>
             </Link>
           </div>
 
