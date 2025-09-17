@@ -31,7 +31,7 @@ const navLinks = [
     label: 'Services',
     subLinks: servicesData.map(s => ({ href: s.href, label: s.title }))
   },
-  { href: '/#clients', label: 'Clients' },
+  { href: '/clients', label: 'Clients' },
   { href: '/contact', label: 'Contact Us' },
 ];
 
