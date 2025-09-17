@@ -10,7 +10,6 @@ import {
   FormControl,
   FormField,
   FormItem,
-  FormLabel,
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
@@ -48,9 +47,9 @@ export default function TrackingForm() {
   }
 
   return (
-    <Card className="w-full max-w-md bg-white/10 backdrop-blur-sm border-white/20 text-white shadow-lg">
+    <Card className="w-full max-w-md bg-background/90 backdrop-blur-sm shadow-lg">
       <CardHeader>
-        <CardTitle className="text-2xl font-bold text-center flex items-center justify-center gap-2">
+        <CardTitle className="text-2xl font-bold text-center flex items-center justify-center gap-2 text-primary">
             <Rocket /> Track Your Shipment
         </CardTitle>
       </CardHeader>
@@ -63,7 +62,7 @@ export default function TrackingForm() {
               render={({ field }) => (
                 <FormItem>
                   <FormControl>
-                    <Input placeholder="Name" {...field} className="bg-white/20 border-white/30 placeholder:text-gray-300"/>
+                    <Input placeholder="Name" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -75,7 +74,7 @@ export default function TrackingForm() {
               render={({ field }) => (
                 <FormItem>
                   <FormControl>
-                    <Input placeholder="Email" {...field} className="bg-white/20 border-white/30 placeholder:text-gray-300"/>
+                    <Input placeholder="Email" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -88,7 +87,7 @@ export default function TrackingForm() {
                 render={({ field }) => (
                     <FormItem>
                     <FormControl>
-                        <Input placeholder="From" {...field} className="bg-white/20 border-white/30 placeholder:text-gray-300"/>
+                        <Input placeholder="From" {...field} />
                     </FormControl>
                     <FormMessage />
                     </FormItem>
@@ -100,7 +99,7 @@ export default function TrackingForm() {
                 render={({ field }) => (
                     <FormItem>
                     <FormControl>
-                        <Input placeholder="To" {...field} className="bg-white/20 border-white/30 placeholder:text-gray-300"/>
+                        <Input placeholder="To" {...field} />
                     </FormControl>
                     <FormMessage />
                     </FormItem>
