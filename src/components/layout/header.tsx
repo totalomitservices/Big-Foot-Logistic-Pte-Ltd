@@ -47,7 +47,7 @@ export default function Header() {
       setScrolled(window.scrollY > 10);
     };
     window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Check on mount
+    handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -69,18 +69,15 @@ export default function Header() {
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex md:space-x-8">
+          <nav className="hidden md:flex md:space-x-1">
             {navLinks.map((link) =>
               link.subLinks ? (
                 <DropdownMenu key={link.label}>
                   <DropdownMenuTrigger asChild>
-                    <button className={cn(
-                        "font-medium hover:text-accent transition-colors duration-300 flex items-center",
-                        isTransparent ? "text-primary-foreground" : "text-primary-foreground"
-                      )}>
+                    <Button variant="ghost" className="font-medium hover:text-accent transition-colors duration-300 flex items-center text-primary-foreground focus-visible:ring-0 focus-visible:ring-offset-0">
                       {link.label}
                       <ChevronDown className="ml-2 h-4 w-4" />
-                    </button>
+                    </Button>
                   </DropdownMenuTrigger>
                   <DropdownMenuContent>
                     {link.subLinks.map((subLink) => (
@@ -91,23 +88,22 @@ export default function Header() {
                   </DropdownMenuContent>
                 </DropdownMenu>
               ) : (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className={cn(
-                      "font-medium hover:text-accent transition-colors duration-300 flex items-center",
-                      isTransparent ? "text-primary-foreground" : "text-primary-foreground"
-                    )}
-                >
-                  {link.label}
-                </Link>
+                <Button asChild variant="ghost">
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className="font-medium hover:text-accent transition-colors duration-300 flex items-center text-primary-foreground"
+                  >
+                    {link.label}
+                  </Link>
+                </Button>
               )
             )}
           </nav>
 
           {/* Contact Info */}
           <div className="hidden md:flex items-center justify-end space-x-4">
-            <div className={cn("text-right text-sm", isTransparent ? 'text-primary-foreground' : 'text-primary-foreground')}>
+            <div className="text-right text-sm text-primary-foreground">
               <a href="mailto:enquiries@bigfoot.com.sg" className="flex items-center gap-2 hover:text-accent transition-colors">
                 <Mail className="h-4 w-4" />
                 <span>enquiries@bigfoot.com.sg</span>
@@ -123,7 +119,7 @@ export default function Header() {
           <div className="md:hidden">
             <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
               <SheetTrigger asChild>
-                <Button variant="ghost" size="icon" className={cn(isTransparent ? "text-primary-foreground" : "text-primary-foreground", "hover:text-accent")}>
+                <Button variant="ghost" size="icon" className="text-primary-foreground hover:text-accent">
                   <Menu className="h-6 w-6" />
                   <span className="sr-only">Open menu</span>
                 </Button>
