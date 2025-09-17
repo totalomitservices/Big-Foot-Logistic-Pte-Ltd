@@ -50,11 +50,4 @@ export const servicesData: Service[] = [
     imageId: "service-supply-chain",
     href: "/services/livestock-handling",
   },
-   {
-    id: "other-expertise",
-    title: "Other Expertise",
-    description: "Specialized solutions for unique logistics challenges.",
-    imageId: "service-supply-chain",
-    href: "/services/other-expertise",
-  },
 ];
