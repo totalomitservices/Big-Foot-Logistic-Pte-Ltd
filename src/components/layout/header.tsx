@@ -49,28 +49,22 @@ export default function Header() {
   }, []);
 
   useEffect(() => {
-    if (typeof window === 'undefined') return;
-
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      setIsScrolled(window.scrollY > 10);
     };
-
     window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Call on mount to set initial state
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
+    handleScroll(); 
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-  // Default to solid and only become transparent on the client if not scrolled.
-  const isTransparent = isMounted && !isScrolled;
+  
+  const isHomePage = pathname === '/';
+  const isTransparent = isMounted && isHomePage && !isScrolled;
 
   const headerClasses = cn(
     "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
     {
       "bg-transparent text-white": isTransparent,
-      "bg-primary text-primary-foreground": !isTransparent,
-      "transform -translate-y-full": isScrolled && !mobileMenuOpen,
+      "bg-primary text-primary-foreground shadow-md": !isTransparent,
     }
   );
   
