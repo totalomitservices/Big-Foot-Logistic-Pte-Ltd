@@ -1,6 +1,5 @@
 
 'use client';
-import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
@@ -81,24 +80,13 @@ const clients = [
 
 
 export default function ClientsPage() {
-    const [scrollY, setScrollY] = useState(0);
-
-    useEffect(() => {
-        const handleScroll = () => {
-        setScrollY(window.scrollY);
-        };
-        window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
-
   return (
     <div className="bg-background text-foreground">
       {/* Hero Section */}
        <section
-        className="relative h-[60vh] w-full bg-fixed bg-cover bg-center"
+        className="relative h-[60vh] w-full bg-cover bg-center"
         style={{ backgroundImage: "url('https://picsum.photos/seed/clients-hero/1920/1080')" }}
       >
-        <div style={{ transform: `translateY(${scrollY * 0.3}px)` }}>
         <div className="absolute inset-0 bg-primary/70" />
         <div className="relative z-10 flex h-full flex-col items-center justify-center text-center text-white px-4">
           <h1 className="font-headline text-4xl md:text-5xl font-bold">
@@ -112,7 +100,6 @@ export default function ClientsPage() {
               <Link href="#client-showcase">Discover Our Partnerships</Link>
             </Button>
           </div>
-        </div>
         </div>
       </section>
 
