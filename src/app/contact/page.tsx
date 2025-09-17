@@ -4,7 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
-import { Phone, Mail, Clock, ArrowRight, Building, Globe } from 'lucide-react';
+import { Phone, Mail, Clock, ArrowRight, Building, MapPin } from 'lucide-react';
 import Link from 'next/link';
 
 const officeLocations = [
@@ -52,8 +52,8 @@ export default function ContactPage() {
         />
 
         {officeLocations.map(office => (
-             <div key={office.name} className="group location-dot" style={office.position}>
-                <div className="dot"></div>
+             <div key={office.name} className="group location-pin" style={office.position}>
+                <MapPin className="pin-icon" />
                 <div className="tooltip">
                     <p className="font-bold">{office.name}</p>
                     <p className="text-xs">{office.address.split(',').slice(-2).join(', ')}</p>

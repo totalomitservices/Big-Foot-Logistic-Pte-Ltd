@@ -171,30 +171,29 @@
     }
   }
 
-  /* For Contact Page - Interactive Map Dots */
-  .location-dot {
+  /* For Contact Page - Interactive Map Pins */
+  .location-pin {
     position: absolute;
     transform: translate(-50%, -50%);
     cursor: pointer;
   }
 
-  .location-dot .dot {
-    width: 16px;
-    height: 16px;
-    background-color: hsl(var(--accent));
-    border-radius: 9999px;
-    border: 2px solid hsl(var(--background));
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    animation: glow 2.5s infinite ease-in-out;
+  .location-pin .pin-icon {
+    width: 24px;
+    height: 24px;
+    color: hsl(var(--destructive));
+    fill: hsl(var(--destructive) / 0.5);
+    transition: transform 0.3s ease;
+    animation: pulse 2s infinite;
+    filter: drop-shadow(0 0 3px hsl(var(--destructive)));
   }
 
-  .location-dot:hover .dot {
-    transform: scale(1.5);
+  .location-pin:hover .pin-icon {
+    transform: scale(1.2);
     animation-play-state: paused;
-    box-shadow: 0 0 15px 5px hsl(var(--accent) / 0.7);
   }
-
-  .location-dot .tooltip {
+  
+  .location-pin .tooltip {
     position: absolute;
     bottom: 125%;
     left: 50%;
@@ -210,17 +209,23 @@
     text-align: center;
   }
   
-  .location-dot:hover .tooltip {
+  .location-pin:hover .tooltip {
     opacity: 1;
     visibility: visible;
   }
 
-  @keyframes glow {
-    0%, 100% {
-      box-shadow: 0 0 5px 2px hsl(var(--accent) / 0.5);
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+      filter: drop-shadow(0 0 3px hsl(var(--destructive)));
     }
     50% {
-      box-shadow: 0 0 12px 4px hsl(var(--accent) / 0.8);
+      transform: scale(1.1);
+      filter: drop-shadow(0 0 8px hsl(var(--destructive)));
+    }
+    100% {
+      transform: scale(1);
+      filter: drop-shadow(0 0 3px hsl(var(--destructive)));
     }
   }
 }
