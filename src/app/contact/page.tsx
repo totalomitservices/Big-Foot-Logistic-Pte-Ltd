@@ -43,7 +43,7 @@ export default function ContactPage() {
   return (
     <div className="bg-secondary text-foreground">
       {/* Hero Section */}
-      <section className="relative h-[70vh] w-full bg-primary text-primary-foreground">
+      <section className="relative h-[70vh] w-full bg-background text-primary-foreground">
         <Image
           src="https://raw.githubusercontent.com/Ram-0609/Bigfoot-Logistics-Images/726ea8a329a17349633634a3f3747806b7b5141e/world-map-dark.svg"
           alt="World map with office locations"
@@ -63,10 +63,10 @@ export default function ContactPage() {
        
 
         <div className="relative z-10 flex h-full flex-col items-center justify-center text-center px-4">
-          <h1 className="font-headline text-4xl md:text-5xl font-bold">
+          <h1 className="font-headline text-4xl md:text-5xl font-bold text-primary">
             Contact Us
           </h1>
-          <p className="mt-4 text-lg md:text-xl font-light max-w-2xl">
+          <p className="mt-4 text-lg md:text-xl font-light max-w-2xl text-muted-foreground">
             We’re here to help you with reliable logistics solutions.
           </p>
         </div>
