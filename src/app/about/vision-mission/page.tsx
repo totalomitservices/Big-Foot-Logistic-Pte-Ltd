@@ -1,4 +1,6 @@
 
+'use client';
+
 import { Target, Rocket, Handshake } from 'lucide-react';
 import Image from 'next/image';
 
@@ -53,7 +55,7 @@ export default function VisionMissionPage() {
           <div className="relative max-w-4xl mx-auto">
              <div className="absolute left-1/2 -translate-x-1/2 h-full w-1 bg-border rounded-full hidden md:block"></div>
                 {values.map((item, index) => (
-                <div key={index} className={`relative mb-12 animate-fade-in md:flex ${index % 2 === 0 ? 'md:flex-row-reverse' : ''} items-center w-full`}>
+                <div key={index} className={`relative mb-12 animate-fade-in md:flex ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} items-center w-full`}>
                     <div className="md:w-5/12">
                         <div className="relative md:absolute left-1/2 -translate-x-1/2 z-10">
                           <div className="bg-background p-4 border-4 border-secondary shadow-lg group-hover:scale-110 transition-transform duration-300 inline-block">
@@ -62,7 +64,7 @@ export default function VisionMissionPage() {
                       </div>
                     </div>
                      <div className="md:w-7/12">
-                         <div className={`p-6 bg-background shadow-lg text-left ${index % 2 === 0 ? 'md:mr-[-1px]' : 'md:ml-[-1px]'}`}>
+                         <div className={`p-6 bg-background shadow-lg text-left ${index % 2 === 0 ? 'md:ml-[-1px]' : 'md:mr-[-1px]'}`}>
                              <h3 className="text-2xl font-headline text-primary font-bold mb-2">{item.title}</h3>
                              <p className="text-muted-foreground leading-relaxed">{item.description}</p>
                          </div>
