@@ -74,7 +74,7 @@ export default function Header() {
     {
       "bg-transparent text-white": isHomePage && !isScrolled,
       "bg-primary text-primary-foreground shadow-lg": !isHomePage || isScrolled,
-      "transform -translate-y-full": isScrolled && !mobileMenuOpen,
+      "transform -translate-y-full": isScrolled && isHomePage && !mobileMenuOpen,
     }
   );
 
@@ -85,12 +85,12 @@ export default function Header() {
 
   if (!isMounted) {
     return (
-       <header className="fixed top-0 left-0 right-0 z-50 bg-transparent text-white">
+       <header className="fixed top-0 left-0 right-0 z-50 bg-primary text-primary-foreground">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-24">
              <div className="flex-shrink-0">
                <Link href="/">
-                <Logo className="text-white"/>
+                <Logo className="text-primary-foreground"/>
               </Link>
              </div>
           </div>
