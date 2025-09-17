@@ -53,6 +53,8 @@ export default function Header() {
   const isHomePage = pathname === '/';
   const isTransparent = isHomePage && !scrolled;
 
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+
   return (
     <header
       className={cn(
@@ -72,9 +74,14 @@ export default function Header() {
           <nav className="hidden md:flex md:space-x-8">
             {navLinks.map((link) =>
               link.subLinks ? (
-                <DropdownMenu key={link.label}>
+                <DropdownMenu 
+                  key={link.label}
+                  open={openDropdown === link.label}
+                  onOpenChange={(isOpen) => setOpenDropdown(isOpen ? link.label : null)}
+                >
                   <DropdownMenuTrigger asChild>
                     <Button
+                      onMouseEnter={() => setOpenDropdown(link.label)}
                       variant="ghost"
                       className={cn("font-medium hover:text-accent transition-colors duration-300 text-base", isTransparent ? "text-white" : "text-primary-foreground")}
                     >
@@ -82,7 +89,14 @@ export default function Header() {
                       <ChevronDown className="ml-2 h-4 w-4" />
                     </Button>
                   </DropdownMenuTrigger>
-                  <DropdownMenuContent>
+                  <DropdownMenuContent 
+                    onMouseLeave={() => setOpenDropdown(null)}
+                    onPointerDownOutside={(e) => {
+                      if (e.target && (e.target as HTMLElement).closest('[data-radix-dropdown-menu-trigger]')) {
+                        e.preventDefault();
+                      }
+                    }}
+                  >
                     {link.subLinks.map((subLink) => (
                       <DropdownMenuItem key={subLink.href} asChild>
                         <Link href={subLink.href}>{subLink.label}</Link>
