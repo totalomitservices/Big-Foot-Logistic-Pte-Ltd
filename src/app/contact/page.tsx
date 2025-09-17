@@ -5,15 +5,10 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
-import { Phone, Mail, Clock, ArrowRight, Building } from 'lucide-react';
+import { Phone, Mail, Clock, ArrowRight, Building, Plus, Minus, Home as HomeIcon } from 'lucide-react';
 import Link from 'next/link';
-import dynamic from 'next/dynamic';
-import { Skeleton } from '@/components/ui/skeleton';
-
-const Globe = dynamic(() => import('@/components/pages/contact/globe'), {
-  ssr: false,
-  loading: () => <Skeleton className="w-full h-full bg-primary/50" />,
-});
+import 'leaflet/dist/leaflet.css';
+import { useEffect, useRef } from 'react';
 
 const officeLocations = [
   {
@@ -44,7 +39,71 @@ const coreServices = [
     { name: 'Training', href: '/services/training'},
 ]
 
+const mapLocations = [
+  { lat: 28.6139, lon: 77.209, city: 'New Delhi', country: 'India' },
+  { lat: 1.3521, lon: 103.8198, city: 'Singapore', country: 'Singapore' },
+  { lat: -35.2809, lon: 149.13, city: 'Canberra', country: 'Australia' },
+];
+
+const WORLD_VIEW = { center: [20, 0], zoom: 2 };
+
+
 export default function ContactPage() {
+  const mapRef = useRef<HTMLDivElement>(null);
+  const mapInstance = useRef<L.Map | null>(null);
+
+  useEffect(() => {
+    // Only run this on the client
+    if (typeof window !== 'undefined' && mapRef.current && !mapInstance.current) {
+        (async () => {
+            const L = await import('leaflet');
+
+            mapInstance.current = L.map(mapRef.current!, {
+                center: WORLD_VIEW.center as L.LatLngTuple,
+                zoom: WORLD_VIEW.zoom,
+                zoomControl: false,
+            });
+
+            L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}{r}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
+            }).addTo(mapInstance.current);
+
+            const createPulsingIcon = () => {
+              return L.divIcon({
+                className: 'pulsing-icon-container',
+                html: `<div class="pulsing-icon"></div>`,
+                iconSize: [24, 24],
+                iconAnchor: [12, 12],
+              });
+            };
+
+            mapLocations.forEach(loc => {
+                const marker = L.marker([loc.lat, loc.lon], { icon: createPulsingIcon() })
+                    .addTo(mapInstance.current!)
+                    .bindTooltip(`${loc.city} — ${loc.country}`)
+                    .on('click', () => {
+                        mapInstance.current?.flyTo([loc.lat, loc.lon], 6, {
+                            animate: true,
+                            duration: 1.5,
+                        });
+                    });
+            });
+            
+            // Cleanup on unmount
+            return () => {
+                if (mapInstance.current) {
+                    mapInstance.current.remove();
+                    mapInstance.current = null;
+                }
+            };
+        })();
+    }
+  }, []);
+
+  const handleZoomIn = () => mapInstance.current?.zoomIn();
+  const handleZoomOut = () => mapInstance.current?.zoomOut();
+  const handleGoHome = () => mapInstance.current?.flyTo(WORLD_VIEW.center as L.LatLngTuple, WORLD_VIEW.zoom);
+
 
   return (
     <div className="bg-secondary text-foreground">
@@ -52,7 +111,24 @@ export default function ContactPage() {
       <section 
         className="relative h-screen w-full bg-primary overflow-hidden"
       >
-        <Globe />
+        <div ref={mapRef} className="w-full h-full absolute inset-0" id="map-container"></div>
+         <div className="leaflet-top leaflet-right absolute top-0 right-0 z-[1000] p-2.5">
+          <div className="leaflet-control leaflet-bar glassmorphic-controls">
+            <a onClick={handleZoomIn} title="Zoom in" role="button" aria-label="Zoom in" className="cursor-pointer">
+              <Plus size={18} />
+            </a>
+            <a onClick={handleZoomOut} title="Zoom out" role="button" aria-label="Zoom out" className="cursor-pointer">
+              <Minus size={18} />
+            </a>
+            <a onClick={handleGoHome} title="Home" role="button" aria-label="Home" className="cursor-pointer">
+              <HomeIcon size={18} />
+            </a>
+          </div>
+        </div>
+        <div className="absolute bottom-5 left-5 text-white/50 text-xs pointer-events-none z-[1000]">
+              🗺️ Drag to move • Hover pins • Click pins to zoom
+        </div>
+
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
             <div className="text-center text-primary-foreground">
                  <h1 className="font-headline text-4xl md:text-5xl font-bold">
