@@ -1,20 +1,21 @@
 
 import { Target, Rocket, Handshake } from 'lucide-react';
 import Image from 'next/image';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
-const timelineEvents = [
+const values = [
   {
-    icon: <Rocket className="h-8 w-8 text-accent" />,
+    icon: <Rocket className="h-10 w-10 text-accent" />,
     title: 'Our Vision',
     description: 'Our vision is to be the most trusted and innovative logistics partner, known for delivering seamless, end-to-end solutions that enable businesses to grow confidently worldwide. We strive to set new standards in service excellence, technology adoption, and customer satisfaction, staying ahead in a fast-changing world.',
   },
   {
-    icon: <Target className="h-8 w-8 text-accent" />,
+    icon: <Target className="h-10 w-10 text-accent" />,
     title: 'Our Mission',
     description: 'Our mission is simple but powerful: to achieve sustainable growth while ensuring complete customer satisfaction. We do this by embracing technology, innovation, and a forward-thinking approach, supported by our skilled team and efficient processes. Every service we deliver is grounded in reliability, professionalism, and excellence, ensuring value for every client.',
   },
   {
-    icon: <Handshake className="h-8 w-8 text-accent" />,
+    icon: <Handshake className="h-10 w-10 text-accent" />,
     title: 'Our Values',
     description: 'We are guided by principles of integrity, customer focus, and a commitment to quality. These values are the foundation of our long-term partnerships and drive our daily operations.',
   },
@@ -44,37 +45,25 @@ export default function VisionMissionPage() {
         </div>
       </section>
       
-      {/* Timeline Section */}
-      <section className="py-16 lg:py-24">
+      {/* Values Section */}
+      <section className="py-16 lg:py-24 bg-secondary">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="relative max-w-2xl mx-auto">
-            <div className="absolute left-1/2 -translate-x-1/2 h-full w-0.5 bg-border"></div>
-            {timelineEvents.map((event, index) => (
-              <div
-                key={index}
-                className="relative flex items-center mb-12"
-              >
-                <div className={`flex w-full items-center ${index % 2 !== 0 ? 'md:flex-row-reverse' : ''}`}>
-                  <div className="hidden md:flex md:w-1/2">
-                    <div className="flex-1 px-8 text-right md:text-left">
-                      <h3 className="text-2xl font-headline font-bold text-primary">{event.title}</h3>
-                      <p className="mt-2 text-muted-foreground">{event.description}</p>
+            <div className="text-center mb-12">
+                <h2 className="text-3xl font-headline font-bold text-primary">Our Guiding Principles</h2>
+            </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {values.map((item, index) => (
+              <Card key={index} className="bg-background shadow-lg transition-transform duration-300 hover:scale-105 hover:shadow-xl">
+                <CardHeader className="items-center text-center">
+                    <div className="bg-secondary p-4 inline-block mb-4">
+                        {item.icon}
                     </div>
-                  </div>
-
-                  <div className="absolute left-1/2 -translate-x-1/2 bg-secondary p-3 rounded-full border-4 border-background md:relative md:left-0 md:translate-x-0">
-                    {event.icon}
-                  </div>
-
-                  <div className="w-full md:w-1/2 md:px-8">
-                     <div className="flex-1 md:hidden">
-                        <h3 className="text-2xl font-headline font-bold text-primary">{event.title}</h3>
-                        <p className="mt-2 text-muted-foreground">{event.description}</p>
-                      </div>
-                  </div>
-                </div>
-
-              </div>
+                  <CardTitle className="text-2xl text-primary font-headline">{item.title}</CardTitle>
+                </CardHeader>
+                <CardContent className="text-center">
+                  <p className="text-muted-foreground leading-relaxed">{item.description}</p>
+                </CardContent>
+              </Card>
             ))}
           </div>
         </div>
