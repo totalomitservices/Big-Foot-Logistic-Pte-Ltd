@@ -76,15 +76,14 @@ export default function Header() {
           <nav className="hidden md:flex md:space-x-8">
             {navLinks.map((link) =>
               link.subLinks ? (
-                 <DropdownMenu key={link.label}>
+                <DropdownMenu key={link.label}>
                   <DropdownMenuTrigger asChild>
-                    <Button
-                      variant="ghost"
-                      className={cn("font-medium hover:text-accent transition-colors duration-300 text-base", isTransparent ? "text-white" : "text-primary-foreground")}
+                    <button
+                      className={cn("font-medium hover:text-accent transition-colors duration-300 text-base flex items-center bg-transparent border-none", isTransparent ? "text-white" : "text-primary-foreground")}
                     >
                       {link.label}
                       <ChevronDown className="ml-2 h-4 w-4" />
-                    </Button>
+                    </button>
                   </DropdownMenuTrigger>
                   <DropdownMenuContent>
                     {link.subLinks.map((subLink) => (
