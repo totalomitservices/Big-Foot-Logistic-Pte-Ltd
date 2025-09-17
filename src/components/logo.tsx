@@ -9,7 +9,6 @@ export function Logo({ className }: { className?: string }) {
           alt="Bigfoot Logistics Logo"
           fill
           className="object-contain"
-          quality={100}
         />
       </div>
     </div>
