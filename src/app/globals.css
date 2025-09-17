@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -167,6 +168,59 @@
     to {
       transform: translateY(0);
       opacity: 1;
+    }
+  }
+
+  /* For Contact Page - Interactive Map Dots */
+  .location-dot {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+  }
+
+  .location-dot .dot {
+    width: 16px;
+    height: 16px;
+    background-color: hsl(var(--accent));
+    border-radius: 9999px;
+    border: 2px solid hsl(var(--background));
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: glow 2.5s infinite ease-in-out;
+  }
+
+  .location-dot:hover .dot {
+    transform: scale(1.5);
+    animation-play-state: paused;
+    box-shadow: 0 0 15px 5px hsl(var(--accent) / 0.7);
+  }
+
+  .location-dot .tooltip {
+    position: absolute;
+    bottom: 125%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
+    padding: 0.5rem 1rem;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    pointer-events: none;
+    text-align: center;
+  }
+  
+  .location-dot:hover .tooltip {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  @keyframes glow {
+    0%, 100% {
+      box-shadow: 0 0 5px 2px hsl(var(--accent) / 0.5);
+    }
+    50% {
+      box-shadow: 0 0 12px 4px hsl(var(--accent) / 0.8);
     }
   }
 }
