@@ -8,10 +8,7 @@ import LogoWall from '@/components/pages/home/logo-wall';
 export default function Home() {
   return (
     <div className="flex flex-col min-h-screen bg-background text-foreground">
-      <div className="relative">
-        <Header />
-        <Hero />
-      </div>
+      <Hero />
       <main className="flex-grow">
         <Services />
         <WhyChooseUs />
