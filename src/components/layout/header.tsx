@@ -39,64 +39,16 @@ const navLinks = [
 ];
 
 export default function Header() {
-  const [isMounted, setIsMounted] = useState(false);
-  const pathname = usePathname();
-  const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
 
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10);
-    };
-    window.addEventListener('scroll', handleScroll);
-    handleScroll(); 
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-  
-  const isHomePage = pathname === '/';
-  const isTransparent = isMounted && isHomePage && !isScrolled;
-
-  const headerClasses = cn(
-    "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-    {
-      "bg-transparent text-white": isTransparent,
-      "bg-primary text-primary-foreground shadow-md": !isTransparent,
-    }
-  );
-  
-  const logoClasses = cn({
-    "text-white": isTransparent,
-    "text-primary-foreground": !isTransparent
-  });
-
-  if (!isMounted) {
-    return (
-       <header className="fixed top-0 left-0 right-0 z-50 bg-primary text-primary-foreground">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-24">
-             <div className="flex-shrink-0">
-               <Link href="/">
-                <Logo className="text-primary-foreground"/>
-              </Link>
-             </div>
-          </div>
-        </div>
-      </header>
-    );
-  }
-
   return (
-    <header className={headerClasses}>
+    <header className="fixed top-0 left-0 right-0 z-50 bg-primary text-primary-foreground shadow-md transition-all duration-300">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-24">
           <div className="flex-shrink-0">
             <Link href="/">
-              <Logo className={logoClasses}/>
+              <Logo className="text-primary-foreground"/>
             </Link>
           </div>
 
