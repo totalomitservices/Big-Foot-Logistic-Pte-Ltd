@@ -8,7 +8,7 @@ export default function LandTransitPage() {
       {/* Hero Section */}
       <section className="relative h-[40vh] w-full">
         <Image
-          src="https://picsum.photos/seed/land-transit-hero/1920/400"
+          src="https://github.com/Ram-0609/Bigfoot-Logistics-Images/blob/main/trucks-on.jpg?raw=true"
           alt="Truck on a highway"
           fill
           priority
@@ -17,7 +17,7 @@ export default function LandTransitPage() {
         />
         <div className="absolute inset-0 bg-primary/70" />
         <div className="relative z-10 flex h-full flex-col items-center justify-center text-center text-white px-4">
-          <h1 className="font-headline text-4xl md:text-5xl font-bold">
+          <h1 className="font-headline text-4xl md:text-5xl font-semibold">
             Land Transit
           </h1>
           <p className="mt-4 text-lg md:text-xl font-light">

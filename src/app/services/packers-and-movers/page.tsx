@@ -9,7 +9,7 @@ export default function PackersAndMoversPage() {
       {/* Hero Section */}
       <section className="relative h-[40vh] w-full">
         <Image
-          src="https://raw.githubusercontent.com/swathitom1207/logo-image-/refs/heads/main/Packers%20and%20Movers%201.webp"
+          src="https://github.com/Ram-0609/Bigfoot-Logistics-Images/blob/main/Packers-and-Movers-768x513.jpg?raw=true"
           alt="Packers and movers carefully handling items"
           fill
           priority
@@ -18,7 +18,7 @@ export default function PackersAndMoversPage() {
         />
         <div className="absolute inset-0 bg-primary/70" />
         <div className="relative z-10 flex h-full flex-col items-center justify-center text-center text-white px-4">
-          <h1 className="font-headline text-4xl md:text-5xl font-bold">
+          <h1 className="font-headline text-4xl md:text-5xl font-semibold">
             Packers and Movers
           </h1>
           <p className="mt-4 text-lg md:text-xl font-light">

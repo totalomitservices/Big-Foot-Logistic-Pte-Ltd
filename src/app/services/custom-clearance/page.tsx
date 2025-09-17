@@ -9,7 +9,7 @@ export default function CustomClearancePage() {
       {/* Hero Section */}
       <section className="relative h-[40vh] w-full">
         <Image
-          src="https://picsum.photos/seed/customs-hero/1920/400"
+          src="https://github.com/Ram-0609/Bigfoot-Logistics-Images/blob/main/Custom-Clearance.jpg?raw=true"
           alt="Customs clearance process"
           fill
           priority
@@ -18,7 +18,7 @@ export default function CustomClearancePage() {
         />
         <div className="absolute inset-0 bg-primary/70" />
         <div className="relative z-10 flex h-full flex-col items-center justify-center text-center text-white px-4">
-          <h1 className="font-headline text-4xl md:text-5xl font-bold">
+          <h1 className="font-headline text-4xl md:text-5xl font-semibold">
             Custom Clearance
           </h1>
           <p className="mt-4 text-lg md:text-xl font-light">
