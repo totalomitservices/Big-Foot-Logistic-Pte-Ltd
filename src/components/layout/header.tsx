@@ -86,6 +86,27 @@ export default function Header() {
     }
   };
 
+  if (!hasMounted) {
+    return (
+        <header
+        className={cn(
+            "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
+            "bg-primary shadow-md"
+        )}
+        >
+            <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="flex items-center justify-between h-24">
+                <div className="flex-shrink-0">
+                    <Link href="/">
+                    <Logo className={cn('text-primary-foreground')} />
+                    </Link>
+                </div>
+                </div>
+            </div>
+        </header>
+    );
+  }
+
   return (
     <header
       className={cn(
@@ -103,127 +124,121 @@ export default function Header() {
           </div>
 
           {/* Desktop Navigation */}
-          {hasMounted && (
-            <nav className="hidden md:flex md:space-x-1">
-              {navLinks.map((link) => (
-                <div key={link.href}>
-                  {link.subLinks ? (
-                    <DropdownMenu onOpenChange={(isOpen) => setOpenDropdown(isOpen ? link.label : null)} open={openDropdown === link.label}>
-                      <DropdownMenuTrigger asChild>
-                        <Button 
-                          variant="ghost" 
-                          className={cn(
-                            "font-medium text-primary-foreground hover:text-accent focus-visible:ring-0 focus-visible:ring-offset-0 hover:bg-transparent focus:bg-transparent"
-                          )}
-                          onMouseEnter={() => handleMouseEnter(link.label)}
-                          onMouseLeave={handleMouseLeave}
-                        >
-                          {link.label}
-                          <ChevronDown className="ml-2 h-4 w-4" />
-                        </Button>
-                      </DropdownMenuTrigger>
-                      <DropdownMenuContent 
+          <nav className="hidden md:flex md:space-x-1">
+            {navLinks.map((link) => (
+              <div key={link.href}>
+                {link.subLinks ? (
+                  <DropdownMenu onOpenChange={(isOpen) => setOpenDropdown(isOpen ? link.label : null)} open={openDropdown === link.label}>
+                    <DropdownMenuTrigger asChild>
+                      <Button 
+                        variant="ghost" 
+                        className={cn(
+                          "font-medium text-primary-foreground hover:text-accent focus-visible:ring-0 focus-visible:ring-offset-0 hover:bg-transparent focus:bg-transparent"
+                        )}
                         onMouseEnter={() => handleMouseEnter(link.label)}
                         onMouseLeave={handleMouseLeave}
                       >
-                        {link.subLinks.map((subLink) => (
-                          <DropdownMenuItem key={subLink.href} asChild>
-                            <Link href={subLink.href}>{subLink.label}</Link>
-                          </DropdownMenuItem>
-                        ))}
-                      </DropdownMenuContent>
-                    </DropdownMenu>
-                  ) : (
-                    <Link
-                      href={link.href}
-                      className={cn(
-                        "font-medium text-primary-foreground hover:text-accent transition-colors duration-300 px-4 py-2"
-                      )}
+                        {link.label}
+                        <ChevronDown className="ml-2 h-4 w-4" />
+                      </Button>
+                    </DropdownMenuTrigger>
+                    <DropdownMenuContent 
+                      onMouseEnter={() => handleMouseEnter(link.label)}
+                      onMouseLeave={handleMouseLeave}
                     >
-                      {link.label}
-                    </Link>
-                  )}
-                </div>
-              ))}
-            </nav>
-          )}
+                      {link.subLinks.map((subLink) => (
+                        <DropdownMenuItem key={subLink.href} asChild>
+                          <Link href={subLink.href}>{subLink.label}</Link>
+                        </DropdownMenuItem>
+                      ))}
+                    </DropdownMenuContent>
+                  </DropdownMenu>
+                ) : (
+                  <Link
+                    href={link.href}
+                    className={cn(
+                      "font-medium text-primary-foreground hover:text-accent transition-colors duration-300 px-4 py-2"
+                    )}
+                  >
+                    {link.label}
+                  </Link>
+                )}
+              </div>
+            ))}
+          </nav>
 
           {/* Contact Info */}
-          {hasMounted && (
-            <div className="hidden md:flex items-center justify-end space-x-4">
-              <div className={cn("text-right text-sm text-primary-foreground")}>
-                  <a href="mailto:enquiries@bigfoot.com.sg" className="flex items-center gap-2 hover:text-accent transition-colors">
-                    <Mail className="h-4 w-4" />
-                    <span>enquiries@bigfoot.com.sg</span>
-                  </a>
-                  <a href="tel:6563244722" className="flex items-center gap-2 hover:text-accent transition-colors mt-1">
-                    <Phone className="h-4 w-4" />
-                    <span>65 6324 4722</span>
-                  </a>
-                </div>
-            </div>
-          )}
+          <div className="hidden md:flex items-center justify-end space-x-4">
+            <div className={cn("text-right text-sm text-primary-foreground")}>
+                <a href="mailto:enquiries@bigfoot.com.sg" className="flex items-center gap-2 hover:text-accent transition-colors">
+                  <Mail className="h-4 w-4" />
+                  <span>enquiries@bigfoot.com.sg</span>
+                </a>
+                <a href="tel:6563244722" className="flex items-center gap-2 hover:text-accent transition-colors mt-1">
+                  <Phone className="h-4 w-4" />
+                  <span>65 6324 4722</span>
+                </a>
+              </div>
+          </div>
           
           {/* Mobile Menu */}
-          {hasMounted && (
-            <div className="md:hidden">
-              <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
-                <SheetTrigger asChild>
-                  <Button variant="ghost" size="icon" className={cn("text-primary-foreground hover:text-accent")}>
-                    <Menu className="h-6 w-6" />
-                    <span className="sr-only">Open menu</span>
-                  </Button>
-                </SheetTrigger>
-                <SheetContent side="left" className="w-[300px] sm:w-[400px] bg-primary text-primary-foreground">
-                   <div className="flex flex-col h-full p-6">
-                      <Link href="/" onClick={() => setMobileMenuOpen(false)} className="mb-8">
-                        <Logo className="text-white" />
-                      </Link>
-                      <nav className="flex flex-col space-y-4">
-                        {navLinks.map((link) =>
-                          link.subLinks ? (
-                            <div key={link.label}>
-                              <h3 className="font-bold text-lg mb-2">{link.label}</h3>
-                              <div className="flex flex-col space-y-2 pl-4">
-                                {link.subLinks.map((subLink) => (
-                                  <Link
-                                    key={subLink.href}
-                                    href={subLink.href}
-                                    onClick={() => setMobileMenuOpen(false)}
-                                    className="text-base hover:text-accent transition-colors"
-                                  >
-                                    {subLink.label}
-                                  </Link>
-                                ))}
-                              </div>
+          <div className="md:hidden">
+            <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
+              <SheetTrigger asChild>
+                <Button variant="ghost" size="icon" className={cn("text-primary-foreground hover:text-accent")}>
+                  <Menu className="h-6 w-6" />
+                  <span className="sr-only">Open menu</span>
+                </Button>
+              </SheetTrigger>
+              <SheetContent side="left" className="w-[300px] sm:w-[400px] bg-primary text-primary-foreground">
+                 <div className="flex flex-col h-full p-6">
+                    <Link href="/" onClick={() => setMobileMenuOpen(false)} className="mb-8">
+                      <Logo className="text-white" />
+                    </Link>
+                    <nav className="flex flex-col space-y-4">
+                      {navLinks.map((link) =>
+                        link.subLinks ? (
+                          <div key={link.label}>
+                            <h3 className="font-bold text-lg mb-2">{link.label}</h3>
+                            <div className="flex flex-col space-y-2 pl-4">
+                              {link.subLinks.map((subLink) => (
+                                <Link
+                                  key={subLink.href}
+                                  href={subLink.href}
+                                  onClick={() => setMobileMenuOpen(false)}
+                                  className="text-base hover:text-accent transition-colors"
+                                >
+                                  {subLink.label}
+                                </Link>
+                              ))}
                             </div>
-                          ) : (
-                            <Link
-                              key={link.href}
-                              href={link.href}
-                              onClick={() => setMobileMenuOpen(false)}
-                              className="font-bold text-lg hover:text-accent transition-colors"
-                            >
-                              {link.label}
-                            </Link>
-                          )
-                        )}
-                      </nav>
-                       <div className="mt-auto space-y-4">
-                         <a href="mailto:enquiries@bigfoot.com.sg" className="flex items-center gap-2 hover:text-accent transition-colors">
-                           <Mail className="h-4 w-4" />
-                           <span>enquiries@bigfoot.com.sg</span>
-                         </a>
-                         <a href="tel:6563244722" className="flex items-center gap-2 hover:text-accent transition-colors">
-                           <Phone className="h-4 w-4" />
-                           <span>65 6324 4722</span>
-                         </a>
-                       </div>
-                   </div>
-                </SheetContent>
-              </Sheet>
-            </div>
-          )}
+                          </div>
+                        ) : (
+                          <Link
+                            key={link.href}
+                            href={link.href}
+                            onClick={() => setMobileMenuOpen(false)}
+                            className="font-bold text-lg hover:text-accent transition-colors"
+                          >
+                            {link.label}
+                          </Link>
+                        )
+                      )}
+                    </nav>
+                     <div className="mt-auto space-y-4">
+                       <a href="mailto:enquiries@bigfoot.com.sg" className="flex items-center gap-2 hover:text-accent transition-colors">
+                         <Mail className="h-4 w-4" />
+                         <span>enquiries@bigfoot.com.sg</span>
+                       </a>
+                       <a href="tel:6563244722" className="flex items-center gap-2 hover:text-accent transition-colors">
+                         <Phone className="h-4 w-4" />
+                         <span>65 6324 4722</span>
+                       </a>
+                     </div>
+                 </div>
+              </SheetContent>
+            </Sheet>
+          </div>
         </div>
       </div>
     </header>
