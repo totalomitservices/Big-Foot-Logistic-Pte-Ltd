@@ -1,8 +1,10 @@
 
+'use client';
+import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
-import { Card, CardContent } from '@/components/ui/card';
+import { Card } from '@/components/ui/card';
 
 const clients = [
   {
@@ -79,18 +81,24 @@ const clients = [
 
 
 export default function ClientsPage() {
+    const [scrollY, setScrollY] = useState(0);
+
+    useEffect(() => {
+        const handleScroll = () => {
+        setScrollY(window.scrollY);
+        };
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
   return (
     <div className="bg-background text-foreground">
       {/* Hero Section */}
-      <section className="relative h-[60vh] w-full">
-        <Image
-          src="https://picsum.photos/seed/clients-hero/1920/1080"
-          alt="Global logistics connections"
-          fill
-          priority
-          className="object-cover"
-          data-ai-hint="global connections"
-        />
+       <section
+        className="relative h-[60vh] w-full bg-fixed bg-cover bg-center"
+        style={{ backgroundImage: "url('https://picsum.photos/seed/clients-hero/1920/1080')" }}
+      >
+        <div style={{ transform: `translateY(${scrollY * 0.3}px)` }}>
         <div className="absolute inset-0 bg-primary/70" />
         <div className="relative z-10 flex h-full flex-col items-center justify-center text-center text-white px-4">
           <h1 className="font-headline text-4xl md:text-5xl font-bold">
@@ -105,6 +113,7 @@ export default function ClientsPage() {
             </Button>
           </div>
         </div>
+        </div>
       </section>
 
       {/* Client Showcase Section */}
@@ -114,7 +123,8 @@ export default function ClientsPage() {
             {clients.map((client, index) => (
               <div
                 key={client.name}
-                className="grid md:grid-cols-2 gap-12 items-center"
+                className="grid md:grid-cols-2 gap-12 items-center animate-fade-in"
+                style={{ animationDelay: `${index * 150}ms`, animationFillMode: 'backwards' }}
               >
                 <div
                   className={`relative h-48 w-full md:h-64 ${index % 2 === 0 ? 'md:order-1' : 'md:order-2'}`}
