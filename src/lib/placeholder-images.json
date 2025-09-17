@@ -3,9 +3,9 @@
   "placeholderImages": [
     {
       "id": "hero-image",
-      "description": "Container ship for shipping and chartering.",
-      "imageUrl": "https://raw.githubusercontent.com/swathitom1207/image1/refs/heads/main/Shipping%20and%20Chartering.jpg",
-      "imageHint": "shipping chartering"
+      "description": "Freight forwarding",
+      "imageUrl": "https://raw.githubusercontent.com/swathitom1207/image1/refs/heads/main/Freight%20Forwarding%201.jpg",
+      "imageHint": "freight forwarding"
     },
     {
       "id": "service-air-freight",
