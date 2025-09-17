@@ -2,7 +2,6 @@
 import Image from 'next/image';
 
 export default function LandTransitPage() {
-  const listClassName = "list-disc list-inside space-y-2 text-lg text-muted-foreground";
 
   return (
     <div className="bg-background text-foreground">

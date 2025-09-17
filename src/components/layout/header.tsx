@@ -39,7 +39,7 @@ const navLinks = [
 
 export default function Header() {
   const pathname = usePathname();
-  const [isHomePage, setIsHomePage] = useState(pathname === '/');
+  const [isHomePage, setIsHomePage] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
@@ -50,8 +50,10 @@ export default function Header() {
   }, []);
 
   useEffect(() => {
-    setIsHomePage(pathname === '/');
-  }, [pathname]);
+    if(isMounted) {
+      setIsHomePage(pathname === '/');
+    }
+  }, [pathname, isMounted]);
 
   useEffect(() => {
     if (typeof window === 'undefined') return;
@@ -61,7 +63,7 @@ export default function Header() {
     };
 
     window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Call on mount to set initial state
+    handleScroll(); 
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
@@ -72,7 +74,7 @@ export default function Header() {
     {
       "bg-transparent text-white": isHomePage && !isScrolled,
       "bg-primary text-primary-foreground shadow-lg": !isHomePage || isScrolled,
-      "-translate-y-full": isScrolled && isHomePage,
+      "transform -translate-y-full": isScrolled && !mobileMenuOpen,
     }
   );
 
