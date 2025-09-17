@@ -37,8 +37,7 @@ const navLinks = [
       { href: '/services/custom-clearance', label: 'Custom Clearance' },
       { href: '/services/warehousing', label: 'Warehousing' },
       { href: '/services/packers-and-movers', label: 'Packers and Movers' },
-      { href: '/services/training', label: 'Training' },
-      { href: '/services/other-expertise', label: 'Other Expertise' },
+      { href: '/services/livestock-handling', label: 'Live Stock Handling' },
     ]
   },
   { href: '/#clients', label: 'Clients' },
@@ -53,10 +52,6 @@ export default function Header() {
 
   const headerClasses = cn(
     "absolute top-0 left-0 right-0 z-50 transition-all duration-300",
-    {
-      "bg-primary text-primary-foreground shadow-md": !isHomePage,
-      "bg-transparent text-white": isHomePage,
-    }
   );
 
   return (
@@ -73,8 +68,8 @@ export default function Header() {
           <nav className="hidden md:flex md:space-x-8">
             {navLinks.map((link) =>
               link.subLinks ? (
-                <DropdownMenu 
-                  key={link.label} 
+                <DropdownMenu
+                  key={link.label}
                   open={openDropdown === link.label}
                   onOpenChange={(isOpen) => setOpenDropdown(isOpen ? link.label : null)}
                 >
