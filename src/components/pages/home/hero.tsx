@@ -2,7 +2,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
-import ShippingQuoteForm from './shipping-quote-form';
 
 const heroImage = PlaceHolderImages.find((img) => img.id === 'hero-image');
 
@@ -39,9 +38,6 @@ export default function Hero() {
               <Link href="#services">Read More</Link>
             </Button>
           </div>
-        </div>
-        <div className="absolute bottom-12 right-12 w-[450px]">
-           <ShippingQuoteForm />
         </div>
       </div>
     </section>
