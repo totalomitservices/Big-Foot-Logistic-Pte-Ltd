@@ -99,7 +99,7 @@ export default function Header() {
                       <Button 
                         variant="ghost" 
                         className={cn(
-                          "font-medium hover:text-accent transition-colors duration-300 flex items-center focus-visible:ring-0 focus-visible:ring-offset-0",
+                          "font-medium hover:text-accent transition-colors duration-300 flex items-center focus-visible:ring-0 focus-visible:ring-offset-0 hover:bg-transparent",
                           isTransparent ? "text-primary-foreground" : "text-primary-foreground"
                         )}
                         onMouseEnter={() => handleMouseEnter(link.label)}
