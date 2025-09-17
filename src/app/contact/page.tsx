@@ -5,9 +5,8 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
-import { Phone, Mail, Clock, ArrowRight, Building, MapPin } from 'lucide-react';
+import { Phone, Mail, Clock, ArrowRight, Building } from 'lucide-react';
 import Link from 'next/link';
-import { useState } from 'react';
 
 const officeLocations = [
   {
@@ -15,21 +14,18 @@ const officeLocations = [
     address: '123 Logistics Lane, Transport City, 98765, Singapore',
     phone: '+65 6324 4722',
     email: 'sg.office@bigfoot.com.sg',
-    position: { top: '57%', left: '79%' },
   },
   {
     name: 'India Office',
     address: '10 Business Hub, Mumbai, 400001, India',
     phone: '+91 22 1234 5678',
     email: 'in.office@bigfoot.com.sg',
-    position: { top: '48%', left: '68%' },
   },
   {
     name: 'Australia Office',
     address: '25 Trade Street, Sydney, NSW 2000, Australia',
     phone: '+61 2 9876 5432',
     email: 'au.office@bigfoot.com.sg',
-    position: { top: '75%', left: '88%' },
   },
 ];
 
@@ -42,7 +38,6 @@ const coreServices = [
 ]
 
 export default function ContactPage() {
-  const [hoveredOffice, setHoveredOffice] = useState<string | null>(null);
   return (
     <div className="bg-secondary text-foreground">
       {/* Hero Section */}
@@ -53,24 +48,6 @@ export default function ContactPage() {
           fill
           className="object-cover"
         />
-
-        {officeLocations.map(office => (
-             <div 
-                key={office.name} 
-                className="group location-pin" 
-                style={office.position}
-                onMouseEnter={() => setHoveredOffice(office.name)}
-                onMouseLeave={() => setHoveredOffice(null)}
-              >
-                <MapPin className="pin-icon" />
-                <div className="tooltip">
-                    <p className="font-bold">{office.name}</p>
-                    <p className="text-xs">{office.address.split(',').slice(-2).join(', ')}</p>
-                </div>
-            </div>
-        ))}
-       
-
         <div className="relative z-10 flex h-full flex-col items-center justify-center text-center px-4">
           <h1 className="font-headline text-4xl md:text-5xl font-bold text-primary">
             Contact Us
