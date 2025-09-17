@@ -54,32 +54,26 @@ export default function VisionMissionPage() {
                 key={index}
                 className="relative flex items-center mb-12"
               >
-                <div className="hidden md:flex w-1/2">
-                  {index % 2 === 0 ? <div /> : 
-                    <div className="flex-1 pr-8 text-right">
+                <div className={`flex w-full items-center ${index % 2 !== 0 ? 'md:flex-row-reverse' : ''}`}>
+                  <div className="hidden md:flex md:w-1/2">
+                    <div className="flex-1 px-8 text-right md:text-left">
                       <h3 className="text-2xl font-headline font-bold text-primary">{event.title}</h3>
                       <p className="mt-2 text-muted-foreground">{event.description}</p>
                     </div>
-                  }
+                  </div>
+
+                  <div className="absolute left-1/2 -translate-x-1/2 bg-secondary p-3 rounded-full border-4 border-background md:relative md:left-0 md:translate-x-0">
+                    {event.icon}
+                  </div>
+
+                  <div className="w-full md:w-1/2 md:px-8">
+                     <div className="flex-1 md:hidden">
+                        <h3 className="text-2xl font-headline font-bold text-primary">{event.title}</h3>
+                        <p className="mt-2 text-muted-foreground">{event.description}</p>
+                      </div>
+                  </div>
                 </div>
 
-                <div className="absolute left-1/2 -translate-x-1/2 bg-secondary p-3 rounded-full border-4 border-background">
-                  {event.icon}
-                </div>
-
-                <div className="w-full md:w-1/2 md:pl-8">
-                   <div className="flex-1">
-                      <h3 className={`text-2xl font-headline font-bold text-primary ${index % 2 !== 0 ? 'md:hidden' : ''}`}>{event.title}</h3>
-                      <p className={`mt-2 text-muted-foreground ${index % 2 !== 0 ? 'md:hidden' : ''}`}>{event.description}</p>
-                      
-                      {index % 2 !== 0 && (
-                         <div className="hidden md:block">
-                           
-                            <p className="mt-2 text-muted-foreground text-left"></p>
-                         </div>
-                      )}
-                    </div>
-                </div>
               </div>
             ))}
           </div>
