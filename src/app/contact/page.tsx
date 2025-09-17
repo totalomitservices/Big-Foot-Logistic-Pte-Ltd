@@ -58,11 +58,14 @@ export default function ContactPage() {
             const northEast = L.latLng(90, 180);
             const bounds = L.latLngBounds(southWest, northEast);
 
-            mapInstance.current = L.map(mapRef.current!, {
+            const map = L.map(mapRef.current!, {
                 zoomControl: false,
                 maxBounds: bounds,
                 maxBoundsViscosity: 1.0
             }).fitWorld();
+
+            map.setMinZoom(map.getZoom());
+            mapInstance.current = map;
 
             L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}{r}.png', {
                 attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
