@@ -170,4 +170,15 @@
       opacity: 1;
     }
   }
+  .animate-pan-map {
+    animation: pan-map 40s ease-in-out infinite alternate;
+  }
+  @keyframes pan-map {
+    from {
+      object-position: 0% 50%;
+    }
+    to {
+      object-position: 100% 50%;
+    }
+  }
 }

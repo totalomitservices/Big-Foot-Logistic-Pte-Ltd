@@ -41,12 +41,20 @@ export default function ContactPage() {
   return (
     <div className="bg-secondary text-foreground">
       {/* Hero Section */}
-      <section className="relative h-[70vh] w-full bg-background">
+      <section className="relative h-[70vh] w-full bg-background overflow-hidden">
+        <Image
+            src="https://raw.githubusercontent.com/swathitom1207/logo-image-/main/contact%20us%202.png"
+            alt="Global connections"
+            fill
+            className="object-cover animate-pan-map"
+            data-ai-hint="world map"
+        />
+        <div className="absolute inset-0 bg-primary/30" />
         <div className="relative z-10 flex h-full flex-col items-center justify-center text-center px-4">
-          <h1 className="font-headline text-4xl md:text-5xl font-bold text-primary">
+          <h1 className="font-headline text-4xl md:text-5xl font-bold text-primary-foreground">
             Contact Us
           </h1>
-          <p className="mt-4 text-lg md:text-xl font-light max-w-2xl text-muted-foreground">
+          <p className="mt-4 text-lg md:text-xl font-light max-w-2xl text-primary-foreground/90">
             We’re here to help you with reliable logistics solutions.
           </p>
         </div>
