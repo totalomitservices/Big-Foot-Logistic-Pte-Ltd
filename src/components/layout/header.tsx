@@ -46,7 +46,7 @@ export default function Header() {
     setHasMounted(true);
   }, []);
 
-  const isTransparent = hasMounted && pathname === '/';
+  const isTransparent = hasMounted;
 
   const handleMouseEnter = (label: string) => {
     if (hasMounted) {
