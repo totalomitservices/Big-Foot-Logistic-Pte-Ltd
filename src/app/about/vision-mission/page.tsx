@@ -51,26 +51,22 @@ export default function VisionMissionPage() {
                 <h2 className="text-3xl font-headline font-bold text-primary">Our Guiding Principles</h2>
             </div>
           <div className="relative max-w-4xl mx-auto">
-             <div className="absolute left-12 top-0 h-full w-1 bg-border rounded-full md:left-1/2 md:-translate-x-1/2"></div>
+             <div className="absolute left-1/2 -translate-x-1/2 h-full w-1 bg-border rounded-full hidden md:block"></div>
                 {values.map((item, index) => (
-                <div key={index} className="relative pl-24 md:pl-0 mb-12 animate-fade-in" style={{animationDelay: `${index * 200}ms`}}>
-                    <div className="flex items-center">
-                      {/* Responsive Layout: Text right on all screens, alternating on md+ */}
-                      <div className={`flex-1 md:${index % 2 === 0 ? 'pr-8 text-right' : 'pl-8 text-left order-2'}`}>
-                          <h3 className="text-2xl font-headline text-primary font-bold mb-2">{item.title}</h3>
-                          <p className="text-muted-foreground leading-relaxed">{item.description}</p>
-                      </div>
-
-                      {/* Icon Container: Centered on the line */}
-                      <div className="absolute left-12 top-1/2 -translate-y-1/2 -translate-x-1/2 md:left-1/2 md:-translate-x-1/2 z-10">
-                          <div className="bg-background p-4 border-4 border-secondary shadow-lg group-hover:scale-110 transition-transform duration-300">
+                <div key={index} className={`relative mb-12 animate-fade-in md:flex ${index % 2 === 0 ? 'md:flex-row-reverse' : ''} items-center w-full`}>
+                    <div className="md:w-5/12">
+                        <div className="relative md:absolute left-1/2 -translate-x-1/2 z-10">
+                          <div className="bg-background p-4 border-4 border-secondary shadow-lg group-hover:scale-110 transition-transform duration-300 inline-block">
                             {item.icon}
                           </div>
                       </div>
-                      
-                      {/* Spacer for alternating layout on medium screens and up */}
-                      <div className={`hidden md:block flex-1 ${index % 2 === 0 ? 'order-2' : ''}`}></div>
                     </div>
+                     <div className="md:w-7/12">
+                         <div className={`p-6 bg-background shadow-lg text-left ${index % 2 === 0 ? 'md:mr-[-1px]' : 'md:ml-[-1px]'}`}>
+                             <h3 className="text-2xl font-headline text-primary font-bold mb-2">{item.title}</h3>
+                             <p className="text-muted-foreground leading-relaxed">{item.description}</p>
+                         </div>
+                     </div>
                 </div>
                 ))}
           </div>
