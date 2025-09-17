@@ -48,7 +48,7 @@ export default function ContactPage() {
           src="https://github.com/Ram-0609/Bigfoot-Logistics-Images/blob/main/pxfuel.jpg?raw=true"
           alt="World map with office locations"
           fill
-          className="object-cover opacity-20"
+          className="object-cover"
         />
 
         {officeLocations.map(office => (
