@@ -51,18 +51,20 @@ export default function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const isTransparent = pathname === '/' && !scrolled;
+
   return (
     <header
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-primary",
-        scrolled && "shadow-md"
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
+        isTransparent ? "bg-transparent" : "bg-primary shadow-md"
       )}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-24">
           <div className="flex-shrink-0">
             <Link href="/">
-              <Logo className="text-primary-foreground"/>
+              <Logo className={cn(isTransparent ? 'text-primary-foreground' : 'text-primary-foreground')} />
             </Link>
           </div>
 
@@ -72,11 +74,10 @@ export default function Header() {
               link.subLinks ? (
                 <DropdownMenu key={link.label}>
                   <DropdownMenuTrigger asChild>
-                    <button
-                      className={cn(
-                        "font-medium hover:text-accent transition-colors duration-300 text-primary-foreground flex items-center bg-transparent focus-visible:outline-none"
-                      )}
-                    >
+                    <button className={cn(
+                        "font-medium hover:text-accent transition-colors duration-300 flex items-center",
+                        isTransparent ? "text-primary-foreground" : "text-primary-foreground"
+                      )}>
                       {link.label}
                       <ChevronDown className="ml-2 h-4 w-4" />
                     </button>
@@ -94,7 +95,8 @@ export default function Header() {
                   key={link.href}
                   href={link.href}
                   className={cn(
-                    "font-medium hover:text-accent transition-colors duration-300 flex items-center text-primary-foreground bg-transparent focus-visible:outline-none"
+                      "font-medium hover:text-accent transition-colors duration-300 flex items-center",
+                      isTransparent ? "text-primary-foreground" : "text-primary-foreground"
                     )}
                 >
                   {link.label}
@@ -105,7 +107,7 @@ export default function Header() {
 
           {/* Contact Info */}
           <div className="hidden md:flex items-center justify-end space-x-4">
-            <div className={cn("text-right text-sm", "text-primary-foreground")}>
+            <div className={cn("text-right text-sm", isTransparent ? 'text-primary-foreground' : 'text-primary-foreground')}>
               <a href="mailto:enquiries@bigfoot.com.sg" className="flex items-center gap-2 hover:text-accent transition-colors">
                 <Mail className="h-4 w-4" />
                 <span>enquiries@bigfoot.com.sg</span>
@@ -121,7 +123,7 @@ export default function Header() {
           <div className="md:hidden">
             <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
               <SheetTrigger asChild>
-                <Button variant="ghost" size="icon" className={cn("text-primary-foreground", "hover:text-accent")}>
+                <Button variant="ghost" size="icon" className={cn(isTransparent ? "text-primary-foreground" : "text-primary-foreground", "hover:text-accent")}>
                   <Menu className="h-6 w-6" />
                   <span className="sr-only">Open menu</span>
                 </Button>
