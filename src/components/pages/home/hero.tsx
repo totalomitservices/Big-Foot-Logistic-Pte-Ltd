@@ -23,15 +23,15 @@ export default function Hero() {
       <div className="absolute inset-0 bg-primary/30"></div>
       <div className="relative z-10 flex h-full items-center justify-between text-white px-4 md:px-12 lg:px-24 w-full gap-8">
         <div className="flex flex-col items-start max-w-xl">
-          <h1 className="font-headline text-3xl md:text-4xl font-bold uppercase tracking-tighter drop-shadow-lg">
+          <h1 className="font-headline text-3xl md:text-4xl font-bold uppercase tracking-tighter drop-shadow-lg animate-slide-in-from-left">
             Moving Your World,
             <br />
             One Shipment at a Time.
           </h1>
-          <p className="mt-6 max-w-lg text-lg md:text-xl text-gray-200 drop-shadow">
+          <p className="mt-6 max-w-lg text-lg md:text-xl text-gray-200 drop-shadow animate-slide-in-from-bottom" style={{ animationDelay: '0.2s', animationFillMode: 'backwards' }}>
             Global logistics and supply chain solutions, tailored for your business needs. We ensure your cargo travels safely and arrives on time, every time.
           </p>
-          <div className="mt-8">
+          <div className="mt-8 animate-slide-in-from-bottom" style={{ animationDelay: '0.4s', animationFillMode: 'backwards' }}>
             <Button
               asChild
               size="lg"
