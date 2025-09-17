@@ -60,7 +60,7 @@ export default function CareersPage() {
 
             <div className="mt-12 text-center">
               <Button asChild size="lg" variant="accent">
-                <Link href="#contact">
+                <Link href="/about/careers/open-positions">
                   View Open Positions
                 </Link>
               </Button>

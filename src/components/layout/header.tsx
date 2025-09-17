@@ -26,6 +26,7 @@ const navLinks = [
       { href: '/about/our-story', label: 'Our Story' },
       { href: '/about/vision-mission', label: 'Vision & Mission' },
       { href: '/about/careers', label: 'Careers' },
+      { href: '/about/careers/open-positions', label: 'Open Positions' },
     ],
   },
   {
