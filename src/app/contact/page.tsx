@@ -42,12 +42,12 @@ export default function ContactPage() {
     <div className="bg-secondary text-foreground">
       {/* Hero Section */}
       <section className="relative h-[70vh] w-full bg-background overflow-hidden">
-        <Image
-            src="https://raw.githubusercontent.com/swathitom1207/logo-image-/main/contact%20us%202.png"
-            alt="Global connections"
-            fill
-            className="object-cover animate-pan-map"
-            data-ai-hint="world map"
+        <video
+          src="https://github.com/Ram-0609/Bigfoot-Logistics-Images/raw/refs/heads/main/3125427-uhd_3840_2160_25fps.mp4"
+          autoPlay
+          loop
+          muted
+          className="absolute top-0 left-0 w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-primary/30" />
         <div className="relative z-10 flex h-full flex-col items-center justify-center text-center px-4">
