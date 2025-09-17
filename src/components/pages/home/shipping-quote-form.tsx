@@ -62,10 +62,10 @@ export default function ShippingQuoteForm() {
   }
 
   return (
-    <Card className="w-full max-w-md bg-white/10 backdrop-blur-sm border-white/20 rounded-lg shadow-lg animate-fade-in">
+    <Card className="w-full max-w-md bg-white rounded-lg shadow-lg animate-fade-in">
       <CardHeader>
         <CardTitle className="sr-only">Shipping Quote Request</CardTitle>
-        <div role="tablist" aria-label="Shipping quote progress" className="flex items-center justify-between text-white">
+        <div role="tablist" aria-label="Shipping quote progress" className="flex items-center justify-between text-primary">
           {steps.map((step, index) => (
             <div
               key={step.id}
@@ -77,7 +77,7 @@ export default function ShippingQuoteForm() {
                 className={`flex items-center justify-center w-8 h-8 rounded-full border-2 ${
                   step.status === "active"
                     ? "bg-accent text-accent-foreground border-accent"
-                    : "border-gray-300/50 text-gray-200"
+                    : "border-gray-300 text-gray-500"
                 }`}
               >
                 {step.status === "active" ? (
@@ -88,7 +88,7 @@ export default function ShippingQuoteForm() {
               </div>
               <p
                 className={`mt-2 text-xs font-semibold ${
-                  step.status === "active" ? "text-white" : "text-gray-300"
+                  step.status === "active" ? "text-primary" : "text-gray-500"
                 }`}
               >
                 {step.title}
@@ -97,7 +97,7 @@ export default function ShippingQuoteForm() {
                 <div className="absolute top-1/3 left-1/2 w-full -translate-y-1/2">
                   {index < steps.length - 1 && (
                     <div
-                      className="absolute top-1/2 left-1/2 w-full h-0.5 bg-gray-300/50"
+                      className="absolute top-1/2 left-1/2 w-full h-0.5 bg-gray-300"
                       style={{
                         width: `calc(100% / ${steps.length - 1} * ${index + 0.5})`,
                         transform: "translateX(-50%)",
@@ -124,7 +124,7 @@ export default function ShippingQuoteForm() {
                     <FormControl>
                       <Input
                         placeholder="Enter Origin"
-                        className="bg-white/20 border-white/30 text-white placeholder:text-gray-200 focus:border-accent focus:ring-accent"
+                        className="focus:border-accent focus:ring-accent"
                         {...field}
                       />
                     </FormControl>
@@ -141,7 +141,7 @@ export default function ShippingQuoteForm() {
                     <FormControl>
                       <Input
                         placeholder="Enter Destination"
-                        className="bg-white/20 border-white/30 text-white placeholder:text-gray-200 focus:border-accent focus:ring-accent"
+                        className="focus:border-accent focus:ring-accent"
                         {...field}
                       />
                     </FormControl>
@@ -157,7 +157,7 @@ export default function ShippingQuoteForm() {
                     <FormLabel className="sr-only">Cargo Type</FormLabel>
                     <Select onValueChange={field.onChange} defaultValue={field.value}>
                       <FormControl>
-                        <SelectTrigger className="bg-white/20 border-white/30 text-white placeholder:text-gray-200 focus:border-accent focus:ring-accent">
+                        <SelectTrigger className="focus:border-accent focus:ring-accent">
                           <SelectValue placeholder="Select Cargo Type" />
                         </SelectTrigger>
                       </FormControl>
