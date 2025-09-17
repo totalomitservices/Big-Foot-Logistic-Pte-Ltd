@@ -42,7 +42,7 @@ export default function Hero() {
             </Button>
           </div>
         </div>
-        <div className="hidden lg:block">
+        <div className="hidden lg:block animate-slide-in-from-right">
             <TrackingForm />
         </div>
       </div>
