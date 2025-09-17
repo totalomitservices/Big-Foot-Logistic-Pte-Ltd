@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
+import ShippingQuoteForm from './shipping-quote-form';
 
 const heroImage = PlaceHolderImages.find((img) => img.id === 'hero-image');
 
@@ -19,9 +20,9 @@ export default function Hero() {
         />
       )}
       <div className="absolute inset-0 bg-primary/70" />
-      <div className="relative z-10 flex h-full items-center justify-start text-white px-4 md:px-12 lg:px-24">
+      <div className="relative z-10 flex h-full items-center justify-between text-white px-4 md:px-12 lg:px-24 w-full">
         <div className="flex flex-col items-start max-w-2xl">
-          <h1 className="font-headline text-4xl md:text-6xl font-bold uppercase tracking-tighter drop-shadow-lg">
+          <h1 className="font-headline text-4xl md:text-5xl font-bold uppercase tracking-tighter drop-shadow-lg">
             Moving Your World,
             <br />
             One Shipment at a Time.
@@ -39,6 +40,9 @@ export default function Hero() {
               <Link href="#services">Read More</Link>
             </Button>
           </div>
+        </div>
+        <div className="hidden lg:block">
+          <ShippingQuoteForm />
         </div>
       </div>
     </section>
