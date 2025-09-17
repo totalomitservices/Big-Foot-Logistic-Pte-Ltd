@@ -1,9 +1,8 @@
-import Header from '@/components/layout/header';
+
 import Hero from '@/components/pages/home/hero';
 import Services from '@/components/pages/home/services';
 import WhyChooseUs from '@/components/pages/home/why-choose-us';
 import LogoWall from '@/components/pages/home/logo-wall';
-import Footer from '@/components/layout/footer';
 
 export default function Home() {
   return (

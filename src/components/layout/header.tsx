@@ -1,6 +1,6 @@
 "use client";
 
-import { ChevronDown, Mail, Phone } from 'lucide-react';
+import { ChevronDown, Mail, Phone, Menu } from 'lucide-react';
 import Link from 'next/link';
 import { Logo } from '@/components/logo';
 import {
@@ -11,6 +11,9 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Button } from '../ui/button';
 import { usePathname } from 'next/navigation';
+import { useEffect, useState } from 'react';
+import { Sheet, SheetContent, SheetTrigger } from '../ui/sheet';
+import { cn } from '@/lib/utils';
 
 const navLinks = [
   { href: '/', label: 'Home' },
@@ -31,16 +34,36 @@ const navLinks = [
 export default function Header() {
   const pathname = usePathname();
   const isHomePage = pathname === '/';
+  const [scrolled, setScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 10);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const headerClasses = cn(
+    "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
+    {
+      "bg-transparent text-white": isHomePage && !scrolled,
+      "bg-primary text-primary-foreground shadow-md": !isHomePage || scrolled,
+    }
+  );
 
   return (
-    <header className="sticky top-0 z-20 bg-primary text-primary-foreground shadow-md">
+    <header className={headerClasses}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-24">
           <div className="flex-shrink-0">
             <Link href="/">
-              <Logo className="text-white" />
+              <Logo className={cn("transition-colors", { "text-white": isHomePage && !scrolled, "text-primary-foreground": !isHomePage || scrolled })} />
             </Link>
           </div>
+
+          {/* Desktop Navigation */}
           <nav className="hidden md:flex md:space-x-8">
             {navLinks.map((link) =>
               link.subLinks ? (
@@ -48,7 +71,10 @@ export default function Header() {
                   <DropdownMenuTrigger asChild>
                     <Button
                       variant="ghost"
-                      className="font-medium hover:text-accent transition-colors duration-300 text-base"
+                      className={cn("font-medium hover:text-accent transition-colors duration-300 text-base", {
+                        "text-white hover:text-accent": isHomePage && !scrolled,
+                        "text-primary-foreground hover:text-accent": !isHomePage || scrolled,
+                      })}
                     >
                       {link.label}
                       <ChevronDown className="ml-2 h-4 w-4" />
@@ -66,13 +92,18 @@ export default function Header() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="font-medium hover:text-accent transition-colors duration-300 flex items-center text-base"
+                  className={cn("font-medium hover:text-accent transition-colors duration-300 flex items-center text-base", {
+                    "text-white": isHomePage && !scrolled,
+                    "text-primary-foreground": !isHomePage || scrolled,
+                  })}
                 >
                   {link.label}
                 </Link>
               )
             )}
           </nav>
+
+          {/* Contact Info */}
           <div className="hidden md:flex items-center justify-end space-x-4">
             <div className="text-right text-sm">
               <a href="mailto:enquiries@bigfoot.com.sg" className="flex items-center gap-2 hover:text-accent transition-colors">
@@ -84,6 +115,65 @@ export default function Header() {
                 <span>65 6324 4722</span>
               </a>
             </div>
+          </div>
+          
+          {/* Mobile Menu */}
+          <div className="md:hidden">
+            <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
+              <SheetTrigger asChild>
+                <Button variant="ghost" size="icon">
+                  <Menu className="h-6 w-6" />
+                  <span className="sr-only">Open menu</span>
+                </Button>
+              </SheetTrigger>
+              <SheetContent side="left" className="w-[300px] sm:w-[400px] bg-primary text-primary-foreground">
+                 <div className="flex flex-col h-full p-6">
+                    <Link href="/" onClick={() => setMobileMenuOpen(false)} className="mb-8">
+                      <Logo className="text-white" />
+                    </Link>
+                    <nav className="flex flex-col space-y-4">
+                      {navLinks.map((link) =>
+                        link.subLinks ? (
+                          <div key={link.href}>
+                            <h3 className="font-bold text-lg mb-2">{link.label}</h3>
+                            <div className="flex flex-col space-y-2 pl-4">
+                              {link.subLinks.map((subLink) => (
+                                <Link
+                                  key={subLink.href}
+                                  href={subLink.href}
+                                  onClick={() => setMobileMenuOpen(false)}
+                                  className="text-base hover:text-accent transition-colors"
+                                >
+                                  {subLink.label}
+                                </Link>
+                              ))}
+                            </div>
+                          </div>
+                        ) : (
+                          <Link
+                            key={link.href}
+                            href={link.href}
+                            onClick={() => setMobileMenuOpen(false)}
+                            className="font-bold text-lg hover:text-accent transition-colors"
+                          >
+                            {link.label}
+                          </Link>
+                        )
+                      )}
+                    </nav>
+                     <div className="mt-auto space-y-4">
+                       <a href="mailto:enquiries@bigfoot.com.sg" className="flex items-center gap-2 hover:text-accent transition-colors">
+                         <Mail className="h-4 w-4" />
+                         <span>enquiries@bigfoot.com.sg</span>
+                       </a>
+                       <a href="tel:6563244722" className="flex items-center gap-2 hover:text-accent transition-colors">
+                         <Phone className="h-4 w-4" />
+                         <span>65 6324 4722</span>
+                       </a>
+                     </div>
+                 </div>
+              </SheetContent>
+            </Sheet>
           </div>
         </div>
       </div>
