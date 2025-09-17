@@ -14,6 +14,7 @@ import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { Sheet, SheetContent, SheetTrigger } from '../ui/sheet';
 import { cn } from '@/lib/utils';
+import { servicesData } from '@/data/services';
 
 const navLinks = [
   { href: '/', label: 'Home' },
@@ -26,7 +27,14 @@ const navLinks = [
       { href: '/about/careers', label: 'Careers' },
     ],
   },
-  { href: '/#services', label: 'Services' },
+  {
+    href: '/#services',
+    label: 'Services',
+    subLinks: servicesData.map(service => ({
+      href: service.href,
+      label: service.title
+    }))
+  },
   { href: '/#clients', label: 'Clients' },
   { href: '/#contact', label: 'Contact Us' },
 ];
