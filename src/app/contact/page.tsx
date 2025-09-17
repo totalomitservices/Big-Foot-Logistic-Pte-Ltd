@@ -53,7 +53,6 @@ export default function ContactPage() {
   const mapInstance = useRef<L.Map | null>(null);
 
   useEffect(() => {
-    // Only run this on the client
     if (typeof window !== 'undefined' && mapRef.current && !mapInstance.current) {
         (async () => {
             const L = await import('leaflet');
@@ -63,13 +62,10 @@ export default function ContactPage() {
             const bounds = L.latLngBounds(southWest, northEast);
 
             mapInstance.current = L.map(mapRef.current!, {
-                center: WORLD_VIEW.center as L.LatLngTuple,
-                zoom: WORLD_VIEW.zoom,
-                minZoom: WORLD_VIEW.zoom,
                 zoomControl: false,
                 maxBounds: bounds,
                 maxBoundsViscosity: 1.0
-            });
+            }).fitWorld();
 
             L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}{r}.png', {
                 attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
@@ -97,7 +93,6 @@ export default function ContactPage() {
                     });
             });
             
-            // Cleanup on unmount
             return () => {
                 if (mapInstance.current) {
                     mapInstance.current.remove();
@@ -110,12 +105,11 @@ export default function ContactPage() {
 
   const handleZoomIn = () => mapInstance.current?.zoomIn();
   const handleZoomOut = () => mapInstance.current?.zoomOut();
-  const handleGoHome = () => mapInstance.current?.flyTo(WORLD_VIEW.center as L.LatLngTuple, WORLD_VIEW.zoom);
+  const handleGoHome = () => mapInstance.current?.fitWorld();
 
 
   return (
     <div className="bg-secondary text-foreground">
-      {/* Hero Section */}
       <section 
         className="relative h-screen w-full bg-primary overflow-hidden"
       >
@@ -149,7 +143,6 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* Office Locations */}
       <section className="py-16 lg:py-24 bg-background">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
               <div className="text-center mb-12">
@@ -174,11 +167,9 @@ export default function ContactPage() {
           </div>
       </section>
 
-      {/* Contact Form and Details Section */}
       <section className="py-16 lg:py-24 bg-secondary">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="bg-background shadow-lg p-8 lg:p-12">
-                 {/* Core Services Banner */}
                 <div className="mb-12">
                     <div className="bg-primary text-primary-foreground p-4 text-center">
                         <h3 className="font-headline text-lg font-semibold mb-2">Our Core Services</h3>
@@ -193,7 +184,6 @@ export default function ContactPage() {
                 </div>
 
                 <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
-                    {/* Left Column: Contact Details */}
                     <div className="lg:col-span-2 space-y-8">
                         <div>
                             <h3 className="text-2xl font-headline font-bold text-primary mb-4">Get in Touch</h3>
@@ -226,7 +216,6 @@ export default function ContactPage() {
                         </div>
                     </div>
 
-                    {/* Right Column: Contact Form */}
                     <div className="lg:col-span-3">
                         <h3 className="text-2xl font-headline font-bold text-primary mb-6">Send Us a Message</h3>
                         <form className="space-y-6">
@@ -248,5 +237,3 @@ export default function ContactPage() {
     </div>
   );
 }
-
-    
