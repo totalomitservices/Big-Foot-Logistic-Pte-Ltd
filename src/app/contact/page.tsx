@@ -16,18 +16,18 @@ const officeLocations = [
     position: { top: '57%', left: '79%' },
   },
   {
-    name: 'Malaysia Office',
-    address: '456 Supply Chain St, Kuala Lumpur, 50480, Malaysia',
-    phone: '+60 3-1234 5678',
-    email: 'my.office@bigfoot.com.sg',
-    position: { top: '56%', left: '78%' },
+    name: 'India Office',
+    address: '10 Business Hub, Mumbai, 400001, India',
+    phone: '+91 22 1234 5678',
+    email: 'in.office@bigfoot.com.sg',
+    position: { top: '48%', left: '68%' },
   },
   {
-    name: 'European Hub',
-    address: '789 Freight Ave, Rotterdam, 3011, Netherlands',
-    phone: '+31 10 987 6543',
-    email: 'eu.office@bigfoot.com.sg',
-    position: { top: '35%', left: '51%' },
+    name: 'Australia Office',
+    address: '25 Trade Street, Sydney, NSW 2000, Australia',
+    phone: '+61 2 9876 5432',
+    email: 'au.office@bigfoot.com.sg',
+    position: { top: '75%', left: '88%' },
   },
 ];
 
