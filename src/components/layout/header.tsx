@@ -90,66 +90,68 @@ export default function Header() {
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex md:space-x-1">
-            {hasMounted && navLinks.map((link) => (
-              <div key={link.href}>
-                {link.subLinks ? (
-                  <DropdownMenu onOpenChange={(isOpen) => setOpenDropdown(isOpen ? link.label : null)} open={openDropdown === link.label}>
-                    <DropdownMenuTrigger asChild>
-                      <Button 
-                        variant="ghost" 
-                        className={cn(
-                          "font-medium hover:text-accent transition-colors duration-300 flex items-center focus-visible:ring-0 focus-visible:ring-offset-0 hover:bg-transparent",
-                          isTransparent ? "text-primary-foreground" : "text-primary-foreground"
-                        )}
+          {hasMounted && (
+            <nav className="hidden md:flex md:space-x-1">
+              {navLinks.map((link) => (
+                <div key={link.href}>
+                  {link.subLinks ? (
+                    <DropdownMenu onOpenChange={(isOpen) => setOpenDropdown(isOpen ? link.label : null)} open={openDropdown === link.label}>
+                      <DropdownMenuTrigger asChild>
+                        <Button 
+                          variant="ghost" 
+                          className={cn(
+                            "font-medium hover:text-accent transition-colors duration-300 flex items-center focus-visible:ring-0 focus-visible:ring-offset-0 hover:bg-transparent",
+                            isTransparent ? "text-primary-foreground" : "text-primary-foreground"
+                          )}
+                          onMouseEnter={() => handleMouseEnter(link.label)}
+                          onMouseLeave={handleMouseLeave}
+                        >
+                          {link.label}
+                          <ChevronDown className="ml-2 h-4 w-4" />
+                        </Button>
+                      </DropdownMenuTrigger>
+                      <DropdownMenuContent 
                         onMouseEnter={() => handleMouseEnter(link.label)}
                         onMouseLeave={handleMouseLeave}
                       >
-                        {link.label}
-                        <ChevronDown className="ml-2 h-4 w-4" />
-                      </Button>
-                    </DropdownMenuTrigger>
-                    <DropdownMenuContent 
-                      onMouseEnter={() => handleMouseEnter(link.label)}
-                      onMouseLeave={handleMouseLeave}
+                        {link.subLinks.map((subLink) => (
+                          <DropdownMenuItem key={subLink.href} asChild>
+                            <Link href={subLink.href}>{subLink.label}</Link>
+                          </DropdownMenuItem>
+                        ))}
+                      </DropdownMenuContent>
+                    </DropdownMenu>
+                  ) : (
+                    <Link
+                      href={link.href}
+                      className={cn(
+                        "font-medium hover:text-accent transition-colors duration-300 flex items-center focus-visible:ring-0 focus-visible:ring-offset-0 px-4 py-2",
+                         isTransparent ? "text-primary-foreground" : "text-primary-foreground"
+                      )}
                     >
-                      {link.subLinks.map((subLink) => (
-                        <DropdownMenuItem key={subLink.href} asChild>
-                          <Link href={subLink.href}>{subLink.label}</Link>
-                        </DropdownMenuItem>
-                      ))}
-                    </DropdownMenuContent>
-                  </DropdownMenu>
-                ) : (
-                  <Link
-                    href={link.href}
-                    className={cn(
-                      "font-medium hover:text-accent transition-colors duration-300 flex items-center focus-visible:ring-0 focus-visible:ring-offset-0 px-4 py-2",
-                       isTransparent ? "text-primary-foreground" : "text-primary-foreground"
-                    )}
-                  >
-                    {link.label}
-                  </Link>
-                )}
-              </div>
-            ))}
-          </nav>
+                      {link.label}
+                    </Link>
+                  )}
+                </div>
+              ))}
+            </nav>
+          )}
 
           {/* Contact Info */}
-          <div className="hidden md:flex items-center justify-end space-x-4">
-             {hasMounted && (
+          {hasMounted && (
+            <div className="hidden md:flex items-center justify-end space-x-4">
               <div className={cn("text-right text-sm", isTransparent ? "text-primary-foreground" : "text-primary-foreground")}>
-                <a href="mailto:enquiries@bigfoot.com.sg" className="flex items-center gap-2 hover:text-accent transition-colors">
-                  <Mail className="h-4 w-4" />
-                  <span>enquiries@bigfoot.com.sg</span>
-                </a>
-                <a href="tel:6563244722" className="flex items-center gap-2 hover:text-accent transition-colors mt-1">
-                  <Phone className="h-4 w-4" />
-                  <span>65 6324 4722</span>
-                </a>
-              </div>
-            )}
-          </div>
+                  <a href="mailto:enquiries@bigfoot.com.sg" className="flex items-center gap-2 hover:text-accent transition-colors">
+                    <Mail className="h-4 w-4" />
+                    <span>enquiries@bigfoot.com.sg</span>
+                  </a>
+                  <a href="tel:6563244722" className="flex items-center gap-2 hover:text-accent transition-colors mt-1">
+                    <Phone className="h-4 w-4" />
+                    <span>65 6324 4722</span>
+                  </a>
+                </div>
+            </div>
+          )}
           
           {/* Mobile Menu */}
           <div className="md:hidden">
