@@ -45,7 +45,7 @@ export default function ContactPage() {
       {/* Hero Section */}
       <section className="relative h-[70vh] w-full bg-background text-primary-foreground">
         <Image
-          src="https://raw.githubusercontent.com/Ram-0609/Bigfoot-Logistics-Images/726ea8a329a17349633634a3f3747806b7b5141e/world-map-dark.svg"
+          src="https://github.com/Ram-0609/Bigfoot-Logistics-Images/blob/main/pxfuel.jpg?raw=true"
           alt="World map with office locations"
           fill
           className="object-cover opacity-20"
