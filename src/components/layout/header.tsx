@@ -41,6 +41,7 @@ export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
+  const [open, setOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -72,14 +73,14 @@ export default function Header() {
           <nav className="hidden md:flex md:space-x-1">
             {navLinks.map((link) =>
               link.subLinks ? (
-                <DropdownMenu key={link.label}>
+                <DropdownMenu key={link.label} onOpenChange={setOpen} open={open}>
                   <DropdownMenuTrigger asChild>
-                    <Button variant="ghost" className="font-medium hover:text-accent transition-colors duration-300 flex items-center text-primary-foreground focus-visible:ring-0 focus-visible:ring-offset-0">
+                    <Button variant="ghost" onMouseEnter={() => setOpen(true)} className="font-medium hover:text-accent transition-colors duration-300 flex items-center text-primary-foreground focus-visible:ring-0 focus-visible:ring-offset-0">
                       {link.label}
                       <ChevronDown className="ml-2 h-4 w-4" />
                     </Button>
                   </DropdownMenuTrigger>
-                  <DropdownMenuContent>
+                  <DropdownMenuContent onMouseLeave={() => setOpen(false)}>
                     {link.subLinks.map((subLink) => (
                       <DropdownMenuItem key={subLink.href} asChild>
                         <Link href={subLink.href}>{subLink.label}</Link>
@@ -88,11 +89,10 @@ export default function Header() {
                   </DropdownMenuContent>
                 </DropdownMenu>
               ) : (
-                <Button asChild variant="ghost">
+                <Button key={link.href} asChild variant="ghost">
                   <Link
-                    key={link.href}
                     href={link.href}
-                    className="font-medium hover:text-accent transition-colors duration-300 flex items-center text-primary-foreground"
+                    className="font-medium hover:text-accent transition-colors duration-300 flex items-center text-primary-foreground focus-visible:ring-0 focus-visible:ring-offset-0"
                   >
                     {link.label}
                   </Link>
