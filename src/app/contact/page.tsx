@@ -7,7 +7,13 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Phone, Mail, Clock, ArrowRight, Building } from 'lucide-react';
 import Link from 'next/link';
-import Globe from '@/components/pages/contact/globe';
+import dynamic from 'next/dynamic';
+import { Skeleton } from '@/components/ui/skeleton';
+
+const Globe = dynamic(() => import('@/components/pages/contact/globe'), {
+  ssr: false,
+  loading: () => <Skeleton className="w-full h-full bg-primary/50" />,
+});
 
 const officeLocations = [
   {
