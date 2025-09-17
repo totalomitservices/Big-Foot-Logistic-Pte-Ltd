@@ -40,14 +40,17 @@ const navLinks = [
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const pathname = usePathname();
-  const [scrolled, setScrolled] = useState(false);
+  const [scrolled, setScrolled] = useState<boolean | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 10);
     };
+    
+    // Set initial state
+    handleScroll();
+
     window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Check on mount
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -73,9 +76,7 @@ export default function Header() {
           <nav className="hidden md:flex md:space-x-8">
             {navLinks.map((link) =>
               link.subLinks ? (
-                <DropdownMenu 
-                  key={link.label}
-                >
+                 <DropdownMenu key={link.label}>
                   <DropdownMenuTrigger asChild>
                     <Button
                       variant="ghost"
