@@ -47,7 +47,7 @@ export default function TrackingForm() {
   }
 
   return (
-    <Card className="w-full max-w-md bg-background/90 backdrop-blur-sm shadow-lg">
+    <Card className="w-full max-w-md bg-background/90 backdrop-blur-sm shadow-lg rounded-none">
       <CardHeader>
         <CardTitle className="text-2xl font-bold text-center flex items-center justify-center gap-2 text-primary">
             <Rocket /> Track Your Shipment
