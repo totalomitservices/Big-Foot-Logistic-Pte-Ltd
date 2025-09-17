@@ -42,6 +42,8 @@ export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const [hasMounted, setHasMounted] = useState(false);
+  const [visible, setVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
 
   useEffect(() => {
     setHasMounted(true);
@@ -51,16 +53,26 @@ export default function Header() {
     if (!hasMounted) return;
 
     const handleScroll = () => {
-      setScrolled(window.scrollY > 10);
+      const currentScrollY = window.scrollY;
+      setScrolled(currentScrollY > 10);
+      
+      if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        // Scrolling down
+        setVisible(false);
+      } else {
+        // Scrolling up
+        setVisible(true);
+      }
+      setLastScrollY(currentScrollY);
     };
     
     window.addEventListener('scroll', handleScroll);
     handleScroll(); // Check on mount
     
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [hasMounted]);
+  }, [hasMounted, lastScrollY]);
 
-  const isTransparent = hasMounted && !scrolled;
+  const isTransparent = hasMounted && !scrolled && pathname === '/';
 
   const handleMouseEnter = (label: string) => {
     if (hasMounted) {
@@ -78,14 +90,15 @@ export default function Header() {
     <header
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-        isTransparent ? "bg-transparent" : "bg-primary shadow-md"
+        isTransparent ? "bg-transparent" : "bg-primary shadow-md",
+        visible ? "translate-y-0" : "-translate-y-full"
       )}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-24">
           <div className="flex-shrink-0">
             <Link href="/">
-              <Logo className={cn(isTransparent ? 'text-primary-foreground' : 'text-primary-foreground')} />
+              <Logo className={cn('text-primary-foreground')} />
             </Link>
           </div>
 
@@ -100,8 +113,7 @@ export default function Header() {
                         <Button 
                           variant="ghost" 
                           className={cn(
-                            "font-medium hover:text-accent transition-colors duration-300 flex items-center focus-visible:ring-0 focus-visible:ring-offset-0 hover:bg-transparent",
-                            isTransparent ? "text-primary-foreground" : "text-primary-foreground"
+                            "font-medium text-primary-foreground hover:text-accent focus-visible:ring-0 focus-visible:ring-offset-0 hover:bg-transparent focus:bg-transparent"
                           )}
                           onMouseEnter={() => handleMouseEnter(link.label)}
                           onMouseLeave={handleMouseLeave}
@@ -125,8 +137,7 @@ export default function Header() {
                     <Link
                       href={link.href}
                       className={cn(
-                        "font-medium hover:text-accent transition-colors duration-300 flex items-center focus-visible:ring-0 focus-visible:ring-offset-0 px-4 py-2",
-                         isTransparent ? "text-primary-foreground" : "text-primary-foreground"
+                        "font-medium text-primary-foreground hover:text-accent transition-colors duration-300 px-4 py-2"
                       )}
                     >
                       {link.label}
@@ -140,7 +151,7 @@ export default function Header() {
           {/* Contact Info */}
           {hasMounted && (
             <div className="hidden md:flex items-center justify-end space-x-4">
-              <div className={cn("text-right text-sm", isTransparent ? "text-primary-foreground" : "text-primary-foreground")}>
+              <div className={cn("text-right text-sm text-primary-foreground")}>
                   <a href="mailto:enquiries@bigfoot.com.sg" className="flex items-center gap-2 hover:text-accent transition-colors">
                     <Mail className="h-4 w-4" />
                     <span>enquiries@bigfoot.com.sg</span>
@@ -158,7 +169,7 @@ export default function Header() {
             <div className="md:hidden">
               <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
                 <SheetTrigger asChild>
-                  <Button variant="ghost" size="icon" className={cn("hover:text-accent", isTransparent ? "text-primary-foreground" : "text-primary-foreground")}>
+                  <Button variant="ghost" size="icon" className={cn("text-primary-foreground hover:text-accent")}>
                     <Menu className="h-6 w-6" />
                     <span className="sr-only">Open menu</span>
                   </Button>
