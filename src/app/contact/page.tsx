@@ -1,5 +1,6 @@
 
-import Image from 'next/image';
+'use client';
+
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -42,13 +43,14 @@ export default function ContactPage() {
       {/* Hero Section */}
       <section 
         className="relative h-[70vh] w-full bg-background overflow-hidden group"
-        >
-        <Image
-            src="https://picsum.photos/seed/world-map/1920/1080"
-            alt="Global logistics network"
-            fill
-            className="object-cover object-center transition-transform duration-500 ease-in-out group-hover:scale-105 animate-pan-map"
-            data-ai-hint="world map"
+      >
+        <video
+          src="https://github.com/Ram-0609/Bigfoot-Logistics-Images/raw/main/3125427-uhd_3840_2160_25fps.mp4"
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover object-center"
         />
         <div className="absolute inset-0 bg-primary/70" />
         
