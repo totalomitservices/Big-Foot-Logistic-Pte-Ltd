@@ -74,7 +74,7 @@ export default function VisionMissionPage() {
                       
                       {index % 2 !== 0 && (
                          <div className="hidden md:block">
-                            <h3 className="text-2xl font-headline font-bold text-primary text-left">{event.title}</h3>
+                           
                             <p className="mt-2 text-muted-foreground text-left"></p>
                          </div>
                       )}
