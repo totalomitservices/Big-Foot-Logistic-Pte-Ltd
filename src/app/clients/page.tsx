@@ -122,7 +122,7 @@ export default function ClientsPage() {
                             src={client.logoUrl}
                             alt={`${client.name} logo`}
                             fill
-                            className="object-contain filter grayscale"
+                            className="object-contain"
                         />
                     </div>
                   </Card>
