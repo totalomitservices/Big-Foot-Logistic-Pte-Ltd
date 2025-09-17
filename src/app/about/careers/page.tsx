@@ -7,7 +7,7 @@ export default function CareersPage() {
   return (
     <div className="bg-background text-foreground">
       {/* Hero Section */}
-      <section className="relative h-[60vh] w-full">
+      <section className="relative h-[80vh] w-full">
         <Image
           src="https://picsum.photos/seed/careers-hero/1920/400"
           alt="Diverse team working together in an office"
@@ -30,14 +30,35 @@ export default function CareersPage() {
       {/* Content Section */}
       <section className="py-16 lg:py-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl font-headline font-bold text-primary">
-              Grow With Us
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-3xl font-headline font-bold text-primary text-center">
+              Join the Big-Foot Family
             </h2>
             <p className="mt-4 text-lg text-muted-foreground leading-relaxed">
-              At Bigfoot Logistics, we believe our people are our greatest asset. We are always looking for talented, passionate individuals to join our growing team. Explore our open positions and find where you fit in.
+              At Big-Foot Logistic Pte Ltd, we believe that our people are our greatest asset. As a leader in innovative logistics solutions, we are committed to building a dynamic and inclusive workplace where every individual can grow and make a difference.
             </p>
-            <div className="mt-12">
+            
+            <div className="mt-12 space-y-8">
+                <div>
+                    <h3 className="text-2xl font-headline font-semibold text-primary mb-2">Why Work With Us?</h3>
+                    <ul className="list-disc list-inside space-y-4 text-lg text-muted-foreground">
+                        <li>
+                            <span className="font-semibold">Innovative Environment:</span> Be a part of a company that embraces cutting-edge technology and strives for continuous improvement in every aspect of logistics and supply chain management.
+                        </li>
+                        <li>
+                            <span className="font-semibold">Career Growth:</span> We are dedicated to your professional development. Whether you are just starting out or a seasoned professional, you will find opportunities to advance your career and achieve your goals.
+                        </li>
+                        <li>
+                            <span className="font-semibold">Supportive Culture:</span> At Big-Foot Logistic, we foster a collaborative and supportive work environment. We believe in teamwork, open communication, and recognizing the contributions of each member.
+                        </li>
+                         <li>
+                            <span className="font-semibold">Competitive Benefits & Bonuses:</span> Some of our positions offer joining and quarterly bonuses of up to $25,000. We also provide a comprehensive benefits package, including health insurance and opportunities for further training and certifications.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div className="mt-12 text-center">
               <Button asChild size="lg" variant="accent">
                 <Link href="#contact">
                   View Open Positions
