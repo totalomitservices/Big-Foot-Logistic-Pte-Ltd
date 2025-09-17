@@ -15,7 +15,7 @@ export default function Hero() {
           alt={heroImage.description}
           fill
           priority
-          className="object-cover"
+          className="object-contain md:object-cover"
           data-ai-hint={heroImage.imageHint}
         />
       )}
