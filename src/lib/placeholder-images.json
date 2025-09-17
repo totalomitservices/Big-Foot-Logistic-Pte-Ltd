@@ -10,38 +10,38 @@
     {
       "id": "service-air-freight",
       "description": "An airplane flying over a cargo port.",
-      "imageUrl": "https://raw.githubusercontent.com/Ram-0609/pic/refs/heads/main/transport-logistics-products.jpg",
+      "imageUrl": "https://github.com/Ram-0609/Bigfoot-Logistics-Images/blob/main/AIR-FREIGHT.jpg?raw=true",
       "imageHint": "air freight"
     },
     {
       "id": "service-ocean-freight",
       "description": "Container ship on the open ocean.",
-      "imageUrl": "https://picsum.photos/seed/ocean-freight/500/500",
-      "imageHint": "ocean freight"
+      "imageUrl": "https://github.com/Ram-0609/Bigfoot-Logistics-Images/blob/main/trucks-on.jpg?raw=true",
+      "imageHint": "land transport"
     },
     {
       "id": "service-road-transport",
       "description": "A fleet of trucks at a depot.",
-      "imageUrl": "https://picsum.photos/seed/road-transport/500/500",
-      "imageHint": "road transport"
+      "imageUrl": "https://github.com/Ram-0609/Bigfoot-Logistics-Images/blob/main/Custom-Clearance.jpg?raw=true",
+      "imageHint": "customs clearance"
     },
     {
       "id": "service-warehouse",
       "description": "A large, modern warehouse with shelves full of boxes.",
-      "imageUrl": "https://picsum.photos/seed/warehouse-storage/500/500",
+      "imageUrl": "https://github.com/Ram-0609/Bigfoot-Logistics-Images/blob/main/Warehousing-Important-1024x614.jpg?raw=true",
       "imageHint": "warehouse storage"
     },
     {
       "id": "service-customs",
       "description": "A customs officer inspecting documents.",
-      "imageUrl": "https://raw.githubusercontent.com/swathitom1207/logo-image-/refs/heads/main/Packers%20and%20Movers%201.webp",
-      "imageHint": "customs brokerage"
+      "imageUrl": "https://github.com/Ram-0609/Bigfoot-Logistics-Images/blob/main/Packers-and-Movers-768x513.jpg?raw=true",
+      "imageHint": "packers movers"
     },
     {
       "id": "service-supply-chain",
       "description": "A diagram showing a complex supply chain network.",
-      "imageUrl": "https://picsum.photos/seed/supply-chain/500/500",
-      "imageHint": "supply chain"
+      "imageUrl": "https://github.com/Ram-0609/Bigfoot-Logistics-Images/blob/main/Live%20Stock%20Handling.jpg?raw=true",
+      "imageHint": "livestock handling"
     }
   ]
 }
