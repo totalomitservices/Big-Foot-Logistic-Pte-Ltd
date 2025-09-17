@@ -154,63 +154,65 @@ export default function Header() {
           )}
           
           {/* Mobile Menu */}
-          <div className="md:hidden">
-            <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
-              <SheetTrigger asChild>
-                <Button variant="ghost" size="icon" className={cn("hover:text-accent", isTransparent ? "text-primary-foreground" : "text-primary-foreground")}>
-                  <Menu className="h-6 w-6" />
-                  <span className="sr-only">Open menu</span>
-                </Button>
-              </SheetTrigger>
-              <SheetContent side="left" className="w-[300px] sm:w-[400px] bg-primary text-primary-foreground">
-                 <div className="flex flex-col h-full p-6">
-                    <Link href="/" onClick={() => setMobileMenuOpen(false)} className="mb-8">
-                      <Logo className="text-white" />
-                    </Link>
-                    <nav className="flex flex-col space-y-4">
-                      {navLinks.map((link) =>
-                        link.subLinks ? (
-                          <div key={link.label}>
-                            <h3 className="font-bold text-lg mb-2">{link.label}</h3>
-                            <div className="flex flex-col space-y-2 pl-4">
-                              {link.subLinks.map((subLink) => (
-                                <Link
-                                  key={subLink.href}
-                                  href={subLink.href}
-                                  onClick={() => setMobileMenuOpen(false)}
-                                  className="text-base hover:text-accent transition-colors"
-                                >
-                                  {subLink.label}
-                                </Link>
-                              ))}
+          {hasMounted && (
+            <div className="md:hidden">
+              <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
+                <SheetTrigger asChild>
+                  <Button variant="ghost" size="icon" className={cn("hover:text-accent", isTransparent ? "text-primary-foreground" : "text-primary-foreground")}>
+                    <Menu className="h-6 w-6" />
+                    <span className="sr-only">Open menu</span>
+                  </Button>
+                </SheetTrigger>
+                <SheetContent side="left" className="w-[300px] sm:w-[400px] bg-primary text-primary-foreground">
+                   <div className="flex flex-col h-full p-6">
+                      <Link href="/" onClick={() => setMobileMenuOpen(false)} className="mb-8">
+                        <Logo className="text-white" />
+                      </Link>
+                      <nav className="flex flex-col space-y-4">
+                        {navLinks.map((link) =>
+                          link.subLinks ? (
+                            <div key={link.label}>
+                              <h3 className="font-bold text-lg mb-2">{link.label}</h3>
+                              <div className="flex flex-col space-y-2 pl-4">
+                                {link.subLinks.map((subLink) => (
+                                  <Link
+                                    key={subLink.href}
+                                    href={subLink.href}
+                                    onClick={() => setMobileMenuOpen(false)}
+                                    className="text-base hover:text-accent transition-colors"
+                                  >
+                                    {subLink.label}
+                                  </Link>
+                                ))}
+                              </div>
                             </div>
-                          </div>
-                        ) : (
-                          <Link
-                            key={link.href}
-                            href={link.href}
-                            onClick={() => setMobileMenuOpen(false)}
-                            className="font-bold text-lg hover:text-accent transition-colors"
-                          >
-                            {link.label}
-                          </Link>
-                        )
-                      )}
-                    </nav>
-                     <div className="mt-auto space-y-4">
-                       <a href="mailto:enquiries@bigfoot.com.sg" className="flex items-center gap-2 hover:text-accent transition-colors">
-                         <Mail className="h-4 w-4" />
-                         <span>enquiries@bigfoot.com.sg</span>
-                       </a>
-                       <a href="tel:6563244722" className="flex items-center gap-2 hover:text-accent transition-colors">
-                         <Phone className="h-4 w-4" />
-                         <span>65 6324 4722</span>
-                       </a>
-                     </div>
-                 </div>
-              </SheetContent>
-            </Sheet>
-          </div>
+                          ) : (
+                            <Link
+                              key={link.href}
+                              href={link.href}
+                              onClick={() => setMobileMenuOpen(false)}
+                              className="font-bold text-lg hover:text-accent transition-colors"
+                            >
+                              {link.label}
+                            </Link>
+                          )
+                        )}
+                      </nav>
+                       <div className="mt-auto space-y-4">
+                         <a href="mailto:enquiries@bigfoot.com.sg" className="flex items-center gap-2 hover:text-accent transition-colors">
+                           <Mail className="h-4 w-4" />
+                           <span>enquiries@bigfoot.com.sg</span>
+                         </a>
+                         <a href="tel:6563244722" className="flex items-center gap-2 hover:text-accent transition-colors">
+                           <Phone className="h-4 w-4" />
+                           <span>65 6324 4722</span>
+                         </a>
+                       </div>
+                   </div>
+                </SheetContent>
+              </Sheet>
+            </div>
+          )}
         </div>
       </div>
     </header>
