@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
+import QuickAccessCard from './quick-access-card';
 
 const heroImage = PlaceHolderImages.find((img) => img.id === 'hero-image');
 
@@ -32,12 +33,16 @@ export default function Hero() {
           <div className="mt-8">
             <Button
               asChild
-              size="lg"
+              size="default"
+              variant="outline"
               className="border-2 border-[#C5A77D] bg-transparent text-[#C5A77D] hover:bg-[#C5A77D] hover:text-primary transition-all duration-300 transform hover:scale-105 shadow-lg"
             >
               <Link href="#services">Read More</Link>
             </Button>
           </div>
+        </div>
+        <div className="absolute bottom-12 right-12 w-full max-w-md">
+          <QuickAccessCard />
         </div>
       </div>
     </section>
