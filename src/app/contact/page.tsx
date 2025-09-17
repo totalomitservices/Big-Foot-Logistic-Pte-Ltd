@@ -7,6 +7,7 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Phone, Mail, Clock, ArrowRight, Building } from 'lucide-react';
 import Link from 'next/link';
+import Globe from '@/components/pages/contact/globe';
 
 const officeLocations = [
   {
@@ -38,29 +39,23 @@ const coreServices = [
 ]
 
 export default function ContactPage() {
+
   return (
     <div className="bg-secondary text-foreground">
       {/* Hero Section */}
       <section 
-        className="relative h-[70vh] w-full bg-background overflow-hidden group"
+        className="relative h-screen w-full bg-primary overflow-hidden"
       >
-        <video
-          src="https://github.com/Ram-0609/Bigfoot-Logistics-Images/raw/main/3125427-uhd_3840_2160_25fps.mp4"
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="absolute inset-0 w-full h-full object-cover object-center"
-        />
-        <div className="absolute inset-0 bg-primary/70" />
-        
-        <div className="relative z-10 flex h-full flex-col items-center justify-center text-center px-4">
-          <h1 className="font-headline text-4xl md:text-5xl font-bold text-primary-foreground">
-            Contact Us
-          </h1>
-          <p className="mt-4 text-lg md:text-xl font-light max-w-2xl text-primary-foreground/90">
-            We’re here to help you with reliable logistics solutions.
-          </p>
+        <Globe />
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+            <div className="text-center text-primary-foreground">
+                 <h1 className="font-headline text-4xl md:text-5xl font-bold">
+                    Contact Us
+                </h1>
+                <p className="mt-4 text-lg md:text-xl font-light max-w-2xl">
+                    We’re here to help you with reliable logistics solutions.
+                </p>
+            </div>
         </div>
       </section>
 
