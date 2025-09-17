@@ -3,9 +3,9 @@
   "placeholderImages": [
     {
       "id": "hero-image",
-      "description": "A long truck driving on a highway through mountains.",
-      "imageUrl": "https://raw.githubusercontent.com/Ram-0609/pic/refs/heads/main/pexels-haneul-trac-246343735-33914388%20(1).jpg",
-      "imageHint": "logistics truck"
+      "description": "Container ship for shipping and chartering.",
+      "imageUrl": "https://raw.githubusercontent.com/swathitom1207/image1/refs/heads/main/Shipping%20and%20Chartering.jpg",
+      "imageHint": "shipping chartering"
     },
     {
       "id": "service-air-freight",
