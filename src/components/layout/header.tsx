@@ -48,23 +48,14 @@ const navLinks = [
 export default function Header() {
   const pathname = usePathname();
   const isHomePage = pathname === '/';
-  const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 10);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
   const headerClasses = cn(
-    "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
+    "absolute top-0 left-0 right-0 z-50 transition-all duration-300",
     {
-      "bg-primary text-primary-foreground shadow-md": !isHomePage || scrolled,
-      "bg-transparent text-white": isHomePage && !scrolled,
+      "bg-primary text-primary-foreground shadow-md": !isHomePage,
+      "bg-transparent text-white": isHomePage,
     }
   );
 
@@ -74,7 +65,7 @@ export default function Header() {
         <div className="flex items-center justify-between h-24">
           <div className="flex-shrink-0">
             <Link href="/">
-              <Logo className={cn("transition-colors", { "text-white": isHomePage && !scrolled, "text-primary-foreground": !isHomePage || scrolled })} />
+              <Logo className={cn("transition-colors", { "text-white": isHomePage, "text-primary-foreground": !isHomePage })} />
             </Link>
           </div>
 
@@ -96,8 +87,8 @@ export default function Header() {
                     <Button
                       variant="ghost"
                       className={cn("font-medium hover:text-accent transition-colors duration-300 text-base", {
-                        "text-white hover:text-accent": isHomePage && !scrolled,
-                        "text-primary-foreground hover:text-accent": !isHomePage || scrolled,
+                        "text-white hover:text-accent": isHomePage,
+                        "text-primary-foreground hover:text-accent": !isHomePage,
                       })}
                     >
                       {link.label}
@@ -121,8 +112,8 @@ export default function Header() {
                   key={link.href}
                   href={link.href}
                   className={cn("font-medium hover:text-accent transition-colors duration-300 flex items-center text-base", {
-                    "text-white": isHomePage && !scrolled,
-                    "text-primary-foreground": !isHomePage || scrolled,
+                    "text-white": isHomePage,
+                    "text-primary-foreground": !isHomePage,
                   })}
                 >
                   {link.label}
