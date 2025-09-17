@@ -7,7 +7,7 @@ export default function PackersAndMoversPage() {
   return (
     <div className="bg-background text-foreground">
       {/* Hero Section */}
-      <section className="relative h-[40vh] w-full">
+      <section className="relative h-[60vh] w-full">
         <Image
           src="https://github.com/Ram-0609/Bigfoot-Logistics-Images/blob/main/Packers-and-Movers-768x513.jpg?raw=true"
           alt="Packers and movers carefully handling items"

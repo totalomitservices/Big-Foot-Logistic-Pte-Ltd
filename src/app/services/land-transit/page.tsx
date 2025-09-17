@@ -6,7 +6,7 @@ export default function LandTransitPage() {
   return (
     <div className="bg-background text-foreground">
       {/* Hero Section */}
-      <section className="relative h-[40vh] w-full">
+      <section className="relative h-[60vh] w-full">
         <Image
           src="https://github.com/Ram-0609/Bigfoot-Logistics-Images/blob/main/trucks-on.jpg?raw=true"
           alt="Truck on a highway"

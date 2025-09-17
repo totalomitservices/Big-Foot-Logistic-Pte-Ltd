@@ -7,7 +7,7 @@ export default function CustomClearancePage() {
   return (
     <div className="bg-background text-foreground">
       {/* Hero Section */}
-      <section className="relative h-[40vh] w-full">
+      <section className="relative h-[60vh] w-full">
         <Image
           src="https://github.com/Ram-0609/Bigfoot-Logistics-Images/blob/main/Custom-Clearance.jpg?raw=true"
           alt="Customs clearance process"

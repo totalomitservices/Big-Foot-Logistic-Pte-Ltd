@@ -8,6 +8,9 @@ export function Logo({ className }: { className?: string }) {
           src="https://raw.githubusercontent.com/swathitom1207/logo-image-/main/contact%20us%202.png"
           alt="Bigfoot Logistics Logo"
           fill
+          sizes="(max-width: 768px) 100vw,
+                 (max-width: 1200px) 50vw,
+                 150px"
           className="object-contain"
         />
       </div>
