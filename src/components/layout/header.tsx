@@ -41,17 +41,19 @@ export default function Header() {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
+    setIsClient(true);
     const handleScroll = () => {
       setScrolled(window.scrollY > 10);
     };
     window.addEventListener('scroll', handleScroll);
-    handleScroll();
+    handleScroll(); // Check scroll position on mount
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const isTransparent = pathname === '/' && !scrolled;
+  const isTransparent = isClient && pathname === '/' && !scrolled;
 
   return (
     <header
@@ -75,12 +77,16 @@ export default function Header() {
                 {link.subLinks ? (
                   <DropdownMenu onOpenChange={(isOpen) => setOpenDropdown(isOpen ? link.label : null)} open={openDropdown === link.label}>
                     <DropdownMenuTrigger asChild>
-                      <Button variant="ghost" className="font-medium hover:text-accent transition-colors duration-300 flex items-center text-primary-foreground focus-visible:ring-0 focus-visible:ring-offset-0">
+                      <Button 
+                        variant="ghost" 
+                        className="font-medium hover:text-accent transition-colors duration-300 flex items-center text-primary-foreground focus-visible:ring-0 focus-visible:ring-offset-0"
+                        onMouseEnter={() => setOpenDropdown(link.label)}
+                      >
                         {link.label}
                         <ChevronDown className="ml-2 h-4 w-4" />
                       </Button>
                     </DropdownMenuTrigger>
-                    <DropdownMenuContent>
+                    <DropdownMenuContent onMouseLeave={() => setOpenDropdown(null)}>
                       {link.subLinks.map((subLink) => (
                         <DropdownMenuItem key={subLink.href} asChild>
                           <Link href={subLink.href}>{subLink.label}</Link>
