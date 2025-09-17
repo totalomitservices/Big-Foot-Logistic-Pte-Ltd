@@ -10,7 +10,7 @@ export function Logo({ className }: { className?: string }) {
         sizes="(max-width: 768px) 100vw,
                 (max-width: 1200px) 50vw,
                 150px"
-        className="object-contain bg-white rounded-full p-2"
+        className="object-contain bg-white rounded-full p-1"
       />
     </div>
   );
