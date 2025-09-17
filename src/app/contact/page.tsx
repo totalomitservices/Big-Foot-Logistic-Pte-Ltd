@@ -41,13 +41,7 @@ export default function ContactPage() {
   return (
     <div className="bg-secondary text-foreground">
       {/* Hero Section */}
-      <section className="relative h-[70vh] w-full bg-background text-primary-foreground">
-        <Image
-          src="https://github.com/Ram-0609/Bigfoot-Logistics-Images/blob/main/pxfuel.jpg?raw=true"
-          alt="World map with office locations"
-          fill
-          className="object-cover"
-        />
+      <section className="relative h-[70vh] w-full bg-background">
         <div className="relative z-10 flex h-full flex-col items-center justify-center text-center px-4">
           <h1 className="font-headline text-4xl md:text-5xl font-bold text-primary">
             Contact Us
