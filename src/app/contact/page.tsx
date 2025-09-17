@@ -57,12 +57,18 @@ export default function ContactPage() {
     if (typeof window !== 'undefined' && mapRef.current && !mapInstance.current) {
         (async () => {
             const L = await import('leaflet');
+            
+            const southWest = L.latLng(-90, -180);
+            const northEast = L.latLng(90, 180);
+            const bounds = L.latLngBounds(southWest, northEast);
 
             mapInstance.current = L.map(mapRef.current!, {
                 center: WORLD_VIEW.center as L.LatLngTuple,
                 zoom: WORLD_VIEW.zoom,
                 minZoom: WORLD_VIEW.zoom,
                 zoomControl: false,
+                maxBounds: bounds,
+                maxBoundsViscosity: 1.0
             });
 
             L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}{r}.png', {
@@ -242,3 +248,5 @@ export default function ContactPage() {
     </div>
   );
 }
+
+    
