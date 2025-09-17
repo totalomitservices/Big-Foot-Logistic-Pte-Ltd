@@ -39,7 +39,6 @@ const navLinks = [
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const pathname = usePathname();
-  const [scrolled, setScrolled] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const [hasMounted, setHasMounted] = useState(false);
 
@@ -47,21 +46,7 @@ export default function Header() {
     setHasMounted(true);
   }, []);
 
-  useEffect(() => {
-    if (!hasMounted) return;
-
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      setScrolled(currentScrollY > 10);
-    };
-    
-    window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Check on mount
-    
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [hasMounted]);
-
-  const isTransparent = hasMounted && !scrolled && pathname === '/';
+  const isTransparent = hasMounted && pathname === '/';
 
   const handleMouseEnter = (label: string) => {
     if (hasMounted) {
@@ -79,8 +64,8 @@ export default function Header() {
     return (
         <header
         className={cn(
-            "relative top-0 left-0 right-0 z-50 transition-all duration-300",
-            "bg-primary shadow-md"
+            "absolute top-0 left-0 right-0 z-50 transition-all duration-300",
+            "bg-primary"
         )}
         >
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -99,7 +84,7 @@ export default function Header() {
   return (
     <header
       className={cn(
-        "relative top-0 left-0 right-0 z-50 transition-all duration-300",
+        "absolute top-0 left-0 right-0 z-50 transition-all duration-300",
         isTransparent ? "bg-transparent" : "bg-primary shadow-md",
       )}
     >
