@@ -19,7 +19,7 @@ export default function Hero() {
         />
       )}
       <div className="absolute inset-0 bg-primary/70" />
-      <div className="relative z-10 flex h-full items-center justify-center text-white px-4 md:px-12 lg:px-24">
+      <div className="relative z-10 flex h-full items-center justify-start text-white px-4 md:px-12 lg:px-24">
         <div className="flex flex-col items-start max-w-2xl">
           <h1 className="font-headline text-5xl md:text-7xl font-bold uppercase tracking-tighter drop-shadow-lg">
             Moving Your World,
