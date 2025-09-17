@@ -38,17 +38,15 @@ const navLinks = [
 ];
 
 export default function Header() {
+  const [isMounted, setIsMounted] = useState(false);
   const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
-  const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
     setIsMounted(true);
   }, []);
-
-  const isHomePage = pathname === '/';
 
   useEffect(() => {
     if (typeof window === 'undefined') return;
@@ -58,23 +56,24 @@ export default function Header() {
     };
 
     window.addEventListener('scroll', handleScroll);
-    handleScroll(); 
+    handleScroll(); // Call on mount to set initial state
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
-  
-  const isTransparent = isMounted && isHomePage && !isScrolled;
+
+  // Default to solid and only become transparent on the client if not scrolled.
+  const isTransparent = isMounted && !isScrolled;
 
   const headerClasses = cn(
     "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
     {
       "bg-transparent text-white": isTransparent,
-      "bg-primary text-primary-foreground shadow-lg": !isTransparent,
-      "transform -translate-y-full": isScrolled && isHomePage && !mobileMenuOpen,
+      "bg-primary text-primary-foreground": !isTransparent,
+      "transform -translate-y-full": isScrolled && !mobileMenuOpen,
     }
   );
-
+  
   const logoClasses = cn({
     "text-white": isTransparent,
     "text-primary-foreground": !isTransparent
