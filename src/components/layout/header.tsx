@@ -77,13 +77,11 @@ export default function Header() {
             {navLinks.map((link) =>
               link.subLinks ? (
                 <DropdownMenu key={link.label}>
-                  <DropdownMenuTrigger asChild>
-                    <button
-                      className={cn("font-medium hover:text-accent transition-colors duration-300 text-base flex items-center bg-transparent border-none", isTransparent ? "text-white" : "text-primary-foreground")}
-                    >
-                      {link.label}
-                      <ChevronDown className="ml-2 h-4 w-4" />
-                    </button>
+                  <DropdownMenuTrigger
+                    className={cn("font-medium hover:text-accent focus:outline-none transition-colors duration-300 text-base flex items-center bg-transparent border-none", isTransparent ? "text-white" : "text-primary-foreground")}
+                  >
+                    {link.label}
+                    <ChevronDown className="ml-2 h-4 w-4" />
                   </DropdownMenuTrigger>
                   <DropdownMenuContent>
                     {link.subLinks.map((subLink) => (
@@ -97,7 +95,7 @@ export default function Header() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={cn("font-medium hover:text-accent transition-colors duration-300 flex items-center text-base", isTransparent ? "text-white" : "text-primary-foreground")}
+                  className={cn("font-medium hover:text-accent focus:outline-none transition-colors duration-300 flex items-center text-base", isTransparent ? "text-white" : "text-primary-foreground")}
                 >
                   {link.label}
                 </Link>
