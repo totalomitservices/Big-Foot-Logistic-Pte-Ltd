@@ -53,7 +53,7 @@ export default function PackersAndMoversPage() {
                     src="https://raw.githubusercontent.com/swathitom1207/logo-image-/refs/heads/main/Packers%20and%20Movers%202.webp"
                     alt="Moving truck"
                     fill
-                    className="object-cover rounded-lg shadow-lg"
+                    className="object-cover shadow-lg"
                     data-ai-hint="moving truck"
                 />
             </div>

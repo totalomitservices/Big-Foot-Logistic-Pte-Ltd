@@ -63,7 +63,7 @@ export default function OurStoryPage() {
             <div className="space-y-20">
                 {/* Our Journey */}
                 <div className="grid md:grid-cols-2 gap-12 items-center">
-                    <div className="relative aspect-video rounded-lg shadow-xl overflow-hidden">
+                    <div className="relative aspect-video shadow-xl overflow-hidden">
                         <Image src="https://picsum.photos/seed/journey/800/600" alt="Team handshake" fill className="object-cover" data-ai-hint="team handshake" />
                     </div>
                     <div>
@@ -76,7 +76,7 @@ export default function OurStoryPage() {
 
                 {/* Complete Solutions */}
                  <div className="grid md:grid-cols-2 gap-12 items-center">
-                    <div className="md:order-2 relative aspect-video rounded-lg shadow-xl overflow-hidden">
+                    <div className="md:order-2 relative aspect-video shadow-xl overflow-hidden">
                         <Image src="https://picsum.photos/seed/solutions/800/600" alt="Logistics network" fill className="object-cover" data-ai-hint="logistics network" />
                     </div>
                     <div className="md:order-1">
@@ -110,7 +110,7 @@ export default function OurStoryPage() {
               {coreValues.map((value) => (
                 <Card key={value.title} className="text-center border-0 shadow-none bg-transparent group">
                   <CardHeader className="items-center">
-                    <div className="bg-secondary p-4 rounded-full shadow-lg transition-all duration-300 group-hover:scale-110 group-hover:shadow-accent/30 group-hover:shadow-xl">
+                    <div className="bg-secondary p-4 shadow-lg transition-all duration-300 group-hover:scale-110 group-hover:shadow-accent/30 group-hover:shadow-xl">
                       {value.icon}
                     </div>
                     <CardTitle className="mt-4 font-headline text-xl">{value.title}</CardTitle>
