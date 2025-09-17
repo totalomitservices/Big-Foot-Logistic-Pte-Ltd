@@ -11,7 +11,7 @@ export default function OurStoryPage() {
       {/* Hero Section */}
       <section className="relative h-[60vh] w-full">
         <Image
-          src="https://picsum.photos/seed/our-story-hero/1920/400"
+          src="https://github.com/Ram-0609/Bigfoot-Logistics-Images/blob/main/Our%20story.jpg?raw=true"
           alt="Team collaborating on a logistics plan"
           fill
           priority
