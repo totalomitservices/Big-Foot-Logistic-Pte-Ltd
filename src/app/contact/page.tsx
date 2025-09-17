@@ -61,6 +61,7 @@ export default function ContactPage() {
             mapInstance.current = L.map(mapRef.current!, {
                 center: WORLD_VIEW.center as L.LatLngTuple,
                 zoom: WORLD_VIEW.zoom,
+                minZoom: WORLD_VIEW.zoom,
                 zoomControl: false,
             });
 
