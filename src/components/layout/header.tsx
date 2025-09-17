@@ -39,7 +39,6 @@ const navLinks = [
 
 export default function Header() {
   const pathname = usePathname();
-  const [isHomePage, setIsHomePage] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
@@ -49,11 +48,7 @@ export default function Header() {
     setIsMounted(true);
   }, []);
 
-  useEffect(() => {
-    if(isMounted) {
-      setIsHomePage(pathname === '/');
-    }
-  }, [pathname, isMounted]);
+  const isHomePage = pathname === '/';
 
   useEffect(() => {
     if (typeof window === 'undefined') return;
@@ -69,18 +64,20 @@ export default function Header() {
     };
   }, []);
   
+  const isTransparent = isMounted && isHomePage && !isScrolled;
+
   const headerClasses = cn(
     "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
     {
-      "bg-transparent text-white": isHomePage && !isScrolled,
-      "bg-primary text-primary-foreground shadow-lg": !isHomePage || isScrolled,
+      "bg-transparent text-white": isTransparent,
+      "bg-primary text-primary-foreground shadow-lg": !isTransparent,
       "transform -translate-y-full": isScrolled && isHomePage && !mobileMenuOpen,
     }
   );
 
   const logoClasses = cn({
-    "text-white": isHomePage && !isScrolled,
-    "text-primary-foreground": !isHomePage || isScrolled
+    "text-white": isTransparent,
+    "text-primary-foreground": !isTransparent
   });
 
   if (!isMounted) {
@@ -98,7 +95,6 @@ export default function Header() {
       </header>
     );
   }
-
 
   return (
     <header className={headerClasses}>
