@@ -80,55 +80,64 @@ export default function OpenPositionsPage() {
 
       <section className="py-16 lg:py-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-            {/* Main content */}
-            <div className="md:col-span-2 space-y-12">
-              <div>
-                <h2 className="text-3xl font-headline font-bold text-primary mb-8">
-                  Job Opportunities
-                </h2>
-                <div className="space-y-8">
-                  {jobOpenings.map((job) => (
-                    <Card key={job.title} className="overflow-hidden">
-                      <CardHeader className="bg-secondary">
-                        <CardTitle className="text-xl text-primary">{job.title}</CardTitle>
-                      </CardHeader>
-                      <CardContent className="p-6 space-y-4">
-                        {job.details && (
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-headline font-bold text-primary">
+              Job Opportunities
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+            {jobOpenings.map((job) => (
+              <Card key={job.title} className="flex flex-col h-full">
+                <CardHeader className="bg-secondary">
+                  <CardTitle className="text-xl text-primary">{job.title}</CardTitle>
+                </CardHeader>
+                <CardContent className="p-6 space-y-4 flex-grow">
+                  {job.details && (
+                    <ul className="list-disc list-inside space-y-1 text-muted-foreground">
+                      {job.details.map((detail, i) => <li key={i}>{detail}</li>)}
+                    </ul>
+                  )}
+                   {job.requirements && (
+                     <div>
+                          <h4 className="font-semibold mb-1 text-foreground">Requirements:</h4>
+                          <p className="text-muted-foreground">{job.requirements}</p>
+                     </div>
+                  )}
+                  {job.jobScopes && (
+                      <div>
+                          <h4 className="font-semibold mb-2 text-foreground">Job Scopes:</h4>
                           <ul className="list-disc list-inside space-y-1 text-muted-foreground">
-                            {job.details.map((detail, i) => <li key={i}>{detail}</li>)}
+                              {job.jobScopes.map((scope, i) => <li key={i}>{scope}</li>)}
                           </ul>
-                        )}
-                         {job.requirements && (
-                           <div>
-                                <h4 className="font-semibold mb-1 text-foreground">Requirements:</h4>
-                                <p className="text-muted-foreground">{job.requirements}</p>
-                           </div>
-                        )}
-                        {job.jobScopes && (
-                            <div>
-                                <h4 className="font-semibold mb-2 text-foreground">Job Scopes:</h4>
-                                <ul className="list-disc list-inside space-y-1 text-muted-foreground">
-                                    {job.jobScopes.map((scope, i) => <li key={i}>{scope}</li>)}
-                                </ul>
-                            </div>
-                        )}
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm pt-4">
-                            <p><strong className="text-foreground">Job Type:</strong> {job.type}</p>
-                            <p><strong className="text-foreground">Location:</strong> {job.location}</p>
-                            <p><strong className="text-foreground">Eligibility:</strong> {job.eligibility}</p>
-                        </div>
-                        {job.bonus && (
-                           <CardDescription className="pt-2 text-accent font-semibold italic">
-                            {job.bonus}
-                           </CardDescription>
-                        )}
-                      </CardContent>
-                    </Card>
-                  ))}
-                </div>
-              </div>
+                      </div>
+                  )}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm pt-4">
+                      <p><strong className="text-foreground">Job Type:</strong> {job.type}</p>
+                      <p><strong className="text-foreground">Location:</strong> {job.location}</p>
+                      <p><strong className="text-foreground">Eligibility:</strong> {job.eligibility}</p>
+                  </div>
+                  {job.bonus && (
+                     <CardDescription className="pt-2 text-accent font-semibold italic">
+                      {job.bonus}
+                     </CardDescription>
+                  )}
+                </CardContent>
+              </Card>
+            ))}
+          </div>
 
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mt-16">
+            <div className="md:col-span-2 space-y-12">
+               <Card>
+                <CardHeader>
+                  <CardTitle>Perks & Benefits</CardTitle>
+                </CardHeader>
+                <CardContent>
+                   <ul className="list-disc list-inside grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-2 text-muted-foreground">
+                        {perksAndBenefits.map((perk, i) => <li key={i}>{perk}</li>)}
+                    </ul>
+                </CardContent>
+              </Card>
                <div>
                 <h3 className="text-2xl font-headline font-bold text-primary mb-4">
                   Life at Big-Foot Group
@@ -139,7 +148,6 @@ export default function OpenPositionsPage() {
               </div>
             </div>
 
-            {/* Sidebar */}
             <div className="space-y-8">
               <Card className="sticky top-28">
                 <CardHeader>
@@ -162,20 +170,9 @@ export default function OpenPositionsPage() {
                   <p className="text-sm text-muted-foreground text-center">for an immediate response.</p>
                 </CardContent>
               </Card>
-
-               <Card>
-                <CardHeader>
-                  <CardTitle>Perks & Benefits</CardTitle>
-                </CardHeader>
-                <CardContent>
-                   <ul className="list-disc list-inside space-y-2 text-muted-foreground">
-                        {perksAndBenefits.map((perk, i) => <li key={i}>{perk}</li>)}
-                    </ul>
-                </CardContent>
-              </Card>
-
             </div>
           </div>
+
         </div>
       </section>
     </div>
