@@ -50,6 +50,7 @@ export default function Header() {
   const isHomePage = pathname === '/';
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -62,8 +63,8 @@ export default function Header() {
   const headerClasses = cn(
     "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
     {
-      "bg-transparent text-white": isHomePage && !scrolled,
       "bg-primary text-primary-foreground shadow-md": !isHomePage || scrolled,
+      "bg-transparent text-white": isHomePage && !scrolled,
     }
   );
 
@@ -81,8 +82,17 @@ export default function Header() {
           <nav className="hidden md:flex md:space-x-8">
             {navLinks.map((link) =>
               link.subLinks ? (
-                <DropdownMenu key={link.label}>
+                <DropdownMenu 
+                  key={link.label} 
+                  open={openDropdown === link.label}
+                  onOpenChange={(isOpen) => setOpenDropdown(isOpen ? link.label : null)}
+                >
                   <DropdownMenuTrigger asChild>
+                     <div
+                      onMouseEnter={() => setOpenDropdown(link.label)}
+                      onMouseLeave={() => setOpenDropdown(null)}
+                      className="flex items-center"
+                    >
                     <Button
                       variant="ghost"
                       className={cn("font-medium hover:text-accent transition-colors duration-300 text-base", {
@@ -93,8 +103,12 @@ export default function Header() {
                       {link.label}
                       <ChevronDown className="ml-2 h-4 w-4" />
                     </Button>
+                    </div>
                   </DropdownMenuTrigger>
-                  <DropdownMenuContent>
+                  <DropdownMenuContent
+                    onMouseEnter={() => setOpenDropdown(link.label)}
+                    onMouseLeave={() => setOpenDropdown(null)}
+                  >
                     {link.subLinks.map((subLink) => (
                       <DropdownMenuItem key={subLink.href} asChild>
                         <Link href={subLink.href}>{subLink.label}</Link>
