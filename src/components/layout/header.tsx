@@ -42,8 +42,6 @@ export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const [hasMounted, setHasMounted] = useState(false);
-  const [visible, setVisible] = useState(true);
-  const [lastScrollY, setLastScrollY] = useState(0);
 
   useEffect(() => {
     setHasMounted(true);
@@ -55,22 +53,13 @@ export default function Header() {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
       setScrolled(currentScrollY > 10);
-      
-      if (currentScrollY > lastScrollY && currentScrollY > 100) {
-        // Scrolling down
-        setVisible(false);
-      } else {
-        // Scrolling up
-        setVisible(true);
-      }
-      setLastScrollY(currentScrollY);
     };
     
     window.addEventListener('scroll', handleScroll);
     handleScroll(); // Check on mount
     
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [hasMounted, lastScrollY]);
+  }, [hasMounted]);
 
   const isTransparent = hasMounted && !scrolled && pathname === '/';
 
@@ -90,7 +79,7 @@ export default function Header() {
     return (
         <header
         className={cn(
-            "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
+            "relative top-0 left-0 right-0 z-50 transition-all duration-300",
             "bg-primary shadow-md"
         )}
         >
@@ -110,9 +99,8 @@ export default function Header() {
   return (
     <header
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
+        "relative top-0 left-0 right-0 z-50 transition-all duration-300",
         isTransparent ? "bg-transparent" : "bg-primary shadow-md",
-        visible ? "translate-y-0" : "-translate-y-full"
       )}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
