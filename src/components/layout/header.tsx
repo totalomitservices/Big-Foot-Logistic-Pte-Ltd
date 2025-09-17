@@ -26,7 +26,6 @@ const navLinks = [
       { href: '/about/our-story', label: 'Our Story' },
       { href: '/about/vision-mission', label: 'Vision & Mission' },
       { href: '/about/careers', label: 'Careers' },
-      { href: '/about/careers/open-positions', label: 'Open Positions' },
     ],
   },
   {
@@ -41,9 +40,27 @@ const navLinks = [
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const pathname = usePathname();
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 10);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const isHomePage = pathname === '/';
+  const isTransparent = isHomePage && !scrolled;
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-primary text-primary-foreground shadow-md transition-all duration-300">
+    <header
+      className={cn(
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
+        isTransparent ? "bg-transparent" : "bg-primary shadow-md"
+      )}
+    >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-24">
           <div className="flex-shrink-0">
@@ -68,7 +85,7 @@ export default function Header() {
                     >
                     <Button
                       variant="ghost"
-                      className="font-medium hover:text-accent transition-colors duration-300 text-base"
+                      className={cn("font-medium hover:text-accent transition-colors duration-300 text-base", isTransparent ? "text-white" : "text-primary-foreground")}
                     >
                       {link.label}
                       <ChevronDown className="ml-2 h-4 w-4" />
@@ -89,7 +106,7 @@ export default function Header() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="font-medium hover:text-accent transition-colors duration-300 flex items-center text-base"
+                  className={cn("font-medium hover:text-accent transition-colors duration-300 flex items-center text-base", isTransparent ? "text-white" : "text-primary-foreground")}
                 >
                   {link.label}
                 </Link>
@@ -99,7 +116,7 @@ export default function Header() {
 
           {/* Contact Info */}
           <div className="hidden md:flex items-center justify-end space-x-4">
-            <div className="text-right text-sm">
+            <div className={cn("text-right text-sm", isTransparent ? "text-white" : "text-primary-foreground")}>
               <a href="mailto:enquiries@bigfoot.com.sg" className="flex items-center gap-2 hover:text-accent transition-colors">
                 <Mail className="h-4 w-4" />
                 <span>enquiries@bigfoot.com.sg</span>
@@ -115,7 +132,7 @@ export default function Header() {
           <div className="md:hidden">
             <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
               <SheetTrigger asChild>
-                <Button variant="ghost" size="icon">
+                <Button variant="ghost" size="icon" className={cn(isTransparent ? "text-white" : "text-primary-foreground", "hover:text-accent")}>
                   <Menu className="h-6 w-6" />
                   <span className="sr-only">Open menu</span>
                 </Button>
