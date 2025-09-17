@@ -32,6 +32,7 @@ const navLinks = [
     subLinks: servicesData.map(s => ({ href: s.href, label: s.title }))
   },
   { href: '/clients', label: 'Clients' },
+  { href: '/route-optimizer', label: 'Route Optimizer' },
   { href: '/contact', label: 'Contact Us' },
 ];
 
