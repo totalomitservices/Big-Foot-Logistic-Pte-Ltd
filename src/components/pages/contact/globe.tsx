@@ -1,11 +1,10 @@
 
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
-import { MapContainer, TileLayer, Marker, useMap } from 'react-leaflet';
+import { useEffect } from 'react';
+import { MapContainer, TileLayer, Marker, useMap, Tooltip as LeafletTooltip } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
-import { gsap } from 'gsap';
 import { Home, Plus, Minus } from 'lucide-react';
 
 // Define the locations for the pins
@@ -25,15 +24,6 @@ const createPulsingIcon = () => {
     iconSize: [24, 24],
     iconAnchor: [12, 12],
   });
-};
-
-// Tooltip component that will be bound to markers
-const CustomTooltip = ({ city, country }: { city: string; country: string }) => {
-  return (
-    <div className="custom-tooltip">
-      {city} — {country}
-    </div>
-  );
 };
 
 // Component to handle map animations and controls
@@ -92,25 +82,15 @@ const AnimatedMarker = ({ position, city, country }: { position: L.LatLngTuple; 
 
   return (
     <Marker position={position} icon={icon} eventHandlers={{ click: handleClick }}>
-      <L.Tooltip>
-        <CustomTooltip city={city} country={country} />
-      </L.Tooltip>
+      <LeafletTooltip>
+        {city} — {country}
+      </LeafletTooltip>
     </Marker>
   );
 };
 
 // The main Globe/Map component
 const Globe = () => {
-  const [isClient, setIsClient] = useState(false);
-
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
-
-  if (!isClient) {
-    return <div className="w-full h-full absolute inset-0 bg-primary" />;
-  }
-
   return (
     <div className="w-full h-full absolute inset-0" id="map">
       <MapContainer
