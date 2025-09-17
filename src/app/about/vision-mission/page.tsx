@@ -1,7 +1,6 @@
 
 import { Target, Rocket, Handshake } from 'lucide-react';
 import Image from 'next/image';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
 const values = [
   {
@@ -48,23 +47,27 @@ export default function VisionMissionPage() {
       {/* Values Section */}
       <section className="py-16 lg:py-24 bg-secondary">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-12">
+            <div className="text-center mb-16">
                 <h2 className="text-3xl font-headline font-bold text-primary">Our Guiding Principles</h2>
             </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {values.map((item, index) => (
-              <Card key={index} className="bg-background shadow-lg transition-transform duration-300 hover:scale-105 hover:shadow-xl">
-                <CardHeader className="items-center text-center">
-                    <div className="bg-secondary p-4 inline-block mb-4">
-                        {item.icon}
+          <div className="relative max-w-4xl mx-auto">
+             <div className="absolute left-1/2 -translate-x-1/2 h-full w-1 bg-border rounded-full"></div>
+                {values.map((item, index) => (
+                <div key={index} className="relative mb-12 animate-fade-in" style={{animationDelay: `${index * 200}ms`}}>
+                    <div className="flex items-center">
+                    <div className={`flex-1 ${index % 2 === 0 ? 'pr-8 text-right' : 'pl-8 text-left order-2'}`}>
+                        <h3 className="text-2xl font-headline text-primary font-bold mb-2">{item.title}</h3>
+                        <p className="text-muted-foreground leading-relaxed">{item.description}</p>
                     </div>
-                  <CardTitle className="text-2xl text-primary font-headline">{item.title}</CardTitle>
-                </CardHeader>
-                <CardContent className="text-center">
-                  <p className="text-muted-foreground leading-relaxed">{item.description}</p>
-                </CardContent>
-              </Card>
-            ))}
+                    <div className="absolute left-1/2 -translate-x-1/2 z-10">
+                        <div className="bg-background p-4 border-4 border-secondary shadow-lg group-hover:scale-110 transition-transform duration-300">
+                           {item.icon}
+                        </div>
+                    </div>
+                     <div className={`flex-1 ${index % 2 === 0 ? 'order-2' : ''}`}></div>
+                    </div>
+                </div>
+                ))}
           </div>
         </div>
       </section>
