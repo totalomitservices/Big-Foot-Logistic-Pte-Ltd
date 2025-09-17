@@ -37,54 +37,34 @@ const navLinks = [
 ];
 
 export default function Header() {
+  const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const pathname = usePathname();
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
-  const [hasMounted, setHasMounted] = useState(false);
 
   useEffect(() => {
-    setHasMounted(true);
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 10);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const isTransparent = hasMounted;
+  const isHomePage = pathname === '/';
+  const isTransparent = isHomePage && !isScrolled && !mobileMenuOpen;
 
   const handleMouseEnter = (label: string) => {
-    if (hasMounted) {
-      setOpenDropdown(label);
-    }
+    setOpenDropdown(label);
   };
 
   const handleMouseLeave = () => {
-    if (hasMounted) {
-      setOpenDropdown(null);
-    }
+    setOpenDropdown(null);
   };
-
-  if (!hasMounted) {
-    return (
-        <header
-        className={cn(
-            "absolute top-0 left-0 right-0 z-50 transition-all duration-300",
-            "bg-primary"
-        )}
-        >
-            <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="flex items-center justify-between h-24">
-                <div className="flex-shrink-0">
-                    <Link href="/">
-                    <Logo className={cn('text-primary-foreground')} />
-                    </Link>
-                </div>
-                </div>
-            </div>
-        </header>
-    );
-  }
 
   return (
     <header
       className={cn(
-        "absolute top-0 left-0 right-0 z-50 transition-all duration-300",
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
         isTransparent ? "bg-transparent" : "bg-primary shadow-md",
       )}
     >
@@ -92,7 +72,7 @@ export default function Header() {
         <div className="flex items-center justify-between h-24">
           <div className="flex-shrink-0">
             <Link href="/">
-              <Logo className={cn('text-primary-foreground')} />
+              <Logo className={cn(isTransparent ? 'text-primary-foreground' : 'text-primary-foreground')} />
             </Link>
           </div>
 
@@ -106,7 +86,8 @@ export default function Header() {
                       <Button 
                         variant="ghost" 
                         className={cn(
-                          "font-medium text-primary-foreground hover:text-accent focus-visible:ring-0 focus-visible:ring-offset-0 hover:bg-transparent focus:bg-transparent"
+                          "font-medium hover:text-accent focus-visible:ring-0 focus-visible:ring-offset-0 hover:bg-transparent focus:bg-transparent",
+                          isTransparent ? 'text-primary-foreground' : 'text-primary-foreground'
                         )}
                         onMouseEnter={() => handleMouseEnter(link.label)}
                         onMouseLeave={handleMouseLeave}
@@ -130,7 +111,8 @@ export default function Header() {
                   <Link
                     href={link.href}
                     className={cn(
-                      "font-medium text-primary-foreground hover:text-accent transition-colors duration-300 px-4 py-2"
+                      "font-medium hover:text-accent transition-colors duration-300 px-4 py-2",
+                      isTransparent ? 'text-primary-foreground' : 'text-primary-foreground'
                     )}
                   >
                     {link.label}
@@ -142,7 +124,7 @@ export default function Header() {
 
           {/* Contact Info */}
           <div className="hidden md:flex items-center justify-end space-x-4">
-            <div className={cn("text-right text-sm text-primary-foreground")}>
+            <div className={cn("text-right text-sm", isTransparent ? 'text-primary-foreground' : 'text-primary-foreground')}>
                 <a href="mailto:enquiries@bigfoot.com.sg" className="flex items-center gap-2 hover:text-accent transition-colors">
                   <Mail className="h-4 w-4" />
                   <span>enquiries@bigfoot.com.sg</span>
@@ -158,7 +140,7 @@ export default function Header() {
           <div className="md:hidden">
             <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
               <SheetTrigger asChild>
-                <Button variant="ghost" size="icon" className={cn("text-primary-foreground hover:text-accent")}>
+                <Button variant="ghost" size="icon" className={cn("hover:text-accent", isTransparent ? 'text-primary-foreground' : 'text-primary-foreground')}>
                   <Menu className="h-6 w-6" />
                   <span className="sr-only">Open menu</span>
                 </Button>
