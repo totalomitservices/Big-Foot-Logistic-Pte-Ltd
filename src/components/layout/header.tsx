@@ -60,7 +60,7 @@ export default function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [hasMounted]);
 
-  const isTransparent = hasMounted && pathname === '/' && !scrolled;
+  const isTransparent = hasMounted && !scrolled;
 
   const handleMouseEnter = (label: string) => {
     if (hasMounted) {
