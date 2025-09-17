@@ -9,7 +9,7 @@ export default function OurStoryPage() {
   return (
     <div className="bg-background text-foreground">
       {/* Hero Section */}
-      <section className="relative h-[60vh] w-full">
+      <section className="relative h-[80vh] w-full">
         <Image
           src="https://github.com/Ram-0609/Bigfoot-Logistics-Images/blob/main/Our%20story.jpg?raw=true"
           alt="Team collaborating on a logistics plan"
@@ -18,12 +18,11 @@ export default function OurStoryPage() {
           className="object-cover"
           data-ai-hint="logistics planning"
         />
-        <div className="absolute inset-0 bg-primary/70" />
-        <div className="relative z-10 flex h-full flex-col items-center justify-center text-center text-white px-4">
-          <h1 className="font-headline text-4xl md:text-5xl font-bold">
+        <div className="relative z-10 flex h-full flex-col items-start justify-center text-left text-white px-4 md:px-12 lg:px-24">
+          <h1 className="font-headline text-4xl md:text-5xl font-bold drop-shadow-lg">
             Our Story
           </h1>
-          <p className="mt-4 text-lg md:text-xl font-light">
+          <p className="mt-4 text-lg md:text-xl font-light drop-shadow-lg">
             Building trust in logistics since 1992.
           </p>
         </div>
