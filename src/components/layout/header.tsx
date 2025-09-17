@@ -1,4 +1,3 @@
-
 "use client";
 
 import { ChevronDown, Mail, Phone, Menu } from 'lucide-react';
@@ -41,7 +40,7 @@ export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
-  const [open, setOpen] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -71,34 +70,34 @@ export default function Header() {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex md:space-x-1">
-            {navLinks.map((link) =>
-              link.subLinks ? (
-                <DropdownMenu key={link.label} onOpenChange={setOpen} open={open}>
-                  <DropdownMenuTrigger asChild>
-                    <Button variant="ghost" onMouseEnter={() => setOpen(true)} className="font-medium hover:text-accent transition-colors duration-300 flex items-center text-primary-foreground focus-visible:ring-0 focus-visible:ring-offset-0">
-                      {link.label}
-                      <ChevronDown className="ml-2 h-4 w-4" />
-                    </Button>
-                  </DropdownMenuTrigger>
-                  <DropdownMenuContent onMouseLeave={() => setOpen(false)}>
-                    {link.subLinks.map((subLink) => (
-                      <DropdownMenuItem key={subLink.href} asChild>
-                        <Link href={subLink.href}>{subLink.label}</Link>
-                      </DropdownMenuItem>
-                    ))}
-                  </DropdownMenuContent>
-                </DropdownMenu>
-              ) : (
-                <Button key={link.href} asChild variant="ghost">
+            {navLinks.map((link) => (
+              <div key={link.href}>
+                {link.subLinks ? (
+                  <DropdownMenu onOpenChange={(isOpen) => setOpenDropdown(isOpen ? link.label : null)} open={openDropdown === link.label}>
+                    <DropdownMenuTrigger asChild>
+                      <Button variant="ghost" className="font-medium hover:text-accent transition-colors duration-300 flex items-center text-primary-foreground focus-visible:ring-0 focus-visible:ring-offset-0">
+                        {link.label}
+                        <ChevronDown className="ml-2 h-4 w-4" />
+                      </Button>
+                    </DropdownMenuTrigger>
+                    <DropdownMenuContent>
+                      {link.subLinks.map((subLink) => (
+                        <DropdownMenuItem key={subLink.href} asChild>
+                          <Link href={subLink.href}>{subLink.label}</Link>
+                        </DropdownMenuItem>
+                      ))}
+                    </DropdownMenuContent>
+                  </DropdownMenu>
+                ) : (
                   <Link
                     href={link.href}
-                    className="font-medium hover:text-accent transition-colors duration-300 flex items-center text-primary-foreground focus-visible:ring-0 focus-visible:ring-offset-0"
+                    className="font-medium hover:text-accent transition-colors duration-300 flex items-center text-primary-foreground focus-visible:ring-0 focus-visible:ring-offset-0 px-4 py-2"
                   >
                     {link.label}
                   </Link>
-                </Button>
-              )
-            )}
+                )}
+              </div>
+            ))}
           </nav>
 
           {/* Contact Info */}
