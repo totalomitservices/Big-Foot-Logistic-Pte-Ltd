@@ -46,9 +46,14 @@ const navLinks = [
 
 export default function Header() {
   const pathname = usePathname();
-  const isHomePage = pathname === '/';
+  const [isHomePage, setIsHomePage] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+
+  useEffect(() => {
+    setIsHomePage(pathname === '/');
+  }, [pathname]);
+  
 
   const headerClasses = cn(
     "absolute top-0 left-0 right-0 z-50 transition-all duration-300",
