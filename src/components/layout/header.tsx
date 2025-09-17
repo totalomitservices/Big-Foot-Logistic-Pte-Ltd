@@ -39,16 +39,41 @@ const navLinks = [
 
 export default function Header() {
   const pathname = usePathname();
+  const [isHomePage, setIsHomePage] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
 
+  useEffect(() => {
+    setIsHomePage(pathname === '/');
+  }, [pathname]);
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
+  const headerClasses = cn(
+    "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
+    isHomePage && !isScrolled ? "bg-transparent text-white" : "bg-primary text-primary-foreground shadow-lg",
+  );
+
+
   return (
-    <header className="bg-background text-foreground shadow-md w-full">
+    <header className={headerClasses}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-24">
           <div className="flex-shrink-0">
             <Link href="/">
-              <Logo />
+              <Logo className={isHomePage && !isScrolled ? 'text-white' : 'text-primary-foreground'}/>
             </Link>
           </div>
 
