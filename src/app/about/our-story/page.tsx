@@ -9,7 +9,7 @@ export default function OurStoryPage() {
   return (
     <div className="bg-background text-foreground">
       {/* Hero Section */}
-      <section className="relative h-[40vh] w-full">
+      <section className="relative h-[60vh] w-full">
         <Image
           src="https://picsum.photos/seed/our-story-hero/1920/400"
           alt="Team collaborating on a logistics plan"
