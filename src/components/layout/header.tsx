@@ -68,7 +68,7 @@ export default function Header() {
                     <DropdownMenuTrigger asChild>
                       <Button 
                         variant="ghost" 
-                        className="font-semibold text-base hover:text-accent focus-visible:ring-0 focus-visible:ring-offset-0 hover:bg-transparent focus:bg-transparent text-primary-foreground"
+                        className="font-medium text-base hover:text-accent focus-visible:ring-0 focus-visible:ring-offset-0 hover:bg-transparent focus:bg-transparent text-primary-foreground"
                         onMouseEnter={() => handleMouseEnter(link.label)}
                         onMouseLeave={handleMouseLeave}
                       >
@@ -90,7 +90,7 @@ export default function Header() {
                 ) : (
                   <Link
                     href={link.href}
-                    className="font-semibold text-base hover:text-accent transition-colors duration-300 px-4 py-2 text-primary-foreground"
+                    className="font-medium text-base hover:text-accent transition-colors duration-300 px-4 py-2 text-primary-foreground"
                   >
                     {link.label}
                   </Link>
