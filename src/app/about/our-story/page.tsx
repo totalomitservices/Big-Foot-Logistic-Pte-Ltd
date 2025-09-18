@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { ArrowRight, Users, ShieldCheck, Truck, Star } from 'lucide-react';
+import { ArrowRight, Users, ShieldCheck, Truck, Star, Rocket, Award } from 'lucide-react';
 
 const coreValues = [
     {
@@ -28,7 +28,7 @@ export default function OurStoryPage() {
   return (
     <div className="bg-background text-foreground">
       {/* Hero Section */}
-      <section className="relative w-full h-[40vh] md:h-[60vh]">
+      <section className="relative w-full h-[60vh] md:h-[50vh]">
         <Image
           src="https://github.com/Ram-0609/Bigfoot-Logistics-Images/blob/main/Our%20story.jpg?raw=true"
           alt="Team collaborating on a logistics plan"
@@ -51,42 +51,57 @@ export default function OurStoryPage() {
       {/* Content Section */}
       <section className="py-16 lg:py-24 bg-secondary">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            {/* Introduction */}
-            <div className="max-w-4xl mx-auto text-center mb-16">
-                <h2 className="text-3xl font-headline font-bold text-primary mb-4">Who We Are</h2>
-                <p className="text-lg text-muted-foreground leading-relaxed">
-                    Founded in 1992, BIG FOOT LOGISTIC PTE LTD started with a simple goal: to provide reliable and efficient logistics services that put our customers first. Over the years, we have grown steadily, adapting to the ever-changing needs of the industry while staying true to our core values of trust and service excellence.
-                </p>
-            </div>
+          <div className="max-w-4xl mx-auto text-center mb-16">
+            <h2 className="text-3xl font-headline font-bold text-primary mb-4">Who We Are</h2>
+            <p className="text-lg text-muted-foreground leading-relaxed">
+              Founded in 1992, BIG FOOT LOGISTIC PTE LTD started with a simple goal: to provide reliable and efficient logistics services that put our customers first. Over the years, we have grown steadily, adapting to the ever-changing needs of the industry while staying true to our core values of trust and service excellence.
+            </p>
+          </div>
 
-            {/* Timeline-style sections */}
+          <div className="relative max-w-4xl mx-auto">
+            <div className="absolute left-1/2 -translate-x-1/2 h-full w-0.5 bg-border hidden md:block"></div>
+            
             <div className="space-y-20">
-                {/* Our Journey */}
-                <div className="grid md:grid-cols-2 gap-12 items-center">
-                    <div className="relative aspect-video shadow-xl overflow-hidden">
-                        <Image src="https://picsum.photos/seed/journey/800/600" alt="Team handshake" fill className="object-cover" data-ai-hint="team handshake" />
-                    </div>
-                    <div>
-                        <h3 className="text-2xl font-headline font-bold text-primary mb-4">Our Journey of Trust</h3>
-                        <p className="text-lg text-muted-foreground leading-relaxed">
-                            Our journey has always been about the relationships we nurture. Many of our clients have been with us for over 30 years, a testament to the loyalty and confidence we’ve earned. With an outstanding 99.9% customer retention rate over the past 12 years, we are more than just a service provider—we are a trusted partner in growth.
-                        </p>
-                    </div>
-                </div>
 
-                {/* Complete Solutions */}
-                 <div className="grid md:grid-cols-2 gap-12 items-center">
-                    <div className="md:order-2 relative aspect-video shadow-xl overflow-hidden">
-                        <Image src="https://picsum.photos/seed/solutions/800/600" alt="Logistics network" fill className="object-cover" data-ai-hint="logistics network" />
-                    </div>
-                    <div className="md:order-1">
-                        <h3 className="text-2xl font-headline font-bold text-primary mb-4">Complete Logistics Solutions</h3>
-                        <p className="text-lg text-muted-foreground leading-relaxed">
-                             Today, BIG FOOT LOGISTIC is a recognized complete logistics solutions provider. We offer services from transportation and warehousing to freight forwarding, permit clearance, and manpower management. Supported by a skilled team with both local and international expertise, we deliver value-driven solutions that help businesses succeed at every stage of their supply chain.
-                        </p>
-                    </div>
+              {/* Our Journey */}
+              <div className="relative md:grid md:grid-cols-2 gap-12 items-center">
+                <div className="md:order-2">
+                  <div className="relative aspect-video shadow-xl overflow-hidden rounded-lg">
+                    <Image src="https://picsum.photos/seed/journey/800/600" alt="Team handshake" fill className="object-cover" data-ai-hint="team handshake" />
+                  </div>
                 </div>
+                <div className="mt-8 md:mt-0 md:text-right">
+                  <h3 className="text-2xl font-headline font-bold text-primary mb-4">Our Journey of Trust</h3>
+                  <p className="text-lg text-muted-foreground leading-relaxed">
+                    Our journey has always been about the relationships we nurture. Many of our clients have been with us for over 30 years, a testament to the loyalty and confidence we’ve earned. With an outstanding 99.9% customer retention rate over the past 12 years, we are more than just a service provider—we are a trusted partner in growth.
+                  </p>
+                </div>
+                <div className="hidden md:flex absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 items-center justify-center">
+                    <div className="w-4 h-4 bg-secondary absolute ring-4 ring-border rounded-full z-10"></div>
+                    <div className="p-3 bg-accent text-accent-foreground rounded-full shadow-lg z-20"><Rocket className="w-6 h-6" /></div>
+                </div>
+              </div>
+
+              {/* Complete Solutions */}
+              <div className="relative md:grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                   <div className="relative aspect-video shadow-xl overflow-hidden rounded-lg">
+                    <Image src="https://picsum.photos/seed/solutions/800/600" alt="Logistics network" fill className="object-cover" data-ai-hint="logistics network" />
+                  </div>
+                </div>
+                <div className="mt-8 md:mt-0">
+                  <h3 className="text-2xl font-headline font-bold text-primary mb-4">Complete Logistics Solutions</h3>
+                  <p className="text-lg text-muted-foreground leading-relaxed">
+                    Today, BIG FOOT LOGISTIC is a recognized complete logistics solutions provider. We offer services from transportation and warehousing to freight forwarding, permit clearance, and manpower management. Supported by a skilled team with both local and international expertise, we deliver value-driven solutions that help businesses succeed at every stage of their supply chain.
+                  </p>
+                </div>
+                <div className="hidden md:flex absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 items-center justify-center">
+                    <div className="w-4 h-4 bg-secondary absolute ring-4 ring-border rounded-full z-10"></div>
+                    <div className="p-3 bg-accent text-accent-foreground rounded-full shadow-lg z-20"><Award className="w-6 h-6" /></div>
+                </div>
+              </div>
             </div>
+          </div>
         </div>
       </section>
 
