@@ -126,50 +126,6 @@
     }
   }
   
-  .animate-slide-in-from-right {
-    animation: slide-in-from-right 0.7s ease-out forwards;
-  }
-
-  @keyframes slide-in-from-right {
-    from {
-      transform: translateX(100%);
-      opacity: 0;
-    }
-    to {
-      transform: translateX(0);
-      opacity: 1;
-    }
-  }
-
-  .animate-slide-in-from-left {
-    animation: slide-in-from-left 0.7s ease-out forwards;
-  }
-
-  @keyframes slide-in-from-left {
-    from {
-      transform: translateX(-100%);
-      opacity: 0;
-    }
-    to {
-      transform: translateX(0);
-      opacity: 1;
-    }
-  }
-
-  .animate-slide-in-from-bottom {
-    animation: slide-in-from-bottom 0.7s ease-out forwards;
-  }
-
-  @keyframes slide-in-from-bottom {
-    from {
-      transform: translateY(100%);
-      opacity: 0;
-    }
-    to {
-      transform: translateY(0);
-      opacity: 1;
-    }
-  }
   .animate-pan-map {
     animation: pan-map 40s ease-in-out infinite alternate;
   }
@@ -185,7 +141,7 @@
 
 /* Leaflet and Map Styles */
 .leaflet-container {
-  background-color: hsl(var(--primary));
+  background-color: hsl(var(--secondary));
   cursor: grab;
 }
 .leaflet-container:active {
@@ -195,17 +151,17 @@
 .pulsing-icon {
   width: 24px;
   height: 24px;
-  background-color: hsl(var(--accent) / 0.8);
+  background-color: hsl(var(--primary) / 0.8);
   border-radius: 50%;
-  border: 3px solid hsl(var(--accent));
-  box-shadow: 0 0 10px hsl(var(--accent)), 0 0 20px hsl(var(--accent));
+  border: 3px solid hsl(var(--primary));
+  box-shadow: 0 0 10px hsl(var(--primary)), 0 0 20px hsl(var(--primary));
   animation: pulse 2s infinite cubic-bezier(0.45, 0, 0.55, 1);
 }
 
 .leaflet-marker-icon:hover .pulsing-icon {
     animation-play-state: paused;
     transform: scale(1.2);
-    background-color: hsl(var(--accent));
+    background-color: hsl(var(--primary));
 }
 
 @keyframes pulse {
@@ -224,31 +180,30 @@
 }
 
 .leaflet-tooltip {
-  background-color: rgba(10, 26, 47, 0.7) !important;
-  border: 1px solid hsl(var(--accent) / 0.5) !important;
-  color: white !important;
-  box-shadow: none !important;
+  background-color: rgba(255, 255, 255, 0.7) !important;
+  border: 1px solid hsl(var(--border)) !important;
+  color: hsl(var(--foreground)) !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1) !important;
   border-radius: 6px !important;
   padding: 6px 12px !important;
   backdrop-filter: blur(5px);
-  font-family: 'Poppins', sans-serif;
 }
 
 .leaflet-tooltip-top:before {
-  border-top-color: hsl(var(--accent) / 0.5) !important;
+  border-top-color: hsl(var(--border)) !important;
 }
 
 .glassmorphic-controls {
-  background: rgba(10, 26, 47, 0.5) !important;
+  background: rgba(255, 255, 255, 0.5) !important;
   backdrop-filter: blur(10px) !important;
   border-radius: 8px !important;
-  border: 1px solid hsl(var(--accent) / 0.3) !important;
+  border: 1px solid hsl(var(--border)) !important;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1) !important;
 }
 
 .glassmorphic-controls button {
   background-color: transparent !important;
-  color: white !important;
+  color: hsl(var(--foreground)) !important;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
@@ -260,7 +215,7 @@
 
 .glassmorphic-controls button:hover {
   background-color: hsl(var(--accent) / 0.3) !important;
-  color: hsl(var(--accent)) !important;
+  color: hsl(var(--accent-foreground)) !important;
   transform: scale(1.1);
 }
 

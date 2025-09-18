@@ -53,12 +53,11 @@ export default function ContactPage() {
   const mapInstance = useRef<any>(null); // Use any to avoid type issues with leaflet
 
    useEffect(() => {
-    let map: any;
     if (typeof window !== 'undefined' && mapRef.current && !mapInstance.current) {
       (async () => {
         const L = await import('leaflet');
 
-        map = L.map(mapRef.current!, {
+        const map = L.map(mapRef.current!, {
           center: WORLD_VIEW.center as L.LatLngTuple,
           zoom: WORLD_VIEW.zoom,
           zoomControl: false,
@@ -66,10 +65,10 @@ export default function ContactPage() {
         mapInstance.current = map;
 
         L.tileLayer(
-          'https://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}{r}.png',
+          'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
           {
             attribution:
-              '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+              '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
             noWrap: true,
           }
         ).addTo(map);
@@ -213,9 +212,9 @@ export default function ContactPage() {
       </section>
 
       <section 
-        className="relative h-[70vh] w-full bg-primary overflow-hidden"
+        className="h-[70vh] w-full"
       >
-        <div ref={mapRef} className="w-full h-full absolute inset-0" id="map-container"></div>
+        <div ref={mapRef} className="w-full h-full" id="map-container"></div>
          <div className="leaflet-top leaflet-right absolute top-0 right-0 z-[1000] p-2.5">
           <div className="leaflet-control leaflet-bar glassmorphic-controls">
             <button onClick={handleZoomIn} title="Zoom in" role="button" aria-label="Zoom in" className="cursor-pointer">
@@ -229,7 +228,7 @@ export default function ContactPage() {
             </button>
           </div>
         </div>
-        <div className="absolute bottom-5 left-5 text-white/50 text-xs pointer-events-none z-[1000]">
+        <div className="absolute bottom-5 left-5 text-black/50 text-xs pointer-events-none z-[1000]">
               🗺️ Drag to move • Hover pins • Click pins to zoom
         </div>
 
