@@ -3,7 +3,7 @@ import { cn } from '@/lib/utils';
 
 type LogoProps = {
   className?: string;
-} & Omit<ImageProps, 'src' | 'alt' | 'fill' | 'sizes' | 'className'>;
+} & Omit<ImageProps, 'src' | 'alt' | 'fill' | 'sizes'>;
 
 export function Logo({ className, ...props }: LogoProps) {
   return (
