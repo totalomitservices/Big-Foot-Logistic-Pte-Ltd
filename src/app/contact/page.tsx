@@ -5,7 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
-import { Phone, Mail, Clock, ArrowRight, Building, Plus, Home as HomeIcon } from 'lucide-react';
+import { Phone, Mail, Clock, ArrowRight, Building, Plus, Home as HomeIcon, Minus } from 'lucide-react';
 import Link from 'next/link';
 import 'leaflet/dist/leaflet.css';
 import { useEffect, useRef } from 'react';
@@ -29,7 +29,6 @@ export default function ContactPage() {
   const mapInstance = useRef<any>(null); // Use any to avoid type issues with leaflet
 
   useEffect(() => {
-    let map: any;
     if (mapRef.current && !mapInstance.current) {
       (async () => {
         const L = await import('leaflet');
@@ -38,7 +37,7 @@ export default function ContactPage() {
         const northEast = L.latLng(90, 180);
         const bounds = L.latLngBounds(southWest, northEast);
 
-        map = L.map(mapRef.current!, {
+        const map = L.map(mapRef.current!, {
           zoomControl: false,
           maxBounds: bounds,
           maxBoundsViscosity: 1.0,
@@ -88,6 +87,7 @@ export default function ContactPage() {
   }, []);
 
   const handleZoomIn = () => mapInstance.current?.zoomIn();
+  const handleZoomOut = () => mapInstance.current?.zoomOut();
   const handleGoHome = () => mapInstance.current?.fitWorld();
 
 
@@ -101,6 +101,9 @@ export default function ContactPage() {
           <div className="leaflet-control leaflet-bar glassmorphic-controls">
             <a onClick={handleZoomIn} title="Zoom in" role="button" aria-label="Zoom in" className="cursor-pointer">
               <Plus size={18} />
+            </a>
+            <a onClick={handleZoomOut} title="Zoom out" role="button" aria-label="Zoom out" className="cursor-pointer">
+              <Minus size={18} />
             </a>
             <a onClick={handleGoHome} title="Home" role="button" aria-label="Home" className="cursor-pointer">
               <HomeIcon size={18} />
