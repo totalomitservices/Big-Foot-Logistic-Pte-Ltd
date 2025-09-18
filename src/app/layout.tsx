@@ -1,9 +1,8 @@
 
 import type { Metadata } from 'next';
 import './globals.css';
-import { Toaster } from '@/components/ui/toaster';
 import Footer from '@/components/layout/footer';
-import WhatsappButton from '@/components/whatsapp-button';
+import ClientLayout from './client-layout';
 
 export const metadata: Metadata = {
   title: 'Bigfoot Logistics',
@@ -26,12 +25,10 @@ export default function RootLayout({
         />
       </head>
       <body className="font-body antialiased bg-background text-foreground">
-        <div className="flex flex-col min-h-screen">
+        <ClientLayout>
           {children}
-        </div>
+        </ClientLayout>
         <Footer />
-        <Toaster />
-        <WhatsappButton />
       </body>
     </html>
   );
