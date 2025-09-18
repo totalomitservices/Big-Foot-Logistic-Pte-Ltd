@@ -51,7 +51,7 @@ const jobOpenings = [
 const perksAndBenefits = [
     'OT Pay',
     'Transport Incentives',
-    'Performance Incentives',
+    'Performance Bonuses',
     'Medical Benefits',
     'Referral Scheme',
     'Many more attractive incentives!'
