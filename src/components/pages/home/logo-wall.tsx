@@ -1,9 +1,7 @@
+
 'use client';
 
 import Image from 'next/image';
-import useEmblaCarousel from 'embla-carousel-react';
-import Autoplay from 'embla-carousel-autoplay';
-import { useRef } from 'react';
 
 const logos = [
   { name: 'Auric Pacific', src: 'https://raw.githubusercontent.com/swathitom1207/logo-/main/AURIC%20PACIFIC%20logo.jpg' },
@@ -26,10 +24,6 @@ const logos = [
 const duplicatedLogos = [...logos, ...logos, ...logos, ...logos];
 
 export default function LogoWall() {
-  const plugin = useRef(Autoplay({ delay: 2000, stopOnInteraction: true }));
-
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [plugin.current]);
-
   return (
     <section id="clients" className="py-16 lg:py-24 bg-background">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -41,21 +35,21 @@ export default function LogoWall() {
             We partner with businesses of all sizes to power their supply chains and drive growth.
           </p>
         </div>
-        <div className="mt-12 overflow-hidden" ref={emblaRef}>
-          <div className="flex">
-            {duplicatedLogos.map((logo, index) => (
-              <div key={`${logo.name}-${index}`} className="flex-shrink-0 flex-[0_0_25%] min-w-0 mx-4">
-                <div className="relative h-24 w-full transition-all duration-300 filter grayscale hover:grayscale-0 transform hover:scale-110">
-                  <Image
-                    src={logo.src}
-                    alt={logo.name}
-                    fill
-                    className="object-contain"
-                  />
+        <div className="mt-12 w-full overflow-hidden">
+            <div className="flex w-max animate-scroll hover:[animation-play-state:paused]">
+              {duplicatedLogos.map((logo, index) => (
+                <div key={`${logo.name}-${index}`} className="flex-shrink-0 w-64 mx-4">
+                  <div className="relative h-24 w-full transition-all duration-300 filter grayscale hover:grayscale-0 transform hover:scale-110">
+                    <Image
+                      src={logo.src}
+                      alt={logo.name}
+                      fill
+                      className="object-contain"
+                    />
+                  </div>
                 </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
         </div>
       </div>
     </section>
