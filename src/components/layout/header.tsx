@@ -1,7 +1,7 @@
 
 "use client";
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { ChevronDown, Mail, Phone, Menu } from 'lucide-react';
 import Link from 'next/link';
 import { Logo } from '@/components/logo';
@@ -14,7 +14,6 @@ import {
 import { Button } from '../ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '../ui/sheet';
 import { servicesData } from '@/data/services';
-import HeaderClient from './header-client';
 import { cn } from '@/lib/utils';
 
 const navLinks = [
@@ -153,8 +152,23 @@ const MobileNav = () => {
 
 
 export default function Header() {
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+    window.addEventListener('scroll', handleScroll);
+    handleScroll();
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
-    <HeaderClient>
+    <header className={cn(
+      "fixed top-4 left-1/2 -translate-x-1/2 z-50 transition-all duration-300 ease-in-out",
+      "w-[calc(100%-2rem)] max-w-7xl",
+      scrolled ? "w-full max-w-max rounded-full bg-foreground/70 backdrop-blur-md shadow-lg" : "bg-transparent"
+    )}>
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex items-center justify-between h-16">
                 <div className="flex-shrink-0">
@@ -183,6 +197,6 @@ export default function Header() {
                 <MobileNav />
             </div>
         </div>
-    </HeaderClient>
+    </header>
   );
 }
