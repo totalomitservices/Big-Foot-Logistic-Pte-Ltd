@@ -44,10 +44,10 @@ export const servicesData: Service[] = [
     href: "/services/packers-and-movers",
   },
   {
-    id: "livestock-handling",
-    title: "Live Stock Handling",
-    description: "End-to-end supply chain management to optimize your logistics operations.",
+    id: "other-expertise",
+    title: "Other Expertise",
+    description: "Specialized logistics services including port handling, consultancy, and quality inspection.",
     imageId: "service-supply-chain",
-    href: "/services/livestock-handling",
+    href: "/services/other-expertise",
   },
 ];
