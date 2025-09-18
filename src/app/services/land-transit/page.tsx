@@ -1,6 +1,8 @@
 
 import Image from 'next/image';
 import type { Metadata } from 'next';
+import { Button } from '@/components/ui/button';
+import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: 'Land Transit | Bigfoot Logistics',
@@ -23,12 +25,17 @@ export default function LandTransitPage() {
         />
         
         <div className="relative z-10 flex h-full flex-col items-start justify-center text-left text-white px-4 md:px-12 lg:px-24">
-          <h1 className="font-headline text-4xl md:text-5xl font-semibold text-black drop-shadow-lg">
+          <h1 className="font-headline text-4xl md:text-5xl font-semibold text-white drop-shadow-lg">
             Land Transit
           </h1>
-          <p className="mt-4 text-lg md:text-xl font-light text-black drop-shadow-lg">
+          <p className="mt-4 text-lg md:text-xl font-light text-white drop-shadow-lg max-w-2xl">
             Reliable and efficient ground transportation.
           </p>
+          <div className="mt-8">
+            <Button asChild size="lg" variant="accent">
+              <Link href="/contact">Get a Quote</Link>
+            </Button>
+          </div>
         </div>
       </section>
 
@@ -54,7 +61,7 @@ export default function LandTransitPage() {
             <div>
               <h2 className="text-3xl font-headline font-bold text-primary mb-4">Dry Cargo Movement</h2>
               <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-                We provide excellent services for dry cargo movement. The containers which we use for this purpose are built as per international standards, and are used for the movement of conventional dry cargo. These are used in domestic movement. Our container services are available for 20/40 ft size cargo. These containers offer the added advantage of extra volumetric capacity due to their additional height, and are useful in the movement of light and heavy cargo. Our Dry cargo container comes in a wide range of sizes standard sizes 20ft – 6m to 40ft – 12m full size containers. They are made to be weatherproof and absolutely secure for your cargo. Our dry cargo containers can be used for Bulk cargo like Coal, Grains, Steel, Fertilizers, and others.
+                We provide excellent services for dry cargo movement. The containers which we use for this purpose are built as per international standards, and are used for the movement of conventional dry cargo. These are used in domestic movement. Our container services are available for 20/40 ft size cargo. These containers offer the added advantage of extra volumetric capacity due to their additional height, and are useful in the movement of light and heavy cargo. Our dry cargo container comes in a wide range of sizes standard sizes 20ft – 6m to 40ft – 12m full size containers. They are made to be weatherproof and absolutely secure for your cargo. Our dry cargo containers can be used for Bulk cargo like Coal, Grains, Steel, Fertilizers, and others.
               </p>
             </div>
 

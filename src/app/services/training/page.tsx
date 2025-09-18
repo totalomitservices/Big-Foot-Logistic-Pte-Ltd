@@ -1,6 +1,8 @@
 
 import Image from 'next/image';
 import type { Metadata } from 'next';
+import { Button } from '@/components/ui/button';
+import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: 'Training | Bigfoot Logistics',
@@ -22,12 +24,17 @@ export default function TrainingPage() {
         />
         
         <div className="relative z-10 flex h-full flex-col items-center justify-center text-center text-white px-4">
-          <h1 className="font-headline text-4xl md:text-5xl font-bold text-black drop-shadow-lg">
+          <h1 className="font-headline text-4xl md:text-5xl font-bold text-white drop-shadow-lg">
             Training
           </h1>
-          <p className="mt-4 text-lg md:text-xl font-light text-black drop-shadow-lg">
+          <p className="mt-4 text-lg md:text-xl font-light text-white drop-shadow-lg max-w-2xl">
             Empowering our team with knowledge and skills.
           </p>
+          <div className="mt-8">
+            <Button asChild size="lg" variant="accent">
+              <Link href="/contact">Get a Quote</Link>
+            </Button>
+          </div>
         </div>
       </section>
 

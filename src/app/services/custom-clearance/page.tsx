@@ -1,6 +1,8 @@
 
 import Image from 'next/image';
 import type { Metadata } from 'next';
+import { Button } from '@/components/ui/button';
+import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: 'Custom Clearance | Bigfoot Logistics',
@@ -24,12 +26,17 @@ export default function CustomClearancePage() {
         />
         
         <div className="relative z-10 flex h-full flex-col items-start justify-center text-left text-white px-4 md:px-12 lg:px-24">
-          <h1 className="font-headline text-4xl md:text-5xl font-semibold text-black drop-shadow-lg">
+          <h1 className="font-headline text-4xl md:text-5xl font-semibold text-white drop-shadow-lg">
             Custom Clearance
           </h1>
-          <p className="mt-4 text-lg md:text-xl font-light text-black drop-shadow-lg">
+          <p className="mt-4 text-lg md:text-xl font-light text-white drop-shadow-lg max-w-2xl">
             Streamlining your import and export processes.
           </p>
+          <div className="mt-8">
+            <Button asChild size="lg" variant="accent">
+              <Link href="/contact">Get a Quote</Link>
+            </Button>
+          </div>
         </div>
       </section>
 
