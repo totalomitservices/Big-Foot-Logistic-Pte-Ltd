@@ -7,7 +7,7 @@ import { Home as HomeIcon, Plus } from 'lucide-react';
 
 const mapLocations = [
   { lat: 1.3159, lon: 103.7023, city: 'Singapore HQ', country: 'Singapore' },
-  { lat: 10.36, lon: 78.82, city: 'India Office', country: 'India' },
+  { lat: 10.3636, lon: 78.823, city: 'India Office', country: 'India' },
   { lat: -34.195, lon: 142.148, city: 'Australia Office', country: 'Australia' },
 ];
 
@@ -18,16 +18,16 @@ export default function Globe() {
   const mapInstance = useRef<any>(null);
 
   useEffect(() => {
+    let map: any;
     if (typeof window !== 'undefined' && mapRef.current) {
-      // Check if map is already initialized
       if (mapRef.current?.['_leaflet_id']) {
         return;
       }
 
-      (async () => {
+      const initMap = async () => {
         const L = await import('leaflet');
 
-        const map = L.map(mapRef.current!, {
+        map = L.map(mapRef.current!, {
           center: WORLD_VIEW.center as L.LatLngTuple,
           zoom: WORLD_VIEW.zoom,
           minZoom: WORLD_VIEW.zoom,
@@ -65,7 +65,8 @@ export default function Globe() {
               });
             });
         });
-      })();
+      };
+      initMap();
     }
     
     return () => {

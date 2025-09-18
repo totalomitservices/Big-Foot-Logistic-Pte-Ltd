@@ -9,8 +9,9 @@ import { Phone, Mail, Clock, ArrowRight, Building } from 'lucide-react';
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
 
-const Globe = dynamic(() => import('@/components/pages/contact/globe'), {
+const ContactMap = dynamic(() => import('@/components/pages/contact/contact-map'), {
   ssr: false,
+  loading: () => <div className="h-[50vh] w-full bg-secondary animate-pulse" />
 });
 
 
@@ -145,7 +146,7 @@ export default function ContactPage() {
         </section>
       </div>
         
-      <Globe />
+      <ContactMap />
     </div>
   );
 }
