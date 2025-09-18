@@ -100,18 +100,7 @@
   .flip-card-back {
     transform: rotateY(180deg);
   }
-  .animate-scroll {
-    animation: scroll 24s linear infinite;
-  }
-  @keyframes scroll {
-    from {
-      transform: translateX(0);
-    }
-    to {
-      transform: translateX(-100%);
-    }
-  }
-   .animate-fade-in {
+  .animate-fade-in {
     animation: fadeIn 0.5s ease-in-out;
   }
 
@@ -220,6 +209,7 @@
 }
 
     
+
 
 
 

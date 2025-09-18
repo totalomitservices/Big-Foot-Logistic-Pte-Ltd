@@ -25,8 +25,6 @@ const logos = [
 ];
 
 export default function LogoWall() {
-  const duplicatedLogos = [...logos, ...logos];
-
   return (
     <section id="clients" className="py-16 lg:py-24 bg-background border-t border-border">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -39,22 +37,20 @@ export default function LogoWall() {
           </p>
         </div>
         
-        <div className="mt-12 w-full overflow-hidden">
-          <div className="flex animate-scroll">
-            {duplicatedLogos.map((logo, index) => (
-              <div key={`${logo.name}-${index}`} className="flex-shrink-0 mx-8" style={{ width: '160px' }}>
-                <div className="relative h-20 w-40 transition-transform duration-300 transform hover:scale-110 p-2 bg-white shadow-md rounded-lg">
-                  <Image
-                    src={logo.src}
-                    alt={logo.name}
-                    fill
-                    sizes="160px"
-                    className="object-contain"
-                  />
-                </div>
+        <div className="mt-12 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8 items-center">
+          {logos.map((logo) => (
+            <div key={logo.name} className="flex justify-center items-center">
+              <div className="relative h-20 w-40 transition-transform duration-300 transform hover:scale-110 p-2 bg-white shadow-md rounded-lg">
+                <Image
+                  src={logo.src}
+                  alt={logo.name}
+                  fill
+                  sizes="160px"
+                  className="object-contain"
+                />
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
 
          <div className="mt-12 text-center">
