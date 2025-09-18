@@ -55,7 +55,7 @@ export default function Header() {
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex flex-1 justify-center items-center space-x-1 mr-4">
+          <nav className="hidden md:flex flex-1 justify-center items-center space-x-1 mr-8">
             {navLinks.map((link) => (
               <div key={link.href}>
                 {link.subLinks ? (
@@ -91,12 +91,12 @@ export default function Header() {
 
           {/* Contact Info */}
           <div className="hidden md:flex items-center space-x-4">
-            <div className="text-right text-sm text-primary-foreground">
-                <a href="mailto:enquiries@bigfoot.com.sg" className="flex items-center justify-end gap-2 hover:text-accent transition-colors">
+            <div className="text-left text-sm text-primary-foreground">
+                <a href="mailto:enquiries@bigfoot.com.sg" className="flex items-center justify-start gap-2 hover:text-accent transition-colors">
                   <Mail className="h-4 w-4" />
                   <span>enquiries@bigfoot.com.sg</span>
                 </a>
-                 <a href="tel:+6563244722" className="flex items-center justify-end gap-2 hover:text-accent transition-colors mt-1">
+                 <a href="tel:+6563244722" className="flex items-center justify-start gap-2 hover:text-accent transition-colors mt-1">
                   <Phone className="h-4 w-4" />
                   <span>+65 6324 4722</span>
                 </a>
