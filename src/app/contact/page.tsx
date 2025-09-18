@@ -208,26 +208,26 @@ export default function ContactPage() {
             ))}
           </div>
         </section>
-        
-        <section 
-          className="relative h-[70vh] w-full mb-16 lg:mb-24"
-        >
-          <div ref={mapRef} className="w-full h-full" id="map-container"></div>
-           <div className="leaflet-top leaflet-right absolute top-0 right-0 z-[1000] p-2.5">
-            <div className="leaflet-control leaflet-bar glassmorphic-controls">
-              <button onClick={handleZoomIn} title="Zoom in" role="button" aria-label="Zoom in" className="cursor-pointer">
-                <Plus size={18} />
-              </button>
-              <button onClick={handleGoHome} title="Home" role="button" aria-label="Home" className="cursor-pointer">
-                <HomeIcon size={18} />
-              </button>
-            </div>
-          </div>
-          <div className="absolute bottom-5 left-5 text-black/50 text-xs pointer-events-none z-[1000]">
-                🗺️ Drag to move • Hover pins • Click pins to zoom
-          </div>
-        </section>
       </div>
+        
+      <section 
+        className="relative h-[50vh] w-full"
+      >
+        <div ref={mapRef} className="w-full h-full" id="map-container"></div>
+          <div className="leaflet-top leaflet-right absolute top-0 right-0 z-[1000] p-2.5">
+          <div className="leaflet-control leaflet-bar glassmorphic-controls">
+            <button onClick={handleZoomIn} title="Zoom in" role="button" aria-label="Zoom in" className="cursor-pointer">
+              <Plus size={18} />
+            </button>
+            <button onClick={handleGoHome} title="Home" role="button" aria-label="Home" className="cursor-pointer">
+              <HomeIcon size={18} />
+            </button>
+          </div>
+        </div>
+        <div className="absolute bottom-5 left-5 text-black/50 text-xs pointer-events-none z-[1000]">
+              🗺️ Drag to move • Hover pins • Click pins to zoom
+        </div>
+      </section>
     </div>
   );
 }
