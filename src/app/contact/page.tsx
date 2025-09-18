@@ -53,8 +53,8 @@ export default function ContactPage() {
   const mapInstance = useRef<any>(null); // Use any to avoid type issues with leaflet
 
    useEffect(() => {
+    let map: any;
     if (typeof window !== 'undefined' && mapRef.current && !mapInstance.current) {
-      let map: any;
       (async () => {
         const L = await import('leaflet');
 
@@ -95,14 +95,14 @@ export default function ContactPage() {
             });
         });
       })();
-      
-      return () => {
-        if (map) {
-          map.remove();
-          mapInstance.current = null;
-        }
-      };
     }
+    
+    return () => {
+      if (mapInstance.current) {
+        mapInstance.current.remove();
+        mapInstance.current = null;
+      }
+    };
   }, []);
 
   const handleZoomIn = () => mapInstance.current?.zoomIn();
@@ -112,41 +112,16 @@ export default function ContactPage() {
 
   return (
     <div className="bg-secondary text-foreground">
-      <section 
-        className="relative h-[70vh] w-full bg-primary overflow-hidden"
-      >
-        <div ref={mapRef} className="w-full h-full absolute inset-0" id="map-container"></div>
-         <div className="leaflet-top leaflet-right absolute top-0 right-0 z-[1000] p-2.5">
-          <div className="leaflet-control leaflet-bar glassmorphic-controls">
-            <button onClick={handleZoomIn} title="Zoom in" role="button" aria-label="Zoom in" className="cursor-pointer">
-              <Plus size={18} />
-            </button>
-            <button onClick={handleZoomOut} title="Zoom out" role="button" aria-label="Zoom out" className="cursor-pointer">
-              <Minus size={18} />
-            </button>
-            <button onClick={handleGoHome} title="Home" role="button" aria-label="Home" className="cursor-pointer">
-              <HomeIcon size={18} />
-            </button>
-          </div>
-        </div>
-        <div className="absolute bottom-5 left-5 text-white/50 text-xs pointer-events-none z-[1000]">
-              🗺️ Drag to move • Hover pins • Click pins to zoom
-        </div>
-
-        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-            <div className="text-center text-primary-foreground">
-                 <h1 className="font-headline text-4xl md:text-5xl font-bold">
-                    Contact Us
-                </h1>
-                <p className="mt-4 text-lg md:text-xl font-light max-w-2xl">
-                    We’re here to help you with reliable logistics solutions. For enquiries, reach out to us at <a href="mailto:enquiries@bigfoot.com.sg" className="underline hover:text-accent transition-colors pointer-events-auto">enquiries@bigfoot.com.sg</a>.
-                </p>
-            </div>
-        </div>
-      </section>
-
       <section className="py-16 lg:py-24 bg-secondary">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12">
+                <h1 className="font-headline text-4xl md:text-5xl font-bold text-primary">
+                    Contact Us
+                </h1>
+                <p className="mt-4 text-lg md:text-xl font-light max-w-2xl mx-auto text-muted-foreground">
+                    We’re here to help you with reliable logistics solutions. For enquiries, reach out to us at <a href="mailto:enquiries@bigfoot.com.sg" className="underline hover:text-accent transition-colors">enquiries@bigfoot.com.sg</a>.
+                </p>
+            </div>
             <div className="bg-background shadow-lg p-8 lg:p-12">
                 <div className="mb-12">
                     <div className="bg-primary text-primary-foreground p-4 text-center">
@@ -236,6 +211,40 @@ export default function ContactPage() {
               </div>
           </div>
       </section>
+
+      <section 
+        className="relative h-[70vh] w-full bg-primary overflow-hidden"
+      >
+        <div ref={mapRef} className="w-full h-full absolute inset-0" id="map-container"></div>
+         <div className="leaflet-top leaflet-right absolute top-0 right-0 z-[1000] p-2.5">
+          <div className="leaflet-control leaflet-bar glassmorphic-controls">
+            <button onClick={handleZoomIn} title="Zoom in" role="button" aria-label="Zoom in" className="cursor-pointer">
+              <Plus size={18} />
+            </button>
+            <button onClick={handleZoomOut} title="Zoom out" role="button" aria-label="Zoom out" className="cursor-pointer">
+              <Minus size={18} />
+            </button>
+            <button onClick={handleGoHome} title="Home" role="button" aria-label="Home" className="cursor-pointer">
+              <HomeIcon size={18} />
+            </button>
+          </div>
+        </div>
+        <div className="absolute bottom-5 left-5 text-white/50 text-xs pointer-events-none z-[1000]">
+              🗺️ Drag to move • Hover pins • Click pins to zoom
+        </div>
+
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+            <div className="text-center text-primary-foreground">
+                 <h2 className="font-headline text-4xl md:text-5xl font-bold">
+                    Our Global Presence
+                </h2>
+                <p className="mt-4 text-lg md:text-xl font-light max-w-2xl">
+                    Connecting your business to the world, from key locations across the globe.
+                </p>
+            </div>
+        </div>
+      </section>
+
     </div>
   );
 }
