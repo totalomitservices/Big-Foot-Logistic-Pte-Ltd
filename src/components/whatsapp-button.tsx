@@ -13,7 +13,7 @@ export default function WhatsappButton() {
     >
       <div className="relative h-7 w-7">
         <Image 
-          src="https://raw.githubusercontent.com/swathitom1207/image1/refs/heads/main/wp.jpg" 
+          src="https://raw.githubusercontent.com/swathitom1207/image1/refs/heads/main/wp3.webp" 
           alt="WhatsApp Icon" 
           fill
           className="object-contain rounded-full"
