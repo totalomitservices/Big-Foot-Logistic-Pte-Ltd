@@ -1,6 +1,4 @@
 
-'use client';
-
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
@@ -40,13 +38,13 @@ export default function LogoWall() {
         </div>
         
         <div className="mt-12 w-full overflow-hidden group">
-          <div className="flex animate-scroll group-hover:[animation-play-state:paused]">
+          <figure className="flex animate-scroll group-hover:[animation-play-state:paused]" aria-label="Our trusted clients">
             {doubledLogos.map((logo, index) => (
               <div key={`${logo.name}-${index}`} className="flex-shrink-0 mx-4">
                 <div className="relative h-20 w-40 transition-transform duration-300 transform hover:scale-110 p-2 bg-white shadow-md rounded-lg">
                   <Image
                     src={logo.src}
-                    alt={logo.name}
+                    alt={`${logo.name} logo`}
                     fill
                     sizes="160px"
                     className="object-contain"
@@ -54,7 +52,7 @@ export default function LogoWall() {
                 </div>
               </div>
             ))}
-          </div>
+          </figure>
         </div>
 
          <div className="mt-12 text-right">
@@ -68,8 +66,3 @@ export default function LogoWall() {
     </section>
   );
 }
-
-    
-
-    
-
