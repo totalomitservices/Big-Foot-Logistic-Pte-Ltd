@@ -84,9 +84,16 @@ export default function ClientsPage() {
     <div className="bg-background text-foreground">
       {/* Hero Section */}
        <section
-        className="relative w-full bg-cover bg-center h-[40vh] md:h-[60vh]"
-        style={{ backgroundImage: "url('https://picsum.photos/seed/clients-hero/1920/1080')" }}
+        className="relative w-full bg-cover bg-center h-[50vh] md:h-[60vh]"
       >
+        <Image 
+            src="https://picsum.photos/seed/clients-hero/1920/1080" 
+            alt="Clients hero"
+            fill
+            priority
+            className="object-contain"
+            data-ai-hint="collaboration handshake"
+        />
         <div className="absolute inset-0 bg-primary/70" />
         <div className="relative z-10 flex h-full flex-col items-center justify-center text-center text-white px-4">
           <h1 className="font-headline text-4xl md:text-5xl font-bold">

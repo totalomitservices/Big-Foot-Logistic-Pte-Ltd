@@ -5,13 +5,13 @@ export default function TrainingPage() {
   return (
     <div className="bg-background text-foreground">
       {/* Hero Section */}
-      <section className="relative w-full h-[40vh] md:h-[60vh]">
+      <section className="relative w-full h-[50vh] md:h-[60vh]">
         <Image
           src="https://picsum.photos/seed/training-hero/1920/400"
           alt="Team in a training session"
           fill
           priority
-          className="object-cover"
+          className="object-contain"
           data-ai-hint="corporate training"
         />
         <div className="absolute inset-0 bg-primary/70" />

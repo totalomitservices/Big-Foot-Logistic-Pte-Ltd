@@ -7,13 +7,13 @@ export default function PackersAndMoversPage() {
   return (
     <div className="bg-background text-foreground">
       {/* Hero Section */}
-      <section className="relative w-full h-[40vh] md:h-[60vh]">
+      <section className="relative w-full h-[50vh] md:h-[60vh]">
         <Image
           src="https://github.com/Ram-0609/Bigfoot-Logistics-Images/blob/main/Packers-and-Movers-768x513.jpg?raw=true"
           alt="Packers and movers carefully handling items"
           fill
           priority
-          className="object-cover"
+          className="object-contain"
           data-ai-hint="moving boxes"
         />
         <div className="absolute inset-0 bg-primary/70" />

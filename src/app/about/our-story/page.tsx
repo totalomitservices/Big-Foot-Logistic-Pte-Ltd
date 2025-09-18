@@ -28,13 +28,13 @@ export default function OurStoryPage() {
   return (
     <div className="bg-background text-foreground">
       {/* Hero Section */}
-      <section className="relative w-full h-[60vh] md:h-[50vh]">
+      <section className="relative w-full h-[50vh] md:h-[60vh]">
         <Image
           src="https://github.com/Ram-0609/Bigfoot-Logistics-Images/blob/main/Our%20story.jpg?raw=true"
           alt="Team collaborating on a logistics plan"
           fill
           priority
-          className="object-cover"
+          className="object-contain"
           data-ai-hint="logistics planning"
         />
         <div className="absolute inset-0 bg-primary/30"></div>

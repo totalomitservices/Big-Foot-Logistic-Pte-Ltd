@@ -13,7 +13,7 @@ export default function OtherExpertisePage() {
           alt="Safe handling of livestock"
           fill
           priority
-          className="object-cover"
+          className="object-contain"
           data-ai-hint="livestock transport"
         />
         <div className="absolute inset-0 bg-primary/70" />

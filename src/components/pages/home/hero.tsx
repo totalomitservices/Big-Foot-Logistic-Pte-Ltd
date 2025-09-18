@@ -9,14 +9,14 @@ const heroImage = PlaceHolderImages.find((img) => img.id === 'hero-image');
 
 export default function Hero() {
   return (
-    <section id="home" className="relative w-full h-[90vh] md:h-screen">
+    <section id="home" className="relative w-full h-[70vh] md:h-screen">
       {heroImage && (
         <Image
           src={heroImage.imageUrl}
           alt={heroImage.description}
           fill
           priority
-          className="object-cover"
+          className="object-contain"
           data-ai-hint={heroImage.imageHint}
         />
       )}

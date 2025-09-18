@@ -59,13 +59,13 @@ const perksAndBenefits = [
 export default function OpenPositionsPage() {
   return (
     <div className="bg-background text-foreground">
-      <section className="relative w-full h-[40vh] md:h-[60vh]">
+      <section className="relative w-full h-[50vh] md:h-[60vh]">
         <Image
           src="https://picsum.photos/seed/open-positions-hero/1920/400"
           alt="We're hiring banner"
           fill
           priority
-          className="object-cover"
+          className="object-contain"
           data-ai-hint="we're hiring"
         />
         <div className="absolute inset-0 bg-primary/70" />

@@ -22,13 +22,13 @@ export default function VisionMissionPage() {
   return (
     <div className="bg-background text-foreground">
       {/* Hero Section */}
-      <section className="relative w-full h-[40vh] md:h-[60vh]">
+      <section className="relative w-full h-[50vh] md:h-[60vh]">
         <Image
           src="https://picsum.photos/seed/vision-hero/1920/400"
           alt="Compass pointing towards a destination"
           fill
           priority
-          className="object-cover"
+          className="object-contain"
           data-ai-hint="direction compass"
         />
         <div className="absolute inset-0 bg-primary/70" />
