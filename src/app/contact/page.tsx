@@ -233,16 +233,6 @@ export default function ContactPage() {
               🗺️ Drag to move • Hover pins • Click pins to zoom
         </div>
 
-        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-            <div className="text-center text-primary-foreground">
-                 <h2 className="font-headline text-4xl md:text-5xl font-bold">
-                    Our Global Presence
-                </h2>
-                <p className="mt-4 text-lg md:text-xl font-light max-w-2xl">
-                    Connecting your business to the world, from key locations across the globe.
-                </p>
-            </div>
-        </div>
       </section>
 
     </div>
