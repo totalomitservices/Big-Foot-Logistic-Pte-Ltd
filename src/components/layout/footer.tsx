@@ -12,18 +12,17 @@ export default function Footer() {
   return (
     <footer id="contact" className="bg-primary text-primary-foreground">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
           {/* Company Profile */}
-          <div className="md:col-span-1">
+          <div className="md:col-span-4">
             <Logo className="text-primary-foreground" />
-            <p className="text-primary-foreground/80 text-sm">
+            <p className="text-primary-foreground/80 text-sm mt-4">
               BIG FOOT LOGISTIC PTE LTD was founded in the year 1992. The Company had since developed a wide range of logistic and port services in tune with current market demands. Built with a strong customer focus as its foundation, the company has been garnering intense support from our customers, whom till today still form the backbone of the company’s continual growth.
             </p>
           </div>
 
-
-          {/* Contact Info & Follow Us */}
-          <div className="space-y-8">
+          {/* Quick Links & Follow Us */}
+          <div className="md:col-span-4 space-y-8">
             <div>
               <h3 className="text-lg font-headline font-bold uppercase tracking-wider text-accent">Contact Info</h3>
               <ul className="space-y-3 text-sm mt-4">
@@ -41,7 +40,7 @@ export default function Footer() {
                 </li>
               </ul>
             </div>
-            <div className="space-y-4 pt-4">
+             <div className="space-y-4 pt-4">
               <h3 className="text-lg font-headline font-bold uppercase tracking-wider text-accent">Follow Us</h3>
               <div className="flex gap-6 mt-4">
                 <Link href="https://www.facebook.com/BigfootGroups/" target="_blank" rel="noopener noreferrer" className="hover:text-accent hover:scale-125 transition-all duration-200">
@@ -58,7 +57,7 @@ export default function Footer() {
           </div>
 
           {/* Google Map */}
-          <div>
+          <div className="md:col-span-4">
             <h3 className="text-lg font-headline font-bold uppercase tracking-wider text-accent mb-4">Our Location</h3>
             <div className="aspect-video overflow-hidden shadow-lg transition-all duration-300 hover:shadow-accent/30 hover:shadow-2xl hover:scale-105">
               <iframe
