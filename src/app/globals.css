@@ -164,6 +164,10 @@
     object-fit: cover;
     object-position: center;
   }
+
+  .header-separator {
+    @apply h-6 w-px bg-white/20;
+  }
 }
 
 /* Leaflet and Map Styles */
@@ -244,28 +248,3 @@
   color: hsl(var(--accent-foreground)) !important;
   transform: scale(1.1);
 }
-
-    
-
-
-
-
-
-
-
-
-
-
-    
-
-
-
-    
-
-
-
-
-
-
-
-    

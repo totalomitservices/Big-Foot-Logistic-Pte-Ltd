@@ -1,3 +1,4 @@
+
 "use client";
 
 import React from 'react';
@@ -14,6 +15,7 @@ import { Button } from '../ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '../ui/sheet';
 import { servicesData } from '@/data/services';
 import HeaderClient from './header-client';
+import { cn } from '@/lib/utils';
 
 const navLinks = [
   { href: '/', label: 'Home' },
@@ -40,6 +42,12 @@ const contactInfo = {
   phone: '+65 6324 4722',
 };
 
+const NavLink = ({ children, className }: { children: React.ReactNode, className?: string }) => (
+    <div className={cn("font-medium text-base hover:text-accent focus-visible:ring-0 focus-visible:ring-offset-0 hover:bg-transparent focus:bg-transparent text-primary-foreground px-3 py-2", className)}>
+        {children}
+    </div>
+)
+
 const DesktopNav = () => {
     const [openDropdown, setOpenDropdown] = React.useState<string | null>(null);
     const handleOpenChange = (label: string, open: boolean) => {
@@ -47,18 +55,17 @@ const DesktopNav = () => {
     };
 
     return (
-        <nav className="hidden md:flex flex-1 justify-center items-center space-x-1">
+        <nav className="hidden md:flex items-center">
             {navLinks.map((link) => (
                 <div key={link.href}>
                     {link.subLinks ? (
                         <DropdownMenu onOpenChange={(open) => handleOpenChange(link.label, open)} open={openDropdown === link.label}>
                             <DropdownMenuTrigger asChild>
-                                <Button
-                                    variant="ghost"
-                                    className="font-medium text-base hover:text-accent focus-visible:ring-0 focus-visible:ring-offset-0 hover:bg-transparent focus:bg-transparent text-primary-foreground"
-                                >
-                                    {link.label}
-                                    <ChevronDown className="ml-2 h-4 w-4" />
+                                <Button variant="ghost" asChild>
+                                   <NavLink>
+                                        {link.label}
+                                        <ChevronDown className="ml-1 h-4 w-4 transition-transform duration-200" />
+                                    </NavLink>
                                 </Button>
                             </DropdownMenuTrigger>
                             <DropdownMenuContent>
@@ -70,11 +77,8 @@ const DesktopNav = () => {
                             </DropdownMenuContent>
                         </DropdownMenu>
                     ) : (
-                        <Link
-                            href={link.href}
-                            className="font-medium text-base hover:text-accent transition-colors duration-300 px-4 py-2 text-primary-foreground hover:underline underline-offset-4"
-                        >
-                            {link.label}
+                        <Link href={link.href}>
+                             <NavLink>{link.label}</NavLink>
                         </Link>
                     )}
                 </div>
@@ -98,7 +102,7 @@ const MobileNav = () => {
                 <SheetContent side="left" className="w-[300px] sm:w-[400px] bg-primary text-primary-foreground">
                     <div className="flex flex-col h-full p-6">
                         <Link href="/" onClick={() => setMobileMenuOpen(false)} className="mb-8">
-                            <Logo className="text-white" />
+                            <Logo className="text-white h-20 w-20" />
                         </Link>
                         <nav className="flex flex-col space-y-4">
                             {navLinks.map((link) =>
@@ -152,26 +156,28 @@ export default function Header() {
   return (
     <HeaderClient>
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex items-center justify-between h-24">
+            <div className="flex items-center justify-between h-16">
                 <div className="flex-shrink-0">
                     <Link href="/">
-                        <Logo className="text-primary-foreground" priority />
+                        <Logo className="text-primary-foreground h-20 w-20" priority />
                     </Link>
                 </div>
 
-                <DesktopNav />
+                <div className="hidden md:flex items-center justify-center flex-1">
+                    <DesktopNav />
+                </div>
 
-                <div className="hidden md:flex items-center space-x-4">
-                    <div className="text-left text-sm text-primary-foreground">
-                        <a href={`mailto:${contactInfo.email}`} className="flex items-center justify-start gap-2 hover:text-accent transition-colors">
-                            <Mail className="h-4 w-4" />
-                            <span>{contactInfo.email}</span>
-                        </a>
-                        <a href={`tel:${contactInfo.phone.replace(/\s/g, '')}`} className="flex items-center justify-start gap-2 hover:text-accent transition-colors mt-1">
-                            <Phone className="h-4 w-4" />
-                            <span>{contactInfo.phone}</span>
-                        </a>
-                    </div>
+
+                <div className="hidden md:flex items-center justify-end space-x-4">
+                    <div className="header-separator" />
+                    <a href={`mailto:${contactInfo.email}`} className="text-primary-foreground hover:text-accent transition-colors p-2">
+                        <Mail className="h-5 w-5" />
+                        <span className="sr-only">Email</span>
+                    </a>
+                    <a href={`tel:${contactInfo.phone.replace(/\s/g, '')}`} className="text-primary-foreground hover:text-accent transition-colors p-2">
+                        <Phone className="h-5 w-5" />
+                         <span className="sr-only">Phone</span>
+                    </a>
                 </div>
 
                 <MobileNav />

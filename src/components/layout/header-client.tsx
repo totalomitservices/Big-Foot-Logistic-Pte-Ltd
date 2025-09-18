@@ -9,14 +9,19 @@ export default function HeaderClient({ children }: { children: React.ReactNode }
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 10);
+      setScrolled(window.scrollY > 20);
     };
     window.addEventListener('scroll', handleScroll);
+    handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   return (
-    <header className={cn("fixed top-0 z-50 w-full transition-colors duration-300", scrolled ? 'bg-foreground/80 backdrop-blur-sm' : 'bg-transparent')}>
+    <header className={cn(
+      "fixed top-4 left-1/2 -translate-x-1/2 z-50 transition-all duration-300 ease-in-out",
+      "w-[calc(100%-2rem)] max-w-7xl",
+      scrolled ? "w-full max-w-max rounded-full bg-foreground/70 backdrop-blur-md shadow-lg" : "bg-transparent"
+    )}>
       {children}
     </header>
   );
