@@ -46,31 +46,6 @@ const Globe = () => {
     );
     scene.add(sphere);
 
-     // Atmosphere
-    const atmosphere = new THREE.Mesh(
-        new THREE.SphereGeometry(1, 50, 50),
-        new THREE.ShaderMaterial({
-            vertexShader: `
-                varying vec3 vertexNormal;
-                void main() {
-                    vertexNormal = normalize(normalMatrix * normal);
-                    gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
-                }
-            `,
-            fragmentShader: `
-                varying vec3 vertexNormal;
-                void main() {
-                    float intensity = pow(0.6 - dot(vertexNormal, vec3(0,0,1.0)), 2.0);
-                    gl_FragColor = vec4(0.3, 0.6, 1.0, 1.0) * intensity;
-                }
-            `,
-            blending: THREE.AdditiveBlending,
-            side: THREE.BackSide
-        })
-    );
-    atmosphere.scale.set(1.1, 1.1, 1.1);
-    scene.add(atmosphere);
-
     // LIGHTS
     const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
     scene.add(ambientLight);
