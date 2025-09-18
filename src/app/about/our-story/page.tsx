@@ -10,7 +10,6 @@ export const metadata: Metadata = {
   title: 'Our Story | Bigfoot Logistics',
 };
 
-
 const coreValues = [
     {
         icon: Users,
@@ -28,7 +27,6 @@ const coreValues = [
         description: "We offer a full suite of logistics services under one roof, providing seamless, end-to-end solutions.",
     },
 ];
-
 
 export default function OurStoryPage() {
   return (

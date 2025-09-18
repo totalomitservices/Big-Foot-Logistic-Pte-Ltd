@@ -6,7 +6,6 @@ export const metadata: Metadata = {
   title: 'Vision & Mission | Bigfoot Logistics',
 };
 
-
 const values = [
   {
     title: 'Our Vision',
