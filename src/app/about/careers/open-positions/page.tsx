@@ -1,4 +1,5 @@
 
+'use client';
 import Header from '@/components/layout/header';
 import Image from 'next/image';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';

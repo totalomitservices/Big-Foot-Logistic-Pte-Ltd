@@ -8,6 +8,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Phone, Mail, Clock, ArrowRight, Building } from 'lucide-react';
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
+import Header from '@/components/layout/header';
 
 const ContactMap = dynamic(() => import('@/components/pages/contact/contact-map'), {
   ssr: false,
@@ -47,10 +48,11 @@ const officeLocations = [
 
 export default function ContactPage() {
   return (
-    <div className="bg-secondary text-foreground">
+    <div className="bg-background text-foreground">
+      <Header />
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <section className="py-16 lg:py-24 bg-secondary">
-          <div className="text-center mb-12">
+        <section className="py-16 lg:py-24">
+          <div className="text-center mb-12 pt-20">
             <h1 className="font-headline text-4xl md:text-5xl font-bold text-primary">
               Contact Us
             </h1>
@@ -58,7 +60,7 @@ export default function ContactPage() {
               We’re here to help you with reliable logistics solutions. For enquiries, reach out to us at <a href="mailto:enquiries@bigfoot.com.sg" className="underline hover:text-accent transition-colors">enquiries@bigfoot.com.sg</a>.
             </p>
           </div>
-          <div className="bg-background shadow-lg p-8 lg:p-12">
+          <div className="bg-secondary shadow-lg p-8 lg:p-12">
             <div className="mb-12">
               <div className="bg-primary text-primary-foreground p-4 text-center">
                 <h3 className="font-headline text-lg font-semibold mb-2">Our Core Services</h3>
