@@ -1,6 +1,7 @@
 
 "use client";
 
+import React, { useState, useEffect } from 'react';
 import { ChevronDown, Mail, Phone, Menu } from 'lucide-react';
 import Link from 'next/link';
 import { Logo } from '@/components/logo';
@@ -11,7 +12,6 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Button } from '../ui/button';
-import { useState, useEffect } from 'react';
 import { Sheet, SheetContent, SheetTrigger } from '../ui/sheet';
 import { servicesData } from '@/data/services';
 import { cn } from '@/lib/utils';
