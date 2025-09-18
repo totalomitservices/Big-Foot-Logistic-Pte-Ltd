@@ -6,9 +6,9 @@ import { useEffect, useRef } from 'react';
 import { Home as HomeIcon, Plus } from 'lucide-react';
 
 const mapLocations = [
-  { lat: 1.3303, lon: 103.7088, city: 'Singapore HQ', country: 'Singapore' },
-  { lat: 19.0760, lon: 72.8777, city: 'Mumbai', country: 'India' },
-  { lat: -33.8688, lon: 151.2093, city: 'Sydney', country: 'Australia' },
+  { lat: 1.3066, lon: 103.704, city: 'Singapore HQ', country: 'Singapore' },
+  { lat: 10.3833, lon: 78.8167, city: 'India Office', country: 'India' },
+  { lat: -33.8688, lon: 151.2093, city: 'Australia Office', country: 'Australia' },
 ];
 
 const WORLD_VIEW = { center: [20, 0], zoom: 2 };
@@ -20,7 +20,7 @@ export default function Globe() {
   useEffect(() => {
     if (typeof window !== 'undefined' && mapRef.current) {
       // Check if map is already initialized
-      if (mapRef.current.hasChildNodes()) {
+      if (mapRef.current?.['_leaflet_id']) {
         return;
       }
 
