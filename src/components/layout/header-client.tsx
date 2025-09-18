@@ -40,12 +40,8 @@ export default function HeaderClient() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
 
-  const handleMouseEnter = (label: string) => {
-    setOpenDropdown(label);
-  };
-
-  const handleMouseLeave = () => {
-    setOpenDropdown(null);
+  const handleOpenChange = (label: string, open: boolean) => {
+    setOpenDropdown(open ? label : null);
   };
 
   return (
@@ -63,22 +59,17 @@ export default function HeaderClient() {
             {navLinks.map((link) => (
               <div key={link.href}>
                 {link.subLinks ? (
-                  <DropdownMenu onOpenChange={(isOpen) => setOpenDropdown(isOpen ? link.label : null)} open={openDropdown === link.label}>
+                  <DropdownMenu onOpenChange={(open) => handleOpenChange(link.label, open)} open={openDropdown === link.label}>
                     <DropdownMenuTrigger asChild>
                       <Button 
                         variant="ghost" 
                         className="font-medium text-base hover:text-accent focus-visible:ring-0 focus-visible:ring-offset-0 hover:bg-transparent focus:bg-transparent text-primary-foreground"
-                        onMouseEnter={() => handleMouseEnter(link.label)}
-                        onMouseLeave={handleMouseLeave}
                       >
                         {link.label}
                         <ChevronDown className="ml-2 h-4 w-4" />
                       </Button>
                     </DropdownMenuTrigger>
-                    <DropdownMenuContent 
-                      onMouseEnter={() => handleMouseEnter(link.label)}
-                      onMouseLeave={handleMouseLeave}
-                    >
+                    <DropdownMenuContent>
                       {link.subLinks.map((subLink) => (
                         <DropdownMenuItem key={subLink.href} asChild>
                           <Link href={subLink.href}>{subLink.label}</Link>
