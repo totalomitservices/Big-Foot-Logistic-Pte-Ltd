@@ -18,7 +18,7 @@ export default function PackersAndMoversPage() {
           className="object-cover"
           data-ai-hint="moving boxes"
         />
-        <div className="absolute inset-0 bg-primary/70" />
+        
         <div className="relative z-10 flex h-full flex-col items-center justify-center text-center text-white px-4">
           <h1 className="font-headline text-4xl md:text-5xl font-semibold">
             Packers and Movers
