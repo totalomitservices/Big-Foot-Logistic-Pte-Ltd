@@ -287,7 +287,7 @@
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1) !important;
 }
 
-.glassmorphic-controls a {
+.glassmorphic-controls button {
   background-color: transparent !important;
   color: white !important;
   display: flex !important;
@@ -296,9 +296,10 @@
   width: 30px !important;
   height: 30px !important;
   transition: all 0.2s ease-in-out !important;
+  border: none !important;
 }
 
-.glassmorphic-controls a:hover {
+.glassmorphic-controls button:hover {
   background-color: hsl(var(--accent) / 0.3) !important;
   color: hsl(var(--accent)) !important;
   transform: scale(1.1);

@@ -76,10 +76,7 @@ export default function LogoWall() {
   };
   
   const handleOpenChange = (open: boolean) => {
-    if (!open) {
-        // Delay hiding content to allow for exit animation
-        setTimeout(() => setIsModalOpen(false), 300);
-    }
+    setIsModalOpen(open);
   }
 
 
@@ -107,7 +104,7 @@ export default function LogoWall() {
               {[...logos, ...logos].map((logo, index) => (
                 <div key={`${logo.name}-${index}`} className="flex-shrink-0 w-48 mx-4 p-2">
                   <div 
-                    className="relative h-24 w-full transition-transform duration-300 transform hover:scale-110 cursor-pointer p-4 bg-background shadow-md rounded-lg"
+                    className="relative h-24 w-full transition-transform duration-300 transform hover:scale-110 cursor-pointer p-4 bg-white shadow-md rounded-lg"
                     onClick={() => handleLogoClick(logo)}
                     >
                     <Image
@@ -127,11 +124,18 @@ export default function LogoWall() {
             <div className="absolute inset-y-0 right-0 w-1/4 bg-gradient-to-l from-background to-transparent opacity-0 group-hover/carousel:opacity-100 transition-opacity duration-300 cursor-pointer" onClick={() => handleManualScroll('forward')}></div>
 
         </div>
+         <div className="mt-12 text-center">
+            <Button asChild variant="accent" size="lg">
+                <Link href="/clients">
+                    View All Our Clients <ArrowRight className="ml-2"/>
+                </Link>
+            </Button>
+        </div>
       </div>
       
         <Dialog open={isModalOpen} onOpenChange={handleOpenChange}>
             <DialogContent 
-              className="p-0 border-none max-w-md w-full modal-content-glass text-primary-foreground shadow-2xl"
+              className="p-0 border-none max-w-md w-full modal-content-glass text-primary-foreground shadow-2xl data-[state=open]:animate-modal-in data-[state=closed]:animate-modal-out"
               onOpenAutoFocus={(e) => e.preventDefault()}
             >
                 {selectedLogo && (
@@ -161,5 +165,3 @@ export default function LogoWall() {
     </section>
   );
 }
-
-    
