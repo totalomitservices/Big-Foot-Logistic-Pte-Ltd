@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
 export default function TrainingPage() {
   return (
-    <div className="relative bg-background text-foreground pt-24">
+    <div className="relative bg-background text-foreground">
       {/* Hero Section */}
       <section className="relative w-full h-[40vh] md:h-[50vh]">
         <Image

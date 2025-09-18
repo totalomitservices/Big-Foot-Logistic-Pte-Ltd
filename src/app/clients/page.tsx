@@ -90,7 +90,7 @@ const clients = [
 
 export default function ClientsPage() {
   return (
-    <div className="relative bg-background text-foreground pt-24">
+    <div className="relative bg-background text-foreground">
       {/* Hero Section */}
        <section
         className="relative w-full bg-cover bg-center h-[40vh] md:h-[50vh]"

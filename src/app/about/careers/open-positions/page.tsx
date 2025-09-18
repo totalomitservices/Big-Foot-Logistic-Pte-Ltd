@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 export default function OpenPositionsPage() {
   return (
-    <div className="relative bg-background text-foreground pt-24">
+    <div className="relative bg-background text-foreground">
       <section className="relative w-full h-[40vh] md:h-[50vh]">
         <Image
           src="https://picsum.photos/seed/open-positions-hero/1920/400"

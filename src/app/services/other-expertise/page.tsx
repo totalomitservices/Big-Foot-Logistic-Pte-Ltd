@@ -13,7 +13,7 @@ export default function OtherExpertisePage() {
   const listClassName = "list-disc list-inside space-y-2 text-lg text-muted-foreground";
 
   return (
-    <div className="relative bg-background text-foreground pt-24">
+    <div className="relative bg-background text-foreground">
       {/* Hero Section */}
       <section className="relative w-full h-[40vh] md:h-[50vh]">
         <Image

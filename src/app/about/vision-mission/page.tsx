@@ -1,6 +1,7 @@
 
 import Image from 'next/image';
 import type { Metadata } from 'next';
+import { Rocket, Goal, Star } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'Vision & Mission | Bigfoot Logistics',
@@ -10,20 +11,23 @@ const values = [
   {
     title: 'Our Vision',
     description: 'Our vision is to be the most trusted and innovative logistics partner, known for delivering seamless, end-to-end solutions that enable businesses to grow confidently worldwide. We strive to set new standards in service excellence, technology adoption, and customer satisfaction, staying ahead in a fast-changing world.',
+    icon: Goal,
   },
   {
     title: 'Our Mission',
     description: 'Our mission is simple but powerful: to achieve sustainable growth while ensuring complete customer satisfaction. We do this by embracing technology, innovation, and a forward-thinking approach, supported by our skilled team and efficient processes. Every service we deliver is grounded in reliability, professionalism, and excellence, ensuring value for every client.',
+    icon: Rocket,
   },
   {
     title: 'Our Values',
     description: 'We are guided by principles of integrity, customer focus, and a commitment to quality. These values are the foundation of our long-term partnerships and drive our daily operations.',
+    icon: Star,
   },
 ];
 
 export default function VisionMissionPage() {
   return (
-    <div className="relative bg-background text-foreground pt-24">
+    <div className="relative bg-background text-foreground">
       {/* Hero Section */}
       <section className="relative w-full h-[40vh] md:h-[50vh]">
         <Image
@@ -52,22 +56,26 @@ export default function VisionMissionPage() {
                 <h2 className="text-3xl font-headline font-bold text-primary">Our Guiding Principles</h2>
             </div>
           <div className="relative max-w-4xl mx-auto">
-             <div className="absolute left-1/2 -translate-x-1/2 h-full w-1 bg-border rounded-full hidden md:block"></div>
-                {values.map((item, index) => (
-                <div key={index} className={`relative mb-12 animate-fade-in md:flex ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} items-center w-full`}>
-                    <div className="md:w-5/12">
-                         <div className="relative md:absolute left-1/2 -translate-x-1/2 z-10">
-                          {/* Icon removed as requested */}
+             <div className="absolute left-1/2 -translate-x-1/2 h-full w-0.5 bg-border hidden md:block"></div>
+                {values.map((item, index) => {
+                  const Icon = item.icon;
+                  return (
+                    <div key={index} className={`relative mb-12 animate-fade-in md:flex ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} items-center w-full`}>
+                        <div className="md:w-5/12">
+                            <div className="hidden md:flex absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 items-center justify-center">
+                                <div className="w-4 h-4 bg-secondary absolute ring-4 ring-border rounded-full z-10"></div>
+                                <div className="p-3 bg-accent text-accent-foreground rounded-full shadow-lg z-20"><Icon className="w-6 h-6" /></div>
+                            </div>
                         </div>
-                    </div>
-                     <div className="md:w-full">
-                         <div className={`p-6 bg-background shadow-lg text-left`}>
-                             <h3 className="text-2xl font-headline text-primary font-bold mb-2">{item.title}</h3>
-                             <p className="text-muted-foreground leading-relaxed">{item.description}</p>
+                         <div className={`md:w-7/12 ${index % 2 === 0 ? 'md:pl-12' : 'md:pr-12'}`}>
+                             <div className={`p-6 bg-background shadow-lg text-left`}>
+                                 <h3 className="text-2xl font-headline text-primary font-bold mb-2">{item.title}</h3>
+                                 <p className="text-muted-foreground leading-relaxed">{item.description}</p>
+                             </div>
                          </div>
-                     </div>
-                </div>
-                ))}
+                    </div>
+                  );
+                })}
           </div>
         </div>
       </section>

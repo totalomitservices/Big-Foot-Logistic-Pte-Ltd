@@ -175,9 +175,8 @@ export default function Header() {
 
   return (
     <header className={cn(
-      "fixed top-4 left-1/2 -translate-x-1/2 z-50 transition-all duration-300 ease-in-out",
-      "w-[calc(100%-2rem)] max-w-7xl",
-      scrolled ? "w-full max-w-max rounded-full bg-foreground/70 backdrop-blur-md shadow-lg" : "bg-transparent"
+      "fixed top-0 left-0 w-full z-50 transition-all duration-300 ease-in-out",
+      scrolled ? "bg-foreground/70 backdrop-blur-md shadow-lg" : "bg-transparent"
     )}>
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex items-center justify-between h-16">
