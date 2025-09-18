@@ -1,9 +1,14 @@
 
-'use client';
 import Image from 'next/image';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Mail, Phone } from 'lucide-react';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Open Positions | Bigfoot Logistics',
+};
+
 
 const jobOpenings = [
   {

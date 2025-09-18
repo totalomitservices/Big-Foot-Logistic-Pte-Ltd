@@ -1,9 +1,13 @@
 
-'use client';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { Card } from '@/components/ui/card';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Our Clients | Bigfoot Logistics',
+};
 
 const clients = [
   {
@@ -122,8 +126,7 @@ export default function ClientsPage() {
             {clients.map((client, index) => (
               <div
                 key={client.name}
-                className="grid md:grid-cols-2 gap-12 items-center animate-fade-in"
-                style={{ animationDelay: `${index * 150}ms`, animationFillMode: 'backwards' }}
+                className="grid md:grid-cols-2 gap-12 items-center"
               >
                 <div
                   className={`relative h-48 w-full md:h-64 ${index % 2 === 0 ? 'md:order-1' : 'md:order-2'}`}

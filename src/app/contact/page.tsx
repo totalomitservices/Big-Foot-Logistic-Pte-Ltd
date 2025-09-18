@@ -8,6 +8,11 @@ import { Textarea } from '@/components/ui/textarea';
 import { Phone, Mail, Clock, ArrowRight, Building } from 'lucide-react';
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
+import type { Metadata } from 'next';
+
+// export const metadata: Metadata = {
+//   title: 'Contact Us | Bigfoot Logistics',
+// };
 
 const ContactMap = dynamic(() => import('@/components/pages/contact/contact-map'), {
   ssr: false,

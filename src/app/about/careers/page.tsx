@@ -1,8 +1,13 @@
 
-'use client';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Careers | Bigfoot Logistics',
+};
+
 
 export default function CareersPage() {
   return (
