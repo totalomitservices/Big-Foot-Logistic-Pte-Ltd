@@ -27,7 +27,7 @@ export default function ServiceCard({ service }: ServiceCardProps) {
             />
           )}
           <div className="absolute inset-0 bg-black/40 flex items-end p-4">
-            <h3 className="font-headline text-2xl font-semibold text-white drop-shadow-md">
+            <h3 className="font-headline text-2xl font-light text-white drop-shadow-md">
               {service.title}
             </h3>
           </div>
@@ -35,7 +35,7 @@ export default function ServiceCard({ service }: ServiceCardProps) {
 
         {/* Back of the card */}
         <div className="absolute w-full h-full bg-primary text-primary-foreground p-6 flex flex-col justify-center items-center text-center flip-card-back">
-          <h3 className="font-headline text-2xl font-semibold mb-2">{service.title}</h3>
+          <h3 className="font-headline text-2xl font-light mb-2">{service.title}</h3>
           <p className="text-sm text-primary-foreground/80 mb-4">{service.description}</p>
           <Button asChild variant="secondary">
             <Link href={service.href}>Learn More</Link>
