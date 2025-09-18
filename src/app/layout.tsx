@@ -2,7 +2,6 @@
 import type { Metadata } from 'next';
 import './globals.css';
 import { Toaster } from '@/components/ui/toaster';
-import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
 import WhatsappButton from '@/components/whatsapp-button';
 
@@ -27,7 +26,6 @@ export default function RootLayout({
         />
       </head>
       <body className="font-body antialiased bg-background text-foreground">
-        <Header />
         <div className="flex flex-col min-h-screen">
           {children}
         </div>

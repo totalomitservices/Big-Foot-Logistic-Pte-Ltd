@@ -1,11 +1,13 @@
 
+import Header from '@/components/layout/header';
 import Image from 'next/image';
 
 export default function FreightForwardingPage() {
   const listClassName = "list-disc list-inside space-y-2 text-lg text-muted-foreground";
 
   return (
-    <div className="bg-background text-foreground">
+    <div className="relative bg-background text-foreground">
+      <Header />
       {/* Hero Section */}
       <section className="relative w-full h-[50vh] md:h-[60vh]">
         <Image
@@ -13,7 +15,7 @@ export default function FreightForwardingPage() {
           alt="Freight forwarding services"
           fill
           priority
-          className="object-contain"
+          className="object-cover"
           data-ai-hint="air freight"
         />
         <div className="absolute inset-0 bg-primary/70" />

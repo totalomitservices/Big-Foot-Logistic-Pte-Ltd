@@ -1,5 +1,6 @@
 
 'use client';
+import Header from '@/components/layout/header';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
@@ -81,7 +82,8 @@ const clients = [
 
 export default function ClientsPage() {
   return (
-    <div className="bg-background text-foreground">
+    <div className="relative bg-background text-foreground">
+      <Header />
       {/* Hero Section */}
        <section
         className="relative w-full bg-cover bg-center h-[50vh] md:h-[60vh]"
@@ -91,7 +93,7 @@ export default function ClientsPage() {
             alt="Clients hero"
             fill
             priority
-            className="object-contain"
+            className="object-cover"
             data-ai-hint="collaboration handshake"
         />
         <div className="absolute inset-0 bg-primary/70" />

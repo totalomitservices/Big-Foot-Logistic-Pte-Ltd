@@ -1,4 +1,5 @@
 
+import Header from '@/components/layout/header';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
@@ -26,7 +27,8 @@ const coreValues = [
 
 export default function OurStoryPage() {
   return (
-    <div className="bg-background text-foreground">
+    <div className="relative bg-background text-foreground">
+      <Header />
       {/* Hero Section */}
       <section className="relative w-full h-[50vh] md:h-[60vh]">
         <Image
@@ -34,7 +36,7 @@ export default function OurStoryPage() {
           alt="Team collaborating on a logistics plan"
           fill
           priority
-          className="object-contain"
+          className="object-cover"
           data-ai-hint="logistics planning"
         />
         <div className="absolute inset-0 bg-primary/30"></div>

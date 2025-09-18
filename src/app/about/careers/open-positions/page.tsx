@@ -1,4 +1,5 @@
 
+import Header from '@/components/layout/header';
 import Image from 'next/image';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -58,14 +59,15 @@ const perksAndBenefits = [
 
 export default function OpenPositionsPage() {
   return (
-    <div className="bg-background text-foreground">
+    <div className="relative bg-background text-foreground">
+      <Header />
       <section className="relative w-full h-[50vh] md:h-[60vh]">
         <Image
           src="https://picsum.photos/seed/open-positions-hero/1920/400"
           alt="We're hiring banner"
           fill
           priority
-          className="object-contain"
+          className="object-cover"
           data-ai-hint="we're hiring"
         />
         <div className="absolute inset-0 bg-primary/70" />
