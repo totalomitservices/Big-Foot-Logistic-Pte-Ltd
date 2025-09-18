@@ -101,7 +101,7 @@
     transform: rotateY(180deg);
   }
   .animate-scroll {
-    animation: scroll 60s linear infinite;
+    animation: scroll 24s linear infinite;
   }
   @keyframes scroll {
     from {
@@ -220,5 +220,6 @@
 }
 
     
+
 
 
