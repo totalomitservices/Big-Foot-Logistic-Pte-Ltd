@@ -155,7 +155,7 @@ export default function ContactPage() {
                           <CardContent className="space-y-3 text-muted-foreground flex-grow">
                               <p>{office.address}</p>
                               <p className="flex items-center justify-center gap-2"><Phone className="h-4 w-4"/>{office.phone}</p>
-                              <p className="flex items-center justify-center gap-2"><Mail className="h-4 w-4"/>{office.email}</p>
+                              <a href={`mailto:${office.email}`} className="flex items-center justify-center gap-2 hover:text-primary transition-colors"><Mail className="h-4 w-4"/>{office.email}</a>
                           </CardContent>
                       </Card>
                   ))}
