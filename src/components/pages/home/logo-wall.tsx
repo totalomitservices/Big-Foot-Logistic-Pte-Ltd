@@ -57,7 +57,7 @@ export default function LogoWall() {
         </div>
 
          <div className="mt-12 text-right">
-            <Button asChild variant="accent" className="transition-all duration-300 transform hover:-translate-y-1 hover:shadow-xl">
+            <Button asChild className="btn-animated-border">
                 <Link href="/clients">
                     View All Our Clients <ArrowRight className="ml-2"/>
                 </Link>
