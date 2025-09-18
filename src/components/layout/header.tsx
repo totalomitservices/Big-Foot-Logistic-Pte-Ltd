@@ -40,12 +40,15 @@ export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [hasMounted, setHasMounted] = useState(false);
 
   useEffect(() => {
+    setHasMounted(true);
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
     window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Check scroll position on mount
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -62,7 +65,7 @@ export default function Header() {
     <header
       className={cn(
         'fixed top-0 z-50 w-full transition-all duration-300',
-        isScrolled ? 'bg-primary/90 backdrop-blur-sm' : 'bg-transparent'
+        hasMounted && isScrolled ? 'bg-primary/90 backdrop-blur-sm' : 'bg-transparent'
       )}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
