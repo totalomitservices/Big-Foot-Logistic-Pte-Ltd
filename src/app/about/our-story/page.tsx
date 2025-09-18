@@ -46,7 +46,7 @@ export default function OurStoryPage() {
           <h1 className="font-headline text-4xl md:text-5xl font-bold drop-shadow-lg text-black">
             Our Story
           </h1>
-          <p className="mt-4 text-lg md:text-xl font-light drop-shadow-lg">
+          <p className="mt-4 text-lg md:text-xl font-light drop-shadow-lg text-black">
             Building trust in logistics since 1992.
           </p>
         </div>
