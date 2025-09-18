@@ -47,60 +47,65 @@ const mapLocations = [
 
 export default function ContactPage() {
   const mapRef = useRef<HTMLDivElement>(null);
-  const mapInstance = useRef<L.Map | null>(null);
+  const mapInstance = useRef<any>(null); // Use any to avoid type issues with leaflet
 
   useEffect(() => {
-    if (typeof window !== 'undefined' && mapRef.current && !mapInstance.current) {
-        (async () => {
-            const L = await import('leaflet');
-            
-            const southWest = L.latLng(-90, -180);
-            const northEast = L.latLng(90, 180);
-            const bounds = L.latLngBounds(southWest, northEast);
+    let map: any;
+    if (mapRef.current && !mapInstance.current) {
+      (async () => {
+        const L = await import('leaflet');
 
-            const map = L.map(mapRef.current!, {
-                zoomControl: false,
-                maxBounds: bounds,
-                maxBoundsViscosity: 1.0
-            }).fitWorld();
+        const southWest = L.latLng(-90, -180);
+        const northEast = L.latLng(90, 180);
+        const bounds = L.latLngBounds(southWest, northEast);
 
-            map.setMinZoom(map.getZoom());
-            mapInstance.current = map;
+        map = L.map(mapRef.current!, {
+          zoomControl: false,
+          maxBounds: bounds,
+          maxBoundsViscosity: 1.0,
+        }).fitWorld();
 
-            L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}{r}.png', {
-                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
-                noWrap: true,
-            }).addTo(mapInstance.current);
+        map.setMinZoom(map.getZoom());
+        mapInstance.current = map;
 
-            const createPulsingIcon = () => {
-              return L.divIcon({
-                className: 'pulsing-icon-container',
-                html: `<div class="pulsing-icon"></div>`,
-                iconSize: [24, 24],
-                iconAnchor: [12, 12],
+        L.tileLayer(
+          'https://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}{r}.png',
+          {
+            attribution:
+              '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+            noWrap: true,
+          }
+        ).addTo(map);
+
+        const createPulsingIcon = () => {
+          return L.divIcon({
+            className: 'pulsing-icon-container',
+            html: `<div class="pulsing-icon"></div>`,
+            iconSize: [24, 24],
+            iconAnchor: [12, 12],
+          });
+        };
+
+        mapLocations.forEach((loc) => {
+          L.marker([loc.lat, loc.lon], { icon: createPulsingIcon() })
+            .addTo(map)
+            .bindTooltip(`${loc.city} — ${loc.country}`)
+            .on('click', () => {
+              map.flyTo([loc.lat, loc.lon], 6, {
+                animate: true,
+                duration: 1.5,
               });
-            };
-
-            mapLocations.forEach(loc => {
-                const marker = L.marker([loc.lat, loc.lon], { icon: createPulsingIcon() })
-                    .addTo(mapInstance.current!)
-                    .bindTooltip(`${loc.city} — ${loc.country}`)
-                    .on('click', () => {
-                        mapInstance.current?.flyTo([loc.lat, loc.lon], 6, {
-                            animate: true,
-                            duration: 1.5,
-                        });
-                    });
             });
-            
-            return () => {
-                if (mapInstance.current) {
-                    mapInstance.current.remove();
-                    mapInstance.current = null;
-                }
-            };
-        })();
+        });
+      })();
     }
+    
+    return () => {
+      if (mapInstance.current) {
+        mapInstance.current.remove();
+        mapInstance.current = null;
+      }
+    };
   }, []);
 
   const handleZoomIn = () => mapInstance.current?.zoomIn();
