@@ -18,14 +18,22 @@ export default function Globe() {
   const mapInstance = useRef<any>(null);
 
   useEffect(() => {
-    let map: any;
-    if (typeof window !== 'undefined' && mapRef.current) {
-      if (mapRef.current?.['_leaflet_id']) {
-        return;
-      }
+    if (typeof window === 'undefined' || !mapRef.current) {
+      return;
+    }
 
-      const initMap = async () => {
+    if (mapInstance.current) {
+        // If a map instance already exists, do nothing.
+        return;
+    }
+
+    let map: any;
+    const initMap = async () => {
         const L = await import('leaflet');
+        
+        if (mapRef.current?.['_leaflet_id']) {
+            return;
+        }
 
         map = L.map(mapRef.current!, {
           center: WORLD_VIEW.center as L.LatLngTuple,
@@ -65,10 +73,10 @@ export default function Globe() {
               });
             });
         });
-      };
-      initMap();
-    }
+    };
     
+    initMap();
+
     return () => {
       if (mapInstance.current) {
         mapInstance.current.remove();
