@@ -22,10 +22,10 @@ export default function TrainingPage() {
         />
         
         <div className="relative z-10 flex h-full flex-col items-center justify-center text-center text-white px-4">
-          <h1 className="font-headline text-4xl md:text-5xl font-bold">
+          <h1 className="font-headline text-4xl md:text-5xl font-bold text-black drop-shadow-lg">
             Training
           </h1>
-          <p className="mt-4 text-lg md:text-xl font-light">
+          <p className="mt-4 text-lg md:text-xl font-light text-black drop-shadow-lg">
             Empowering our team with knowledge and skills.
           </p>
         </div>

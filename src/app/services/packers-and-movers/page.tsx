@@ -24,10 +24,10 @@ export default function PackersAndMoversPage() {
         />
         
         <div className="relative z-10 flex h-full flex-col items-start justify-center text-left text-white px-4 md:px-12 lg:px-24">
-          <h1 className="font-headline text-4xl md:text-5xl font-semibold">
+          <h1 className="font-headline text-4xl md:text-5xl font-semibold text-black drop-shadow-lg">
             Packers and Movers
           </h1>
-          <p className="mt-4 text-lg md:text-xl font-light">
+          <p className="mt-4 text-lg md:text-xl font-light text-black drop-shadow-lg">
             Your trusted partner for a seamless move.
           </p>
         </div>
