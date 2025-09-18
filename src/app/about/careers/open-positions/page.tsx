@@ -177,7 +177,7 @@ export default function OpenPositionsPage() {
                    <p className="text-primary-foreground/90">Contact us on WhatsApp for an immediate response:</p>
                    <div className="flex flex-col space-y-3">
                      <Button asChild variant="secondary" className="w-full bg-green-500/10 hover:bg-green-500/20 text-white border border-green-400/50 transition-all duration-300 transform hover:scale-105">
-                      <a href="https://wa.me/6592713514" target="_blank" rel="noopener noreferrer">
+                      <a href="https://api.whatsapp.com/send/?phone=6592713514&text&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer">
                         <Phone className="mr-2 h-5 w-5"/>
                         +65 9271 3514
                       </a>
