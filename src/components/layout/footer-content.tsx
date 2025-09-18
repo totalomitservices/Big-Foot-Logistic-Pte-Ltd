@@ -13,7 +13,7 @@ export default function FooterContent() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 items-start">
           {/* Company Profile */}
-          <div className="md:col-span-4 space-y-4">
+          <div className="md:col-span-4 flex flex-col items-start space-y-4">
             <Logo className="text-primary-foreground" />
             <p className="text-primary-foreground/80 text-sm">
               BIG FOOT LOGISTIC PTE LTD was founded in the year 1992. The Company had since developed a wide range of logistic and port services in tune with current market demands. Built with a strong customer focus as its foundation, the company has been garnering intense support from our customers, whom till today still form the backbone of the company’s continual growth.
