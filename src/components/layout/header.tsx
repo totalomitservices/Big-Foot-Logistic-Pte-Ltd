@@ -106,7 +106,7 @@ export default function Header() {
                   <Mail className="h-4 w-4" />
                   <span>enquiries@bigfoot.com.sg</span>
                 </a>
-                <a href="tel:+6563244722" className="flex items-center justify-end gap-2 hover:text-accent transition-colors mt-1">
+                <a href="tel:+6563244722" className="flex items-center justify-end gap-2 hover:text-accent transition-colors">
                   <Phone className="h-4 w-4" />
                   <span>+65 6324 4722</span>
                 </a>
