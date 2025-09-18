@@ -1,7 +1,7 @@
 
 'use client';
 
-import { useState, useRef, useEffect, useCallback } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import Image from 'next/image';
 import { gsap } from 'gsap';
 import { Button } from '@/components/ui/button';
@@ -32,7 +32,7 @@ export default function LogoWall() {
   const logosRef = useRef<HTMLDivElement>(null);
   const animationRef = useRef<gsap.core.Tween | null>(null);
 
-  const scrollSpeed = 0.1; // Slower speed
+  const scrollSpeed = 0.1;
 
   useEffect(() => {
     if (!logosRef.current) return;
@@ -60,7 +60,6 @@ export default function LogoWall() {
   const handleManualScroll = (direction: 'forward' | 'backward') => {
     if (!animationRef.current) return;
 
-    const currentProgress = animationRef.current.progress();
     const newTime = animationRef.current.time() + (direction === 'forward' ? 5 : -5) * scrollSpeed;
     
     gsap.to(animationRef.current, {
@@ -119,7 +118,6 @@ export default function LogoWall() {
               ))}
             </div>
             
-            {/* Interactive Zones */}
             <div className="absolute inset-y-0 left-0 w-1/4 bg-gradient-to-r from-background to-transparent opacity-0 group-hover/carousel:opacity-100 transition-opacity duration-300 cursor-pointer" onClick={() => handleManualScroll('backward')}></div>
             <div className="absolute inset-y-0 right-0 w-1/4 bg-gradient-to-l from-background to-transparent opacity-0 group-hover/carousel:opacity-100 transition-opacity duration-300 cursor-pointer" onClick={() => handleManualScroll('forward')}></div>
 
