@@ -60,7 +60,9 @@ export default function ContactPage() {
         const map = L.map(mapRef.current!, {
           center: WORLD_VIEW.center as L.LatLngTuple,
           zoom: WORLD_VIEW.zoom,
+          minZoom: WORLD_VIEW.zoom,
           zoomControl: false,
+          scrollWheelZoom: false,
         });
         mapInstance.current = map;
 
@@ -209,7 +211,7 @@ export default function ContactPage() {
       </div>
 
       <section 
-        className="h-[70vh] w-full relative"
+        className="h-[70vh] w-full"
       >
         <div ref={mapRef} className="w-full h-full" id="map-container"></div>
          <div className="leaflet-top leaflet-right absolute top-0 right-0 z-[1000] p-2.5">
