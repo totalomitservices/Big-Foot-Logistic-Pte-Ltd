@@ -2,17 +2,45 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
-import { Mail, Phone, Menu } from 'lucide-react';
+import { Mail, Phone, Menu, ChevronDown } from 'lucide-react';
 import Link from 'next/link';
 import { Logo } from '@/components/logo';
 import { Button } from '../ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '../ui/sheet';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "@/components/ui/collapsible";
 import { cn } from '@/lib/utils';
 
 const navLinks = [
   { href: '/', label: 'Home' },
-  { href: '/about/our-story', label: 'About Us' },
-  { href: '#services', label: 'Services' },
+  { 
+    label: 'About Us',
+    subLinks: [
+      { href: '/about/our-story', label: 'Our Story' },
+      { href: '/about/vision-mission', label: 'Vision & Mission' },
+      { href: '/about/careers', label: 'Careers' },
+    ]
+  },
+  { 
+    label: 'Services',
+    subLinks: [
+      { href: '/services/freight-forwarding', label: 'Freight Forwarding' },
+      { href: '/services/land-transit', label: 'Land Transit' },
+      { href: '/services/custom-clearance', label: 'Custom Clearance' },
+      { href: '/services/warehousing', label: 'Warehousing' },
+      { href: '/services/packers-and-movers', label: 'Packers and Movers' },
+      { href: '/services/other-expertise', label: 'Other Expertise' },
+    ]
+  },
   { href: '/clients', label: 'Clients' },
   { href: '/contact', label: 'Contact Us' },
 ];
@@ -32,10 +60,28 @@ const DesktopNav = () => {
     return (
         <nav className="hidden md:flex items-center">
             {navLinks.map((link) => (
-                <div key={link.href}>
-                    <Link href={link.href}>
-                        <NavLink>{link.label}</NavLink>
-                    </Link>
+                <div key={link.label}>
+                    {link.subLinks ? (
+                        <DropdownMenu>
+                            <DropdownMenuTrigger asChild>
+                                <Button variant="ghost" className="hover:bg-transparent focus:bg-transparent hover:text-accent text-primary-foreground text-base font-medium px-3 py-2">
+                                    {link.label}
+                                    <ChevronDown className="relative top-[1px] ml-1 h-4 w-4 transition duration-200 group-data-[state=open]:rotate-180" />
+                                </Button>
+                            </DropdownMenuTrigger>
+                            <DropdownMenuContent className="bg-primary/90 backdrop-blur-sm text-primary-foreground border-accent/20">
+                                {link.subLinks.map((subLink) => (
+                                    <DropdownMenuItem key={subLink.href} asChild className="focus:bg-accent/50 focus:text-accent-foreground">
+                                        <Link href={subLink.href}>{subLink.label}</Link>
+                                    </DropdownMenuItem>
+                                ))}
+                            </DropdownMenuContent>
+                        </DropdownMenu>
+                    ) : (
+                        <Link href={link.href!}>
+                           <NavLink>{link.label}</NavLink>
+                        </Link>
+                    )}
                 </div>
             ))}
         </nav>
@@ -44,6 +90,8 @@ const DesktopNav = () => {
 
 const MobileNav = () => {
     const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
+
+    const closeMobileMenu = () => setMobileMenuOpen(false);
 
     return (
         <div className="md:hidden">
@@ -56,19 +104,43 @@ const MobileNav = () => {
                 </SheetTrigger>
                 <SheetContent side="left" className="w-[300px] sm:w-[400px] bg-primary text-primary-foreground">
                     <div className="flex flex-col h-full p-6">
-                        <Link href="/" onClick={() => setMobileMenuOpen(false)} className="mb-8">
+                        <Link href="/" onClick={closeMobileMenu} className="mb-8">
                             <Logo className="text-white h-20 w-20" />
                         </Link>
-                        <nav className="flex flex-col space-y-4">
+                        <nav className="flex flex-col space-y-2">
                             {navLinks.map((link) => (
-                                <Link
-                                    key={link.href}
-                                    href={link.href}
-                                    onClick={() => setMobileMenuOpen(false)}
-                                    className="font-bold text-lg hover:text-accent transition-colors"
-                                >
-                                    {link.label}
-                                </Link>
+                                <div key={link.label}>
+                                    {link.subLinks ? (
+                                        <Collapsible>
+                                            <CollapsibleTrigger className="flex justify-between items-center w-full font-bold text-lg hover:text-accent transition-colors py-2">
+                                                {link.label}
+                                                <ChevronDown className="h-5 w-5" />
+                                            </CollapsibleTrigger>
+                                            <CollapsibleContent>
+                                                <div className="flex flex-col space-y-2 pl-4 py-2 border-l border-accent/50">
+                                                    {link.subLinks.map((subLink) => (
+                                                        <Link
+                                                            key={subLink.href}
+                                                            href={subLink.href}
+                                                            onClick={closeMobileMenu}
+                                                            className="text-base hover:text-accent transition-colors"
+                                                        >
+                                                            {subLink.label}
+                                                        </Link>
+                                                    ))}
+                                                </div>
+                                            </CollapsibleContent>
+                                        </Collapsible>
+                                    ) : (
+                                        <Link
+                                            href={link.href!}
+                                            onClick={closeMobileMenu}
+                                            className="font-bold text-lg hover:text-accent transition-colors block py-2"
+                                        >
+                                            {link.label}
+                                        </Link>
+                                    )}
+                                </div>
                             ))}
                         </nav>
                         <div className="mt-auto space-y-4">
