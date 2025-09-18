@@ -1,18 +1,17 @@
 
 'use client'
 
-import { Facebook, Instagram, Linkedin, Mail, MapPin, Phone, Building, Plus, Minus, Home as HomeIcon } from 'lucide-react';
+import { Facebook, Instagram, Linkedin, Mail, MapPin, Phone, Building } from 'lucide-react';
 import Link from 'next/link';
 import { Logo } from '@/components/logo';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { useEffect, useRef } from 'react';
 import 'leaflet/dist/leaflet.css';
 
 
 const officeLocations = [
   {
     name: 'Singapore HQ',
-    address: '123 Logistics Lane, Transport City, 98765, Singapore',
+    address: '8 Joo Koon Rd, Singapore 628972',
     phone: '+65 6324 4722',
     email: 'sg.office@bigfoot.com.sg',
   },
@@ -30,67 +29,10 @@ const officeLocations = [
   },
 ];
 
-const mapLocations = [
-  { lat: 28.6139, lon: 77.209, city: 'New Delhi', country: 'India' },
-  { lat: 1.3521, lon: 103.8198, city: 'Singapore', country: 'Singapore' },
-  { lat: -35.2809, lon: 149.13, city: 'Canberra', country: 'Australia' },
-];
-
 
 export default function Footer() {
-   const mapRef = useRef<HTMLDivElement>(null);
-  const mapInstance = useRef<any>(null); // Use any to avoid type issues with leaflet
-
-  useEffect(() => {
-    if (typeof window !== 'undefined' && mapRef.current && !mapInstance.current) {
-      (async () => {
-        const L = await import('leaflet');
-
-        const map = L.map(mapRef.current!, {
-          zoomControl: false,
-        }).setView([20, 10], 1.5);
-        mapInstance.current = map;
-
-        L.tileLayer(
-          'https://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}{r}.png',
-          {
-            attribution:
-              '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
-            noWrap: true,
-          }
-        ).addTo(map);
-
-        const createPulsingIcon = () => {
-          return L.divIcon({
-            className: 'pulsing-icon-container',
-            html: `<div class="pulsing-icon"></div>`,
-            iconSize: [24, 24],
-            iconAnchor: [12, 12],
-          });
-        };
-
-        mapLocations.forEach((loc) => {
-          L.marker([loc.lat, loc.lon], { icon: createPulsingIcon() })
-            .addTo(map)
-            .bindTooltip(`${loc.city} — ${loc.country}`)
-            .on('click', () => {
-              map.flyTo([loc.lat, loc.lon], 4, {
-                animate: true,
-                duration: 1.5,
-              });
-            });
-        });
-      })();
-    }
-    
-    // No cleanup function needed if we prevent re-initialization
-  }, []);
-
   return (
     <footer id="contact" className="bg-primary text-primary-foreground">
-      <div className="relative aspect-[16/4] w-full overflow-hidden shadow-lg transition-all duration-300 hover:shadow-accent/30 hover:shadow-2xl hover:scale-[1.01]">
-         <div ref={mapRef} className="w-full h-full absolute inset-0" id="map-container-footer"></div>
-      </div>
        <div className='py-16 lg:py-24 bg-background'>
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
               <div className="text-center mb-12">
