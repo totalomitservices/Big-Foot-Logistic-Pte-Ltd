@@ -58,7 +58,7 @@ export default function LogoWall() {
         </div>
 
          <div className="mt-12 text-right">
-            <Button asChild>
+            <Button asChild className="btn-animated-border">
                 <Link href="/clients">
                     <span>View All Our Clients <ArrowRight className="ml-2 inline"/></span>
                 </Link>
