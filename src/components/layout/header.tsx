@@ -11,7 +11,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Button } from '../ui/button';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Sheet, SheetContent, SheetTrigger } from '../ui/sheet';
 import { servicesData } from '@/data/services';
 
@@ -46,22 +46,10 @@ export default function Header() {
   const handleMouseLeave = () => {
     setOpenDropdown(null);
   };
-  
-  const [isScrolled, setIsScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
 
   return (
     <header
-      className={`sticky top-0 z-50 transition-colors duration-300 ${isScrolled ? 'bg-primary/80 backdrop-blur-sm' : 'bg-transparent'}`}
+      className={`absolute top-0 z-50 w-full bg-transparent`}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-24">

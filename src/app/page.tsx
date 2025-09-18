@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <>
       <Hero />
-      <main className="flex-grow">
+      <main>
         <Services />
         <WhyChooseUs />
         <LogoWall />
