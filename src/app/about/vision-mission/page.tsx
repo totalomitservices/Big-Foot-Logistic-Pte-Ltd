@@ -1,22 +1,18 @@
 
 'use client';
 
-import { Target, Rocket, Handshake } from 'lucide-react';
 import Image from 'next/image';
 
 const values = [
   {
-    icon: <Rocket className="h-10 w-10 text-accent" />,
     title: 'Our Vision',
     description: 'Our vision is to be the most trusted and innovative logistics partner, known for delivering seamless, end-to-end solutions that enable businesses to grow confidently worldwide. We strive to set new standards in service excellence, technology adoption, and customer satisfaction, staying ahead in a fast-changing world.',
   },
   {
-    icon: <Target className="h-10 w-10 text-accent" />,
     title: 'Our Mission',
     description: 'Our mission is simple but powerful: to achieve sustainable growth while ensuring complete customer satisfaction. We do this by embracing technology, innovation, and a forward-thinking approach, supported by our skilled team and efficient processes. Every service we deliver is grounded in reliability, professionalism, and excellence, ensuring value for every client.',
   },
   {
-    icon: <Handshake className="h-10 w-10 text-accent" />,
     title: 'Our Values',
     description: 'We are guided by principles of integrity, customer focus, and a commitment to quality. These values are the foundation of our long-term partnerships and drive our daily operations.',
   },
@@ -57,14 +53,12 @@ export default function VisionMissionPage() {
                 {values.map((item, index) => (
                 <div key={index} className={`relative mb-12 animate-fade-in md:flex ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} items-center w-full`}>
                     <div className="md:w-5/12">
-                        <div className="relative md:absolute left-1/2 -translate-x-1/2 z-10">
-                          <div className="bg-background p-4 border-4 border-secondary shadow-lg group-hover:scale-110 transition-transform duration-300 inline-block">
-                            {item.icon}
-                          </div>
-                      </div>
+                         <div className="relative md:absolute left-1/2 -translate-x-1/2 z-10">
+                          {/* Icon removed as requested */}
+                        </div>
                     </div>
-                     <div className="md:w-7/12">
-                         <div className={`p-6 bg-background shadow-lg text-left ${index % 2 === 0 ? 'md:ml-[-1px]' : 'md:mr-[-1px]'}`}>
+                     <div className="md:w-full">
+                         <div className={`p-6 bg-background shadow-lg text-left`}>
                              <h3 className="text-2xl font-headline text-primary font-bold mb-2">{item.title}</h3>
                              <p className="text-muted-foreground leading-relaxed">{item.description}</p>
                          </div>
