@@ -16,7 +16,7 @@ export default function FooterContent() {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 items-start">
           {/* Company Profile */}
           <div className="md:col-span-4 flex flex-col items-start space-y-4">
-            <div>
+            <div className="flex items-center">
               <Logo className="text-primary-foreground" />
             </div>
             <p className="text-primary-foreground/80 text-sm">
@@ -72,7 +72,9 @@ export default function FooterContent() {
       {/* Bottom Strip */}
       <div className="bg-black/20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6 text-center text-primary-foreground/70">
-          <p className="text-sm">© 2024 Bigfoot Logistic Pte Ltd. All Rights Reserved.</p>
+          <p className="text-sm">
+            © 2024 <Link href="/" className="hover:underline hover:text-accent transition-colors">Bigfoot Logistic Pte Ltd.</Link> All Rights Reserved.
+          </p>
         </div>
       </div>
     </footer>
