@@ -19,7 +19,7 @@ import { cn } from '@/lib/utils';
 const navLinks = [
   { href: '/', label: 'Home' },
   {
-    href: '/about',
+    href: '/about/our-story',
     label: 'About Us',
     subLinks: [
       { href: '/about/our-story', label: 'Our Story' },
@@ -48,17 +48,12 @@ const NavLink = ({ children, className }: { children: React.ReactNode, className
 )
 
 const DesktopNav = () => {
-    const [openDropdown, setOpenDropdown] = React.useState<string | null>(null);
-    const handleOpenChange = (label: string, open: boolean) => {
-        setOpenDropdown(open ? label : null);
-    };
-
     return (
         <nav className="hidden md:flex items-center">
             {navLinks.map((link) => (
                 <div key={link.href}>
                     {link.subLinks ? (
-                        <DropdownMenu onOpenChange={(open) => handleOpenChange(link.label, open)} open={openDropdown === link.label}>
+                        <DropdownMenu>
                             <DropdownMenuTrigger asChild>
                                 <Button variant="ghost" asChild>
                                    <NavLink>
