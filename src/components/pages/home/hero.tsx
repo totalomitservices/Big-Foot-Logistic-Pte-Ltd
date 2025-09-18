@@ -1,4 +1,3 @@
-
 'use client';
 
 import Image from 'next/image';
@@ -41,6 +40,14 @@ export default function Hero() {
               className="transition-all duration-300 transform hover:scale-105 shadow-lg"
             >
               <Link href="#services">Read More</Link>
+            </Button>
+            <Button
+              asChild
+              size="lg"
+              variant="destructive"
+              className="transition-all duration-300 transform hover:scale-105 shadow-lg"
+            >
+              <Link href="/contact">Track Your Shipment</Link>
             </Button>
           </div>
         </div>
