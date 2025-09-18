@@ -13,7 +13,7 @@ import { cn } from '@/lib/utils';
 const heroImage = PlaceHolderImages.find((img) => img.id === 'hero-image');
 
 export default function Hero() {
-  const [isTrackingOpen, setIsTrackingOpen] = useState(true);
+  const [isTrackingOpen, setIsTrackingOpen] = useState(false);
 
   return (
     <section id="home" className="relative w-full h-[90vh] md:h-screen">
@@ -48,16 +48,21 @@ export default function Hero() {
             </Button>
           </div>
         </div>
-        <div className={cn("w-full max-w-md", !isTrackingOpen && "opacity-0 pointer-events-none")}>
-          {isTrackingOpen && <TrackingForm onClose={() => setIsTrackingOpen(false)} />}
-        </div>
+        
+        {isTrackingOpen && (
+            <div className="w-full max-w-md">
+                <TrackingForm onClose={() => setIsTrackingOpen(false)} />
+            </div>
+        )}
+
       </div>
+      
       {!isTrackingOpen && (
         <Button 
           onClick={() => setIsTrackingOpen(true)} 
           variant="accent" 
           size="lg" 
-          className="absolute bottom-8 right-8"
+          className="absolute bottom-8 right-8 z-20"
         >
           <Rocket className="mr-2" /> Track Your Shipment
         </Button>
