@@ -22,61 +22,63 @@ export default function Globe() {
       return;
     }
 
+    // Prevent re-initialization
     if (mapInstance.current) {
-        // If a map instance already exists, do nothing.
-        return;
+      return;
     }
 
     let map: any;
     const initMap = async () => {
-        const L = await import('leaflet');
-        
-        if (mapRef.current?.['_leaflet_id']) {
-            return;
+      const L = await import('leaflet');
+      
+      // Check if the map container is already initialized by Leaflet
+      if (mapRef.current?.['_leaflet_id']) {
+        return;
+      }
+
+      map = L.map(mapRef.current!, {
+        center: WORLD_VIEW.center as L.LatLngTuple,
+        zoom: WORLD_VIEW.zoom,
+        minZoom: WORLD_VIEW.zoom,
+        zoomControl: false,
+        scrollWheelZoom: false,
+      });
+      mapInstance.current = map;
+
+      L.tileLayer(
+        'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+        {
+          attribution:
+            '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+          noWrap: true,
         }
+      ).addTo(map);
 
-        map = L.map(mapRef.current!, {
-          center: WORLD_VIEW.center as L.LatLngTuple,
-          zoom: WORLD_VIEW.zoom,
-          minZoom: WORLD_VIEW.zoom,
-          zoomControl: false,
-          scrollWheelZoom: false,
+      const createPulsingIcon = () => {
+        return L.divIcon({
+          className: 'pulsing-icon-container',
+          html: `<div class="pulsing-icon"></div>`,
+          iconSize: [24, 24],
+          iconAnchor: [12, 12],
         });
-        mapInstance.current = map;
+      };
 
-        L.tileLayer(
-          'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
-          {
-            attribution:
-              '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-            noWrap: true,
-          }
-        ).addTo(map);
-
-        const createPulsingIcon = () => {
-          return L.divIcon({
-            className: 'pulsing-icon-container',
-            html: `<div class="pulsing-icon"></div>`,
-            iconSize: [24, 24],
-            iconAnchor: [12, 12],
-          });
-        };
-
-        mapLocations.forEach((loc) => {
-          L.marker([loc.lat, loc.lon], { icon: createPulsingIcon() })
-            .addTo(map)
-            .bindTooltip(`${loc.city} — ${loc.country}`)
-            .on('click', () => {
-              map.flyTo([loc.lat, loc.lon], 6, {
-                animate: true,
-                duration: 1.5,
-              });
+      mapLocations.forEach((loc) => {
+        L.marker([loc.lat, loc.lon], { icon: createPulsingIcon() })
+          .addTo(map)
+          .bindTooltip(`${loc.city} — ${loc.country}`)
+          .on('click', () => {
+            map.flyTo([loc.lat, loc.lon], 6, {
+              animate: true,
+              duration: 1.5,
             });
-        });
+          });
+      });
     };
     
     initMap();
 
+    // Cleanup function to run when the component unmounts
     return () => {
       if (mapInstance.current) {
         mapInstance.current.remove();
