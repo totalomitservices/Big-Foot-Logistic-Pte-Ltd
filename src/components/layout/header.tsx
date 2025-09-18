@@ -58,7 +58,7 @@ export default function Header() {
         <div className="flex items-center justify-between h-24">
           <div className="flex-shrink-0">
             <Link href="/">
-              <Logo className="text-primary-foreground" />
+              <Logo className="text-primary-foreground" priority />
             </Link>
           </div>
 

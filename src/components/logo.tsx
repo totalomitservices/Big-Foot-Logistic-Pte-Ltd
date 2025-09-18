@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { cn } from '@/lib/utils';
 
-export function Logo({ className }: { className?: string }) {
+export function Logo({ className, priority = false }: { className?: string, priority?: boolean }) {
   return (
     <div className={cn('relative h-[140px] w-[140px]', className)}>
       <Image
@@ -12,7 +12,7 @@ export function Logo({ className }: { className?: string }) {
                 (max-width: 1200px) 50vw,
                 140px"
         className="object-contain"
-        priority
+        priority={priority}
       />
     </div>
   );

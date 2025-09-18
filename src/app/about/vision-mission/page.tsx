@@ -27,7 +27,7 @@ export default function VisionMissionPage() {
       {/* Hero Section */}
       <section className="relative w-full h-[40vh] md:h-[50vh]">
         <Image
-          src="https://picsum.photos/seed/vision-hero/1920/400"
+          src="https://github.com/Ram-0609/Bigfoot-Logistics-Images/blob/main/vision-mission.jpg?raw=true"
           alt="Compass pointing towards a destination"
           fill
           priority
