@@ -26,6 +26,27 @@ const mapLocations = [
 
 const WORLD_VIEW = { center: [20, 0], zoom: 2 };
 
+const officeLocations = [
+  {
+    name: 'Singapore HQ',
+    address: '8 Joo Koon Rd, Singapore 628972',
+    phone: '+65 6324 4722',
+    email: 'sg.office@bigfoot.com.sg',
+  },
+  {
+    name: 'India Office',
+    address: '10 Business Hub, Mumbai, 400001, India',
+    phone: '+91 22 1234 5678',
+    email: 'in.office@bigfoot.com.sg',
+  },
+  {
+    name: 'Australia Office',
+    address: '25 Trade Street, Sydney, NSW 2000, Australia',
+    phone: '+61 2 9876 5432',
+    email: 'au.office@bigfoot.com.sg',
+  },
+];
+
 
 export default function ContactPage() {
   const mapRef = useRef<HTMLDivElement>(null);
@@ -182,6 +203,30 @@ export default function ContactPage() {
                 </div>
             </div>
         </div>
+      </section>
+
+      <section className='py-16 lg:py-24 bg-background'>
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="text-center mb-12">
+                <h2 className="text-3xl font-headline font-bold text-primary">Our Offices</h2>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                  {officeLocations.map(office => (
+                      <Card key={office.name} className="flex flex-col text-center">
+                          <CardHeader>
+                              <CardTitle className="flex items-center justify-center gap-2 text-xl text-accent">
+                                <Building />{office.name}
+                              </CardTitle>
+                          </CardHeader>
+                          <CardContent className="space-y-3 text-muted-foreground flex-grow">
+                              <p>{office.address}</p>
+                              <p className="flex items-center justify-center gap-2"><Phone className="h-4 w-4"/>{office.phone}</p>
+                              <a href={`mailto:${office.email}`} className="flex items-center justify-center gap-2 hover:text-primary transition-colors"><Mail className="h-4 w-4"/>{office.email}</a>
+                          </CardContent>
+                      </Card>
+                  ))}
+              </div>
+          </div>
       </section>
     </div>
   );
