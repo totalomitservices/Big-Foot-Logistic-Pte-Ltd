@@ -1,14 +1,17 @@
+
 'use client';
 
 import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
-import { Rocket } from 'lucide-react';
+import { useState } from 'react';
+import TrackingForm from './tracking-form';
 
 const heroImage = PlaceHolderImages.find((img) => img.id === 'hero-image');
 
 export default function Hero() {
+  const [showTracking, setShowTracking] = useState(false);
 
   return (
     <section id="home" className="relative w-full h-[90vh] md:h-screen">
@@ -42,15 +45,21 @@ export default function Hero() {
               <Link href="#services">Read More</Link>
             </Button>
             <Button
-              asChild
               size="lg"
               variant="destructive"
               className="transition-all duration-300 transform hover:scale-105 shadow-lg"
+              onClick={() => setShowTracking(true)}
             >
-              <Link href="/contact">Track Your Shipment</Link>
+              Track Your Shipment
             </Button>
           </div>
         </div>
+        
+        {showTracking && (
+          <div className="absolute inset-0 bg-black/50 flex items-center justify-center z-20">
+            <TrackingForm onClose={() => setShowTracking(false)} />
+          </div>
+        )}
       </div>
     </section>
   );
