@@ -5,7 +5,7 @@ export default function TrainingPage() {
   return (
     <div className="bg-background text-foreground">
       {/* Hero Section */}
-      <section className="relative h-[60vh] w-full">
+      <section className="relative w-full h-[40vh] md:h-[60vh]">
         <Image
           src="https://picsum.photos/seed/training-hero/1920/400"
           alt="Team in a training session"

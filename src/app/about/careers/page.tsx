@@ -7,7 +7,7 @@ export default function CareersPage() {
   return (
     <div className="bg-background text-foreground">
       {/* Hero Section */}
-      <section className="relative h-[60vh] w-full">
+      <section className="relative w-full h-[40vh] md:h-[60vh]">
         <Image
           src="https://picsum.photos/seed/careers-hero/1920/400"
           alt="Diverse team working together in an office"

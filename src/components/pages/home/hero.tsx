@@ -9,7 +9,7 @@ const heroImage = PlaceHolderImages.find((img) => img.id === 'hero-image');
 
 export default function Hero() {
   return (
-    <section id="home" className="relative h-screen w-full">
+    <section id="home" className="relative w-full h-[60vh] md:h-screen">
       {heroImage && (
         <Image
           src={heroImage.imageUrl}
@@ -42,7 +42,7 @@ export default function Hero() {
             </Button>
           </div>
         </div>
-        <div>
+        <div className="w-full max-w-md">
             <TrackingForm />
         </div>
       </div>

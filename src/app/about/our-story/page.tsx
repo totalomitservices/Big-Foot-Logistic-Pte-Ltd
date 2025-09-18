@@ -28,7 +28,7 @@ export default function OurStoryPage() {
   return (
     <div className="bg-background text-foreground">
       {/* Hero Section */}
-      <section className="relative h-[60vh] w-full">
+      <section className="relative w-full h-[40vh] md:h-[60vh]">
         <Image
           src="https://github.com/Ram-0609/Bigfoot-Logistics-Images/blob/main/Our%20story.jpg?raw=true"
           alt="Team collaborating on a logistics plan"

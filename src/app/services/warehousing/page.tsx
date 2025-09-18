@@ -6,7 +6,7 @@ export default function WarehousingPage() {
   return (
     <div className="bg-background text-foreground">
       {/* Hero Section */}
-      <section className="relative h-[60vh] w-full">
+      <section className="relative w-full h-[40vh] md:h-[60vh]">
         <Image
           src="https://github.com/Ram-0609/Bigfoot-Logistics-Images/blob/main/Warehousing-Important-1024x614.jpg?raw=true"
           alt="Large modern warehouse"

@@ -22,7 +22,7 @@ export default function VisionMissionPage() {
   return (
     <div className="bg-background text-foreground">
       {/* Hero Section */}
-      <section className="relative h-[60vh] w-full">
+      <section className="relative w-full h-[40vh] md:h-[60vh]">
         <Image
           src="https://picsum.photos/seed/vision-hero/1920/400"
           alt="Compass pointing towards a destination"

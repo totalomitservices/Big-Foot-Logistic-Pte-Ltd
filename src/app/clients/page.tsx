@@ -84,7 +84,7 @@ export default function ClientsPage() {
     <div className="bg-background text-foreground">
       {/* Hero Section */}
        <section
-        className="relative h-[60vh] w-full bg-cover bg-center"
+        className="relative w-full bg-cover bg-center h-[40vh] md:h-[60vh]"
         style={{ backgroundImage: "url('https://picsum.photos/seed/clients-hero/1920/1080')" }}
       >
         <div className="absolute inset-0 bg-primary/70" />
