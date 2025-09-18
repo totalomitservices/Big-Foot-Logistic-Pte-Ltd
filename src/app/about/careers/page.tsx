@@ -38,7 +38,7 @@ export default function CareersPage() {
               Join the Big-Foot Family
             </h2>
             <p className="mt-4 text-lg text-muted-foreground leading-relaxed">
-              At Big-Foot Logistic Pte Ltd, we believe that our people are our greatest asset. As a leader in innovative logistics solutions, we are committed to building a dynamic and inclusive workplace where every individual can grow and make a difference.
+              At <span className="font-bold">Big-Foot Logistic Pte Ltd,</span> we believe that our people are our greatest strength. As a leader in innovative logistics solutions, we are dedicated to fostering a dynamic, inclusive, and growth-oriented workplace. Here, every individual has the opportunity to learn, contribute, and make a meaningful impact on both the company and the industry.
             </p>
             
             <div className="mt-12 space-y-8">
