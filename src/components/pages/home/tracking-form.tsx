@@ -16,6 +16,7 @@ import { Input } from "@/components/ui/input";
 import { CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
 import { Rocket } from "lucide-react";
+import { DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 
 const formSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters."),
@@ -54,7 +55,11 @@ export default function TrackingForm({ onClose }: TrackingFormProps) {
 
   return (
     <>
-      <CardHeader className="relative">
+      <DialogHeader>
+        <DialogTitle className="sr-only">Track Your Shipment</DialogTitle>
+        <DialogDescription className="sr-only">Enter your details to track your shipment.</DialogDescription>
+      </DialogHeader>
+      <CardHeader className="relative pt-0">
         <CardTitle className="text-2xl font-bold text-center flex items-center justify-center gap-2 text-primary">
             <Rocket /> Track Your Shipment
         </CardTitle>
@@ -119,3 +124,4 @@ export default function TrackingForm({ onClose }: TrackingFormProps) {
     </>
   );
 }
+
