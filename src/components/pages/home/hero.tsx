@@ -8,6 +8,7 @@ import { PlaceHolderImages } from '@/lib/placeholder-images';
 import TrackingForm from './tracking-form';
 import { useState } from 'react';
 import { Rocket } from 'lucide-react';
+import { cn } from '@/lib/utils';
 
 const heroImage = PlaceHolderImages.find((img) => img.id === 'hero-image');
 
@@ -47,15 +48,21 @@ export default function Hero() {
             </Button>
           </div>
         </div>
-        <div className="w-full max-w-md">
-          {isTrackingOpen && <TrackingForm onClose={() => setIsTrackingOpen(false)} />}
+        <div className={cn("w-full max-w-md", !isTrackingOpen && "opacity-0 pointer-events-none")}>
+          <TrackingForm onClose={() => setIsTrackingOpen(false)} />
         </div>
       </div>
-      {!isTrackingOpen && (
-         <Button onClick={() => setIsTrackingOpen(true)} variant="accent" size="lg" className="absolute bottom-8 right-8">
-            <Rocket className="mr-2" /> Track Your Shipment
-        </Button>
-      )}
+      <Button 
+        onClick={() => setIsTrackingOpen(true)} 
+        variant="accent" 
+        size="lg" 
+        className={cn(
+            "absolute bottom-8 right-8 transition-all duration-300",
+            isTrackingOpen ? "opacity-0 pointer-events-none" : "opacity-100"
+        )}
+      >
+        <Rocket className="mr-2" /> Track Your Shipment
+      </Button>
     </section>
   );
 }
