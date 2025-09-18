@@ -44,20 +44,23 @@ export default function CareersPage() {
             <div className="mt-12 space-y-8">
                 <div>
                     <h3 className="text-2xl font-headline font-semibold text-primary mb-2">Why Work With Us?</h3>
-                    <ul className="list-disc list-inside space-y-4 text-lg text-muted-foreground">
-                        <li>
-                            <span className="font-semibold">Innovative Environment:</span> Be a part of a company that embraces cutting-edge technology and strives for continuous improvement in every aspect of logistics and supply chain management.
-                        </li>
-                        <li>
-                            <span className="font-semibold">Career Growth:</span> We are dedicated to your professional development. Whether you are just starting out or a seasoned professional, you will find opportunities to advance your career and achieve your goals.
-                        </li>
-                        <li>
-                            <span className="font-semibold">Supportive Culture:</span> At Big-Foot Logistic, we foster a collaborative and supportive work environment. We believe in teamwork, open communication, and recognizing the contributions of each member.
-                        </li>
-                         <li>
-                            <span className="font-semibold">Competitive Benefits & Bonuses:</span> Some of our positions offer joining and quarterly bonuses of up to $25,000. We also provide a comprehensive benefits package, including health insurance and opportunities for further training and certifications.
-                        </li>
-                    </ul>
+                    <div className="space-y-6 text-lg text-muted-foreground">
+                        <div>
+                            <h4 className="font-semibold text-xl text-foreground mb-1">Innovative Environment:</h4>
+                            <p>At Big-Foot Logistic, innovation is at the heart of what we do. We invest in modern systems and advanced technologies that enable us to stay ahead in the logistics and supply chain industry. You’ll be part of a team that constantly looks for smarter, faster, and more efficient ways to deliver results. Here, your ideas are valued, and your contributions can help shape the future of logistics.</p>
+                        </div>
+                        <ul className="list-disc list-inside space-y-4">
+                            <li>
+                                <span className="font-semibold">Career Growth:</span> We are dedicated to your professional development. Whether you are just starting out or a seasoned professional, you will find opportunities to advance your career and achieve your goals.
+                            </li>
+                            <li>
+                                <span className="font-semibold">Supportive Culture:</span> At Big-Foot Logistic, we foster a collaborative and supportive work environment. We believe in teamwork, open communication, and recognizing the contributions of each member.
+                            </li>
+                            <li>
+                                <span className="font-semibold">Competitive Benefits & Bonuses:</span> Some of our positions offer joining and quarterly bonuses of up to $25,000. We also provide a comprehensive benefits package, including health insurance and opportunities for further training and certifications.
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
 
