@@ -49,20 +49,19 @@ export default function Hero() {
           </div>
         </div>
         <div className={cn("w-full max-w-md", !isTrackingOpen && "opacity-0 pointer-events-none")}>
-          <TrackingForm onClose={() => setIsTrackingOpen(false)} />
+          {isTrackingOpen && <TrackingForm onClose={() => setIsTrackingOpen(false)} />}
         </div>
       </div>
-      <Button 
-        onClick={() => setIsTrackingOpen(true)} 
-        variant="accent" 
-        size="lg" 
-        className={cn(
-            "absolute bottom-8 right-8 transition-all duration-300",
-            isTrackingOpen ? "opacity-0 pointer-events-none" : "opacity-100"
-        )}
-      >
-        <Rocket className="mr-2" /> Track Your Shipment
-      </Button>
+      {!isTrackingOpen && (
+        <Button 
+          onClick={() => setIsTrackingOpen(true)} 
+          variant="accent" 
+          size="lg" 
+          className="absolute bottom-8 right-8"
+        >
+          <Rocket className="mr-2" /> Track Your Shipment
+        </Button>
+      )}
     </section>
   );
 }
