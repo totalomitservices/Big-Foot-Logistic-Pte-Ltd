@@ -26,7 +26,6 @@ export default function Hero() {
           data-ai-hint={heroImage.imageHint}
         />
       )}
-      <div className="absolute inset-0 bg-primary/20"></div>
       <div className="relative z-10 flex h-full flex-col items-center justify-center text-center text-white px-4 md:px-12 lg:px-24 w-full gap-8 md:flex-row md:justify-between md:text-left pt-20 md:pt-0">
         <div className="flex flex-col items-center md:items-start max-w-xl">
           <h1 className="font-headline text-3xl md:text-4xl font-bold uppercase tracking-tighter drop-shadow-lg">
