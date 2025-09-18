@@ -132,7 +132,7 @@ export default function Footer() {
               <ul className="space-y-3 text-sm mt-4">
                 <li className="flex items-start gap-3">
                   <MapPin className="h-5 w-5 mt-1 text-accent flex-shrink-0" />
-                  <span>123 Logistics Lane, Transport City, 98765, World</span>
+                  <span>8 Joo Koon Rd, Singapore 628972</span>
                 </li>
                 <li className="flex items-center gap-3">
                   <Mail className="h-5 w-5 text-accent flex-shrink-0" />
