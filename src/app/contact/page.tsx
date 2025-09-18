@@ -5,10 +5,14 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
-import { Phone, Mail, Clock, ArrowRight, Building, Plus, Home as HomeIcon } from 'lucide-react';
+import { Phone, Mail, Clock, ArrowRight, Building } from 'lucide-react';
 import Link from 'next/link';
-import 'leaflet/dist/leaflet.css';
-import { useEffect, useRef } from 'react';
+import dynamic from 'next/dynamic';
+
+const Globe = dynamic(() => import('@/components/pages/contact/globe'), {
+  ssr: false,
+});
+
 
 const coreServices = [
     { name: 'Land Transit', href: '/services/land-transit'},
@@ -17,14 +21,6 @@ const coreServices = [
     { name: 'Packers & Movers', href: '/services/packers-and-movers'},
     { name: 'Training', href: '/services/training'},
 ]
-
-const mapLocations = [
-  { lat: 28.6139, lon: 77.209, city: 'New Delhi', country: 'India' },
-  { lat: 1.3521, lon: 103.8198, city: 'Singapore', country: 'Singapore' },
-  { lat: -35.2809, lon: 149.13, city: 'Canberra', country: 'Australia' },
-];
-
-const WORLD_VIEW = { center: [20, 0], zoom: 2 };
 
 const officeLocations = [
   {
@@ -49,67 +45,6 @@ const officeLocations = [
 
 
 export default function ContactPage() {
-  const mapRef = useRef<HTMLDivElement>(null);
-  const mapInstance = useRef<any>(null); // Use any to avoid type issues with leaflet
-
-   useEffect(() => {
-    if (typeof window !== 'undefined' && mapRef.current && !mapInstance.current) {
-      (async () => {
-        const L = await import('leaflet');
-
-        const map = L.map(mapRef.current!, {
-          center: WORLD_VIEW.center as L.LatLngTuple,
-          zoom: WORLD_VIEW.zoom,
-          minZoom: WORLD_VIEW.zoom,
-          zoomControl: false,
-          scrollWheelZoom: false,
-        });
-        mapInstance.current = map;
-
-        L.tileLayer(
-          'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
-          {
-            attribution:
-              '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-            noWrap: true,
-          }
-        ).addTo(map);
-
-        const createPulsingIcon = () => {
-          return L.divIcon({
-            className: 'pulsing-icon-container',
-            html: `<div class="pulsing-icon"></div>`,
-            iconSize: [24, 24],
-            iconAnchor: [12, 12],
-          });
-        };
-
-        mapLocations.forEach((loc) => {
-          L.marker([loc.lat, loc.lon], { icon: createPulsingIcon() })
-            .addTo(map)
-            .bindTooltip(`${loc.city} — ${loc.country}`)
-            .on('click', () => {
-              map.flyTo([loc.lat, loc.lon], 6, {
-                animate: true,
-                duration: 1.5,
-              });
-            });
-        });
-      })();
-    }
-    
-    return () => {
-      if (mapInstance.current) {
-        mapInstance.current.remove();
-        mapInstance.current = null;
-      }
-    };
-  }, []);
-
-  const handleZoomIn = () => mapInstance.current?.zoomIn();
-  const handleGoHome = () => mapInstance.current?.flyTo(WORLD_VIEW.center as L.LatLngTuple, WORLD_VIEW.zoom);
-
-
   return (
     <div className="bg-secondary text-foreground">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -210,24 +145,7 @@ export default function ContactPage() {
         </section>
       </div>
         
-      <section 
-        className="relative h-[50vh] w-full"
-      >
-        <div ref={mapRef} className="w-full h-full" id="map-container"></div>
-          <div className="leaflet-top leaflet-right absolute top-0 right-0 z-[1000] p-2.5">
-          <div className="leaflet-control leaflet-bar glassmorphic-controls">
-            <button onClick={handleZoomIn} title="Zoom in" role="button" aria-label="Zoom in" className="cursor-pointer">
-              <Plus size={18} />
-            </button>
-            <button onClick={handleGoHome} title="Home" role="button" aria-label="Home" className="cursor-pointer">
-              <HomeIcon size={18} />
-            </button>
-          </div>
-        </div>
-        <div className="absolute bottom-5 left-5 text-black/50 text-xs pointer-events-none z-[1000]">
-              🗺️ Drag to move • Hover pins • Click pins to zoom
-        </div>
-      </section>
+      <Globe />
     </div>
   );
 }
