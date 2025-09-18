@@ -1,3 +1,4 @@
+
 import Image from 'next/image';
 
 const logos = [
@@ -36,7 +37,7 @@ export default function LogoWall() {
           <div className="flex w-max animate-scroll hover:[animation-play-state:paused]">
             {duplicatedLogos.map((logo, index) => (
               <div key={`${logo.name}-${index}`} className="flex-shrink-0 mx-8">
-                <div className="relative h-24 w-48 transition-all duration-300 filter grayscale hover:grayscale-0">
+                <div className="relative h-24 w-48 transition-all duration-300 filter grayscale hover:grayscale-0 transform hover:scale-110">
                   <Image
                     src={logo.src}
                     alt={logo.name}
