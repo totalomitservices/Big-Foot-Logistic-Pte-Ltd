@@ -37,7 +37,7 @@ export default function Hero() {
             <Button
               asChild
               size="lg"
-              variant="secondary"
+              variant="default"
               className="transition-all duration-300 transform hover:scale-105 shadow-lg"
             >
               <Link href="#services">Read More</Link>
@@ -45,7 +45,7 @@ export default function Hero() {
             <Button
               asChild
               size="lg"
-              variant="accent"
+              variant="destructive"
               className="transition-all duration-300 transform hover:scale-105 shadow-lg"
             >
               <Link href="/route-optimizer">
