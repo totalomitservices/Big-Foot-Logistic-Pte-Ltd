@@ -44,7 +44,7 @@ export default function Footer() {
                 <Link href="https://sg.linkedin.com/company/big-foot-logistic" target="_blank" rel="noopener noreferrer" className="hover:text-accent hover:scale-125 transition-all duration-200">
                   <Linkedin className="h-5 w-5" />
                 </Link>
-                <Link href="#" className="hover:text-accent hover:scale-125 transition-all duration-200">
+                <Link href="https://www.instagram.com/reel/DOoFDBfDhch/?utm_source=ig_web_copy_link" target="_blank" rel="noopener noreferrer" className="hover:text-accent hover:scale-125 transition-all duration-200">
                   <Instagram className="h-5 w-5" />
                 </Link>
               </div>
