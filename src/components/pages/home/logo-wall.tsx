@@ -1,4 +1,3 @@
-
 'use client';
 
 import Image from 'next/image';
@@ -58,7 +57,7 @@ export default function LogoWall() {
         </div>
 
          <div className="mt-12 text-center">
-            <Button asChild variant="accent" size="lg">
+            <Button asChild variant="accent" size="lg" className="transition-all duration-300 transform hover:-translate-y-1 hover:shadow-xl">
                 <Link href="/clients">
                     View All Our Clients <ArrowRight className="ml-2"/>
                 </Link>
