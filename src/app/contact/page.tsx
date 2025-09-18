@@ -8,7 +8,6 @@ import { Textarea } from '@/components/ui/textarea';
 import { Phone, Mail, Clock, ArrowRight, Building } from 'lucide-react';
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
-import Header from '@/components/layout/header';
 
 const ContactMap = dynamic(() => import('@/components/pages/contact/contact-map'), {
   ssr: false,
@@ -49,7 +48,6 @@ const officeLocations = [
 export default function ContactPage() {
   return (
     <div className="bg-background text-foreground">
-      <Header />
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <section className="py-16 lg:py-24">
           <div className="text-center mb-12 pt-20">

@@ -1,16 +1,14 @@
 
 'use client';
-import Header from '@/components/layout/header';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 
 export default function CareersPage() {
   return (
-    <div className="relative bg-background text-foreground">
-      <Header />
+    <div className="relative bg-background text-foreground pt-24">
       {/* Hero Section */}
-      <section className="relative w-full h-[50vh] md:h-[60vh]">
+      <section className="relative w-full h-[40vh] md:h-[50vh]">
         <Image
           src="https://picsum.photos/seed/careers-hero/1920/400"
           alt="Diverse team working together in an office"

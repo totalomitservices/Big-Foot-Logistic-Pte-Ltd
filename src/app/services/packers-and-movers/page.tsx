@@ -1,15 +1,13 @@
 
-import Header from '@/components/layout/header';
 import Image from 'next/image';
 
 export default function PackersAndMoversPage() {
   const listClassName = "list-disc list-inside space-y-4 text-lg text-muted-foreground";
 
   return (
-    <div className="relative bg-background text-foreground">
-      <Header />
+    <div className="relative bg-background text-foreground pt-24">
       {/* Hero Section */}
-      <section className="relative w-full h-[50vh] md:h-[60vh]">
+      <section className="relative w-full h-[40vh] md:h-[50vh]">
         <Image
           src="https://github.com/Ram-0609/Bigfoot-Logistics-Images/blob/main/Packers-and-Movers-768x513.jpg?raw=true"
           alt="Packers and movers carefully handling items"

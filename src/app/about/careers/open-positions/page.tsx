@@ -1,6 +1,5 @@
 
 'use client';
-import Header from '@/components/layout/header';
 import Image from 'next/image';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -146,9 +145,8 @@ function ApplyCard() {
 
 export default function OpenPositionsPage() {
   return (
-    <div className="relative bg-background text-foreground">
-      <Header />
-      <section className="relative w-full h-[50vh] md:h-[60vh]">
+    <div className="relative bg-background text-foreground pt-24">
+      <section className="relative w-full h-[40vh] md:h-[50vh]">
         <Image
           src="https://picsum.photos/seed/open-positions-hero/1920/400"
           alt="We're hiring banner"

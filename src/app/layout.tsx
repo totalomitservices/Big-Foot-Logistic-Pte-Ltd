@@ -1,8 +1,8 @@
 
 import type { Metadata } from 'next';
 import './globals.css';
-import Footer from '@/components/layout/footer';
 import ClientLayout from './client-layout';
+import { lato, poppins } from '@/app/fonts';
 
 export const metadata: Metadata = {
   title: 'Bigfoot Logistics',
@@ -16,15 +16,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="!scroll-smooth">
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Poppins:wght@700;900&display=swap"
-          rel="stylesheet"
-        />
-      </head>
-      <body className="font-body antialiased bg-background text-foreground">
+      <body className={`${lato.variable} ${poppins.variable} font-body antialiased bg-background text-foreground`}>
         <ClientLayout>
           {children}
         </ClientLayout>

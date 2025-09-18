@@ -39,13 +39,22 @@ const navLinks = [
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 10);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const handleOpenChange = (label: string, open: boolean) => {
     setOpenDropdown(open ? label : null);
   };
 
   return (
-    <header className="absolute top-0 z-50 w-full bg-transparent">
+    <header className={cn("fixed top-0 z-50 w-full transition-colors duration-300", scrolled ? 'bg-foreground/80 backdrop-blur-sm' : 'bg-transparent')}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-24">
           <div className="flex-shrink-0">
@@ -55,7 +64,7 @@ export default function Header() {
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex flex-1 justify-center items-center space-x-1 mr-8">
+          <nav className="hidden md:flex flex-1 justify-center items-center space-x-1">
             {navLinks.map((link) => (
               <div key={link.href}>
                 {link.subLinks ? (

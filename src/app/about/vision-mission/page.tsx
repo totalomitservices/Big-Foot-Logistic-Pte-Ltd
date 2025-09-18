@@ -1,6 +1,5 @@
 
 'use client';
-import Header from '@/components/layout/header';
 import Image from 'next/image';
 
 const values = [
@@ -20,10 +19,9 @@ const values = [
 
 export default function VisionMissionPage() {
   return (
-    <div className="relative bg-background text-foreground">
-      <Header />
+    <div className="relative bg-background text-foreground pt-24">
       {/* Hero Section */}
-      <section className="relative w-full h-[50vh] md:h-[60vh]">
+      <section className="relative w-full h-[40vh] md:h-[50vh]">
         <Image
           src="https://picsum.photos/seed/vision-hero/1920/400"
           alt="Compass pointing towards a destination"

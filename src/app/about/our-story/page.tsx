@@ -1,10 +1,9 @@
 
-import Header from '@/components/layout/header';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { ArrowRight, Users, ShieldCheck, Truck, Star, Rocket, Award } from 'lucide-react';
+import { Card, CardHeader, CardTitle } from '@/components/ui/card';
+import { ArrowRight, Users, ShieldCheck, Truck, Rocket, Award } from 'lucide-react';
 
 const coreValues = [
     {
@@ -27,10 +26,9 @@ const coreValues = [
 
 export default function OurStoryPage() {
   return (
-    <div className="relative bg-background text-foreground">
-      <Header />
+    <div className="relative bg-background text-foreground pt-24">
       {/* Hero Section */}
-      <section className="relative w-full h-[50vh] md:h-[60vh]">
+      <section className="relative w-full h-[40vh] md:h-[50vh]">
         <Image
           src="https://github.com/Ram-0609/Bigfoot-Logistics-Images/blob/main/Our%20story.jpg?raw=true"
           alt="Team collaborating on a logistics plan"

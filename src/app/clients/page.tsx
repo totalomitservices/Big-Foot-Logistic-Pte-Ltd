@@ -1,6 +1,5 @@
 
 'use client';
-import Header from '@/components/layout/header';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
@@ -87,11 +86,10 @@ const clients = [
 
 export default function ClientsPage() {
   return (
-    <div className="relative bg-background text-foreground">
-      <Header />
+    <div className="relative bg-background text-foreground pt-24">
       {/* Hero Section */}
        <section
-        className="relative w-full bg-cover bg-center h-[50vh] md:h-[60vh]"
+        className="relative w-full bg-cover bg-center h-[40vh] md:h-[50vh]"
       >
         <Image 
             src="https://raw.githubusercontent.com/Ram-0609/Bigfoot-Logistics-Images/refs/heads/main/Clients.jpg" 

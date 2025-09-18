@@ -1,13 +1,11 @@
 
-import Header from '@/components/layout/header';
 import Image from 'next/image';
 
 export default function TrainingPage() {
   return (
-    <div className="relative bg-background text-foreground">
-      <Header />
+    <div className="relative bg-background text-foreground pt-24">
       {/* Hero Section */}
-      <section className="relative w-full h-[50vh] md:h-[60vh]">
+      <section className="relative w-full h-[40vh] md:h-[50vh]">
         <Image
           src="https://picsum.photos/seed/training-hero/1920/400"
           alt="Team in a training session"
