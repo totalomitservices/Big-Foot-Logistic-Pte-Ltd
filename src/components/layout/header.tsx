@@ -90,7 +90,7 @@ export default function Header() {
           </nav>
 
           {/* Contact Info */}
-          <div className="hidden md:flex items-center justify-end space-x-4">
+          <div className="hidden md:flex items-center space-x-4">
             <div className="text-right text-sm text-primary-foreground">
                 <a href="mailto:enquiries@bigfoot.com.sg" className="flex items-center justify-end gap-2 hover:text-accent transition-colors">
                   <Mail className="h-4 w-4" />
