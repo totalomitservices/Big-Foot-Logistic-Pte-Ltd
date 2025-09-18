@@ -2,36 +2,17 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
-import { ChevronDown, Mail, Phone, Menu } from 'lucide-react';
+import { Mail, Phone, Menu } from 'lucide-react';
 import Link from 'next/link';
 import { Logo } from '@/components/logo';
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
 import { Button } from '../ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '../ui/sheet';
-import { servicesData } from '@/data/services';
 import { cn } from '@/lib/utils';
 
 const navLinks = [
   { href: '/', label: 'Home' },
-  {
-    href: '/about/our-story',
-    label: 'About Us',
-    subLinks: [
-      { href: '/about/our-story', label: 'Our Story' },
-      { href: '/about/vision-mission', label: 'Vision & Mission' },
-      { href: '/about/careers', label: 'Careers' },
-    ],
-  },
-  {
-    href: '#services',
-    label: 'Services',
-    subLinks: servicesData.map(s => ({ href: s.href, label: s.title }))
-  },
+  { href: '/about/our-story', label: 'About Us' },
+  { href: '#services', label: 'Services' },
   { href: '/clients', label: 'Clients' },
   { href: '/contact', label: 'Contact Us' },
 ];
@@ -52,29 +33,9 @@ const DesktopNav = () => {
         <nav className="hidden md:flex items-center">
             {navLinks.map((link) => (
                 <div key={link.href}>
-                    {link.subLinks ? (
-                        <DropdownMenu>
-                            <DropdownMenuTrigger asChild>
-                                <Button variant="ghost" asChild>
-                                   <NavLink>
-                                        {link.label}
-                                        <ChevronDown className="ml-1 h-4 w-4 transition-transform duration-200" />
-                                    </NavLink>
-                                </Button>
-                            </DropdownMenuTrigger>
-                            <DropdownMenuContent>
-                                {link.subLinks.map((subLink) => (
-                                    <DropdownMenuItem key={subLink.href} asChild>
-                                        <Link href={subLink.href}>{subLink.label}</Link>
-                                    </DropdownMenuItem>
-                                ))}
-                            </DropdownMenuContent>
-                        </DropdownMenu>
-                    ) : (
-                        <Link href={link.href}>
-                             <NavLink>{link.label}</NavLink>
-                        </Link>
-                    )}
+                    <Link href={link.href}>
+                        <NavLink>{link.label}</NavLink>
+                    </Link>
                 </div>
             ))}
         </nav>
@@ -99,34 +60,16 @@ const MobileNav = () => {
                             <Logo className="text-white h-20 w-20" />
                         </Link>
                         <nav className="flex flex-col space-y-4">
-                            {navLinks.map((link) =>
-                                link.subLinks ? (
-                                    <div key={link.label}>
-                                        <h3 className="font-bold text-lg mb-2">{link.label}</h3>
-                                        <div className="flex flex-col space-y-2 pl-4">
-                                            {link.subLinks.map((subLink) => (
-                                                <Link
-                                                    key={subLink.href}
-                                                    href={subLink.href}
-                                                    onClick={() => setMobileMenuOpen(false)}
-                                                    className="text-base hover:text-accent transition-colors"
-                                                >
-                                                    {subLink.label}
-                                                </Link>
-                                            ))}
-                                        </div>
-                                    </div>
-                                ) : (
-                                    <Link
-                                        key={link.href}
-                                        href={link.href}
-                                        onClick={() => setMobileMenuOpen(false)}
-                                        className="font-bold text-lg hover:text-accent transition-colors"
-                                    >
-                                        {link.label}
-                                    </Link>
-                                )
-                            )}
+                            {navLinks.map((link) => (
+                                <Link
+                                    key={link.href}
+                                    href={link.href}
+                                    onClick={() => setMobileMenuOpen(false)}
+                                    className="font-bold text-lg hover:text-accent transition-colors"
+                                >
+                                    {link.label}
+                                </Link>
+                            ))}
                         </nav>
                         <div className="mt-auto space-y-4">
                             <a href={`mailto:${contactInfo.email}`} className="flex items-center gap-2 hover:text-accent transition-colors">
