@@ -47,7 +47,7 @@ export default function Header() {
   return (
     <header className="absolute top-0 z-50 w-full bg-transparent">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-24">
+        <div className="flex items-center h-24">
           <div className="flex-shrink-0">
             <Link href="/">
               <Logo className="text-primary-foreground" />
@@ -55,7 +55,7 @@ export default function Header() {
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex md:items-center md:space-x-1">
+          <nav className="hidden md:flex md:items-center md:space-x-1 ml-auto">
             {navLinks.map((link) => (
               <div key={link.href}>
                 {link.subLinks ? (
@@ -90,7 +90,7 @@ export default function Header() {
           </nav>
 
           {/* Contact Info */}
-          <div className="hidden md:flex items-center space-x-4">
+          <div className="hidden md:flex items-center space-x-4 ml-8">
             <div className="text-right text-sm text-primary-foreground">
                 <a href="mailto:enquiries@bigfoot.com.sg" className="flex items-center justify-end gap-2 hover:text-accent transition-colors">
                   <Mail className="h-4 w-4" />
@@ -104,7 +104,7 @@ export default function Header() {
           </div>
           
           {/* Mobile Menu */}
-          <div className="md:hidden">
+          <div className="md:hidden ml-auto">
             <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
               <SheetTrigger asChild>
                 <Button variant="ghost" size="icon" className="hover:text-accent text-primary-foreground">
