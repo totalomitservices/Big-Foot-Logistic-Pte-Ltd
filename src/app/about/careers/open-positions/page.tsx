@@ -49,7 +49,7 @@ const jobOpenings = [
 ];
 
 const perksAndBenefits = [
-    'OT Pay',
+    'Over Time Pay',
     'Transport Incentives',
     'Performance Bonuses',
     'Medical Benefits',
