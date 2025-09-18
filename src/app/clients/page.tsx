@@ -94,12 +94,12 @@ export default function ClientsPage() {
         className="relative w-full bg-cover bg-center h-[50vh] md:h-[60vh]"
       >
         <Image 
-            src="https://picsum.photos/seed/clients-hero/1920/1080" 
+            src="https://raw.githubusercontent.com/Ram-0609/Bigfoot-Logistics-Images/refs/heads/main/Clients.jpg" 
             alt="Clients hero"
             fill
             priority
             className="object-cover"
-            data-ai-hint="collaboration handshake"
+            data-ai-hint="client partnership"
         />
         
         <div className="relative z-10 flex h-full flex-col items-center justify-center text-center text-white px-4">
