@@ -1,7 +1,11 @@
-import Image from 'next/image';
+import Image, { type ImageProps } from 'next/image';
 import { cn } from '@/lib/utils';
 
-export function Logo({ className, priority = false }: { className?: string, priority?: boolean }) {
+type LogoProps = {
+  className?: string;
+} & Omit<ImageProps, 'src' | 'alt' | 'fill' | 'sizes' | 'className'>;
+
+export function Logo({ className, ...props }: LogoProps) {
   return (
     <div className={cn('relative h-[140px] w-[140px]', className)}>
       <Image
@@ -12,7 +16,7 @@ export function Logo({ className, priority = false }: { className?: string, prio
                 (max-width: 1200px) 50vw,
                 140px"
         className="object-contain"
-        priority={priority}
+        {...props}
       />
     </div>
   );
