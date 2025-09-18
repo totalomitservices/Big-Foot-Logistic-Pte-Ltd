@@ -17,10 +17,16 @@ const logos = [
   { name: 'Swensens', src: 'https://raw.githubusercontent.com/swathitom1207/logo-/main/SWENSENS%20logo.png' },
   { name: 'YCH', src: 'https://raw.githubusercontent.com/swathitom1207/logo-/main/YCH%20logo.avif' },
   { name: 'Changi Airport', src: 'https://raw.githubusercontent.com/swathitom1207/logo-/main/changi%20airport%20SINGAPORE%20logo.png' },
+  { name: 'Changi General Hospital', src: 'https://raw.githubusercontent.com/KAVI9715/sample-content/main/changi-general-hospital-logo-png_seeklogo-348653.png' },
+  { name: 'Choice Logistics', src: 'https://raw.githubusercontent.com/swathitom1207/logo-/main/choice%20logistics%20logo.avif' },
+  { name: 'DHL Express', src: 'https://raw.githubusercontent.com/swathitom1207/logo-/main/dhl%20express%20logo.png' },
+  { name: 'FairPrice', src: 'https://raw.githubusercontent.com/swathitom1207/logo-/main/fairprice%20logo.jpg' },
   { name: 'SIA Engineering', src: 'https://raw.githubusercontent.com/swathitom1207/logo-/main/sia%20engineering%20logo.jpg' },
 ];
 
 export default function LogoWall() {
+  const duplicatedLogos = [...logos, ...logos];
+
   return (
     <section id="clients" className="py-16 lg:py-24 bg-background border-t border-border">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -33,20 +39,22 @@ export default function LogoWall() {
           </p>
         </div>
         
-        <div className="mt-12 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-8 items-center">
-          {logos.map((logo) => (
-            <div key={logo.name} className="flex justify-center items-center">
-              <div className="relative h-20 w-40 transition-transform duration-300 transform hover:scale-110 p-2 bg-white shadow-md rounded-lg">
-                <Image
-                  src={logo.src}
-                  alt={logo.name}
-                  fill
-                  sizes="160px"
-                  className="object-contain"
-                />
+        <div className="mt-12 w-full overflow-hidden">
+          <div className="flex animate-scroll">
+            {duplicatedLogos.map((logo, index) => (
+              <div key={`${logo.name}-${index}`} className="flex-shrink-0 mx-8" style={{ width: '160px' }}>
+                <div className="relative h-20 w-40 transition-transform duration-300 transform hover:scale-110 p-2 bg-white shadow-md rounded-lg">
+                  <Image
+                    src={logo.src}
+                    alt={logo.name}
+                    fill
+                    sizes="160px"
+                    className="object-contain"
+                  />
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
 
          <div className="mt-12 text-center">
