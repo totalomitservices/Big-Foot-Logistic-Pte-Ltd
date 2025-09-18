@@ -73,7 +73,7 @@ export default function FooterContent() {
       <div className="bg-black/20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6 text-center text-primary-foreground/70">
           <p className="text-sm">
-            © 2024 <Link href="/" className="hover:underline hover:text-accent transition-colors">Bigfoot Logistic Pte Ltd.</Link> All Rights Reserved.
+            © 2025 <Link href="/" className="hover:underline hover:text-accent transition-colors">Bigfoot Logistic Pte Ltd.</Link> All Rights Reserved.
           </p>
         </div>
       </div>
