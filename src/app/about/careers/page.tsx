@@ -57,11 +57,10 @@ export default function CareersPage() {
                             <h4 className="font-semibold text-xl text-foreground mb-1">Supportive Culture:</h4>
                              <p>A positive workplace is built on trust and teamwork, and that’s exactly what we foster. At Big-Foot Logistic, collaboration is key — we encourage open communication and respect for every voice. We celebrate individual contributions while working together to achieve shared goals. Our culture is about lifting each other, solving challenges as a team, and recognizing hard work.</p>
                         </div>
-                        <ul className="list-disc list-inside space-y-4 pt-4">
-                            <li>
-                                <span className="font-semibold">Competitive Benefits & Bonuses:</span> Some of our positions offer joining and quarterly bonuses of up to $25,000. We also provide a comprehensive benefits package, including health insurance and opportunities for further training and certifications.
-                            </li>
-                        </ul>
+                        <div>
+                            <h4 className="font-semibold text-xl text-foreground mb-1">Competitive Benefits & Bonuses:</h4>
+                            <p>We understand the importance of rewarding our employees. Some positions offer joining and quarterly bonuses of up to $25,000, providing both recognition and motivation. Additionally, our comprehensive benefits package includes health insurance, wellness support, and access to ongoing training. We also provide opportunities for professional certifications, ensuring you remain competitive in your career. With us, you will enjoy not just a job, but a sustainable and rewarding future.</p>
+                        </div>
                     </div>
                 </div>
             </div>
