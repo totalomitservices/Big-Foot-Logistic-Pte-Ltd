@@ -6,7 +6,7 @@ import { useEffect, useRef } from 'react';
 import { Home as HomeIcon, Plus } from 'lucide-react';
 
 const mapLocations = [
-  { lat: 1.3155, lon: 103.7027, city: 'Singapore HQ', country: 'Singapore' },
+  { lat: 1.3303, lon: 103.7088, city: 'Singapore HQ', country: 'Singapore' },
   { lat: 19.0760, lon: 72.8777, city: 'Mumbai', country: 'India' },
   { lat: -33.8688, lon: 151.2093, city: 'Sydney', country: 'Australia' },
 ];
@@ -18,7 +18,12 @@ export default function Globe() {
   const mapInstance = useRef<any>(null);
 
   useEffect(() => {
-    if (typeof window !== 'undefined' && mapRef.current && !mapInstance.current) {
+    if (typeof window !== 'undefined' && mapRef.current) {
+      // Check if map is already initialized
+      if (mapRef.current.hasChildNodes()) {
+        return;
+      }
+
       (async () => {
         const L = await import('leaflet');
 
