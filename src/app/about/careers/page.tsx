@@ -53,10 +53,11 @@ export default function CareersPage() {
                             <h4 className="font-semibold text-xl text-foreground mb-1">Career Growth:</h4>
                              <p>We believe every career is a journey, and we’re here to support yours. From structured training to on-the-job learning, you’ll have plenty of opportunities to sharpen your skills. Whether you’re a fresh graduate exploring your first role or a seasoned professional seeking the next big step, we provide clear pathways for advancement. Your growth is our growth, and we’ll help you achieve both personal and professional milestones.</p>
                         </div>
-                        <ul className="list-disc list-inside space-y-4">
-                            <li>
-                                <span className="font-semibold">Supportive Culture:</span> At Big-Foot Logistic, we foster a collaborative and supportive work environment. We believe in teamwork, open communication, and recognizing the contributions of each member.
-                            </li>
+                        <div>
+                            <h4 className="font-semibold text-xl text-foreground mb-1">Supportive Culture:</h4>
+                             <p>A positive workplace is built on trust and teamwork, and that’s exactly what we foster. At Big-Foot Logistic, collaboration is key — we encourage open communication and respect for every voice. We celebrate individual contributions while working together to achieve shared goals. Our culture is about lifting each other, solving challenges as a team, and recognizing hard work.</p>
+                        </div>
+                        <ul className="list-disc list-inside space-y-4 pt-4">
                             <li>
                                 <span className="font-semibold">Competitive Benefits & Bonuses:</span> Some of our positions offer joining and quarterly bonuses of up to $25,000. We also provide a comprehensive benefits package, including health insurance and opportunities for further training and certifications.
                             </li>
