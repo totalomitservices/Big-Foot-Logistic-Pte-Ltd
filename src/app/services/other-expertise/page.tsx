@@ -73,7 +73,20 @@ export default function OtherExpertisePage() {
             <div>
               <h2 className="text-3xl font-headline font-bold text-primary mb-4">Quality Inspection</h2>
               <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-                We offer quality inspection services of Cargo on behalf of our customers at various stages of Freight Forwarding via SGS. Total Quality Control is the key to our inspection standards. The major characteristics of our inspection are Reliability Maintainability Adoption of SGS Standards Standard parameters for Cargo Inspection Inspection of Cargo at various stages reducing risk of Loss/Damages to the customer. Inspection occurs during critical transportation, custody transfer and storage operations. Our independent inspection, analysis and testing services help protect the quantity and quality of commodities for our Customers. Our Quality Assurance provides the facility an Exporter or an Importer can be rest assured that Machinery, component, material meets pre-stated quality standards and will perform satisfactory during service. Our Quality Control Inspection is concerned with actual measurement or testing or supervision of Exporters final product control, either by inspection of each unit or by sample testing.
+                We offer quality inspection services of Cargo on behalf of our customers at various stages of Freight Forwarding via SGS. Total Quality Control is the key to our inspection standards. The major characteristics of our inspection are:
+              </p>
+              <ul className={listClassName}>
+                <li>Reliability</li>
+                <li>Maintainability</li>
+                <li>Adoption of SGS Standards</li>
+                <li>Standard parameters for Cargo Inspection</li>
+                <li>Inspection of Cargo at various stages reducing risk of Loss/Damages to the customer</li>
+              </ul>
+              <p className="text-lg text-muted-foreground leading-relaxed my-6">
+                Inspection occurs during critical transportation, custody transfer and storage operations. Our independent inspection, analysis and testing services help protect the quantity and quality of commodities for our Customers.
+              </p>
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                Our Quality Assurance provides the facility an Exporter or an Importer can be rest assured that Machinery, component, material meets pre-stated quality standards and will perform satisfactory during service. Our Quality Control Inspection is concerned with actual measurement or testing or supervision of Exporters final product control, either by inspection of each unit or by sample testing.
               </p>
             </div>
 
