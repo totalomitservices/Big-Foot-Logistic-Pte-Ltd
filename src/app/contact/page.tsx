@@ -133,7 +133,7 @@ export default function ContactPage() {
                     Contact Us
                 </h1>
                 <p className="mt-4 text-lg md:text-xl font-light max-w-2xl">
-                    We’re here to help you with reliable logistics solutions.
+                    We’re here to help you with reliable logistics solutions. For enquiries, reach out to us at <a href="mailto:enquiries@bigfoot.com.sg" className="underline hover:text-accent transition-colors pointer-events-auto">enquiries@bigfoot.com.sg</a>.
                 </p>
             </div>
         </div>
@@ -192,7 +192,7 @@ export default function ContactPage() {
                                 <Phone className="h-6 w-6 text-accent"/>
                                 <div>
                                     <h4 className="font-semibold">Phone</h4>
-                                    <a href="tel:6563244722" className="text-muted-foreground hover:text-primary transition-colors">+65 6324 4722</a>
+                                    <a href="tel:+6563244722" className="text-muted-foreground hover:text-primary transition-colors">+65 6324 4722</a>
                                 </div>
                             </div>
                              <div className="flex items-center gap-4">
