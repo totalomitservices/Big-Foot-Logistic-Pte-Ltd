@@ -13,17 +13,17 @@ export const metadata: Metadata = {
 
 const coreValues = [
     {
-        icon: <Users className="h-10 w-10 text-accent" />,
+        icon: Users,
         title: "Customer-Centric",
         description: "We build lasting relationships based on trust and mutual success, putting our clients at the heart of everything we do.",
     },
     {
-        icon: <ShieldCheck className="h-10 w-10 text-accent" />,
+        icon: ShieldCheck,
         title: "Proven Reliability",
         description: "With decades of experience, we have an exceptional customer retention rate that speaks to our dependability.",
     },
     {
-        icon: <Truck className="h-10 w-10 text-accent" />,
+        icon: Truck,
         title: "Comprehensive Solutions",
         description: "We offer a full suite of logistics services under one roof, providing seamless, end-to-end solutions.",
     },
@@ -128,17 +128,20 @@ export default function OurStoryPage() {
               <h2 className="text-3xl font-headline font-bold text-primary">What Makes Us Different</h2>
             </div>
             <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-              {coreValues.map((value) => (
-                <Card key={value.title} className="text-center border-0 shadow-none bg-transparent group">
-                  <CardHeader className="items-center">
-                    <div className="bg-secondary p-4 shadow-lg transition-all duration-300 group-hover:scale-110 group-hover:shadow-accent/30 group-hover:shadow-xl">
-                      {value.icon}
-                    </div>
-                    <CardTitle className="mt-4 font-headline text-xl">{value.title}</CardTitle>
-                    <p className="mt-2 text-base text-muted-foreground">{value.description}</p>
-                  </CardHeader>
-                </Card>
-              ))}
+              {coreValues.map((value) => {
+                const Icon = value.icon;
+                return (
+                  <Card key={value.title} className="text-center border-0 shadow-none bg-transparent group">
+                    <CardHeader className="items-center">
+                      <div className="bg-secondary p-4 shadow-lg transition-all duration-300 group-hover:scale-110 group-hover:shadow-accent/30 group-hover:shadow-xl">
+                        <Icon className="h-10 w-10 text-accent" />
+                      </div>
+                      <CardTitle className="mt-4 font-headline text-xl">{value.title}</CardTitle>
+                      <p className="mt-2 text-base text-muted-foreground">{value.description}</p>
+                    </CardHeader>
+                  </Card>
+                );
+              })}
             </div>
         </div>
       </section>
