@@ -1,13 +1,19 @@
 
+'use client';
+
 import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import TrackingForm from './tracking-form';
+import { useState } from 'react';
+import { Rocket } from 'lucide-react';
 
 const heroImage = PlaceHolderImages.find((img) => img.id === 'hero-image');
 
 export default function Hero() {
+  const [isTrackingOpen, setIsTrackingOpen] = useState(true);
+
   return (
     <section id="home" className="relative w-full h-[90vh] md:h-screen">
       {heroImage && (
@@ -43,9 +49,14 @@ export default function Hero() {
           </div>
         </div>
         <div className="w-full max-w-md">
-            <TrackingForm />
+          {isTrackingOpen && <TrackingForm onClose={() => setIsTrackingOpen(false)} />}
         </div>
       </div>
+      {!isTrackingOpen && (
+         <Button onClick={() => setIsTrackingOpen(true)} variant="accent" size="lg" className="absolute bottom-8 right-8">
+            <Rocket className="mr-2" /> Track Your Shipment
+        </Button>
+      )}
     </section>
   );
 }
