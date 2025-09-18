@@ -4,7 +4,6 @@ import Header from '@/components/layout/header';
 import Image from 'next/image';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import Link from 'next/link';
 import { Mail, Phone } from 'lucide-react';
 
 const jobOpenings = [
@@ -58,6 +57,93 @@ const perksAndBenefits = [
     'Many more attractive incentives!'
 ];
 
+function JobCard({ job }: { job: typeof jobOpenings[0] }) {
+  return (
+    <Card className="flex flex-col h-full">
+      <CardHeader className="bg-secondary">
+        <CardTitle className="text-xl text-primary">{job.title}</CardTitle>
+      </CardHeader>
+      <CardContent className="p-6 space-y-4 flex-grow">
+        {job.details && (
+          <ul className="list-disc list-inside space-y-1 text-muted-foreground">
+            {job.details.map((detail, i) => <li key={i}>{detail}</li>)}
+          </ul>
+        )}
+         {job.requirements && (
+           <div>
+                <h4 className="font-semibold mb-1 text-foreground">Requirements:</h4>
+                <p className="text-muted-foreground">{job.requirements}</p>
+           </div>
+        )}
+        {job.jobScopes && (
+            <div>
+                <h4 className="font-semibold mb-2 text-foreground">Job Scopes:</h4>
+                <ul className="list-disc list-inside space-y-1 text-muted-foreground">
+                    {job.jobScopes.map((scope, i) => <li key={i}>{scope}</li>)}
+                </ul>
+            </div>
+        )}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm pt-4">
+            <p><strong className="text-foreground">Job Type:</strong> {job.type}</p>
+            <p><strong className="text-foreground">Location:</strong> {job.location}</p>
+            <p><strong className="text-foreground">Eligibility:</strong> {job.eligibility}</p>
+        </div>
+        {job.bonus && (
+           <CardDescription className="pt-2 text-accent font-semibold italic">
+            {job.bonus}
+           </CardDescription>
+        )}
+      </CardContent>
+    </Card>
+  );
+}
+
+function ApplyCard() {
+  return (
+    <Card className="sticky top-28 bg-gradient-to-br from-primary to-blue-900 text-primary-foreground border-accent shadow-2xl">
+      <CardHeader className="text-center">
+        <CardTitle className="text-2xl font-bold text-white">How to Apply?</CardTitle>
+      </CardHeader>
+      <CardContent className="space-y-6 text-center">
+        <p className="text-primary-foreground/90">
+          Interested in joining us? We’d love to hear from you! Send your updated resume to:
+        </p>
+        <Button asChild variant="secondary" className="w-full bg-white/10 hover:bg-white/20 text-white border border-white/20 transition-all duration-300 transform hover:scale-105">
+          <a href="mailto:recruitment@bigfoot.com.sg">
+            <Mail className="mr-2 h-5 w-5"/>
+            recruitment@bigfoot.com.sg
+          </a>
+        </Button>
+        <div className="relative">
+          <div className="absolute inset-0 flex items-center">
+            <span className="w-full border-t border-primary-foreground/30" />
+          </div>
+          <div className="relative flex justify-center text-xs uppercase">
+            <span className="bg-primary px-2 text-primary-foreground/70">
+              or
+            </span>
+          </div>
+        </div>
+         <p className="text-primary-foreground/90">Contact us on WhatsApp for an immediate response:</p>
+         <div className="flex flex-col space-y-3">
+           <Button asChild variant="secondary" className="w-full bg-green-500/10 hover:bg-green-500/20 text-white border border-green-400/50 transition-all duration-300 transform hover:scale-105">
+            <a href="https://api.whatsapp.com/send/?phone=6592713514&text&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer">
+              <Phone className="mr-2 h-5 w-5"/>
+              +65 9271 3514
+            </a>
+          </Button>
+           <Button asChild variant="secondary" className="w-full bg-green-500/10 hover:bg-green-500/20 text-white border border-green-400/50 transition-all duration-300 transform hover:scale-105">
+            <a href="https://wa.me/6593850651" target="_blank" rel="noopener noreferrer">
+              <Phone className="mr-2 h-5 w-5"/>
+              +65 9385 0651
+            </a>
+          </Button>
+        </div>
+      </CardContent>
+    </Card>
+  );
+}
+
 export default function OpenPositionsPage() {
   return (
     <div className="relative bg-background text-foreground">
@@ -91,42 +177,7 @@ export default function OpenPositionsPage() {
           </div>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
             {jobOpenings.map((job) => (
-              <Card key={job.title} className="flex flex-col h-full">
-                <CardHeader className="bg-secondary">
-                  <CardTitle className="text-xl text-primary">{job.title}</CardTitle>
-                </CardHeader>
-                <CardContent className="p-6 space-y-4 flex-grow">
-                  {job.details && (
-                    <ul className="list-disc list-inside space-y-1 text-muted-foreground">
-                      {job.details.map((detail, i) => <li key={i}>{detail}</li>)}
-                    </ul>
-                  )}
-                   {job.requirements && (
-                     <div>
-                          <h4 className="font-semibold mb-1 text-foreground">Requirements:</h4>
-                          <p className="text-muted-foreground">{job.requirements}</p>
-                     </div>
-                  )}
-                  {job.jobScopes && (
-                      <div>
-                          <h4 className="font-semibold mb-2 text-foreground">Job Scopes:</h4>
-                          <ul className="list-disc list-inside space-y-1 text-muted-foreground">
-                              {job.jobScopes.map((scope, i) => <li key={i}>{scope}</li>)}
-                          </ul>
-                      </div>
-                  )}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm pt-4">
-                      <p><strong className="text-foreground">Job Type:</strong> {job.type}</p>
-                      <p><strong className="text-foreground">Location:</strong> {job.location}</p>
-                      <p><strong className="text-foreground">Eligibility:</strong> {job.eligibility}</p>
-                  </div>
-                  {job.bonus && (
-                     <CardDescription className="pt-2 text-accent font-semibold italic">
-                      {job.bonus}
-                     </CardDescription>
-                  )}
-                </CardContent>
-              </Card>
+              <JobCard key={job.title} job={job} />
             ))}
           </div>
 
@@ -136,7 +187,7 @@ export default function OpenPositionsPage() {
                 <CardHeader>
                   <CardTitle>Perks & Benefits</CardTitle>
                 </CardHeader>
-                <CardContent>
+                <CardContent className="pt-6">
                    <ul className="list-disc list-inside grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-2 text-muted-foreground">
                         {perksAndBenefits.map((perk, i) => <li key={i}>{perk}</li>)}
                     </ul>
@@ -153,47 +204,7 @@ export default function OpenPositionsPage() {
             </div>
 
             <div className="space-y-8">
-              <Card className="sticky top-28 bg-gradient-to-br from-primary to-blue-900 text-primary-foreground border-accent shadow-2xl">
-                <CardHeader className="text-center">
-                  <CardTitle className="text-2xl font-bold text-white">How to Apply?</CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-6 text-center">
-                  <p className="text-primary-foreground/90">
-                    Interested in joining us? We’d love to hear from you! Send your updated resume to:
-                  </p>
-                  <Button asChild variant="secondary" className="w-full bg-white/10 hover:bg-white/20 text-white border border-white/20 transition-all duration-300 transform hover:scale-105">
-                    <a href="mailto:recruitment@bigfoot.com.sg">
-                      <Mail className="mr-2 h-5 w-5"/>
-                      recruitment@bigfoot.com.sg
-                    </a>
-                  </Button>
-                  <div className="relative">
-                    <div className="absolute inset-0 flex items-center">
-                      <span className="w-full border-t border-primary-foreground/30" />
-                    </div>
-                    <div className="relative flex justify-center text-xs uppercase">
-                      <span className="bg-primary px-2 text-primary-foreground/70">
-                        or
-                      </span>
-                    </div>
-                  </div>
-                   <p className="text-primary-foreground/90">Contact us on WhatsApp for an immediate response:</p>
-                   <div className="flex flex-col space-y-3">
-                     <Button asChild variant="secondary" className="w-full bg-green-500/10 hover:bg-green-500/20 text-white border border-green-400/50 transition-all duration-300 transform hover:scale-105">
-                      <a href="https://api.whatsapp.com/send/?phone=6592713514&text&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer">
-                        <Phone className="mr-2 h-5 w-5"/>
-                        +65 9271 3514
-                      </a>
-                    </Button>
-                     <Button asChild variant="secondary" className="w-full bg-green-500/10 hover:bg-green-500/20 text-white border border-green-400/50 transition-all duration-300 transform hover:scale-105">
-                      <a href="https://wa.me/6593850651" target="_blank" rel="noopener noreferrer">
-                        <Phone className="mr-2 h-5 w-5"/>
-                        +65 9385 0651
-                      </a>
-                    </Button>
-                  </div>
-                </CardContent>
-              </Card>
+              <ApplyCard />
             </div>
           </div>
 
