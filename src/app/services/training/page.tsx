@@ -1,5 +1,11 @@
 
 import Image from 'next/image';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Training | Bigfoot Logistics',
+  description: 'Empowering our team with the knowledge and skills to excel in the logistics industry.'
+};
 
 export default function TrainingPage() {
   return (

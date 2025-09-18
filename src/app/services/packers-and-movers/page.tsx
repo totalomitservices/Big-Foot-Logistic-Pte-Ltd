@@ -1,5 +1,11 @@
 
 import Image from 'next/image';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Packers and Movers | Bigfoot Logistics',
+  description: 'Your trusted partner for a seamless and stress-free move, whether it is corporate, office, or residential.'
+};
 
 export default function PackersAndMoversPage() {
   const listClassName = "list-disc list-inside space-y-4 text-lg text-muted-foreground";

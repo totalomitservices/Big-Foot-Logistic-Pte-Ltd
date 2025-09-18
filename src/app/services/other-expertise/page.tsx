@@ -1,5 +1,11 @@
 
 import Image from 'next/image';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Other Expertise | Bigfoot Logistics',
+  description: 'Specialized logistics services including livestock handling, port handling, consultancy, and quality inspection.'
+};
 
 export default function OtherExpertisePage() {
   const listClassName = "list-disc list-inside space-y-2 text-lg text-muted-foreground";

@@ -1,5 +1,11 @@
 
 import Image from 'next/image';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Warehousing | Bigfoot Logistics',
+  description: 'Secure, scalable, and strategic warehousing and distribution solutions to manage your inventory effectively.'
+};
 
 export default function WarehousingPage() {
     const listClassName = "list-disc list-inside space-y-2 text-lg text-muted-foreground";

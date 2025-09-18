@@ -1,24 +1,16 @@
 
-'use client';
-
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Phone, Mail, Clock, ArrowRight, Building } from 'lucide-react';
 import Link from 'next/link';
-import dynamic from 'next/dynamic';
 import type { Metadata } from 'next';
+import ContactPageClient from '@/components/pages/contact/contact-page-client';
 
-// export const metadata: Metadata = {
-//   title: 'Contact Us | Bigfoot Logistics',
-// };
-
-const ContactMap = dynamic(() => import('@/components/pages/contact/contact-map'), {
-  ssr: false,
-  loading: () => <div className="h-[50vh] w-full bg-secondary animate-pulse" />
-});
-
+export const metadata: Metadata = {
+  title: 'Contact Us | Bigfoot Logistics',
+};
 
 const coreServices = [
     { name: 'Land Transit', href: '/services/land-transit'},
@@ -151,7 +143,7 @@ export default function ContactPage() {
         </section>
       </div>
         
-      <ContactMap />
+      <ContactPageClient />
     </div>
   );
 }

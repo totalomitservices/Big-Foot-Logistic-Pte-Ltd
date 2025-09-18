@@ -1,18 +1,13 @@
 
-'use client';
-
 import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
-import { useState } from 'react';
-import TrackingForm from './tracking-form';
+import TrackingFormDialog from './tracking-form-dialog';
 
 const heroImage = PlaceHolderImages.find((img) => img.id === 'hero-image');
 
 export default function Hero() {
-  const [showTracking, setShowTracking] = useState(false);
-
   return (
     <section id="home" className="relative w-full h-[90vh] md:h-screen">
       {heroImage && (
@@ -21,6 +16,7 @@ export default function Hero() {
           alt={heroImage.description}
           fill
           priority
+          sizes="100vw"
           className="object-cover hero-image"
           data-ai-hint={heroImage.imageHint}
         />
@@ -44,22 +40,9 @@ export default function Hero() {
             >
               <Link href="#services">Read More</Link>
             </Button>
-            <Button
-              size="lg"
-              variant="destructive"
-              className="transition-all duration-300 transform hover:scale-105 shadow-lg"
-              onClick={() => setShowTracking(true)}
-            >
-              Track Your Shipment
-            </Button>
+            <TrackingFormDialog />
           </div>
         </div>
-        
-        {showTracking && (
-          <div className="absolute inset-0 bg-black/50 flex items-center justify-center z-20">
-            <TrackingForm onClose={() => setShowTracking(false)} />
-          </div>
-        )}
       </div>
     </section>
   );

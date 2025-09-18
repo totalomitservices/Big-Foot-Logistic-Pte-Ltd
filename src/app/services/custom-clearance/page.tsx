@@ -1,5 +1,11 @@
 
 import Image from 'next/image';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Custom Clearance | Bigfoot Logistics',
+  description: 'Streamlining your import and export processes with expert custom clearance services.'
+};
 
 export default function CustomClearancePage() {
   const listClassName = "list-disc list-inside space-y-2 text-lg text-muted-foreground";

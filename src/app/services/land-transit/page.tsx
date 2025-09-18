@@ -1,5 +1,11 @@
 
 import Image from 'next/image';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Land Transit | Bigfoot Logistics',
+  description: 'Reliable and efficient ground transportation services including container trucking, cold chain, and dry cargo movement.'
+};
 
 export default function LandTransitPage() {
 

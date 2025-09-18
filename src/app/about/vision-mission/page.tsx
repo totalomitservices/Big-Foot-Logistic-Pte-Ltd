@@ -1,15 +1,10 @@
 
-'use client';
 import Image from 'next/image';
 import type { Metadata } from 'next';
 
-// This page doesn't have metadata export, so we can't set the title on the server.
-// We can set it on the client, but it's better to keep it a server component if possible.
-// Since it uses no client hooks, let's make it a server component and add metadata.
-
-// export const metadata: Metadata = {
-//   title: 'Vision & Mission | Bigfoot Logistics',
-// };
+export const metadata: Metadata = {
+  title: 'Vision & Mission | Bigfoot Logistics',
+};
 
 
 const values = [

@@ -95,10 +95,10 @@ export default function Globe() {
       <div ref={mapRef} className="w-full h-full" id="map-container"></div>
       <div className="leaflet-top leaflet-right absolute top-0 right-0 z-[1000] p-2.5">
         <div className="leaflet-control leaflet-bar glassmorphic-controls">
-          <button onClick={handleZoomIn} title="Zoom in" role="button" aria-label="Zoom in" className="cursor-pointer">
+          <button type="button" onClick={handleZoomIn} title="Zoom in" role="button" aria-label="Zoom in" className="cursor-pointer">
             <Plus size={18} />
           </button>
-          <button onClick={handleGoHome} title="Home" role="button" aria-label="Home" className="cursor-pointer">
+          <button type="button" onClick={handleGoHome} title="Home" role="button" aria-label="Home" className="cursor-pointer">
             <HomeIcon size={18} />
           </button>
         </div>

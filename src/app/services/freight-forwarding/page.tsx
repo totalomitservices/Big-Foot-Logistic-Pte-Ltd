@@ -1,5 +1,11 @@
 
 import Image from 'next/image';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Freight Forwarding | Bigfoot Logistics',
+  description: 'Seamlessly connecting your business to the world with our air and sea freight forwarding services.'
+};
 
 export default function FreightForwardingPage() {
   const listClassName = "list-disc list-inside space-y-2 text-lg text-muted-foreground";
