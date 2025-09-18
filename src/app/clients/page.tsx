@@ -8,74 +8,79 @@ import { Card } from '@/components/ui/card';
 
 const clients = [
   {
-    name: 'FairPrice',
-    logoUrl: 'https://raw.githubusercontent.com/swathitom1207/logo-/main/fairprice%20logo.jpg',
-    description: 'We provide efficient distribution and supply chain management for FairPrice, ensuring their wide range of products are always available to customers across Singapore.',
+    name: 'Auric Pacific',
+    logoUrl: 'https://raw.githubusercontent.com/swathitom1207/logo-/main/AURIC%20PACIFIC%20logo.jpg',
+    description: 'A leading provider of logistics and supply chain solutions in Asia, focusing on efficient transport and warehousing services.',
+  },
+  {
+    name: 'BC Ban Choon Marketing PTE LTD',
+    logoUrl: 'https://raw.githubusercontent.com/swathitom1207/logo-/main/BC%20BAN%20CHOON%20MARKETTING%20PTE%20LTD%20logo.png',
+    description: 'A trusted distributor of consumer and industrial products in Singapore, known for reliable supply chain management.',
   },
   {
     name: 'Foodfare',
     logoUrl: 'https://raw.githubusercontent.com/swathitom1207/logo-/main/FOODFARE%20logo.png',
-    description: 'Our tailored logistics solutions help Foodfare manage their food supply chain with precision, maintaining freshness and quality from source to service.',
-  },
-  {
-    name: 'Swensen’s',
-    logoUrl: 'https://raw.githubusercontent.com/swathitom1207/logo-/main/SWENSENS%20logo.png',
-    description: 'For Swensen’s, we offer a temperature-controlled supply chain that guarantees their ice cream and other products are delivered in perfect condition.',
-  },
-  {
-    name: 'Auric Pacific',
-    logoUrl: 'https://raw.githubusercontent.com/swathitom1207/logo-/main/AURIC%20PACIFIC%20logo.jpg',
-    description: 'We partner with Auric Pacific to manage their diverse portfolio of food and beverage brands, providing seamless warehousing and distribution services.',
+    description: 'A food and beverage service provider offering catering and dining solutions across corporate, healthcare, and educational sectors.',
   },
   {
     name: 'PSA',
     logoUrl: 'https://raw.githubusercontent.com/swathitom1207/logo-/main/PSA%20logo.jpg',
-    description: 'As a key partner to PSA, we provide specialized port cargo handling and container transportation, contributing to the efficiency of the world’s busiest port.',
-  },
-  {
-    name: 'SPH',
-    logoUrl: 'https://raw.githubusercontent.com/swathitom1207/logo-/main/SPH%20logo.png',
-    description: 'Our logistics services for SPH ensure timely and secure distribution of media and other materials, supporting their extensive network.',
+    description: 'One of the world’s top port operators, specializing in container transshipment and maritime services globally.',
   },
   {
     name: 'Samsung',
     logoUrl: 'https://raw.githubusercontent.com/swathitom1207/logo-/main/SAMSUNG%20logo.webp',
-    description: 'We provide secure and specialized electronics logistics for Samsung, handling their high-value products with the utmost care and precision.',
+    description: 'A global technology giant offering consumer electronics, mobile devices, and semiconductor solutions with innovation at its core.',
   },
   {
-    name: 'Changi Airport',
+    name: 'Singapore Jamco Private Limited',
+    logoUrl: 'https://raw.githubusercontent.com/swathitom1207/logo-/main/SINGAPORE%20JAMCO%20PRIVATE%20LIMITED%20logo.png',
+    description: 'A leading aerospace engineering company providing aircraft cabin solutions, maintenance, and refurbishment services.',
+  },
+  {
+    name: 'SPH',
+    logoUrl: 'https://raw.githubusercontent.com/swathitom1207/logo-/main/SPH%20logo.png',
+    description: 'A major media organization in Singapore involved in publishing, digital platforms, and property development.',
+  },
+  {
+    name: 'Swensen’s',
+    logoUrl: 'https://raw.githubusercontent.com/swathitom1207/logo-/main/SWENSENS%20logo.png',
+    description: 'An international restaurant chain known for its premium ice cream offerings and family-friendly dining experience.',
+  },
+  {
+    name: 'YCH',
+    logoUrl: 'https://raw.githubusercontent.com/swathitom1207/logo-/main/YCH%20logo.avif',
+    description: 'A supply chain and logistics provider offering end-to-end solutions, including warehousing, freight forwarding, and distribution.',
+  },
+  {
+    name: 'Changi Airport, Singapore',
     logoUrl: 'https://raw.githubusercontent.com/swathitom1207/logo-/main/changi%20airport%20SINGAPORE%20logo.png',
-    description: 'Our partnership with Changi Airport involves providing critical ground handling and air cargo logistics, ensuring smooth operations at one of the world\'s best airports.',
+    description: 'A world-class airport recognized for its efficiency, customer service, and innovation in aviation and passenger experience.',
   },
   {
     name: 'Changi General Hospital',
     logoUrl: 'https://raw.githubusercontent.com/KAVI9715/sample-content/main/changi-general-hospital-logo-png_seeklogo-348653.png',
-    description: 'We deliver specialized healthcare logistics for Changi General Hospital, ensuring that medical supplies and equipment are handled in compliance with strict regulatory standards.',
-  },
-  {
-    name: 'DHL Express',
-    logoUrl: 'https://raw.githubusercontent.com/swathitom1207/logo-/main/dhl%20express%20logo.png',
-    description: 'In collaboration with DHL Express, we enhance their last-mile delivery and freight forwarding capabilities, providing reliable and swift logistics support.',
+    description: 'A leading healthcare institution providing comprehensive medical services and patient care with a focus on community well-being.',
   },
   {
     name: 'Choice Logistics',
     logoUrl: 'https://raw.githubusercontent.com/swathitom1207/logo-/main/choice%20logistics%20logo.avif',
-    description: 'We provide Choice Logistics with flexible warehousing and transportation solutions, supporting their mission to deliver exceptional service to their own clients.',
+    description: 'A logistics service provider offering customized transport and distribution solutions across various industries in Singapore.',
   },
   {
-    name: 'YCH Group',
-    logoUrl: 'https://raw.githubusercontent.com/swathitom1207/logo-/main/YCH%20logo.avif',
-    description: 'Our collaboration with YCH Group focuses on integrated supply chain solutions, leveraging technology to optimize logistics from end to end.',
+    name: 'DHL Express',
+    logoUrl: 'https://raw.githubusercontent.com/swathitom1207/logo-/main/dhl%20express%20logo.png',
+    description: 'A global leader in express logistics, specializing in fast and reliable international shipping and courier services.',
   },
   {
-    name: 'Singapore Jamco',
-    logoUrl: 'https://raw.githubusercontent.com/swathitom1207/logo-/main/SINGAPORE%20JAMCO%20PRIVATE%20LIMITED%20logo.png',
-    description: 'We provide specialized logistics for Singapore Jamco’s aviation interior products, ensuring delicate components are handled with precision and care.',
+    name: 'FairPrice',
+    logoUrl: 'https://raw.githubusercontent.com/swathitom1207/logo-/main/fairprice%20logo.jpg',
+    description: 'Singapore’s largest supermarket chain, providing affordable groceries and household essentials to meet everyday needs.',
   },
   {
     name: 'SIA Engineering',
     logoUrl: 'https://raw.githubusercontent.com/swathitom1207/logo-/main/sia%20engineering%20logo.jpg',
-    description: 'Our partnership with SIA Engineering Company involves managing the complex logistics of aircraft maintenance, repair, and overhaul (MRO) operations.',
+    description: 'A top aerospace engineering company offering aircraft maintenance, repair, and overhaul services with high safety and quality standards.',
   },
 ];
 
