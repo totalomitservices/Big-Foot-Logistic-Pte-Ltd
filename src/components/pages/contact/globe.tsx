@@ -6,9 +6,9 @@ import { useEffect, useRef } from 'react';
 import { Home as HomeIcon, Plus } from 'lucide-react';
 
 const mapLocations = [
-  { lat: 1.3066, lon: 103.704, city: 'Singapore HQ', country: 'Singapore' },
-  { lat: 10.3833, lon: 78.8167, city: 'India Office', country: 'India' },
-  { lat: -33.8688, lon: 151.2093, city: 'Australia Office', country: 'Australia' },
+  { lat: 1.3159, lon: 103.7023, city: 'Singapore HQ', country: 'Singapore' },
+  { lat: 10.36, lon: 78.82, city: 'India Office', country: 'India' },
+  { lat: -34.195, lon: 142.148, city: 'Australia Office', country: 'Australia' },
 ];
 
 const WORLD_VIEW = { center: [20, 0], zoom: 2 };

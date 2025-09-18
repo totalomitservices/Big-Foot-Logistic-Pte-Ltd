@@ -25,19 +25,19 @@ const coreServices = [
 const officeLocations = [
   {
     name: 'Singapore HQ',
-    address: '8 Joo Koon Rd, Singapore 628972',
+    address: '30 Quality Rd, Singapore 618803',
     phone: '+65 6324 4722',
     email: 'sg.office@bigfoot.com.sg',
   },
   {
     name: 'India Office',
-    address: '10 Business Hub, Mumbai, 400001, India',
+    address: 'SHOP NO 1, NATIONAL LODGE BUILDING, TS NO 3607/25, SATHIYAMOORTHY ROAD, PUDUKKOTTAI, Tamil Nadu, 622001, India',
     phone: '+91 22 1234 5678',
     email: 'in.office@bigfoot.com.sg',
   },
   {
     name: 'Australia Office',
-    address: '25 Trade Street, Sydney, NSW 2000, Australia',
+    address: '546 Eleventh St, Mildura, VIC 3500, Australia',
     phone: '+61 2 9876 5432',
     email: 'au.office@bigfoot.com.sg',
   },
