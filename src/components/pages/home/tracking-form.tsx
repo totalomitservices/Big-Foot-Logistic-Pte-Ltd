@@ -15,7 +15,8 @@ import {
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
-import { Rocket } from "lucide-react";
+import { Rocket, X } from "lucide-react";
+import { useState } from "react";
 
 const formSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters."),
@@ -26,6 +27,7 @@ const formSchema = z.object({
 
 export default function TrackingForm() {
     const { toast } = useToast();
+    const [isOpen, setIsOpen] = useState(true);
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -46,12 +48,28 @@ export default function TrackingForm() {
     form.reset();
   }
 
+  if (!isOpen) {
+    return (
+        <Button onClick={() => setIsOpen(true)} variant="accent" size="lg">
+            <Rocket className="mr-2" /> Track Your Shipment
+        </Button>
+    )
+  }
+
   return (
     <Card className="w-full max-w-md bg-background/90 backdrop-blur-sm shadow-lg rounded-none">
-      <CardHeader>
+      <CardHeader className="relative">
         <CardTitle className="text-2xl font-bold text-center flex items-center justify-center gap-2 text-primary">
             <Rocket /> Track Your Shipment
         </CardTitle>
+        <Button
+            variant="ghost"
+            size="icon"
+            className="absolute top-2 right-2 h-8 w-8 rounded-full text-primary hover:bg-primary/10"
+            onClick={() => setIsOpen(false)}
+        >
+            <X className="h-5 w-5" />
+        </Button>
       </CardHeader>
       <CardContent>
         <Form {...form}>
