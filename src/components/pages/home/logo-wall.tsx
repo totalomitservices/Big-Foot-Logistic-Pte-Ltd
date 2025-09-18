@@ -1,3 +1,4 @@
+
 'use client';
 
 import Image from 'next/image';
@@ -57,7 +58,7 @@ export default function LogoWall() {
         </div>
 
          <div className="mt-12 text-right">
-            <Button asChild variant="default" className="btn-animated-border">
+            <Button asChild>
                 <Link href="/clients">
                     <span>View All Our Clients <ArrowRight className="ml-2 inline"/></span>
                 </Link>
@@ -67,5 +68,7 @@ export default function LogoWall() {
     </section>
   );
 }
+
+    
 
     
