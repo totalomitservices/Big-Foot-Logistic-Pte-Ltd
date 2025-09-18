@@ -142,17 +142,34 @@
 
   .btn-animated-border {
     @apply relative overflow-hidden transition-all duration-300 ease-in-out;
-    @apply bg-accent text-accent-foreground border-2 border-accent;
+    @apply bg-background text-primary border-2 border-accent;
   }
-  .btn-animated-border::before {
+  .btn-animated-border:hover {
+    @apply text-accent-foreground;
+  }
+  .btn-animated-border::before,
+  .btn-animated-border::after {
     content: '';
-    @apply absolute top-1/2 left-1/2 w-full h-full bg-background/80 transition-all duration-500 ease-in-out -translate-x-1/2 -translate-y-1/2;
-    transform: translate(-50%, -50%) scale(0);
-    border-radius: 50%;
+    @apply absolute bg-accent transition-all duration-300 ease-in-out;
     z-index: 0;
   }
+  .btn-animated-border::before {
+    @apply top-1/2 left-0 w-full h-[2px] -translate-y-1/2 scale-x-0;
+    transform-origin: center;
+  }
+  .btn-animated-border::after {
+    @apply left-1/2 top-0 h-full w-[2px] -translate-x-1/2 scale-y-0;
+    transform-origin: center;
+  }
   .btn-animated-border:hover::before {
-    transform: translate(-50%, -50%) scale(2.5);
+    @apply scale-x-100;
+  }
+  .btn-animated-border:hover::after {
+    @apply scale-y-100;
+    transition-delay: 0.15s;
+  }
+   .btn-animated-border:hover {
+    transition-delay: 0.3s;
   }
   .btn-animated-border > * {
     @apply relative z-10;
@@ -248,3 +265,6 @@
 
 
 
+
+
+    
