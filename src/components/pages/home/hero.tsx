@@ -42,16 +42,6 @@ export default function Hero() {
             >
               <Link href="#services">Read More</Link>
             </Button>
-            <Button
-              asChild
-              size="lg"
-              variant="destructive"
-              className="transition-all duration-300 transform hover:scale-105 shadow-lg"
-            >
-              <Link href="/route-optimizer">
-                <Rocket className="mr-2" /> Track Your Shipment
-              </Link>
-            </Button>
           </div>
         </div>
       </div>
