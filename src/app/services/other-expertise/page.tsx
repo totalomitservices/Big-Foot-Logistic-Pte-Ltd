@@ -44,7 +44,7 @@ export default function OtherExpertisePage() {
             <div>
               <h2 className="text-3xl font-headline font-bold text-primary mb-4">Port Handling</h2>
               <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-                Our port handling services include discharge and loading of bulk, container, project cargo & dangerous goods. Care is taken during entire operation of loading /unloading at ports to ensure safe handling and delivery of all kinds of cargo including dry/ liquid cargo, dangerous goods/over dimensional cargo and all other types of cargo. We offer services at other berths of the port as handling agents. Container stuffing / de-stuffing facility is also being provided by our Port Management Service and is outside the dock premises. We take care of the entire operation of loading/unloading at ports and ensure a swift handling and delivery of all kinds of cargo.
+                Our port handling services include discharge and loading of bulk, container, project cargo & dangerous goods. Care is taken during entire operation of loading /unloading at ports to ensure safe handling and delivery of all kinds of cargo including dry/ liquid cargo, dangerous goods/over dimensional cargo and all other types of cargo. We offer services at other berths of the port as handling agents. Container stuffing / de-stuffing facility is also being provided by our Port Management Service and is outside the dock premises. We take care of the entire operation of loading/unloading at ports and ensure a swift handling and delivery of all kinds of cargo. Our services in this area include
               </p>
                <h3 className="text-2xl font-headline font-semibold text-primary mt-6 mb-4">Our services in this area include:</h3>
                  <ul className={listClassName}>
@@ -75,7 +75,7 @@ export default function OtherExpertisePage() {
             <div>
               <h2 className="text-3xl font-headline font-bold text-primary mb-4">Quality Inspection</h2>
               <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-                We offer quality inspection services of Cargo on behalf of our customers at various stages of Freight Forwarding via SGS. Total Quality Control is the key to our inspection standards. The major characteristics of our inspection are:
+                We offer quality inspection services of Cargo on behalf of our customers at various stages of Freight Forwarding via SGS. Total Quality Control is the key to our inspection standards. The major characteristics of our inspection are
               </p>
               <ul className={listClassName}>
                 <li>Reliability</li>
