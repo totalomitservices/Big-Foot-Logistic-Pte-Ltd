@@ -23,7 +23,7 @@ export default function Hero() {
           alt={heroImage.description}
           fill
           priority
-          className="object-cover"
+          className="object-cover hero-image"
           data-ai-hint={heroImage.imageHint}
         />
       )}

@@ -158,6 +158,13 @@
   .btn-animated-border:hover::before {
     @apply w-[225%] h-[500%];
   }
+
+  .hero-image {
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    object-position: center;
+  }
 }
 
 /* Leaflet and Map Styles */
@@ -255,5 +262,6 @@
 
 
     
+
 
 
