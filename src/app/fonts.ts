@@ -1,14 +1,14 @@
 
-import { Lato, Poppins } from 'next/font/google';
+import { Federo, Open_Sans } from 'next/font/google';
 
-export const lato = Lato({
+export const openSans = Open_Sans({
   subsets: ['latin'],
   weight: ['400', '700'],
-  variable: '--font-lato',
+  variable: '--font-open-sans',
 });
 
-export const poppins = Poppins({
+export const federo = Federo({
   subsets: ['latin'],
-  weight: ['700', '900'],
-  variable: '--font-poppins',
+  weight: ['400'],
+  variable: '--font-federo',
 });
