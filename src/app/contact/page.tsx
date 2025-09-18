@@ -54,10 +54,11 @@ export default function ContactPage() {
 
    useEffect(() => {
     if (typeof window !== 'undefined' && mapRef.current && !mapInstance.current) {
+      let map: any;
       (async () => {
         const L = await import('leaflet');
 
-        const map = L.map(mapRef.current!, {
+        map = L.map(mapRef.current!, {
           center: WORLD_VIEW.center as L.LatLngTuple,
           zoom: WORLD_VIEW.zoom,
           zoomControl: false,
@@ -94,6 +95,13 @@ export default function ContactPage() {
             });
         });
       })();
+      
+      return () => {
+        if (map) {
+          map.remove();
+          mapInstance.current = null;
+        }
+      };
     }
   }, []);
 
