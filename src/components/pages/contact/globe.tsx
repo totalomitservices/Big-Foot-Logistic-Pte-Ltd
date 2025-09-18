@@ -12,7 +12,7 @@ import { useEffect, useRef } from 'react';
 const officeLocations = [
   {
     name: 'Singapore HQ',
-    address: '123 Logistics Lane, Transport City, 98765, Singapore',
+    address: '8 Joo Koon Rd, Singapore 628972',
     phone: '+65 6324 4722',
     email: 'sg.office@bigfoot.com.sg',
   },
