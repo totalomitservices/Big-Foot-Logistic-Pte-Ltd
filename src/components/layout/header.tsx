@@ -106,10 +106,6 @@ export default function Header() {
                   <Mail className="h-4 w-4" />
                   <span>enquiries@bigfoot.com.sg</span>
                 </a>
-                <a href="tel:+6563244722" className="flex items-center justify-end gap-2 hover:text-accent transition-colors mt-1">
-                  <Phone className="h-4 w-4" />
-                  <span>+65 6324 4722</span>
-                </a>
               </div>
           </div>
           
@@ -161,10 +157,6 @@ export default function Header() {
                        <a href="mailto:enquiries@bigfoot.com.sg" className="flex items-center gap-2 hover:text-accent transition-colors">
                          <Mail className="h-4 w-4" />
                          <span>enquiries@bigfoot.com.sg</span>
-                       </a>
-                       <a href="tel:+6563244722" className="flex items-center gap-2 hover:text-accent transition-colors">
-                         <Phone className="h-4 w-4" />
-                         <span>+65 6324 4722</span>
                        </a>
                      </div>
                  </div>
