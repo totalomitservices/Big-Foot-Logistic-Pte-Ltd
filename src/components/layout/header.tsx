@@ -56,9 +56,13 @@ const NavLink = ({ href, children, className }: { href: string; children: React.
     const isActive = pathname === href;
     
     return (
-        <div className={cn("font-medium text-base hover:text-accent focus-visible:ring-0 focus-visible:ring-offset-0 hover:bg-transparent text-primary-foreground px-3 py-2", isActive && 'underline', className)}>
+         <Link href={href} className={cn(
+            "font-medium text-base hover:text-accent focus-visible:ring-0 focus-visible:ring-offset-0 hover:bg-transparent text-primary-foreground px-3 py-2",
+            isActive && "underline",
+            className
+        )}>
             {children}
-        </div>
+        </Link>
     );
 };
 
@@ -90,9 +94,7 @@ const DesktopNav = () => {
                             </DropdownMenuContent>
                         </DropdownMenu>
                     ) : (
-                        <Link href={link.href!}>
-                           <NavLink href={link.href!}>{link.label}</NavLink>
-                        </Link>
+                        <NavLink href={link.href!}>{link.label}</NavLink>
                     )}
                 </div>
             ))}

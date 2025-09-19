@@ -19,16 +19,16 @@ export default function ClientLayout({
         const header = document.querySelector('header');
         
         const handleScroll = () => {
-            if (window.scrollY > 50) {
-                header?.classList.add('scrolled-header');
-            } else {
-                header?.classList.remove('scrolled-header');
+            if (header) {
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled-header');
+                } else {
+                    header.classList.remove('scrolled-header');
+                }
             }
         };
 
         window.addEventListener('scroll', handleScroll);
-        
-        // Run on mount as well
         handleScroll();
 
         // Apply body class based on pathname
