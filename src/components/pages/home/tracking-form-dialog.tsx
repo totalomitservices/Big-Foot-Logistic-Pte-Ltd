@@ -18,8 +18,8 @@ export default function TrackingFormDialog() {
       <DialogTrigger asChild>
         <Button
           size="lg"
-          variant="outline"
-          className="btn-animated-border transition-all duration-300 transform hover:scale-105"
+          variant="destructive"
+          className="transition-all duration-300 transform hover:scale-105 shadow-lg"
         >
           <span>Track Your Shipment</span>
         </Button>
