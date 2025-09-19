@@ -179,38 +179,25 @@ function MobileNav() {
 
 export default function HeaderClient() {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [hasMounted, setHasMounted] = useState(false);
 
   useEffect(() => {
-    setHasMounted(true);
-  }, []);
-
-  useEffect(() => {
-    if (!hasMounted) return;
-
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
     };
-
     window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll(); 
-
+    handleScroll();
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, [hasMounted]);
-
-  const headerClasses = "fixed top-4 left-0 w-full z-50 transition-all duration-300 py-1";
-  
-  const innerDivClasses = cn(
-    "relative flex items-center justify-between backdrop-blur-md shadow-lg rounded-full px-2 py-1 transition-all duration-300",
-    hasMounted && isScrolled ? "bg-white/90" : "bg-white/80"
-  );
+  }, []);
   
   return (
-    <header className={headerClasses}>
+    <header 
+        className="fixed top-4 left-0 w-full z-50 transition-all duration-300"
+        data-scrolled={isScrolled}
+    >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className={innerDivClasses}>
+            <div className="relative flex items-center justify-between backdrop-blur-md shadow-lg rounded-full px-2 bg-white/80 transition-all duration-300 data-[scrolled=true]:bg-white/90 py-1">
                 <div className="flex items-center flex-shrink-0">
                     <Link href="/">
                         <Logo/>
@@ -237,5 +224,3 @@ export default function HeaderClient() {
     </header>
   );
 }
-
-    

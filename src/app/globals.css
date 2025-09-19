@@ -173,8 +173,8 @@
     @apply h-6 w-px bg-black/20;
   }
   
-  .scrolled-header {
-      @apply bg-white/80 backdrop-blur-sm shadow-lg;
+  header[data-scrolled='true'] {
+      @apply shadow-lg;
   }
 
   .icon-btn {
