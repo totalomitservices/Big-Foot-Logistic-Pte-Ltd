@@ -2,9 +2,7 @@
 import { Facebook, Instagram, Linkedin, Mail, MapPin, Phone } from 'lucide-react';
 import Link from 'next/link';
 import { Logo } from '@/components/logo';
-import dynamic from 'next/dynamic';
-
-const FooterMap = dynamic(() => import('./footer-map'), { ssr: false, loading: () => <div className="aspect-video bg-black/20 animate-pulse" /> });
+import FooterMapClient from './footer-map-client';
 
 
 export default function FooterContent() {
@@ -61,7 +59,7 @@ export default function FooterContent() {
           <div className="md:col-span-4">
             <h3 className="text-lg font-headline font-bold uppercase tracking-wider text-accent mb-4 text-center md:text-left">Our Location</h3>
             <div className="aspect-video overflow-hidden shadow-lg transition-all duration-300 hover:shadow-accent/30 hover:shadow-2xl hover:scale-105">
-              <FooterMap />
+              <FooterMapClient />
             </div>
           </div>
         </div>

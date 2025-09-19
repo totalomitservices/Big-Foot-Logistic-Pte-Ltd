@@ -1,9 +1,10 @@
 
 import type { Metadata } from 'next';
 import './globals.css';
-import ClientLayout from './client-layout';
 import { federo, openSans } from '@/app/fonts';
 import { cn } from '@/lib/utils';
+import Header from '@/components/layout/header';
+import Footer from '@/components/layout/footer';
 
 export const metadata: Metadata = {
   title: 'Bigfoot Logistics',
@@ -38,9 +39,9 @@ export default function RootLayout({
           federo.variable,
           openSans.variable
       )}>
-        <ClientLayout>
-          {children}
-        </ClientLayout>
+        <Header />
+        <main className="flex-grow">{children}</main>
+        <Footer />
       </body>
     </html>
   );
