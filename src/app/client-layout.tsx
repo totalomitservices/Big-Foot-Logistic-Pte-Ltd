@@ -1,8 +1,6 @@
 
 'use client';
 
-import { Toaster } from '@/components/ui/toaster';
-import WhatsappButton from '@/components/whatsapp-button';
 import Footer from '@/components/layout/footer';
 import { usePathname } from 'next/navigation';
 import { useEffect } from 'react';
@@ -30,8 +28,6 @@ export default function ClientLayout({
                 <main className="flex-grow">{children}</main>
                 <Footer />
             </div>
-            <Toaster />
-            <WhatsappButton />
         </>
     )
 }
