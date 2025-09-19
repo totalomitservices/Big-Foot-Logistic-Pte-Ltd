@@ -16,7 +16,7 @@ export default function LandTransitPage() {
       {/* Hero Section */}
       <section className="relative w-full h-[40vh] md:h-[50vh]">
         <Image
-          src="https://raw.githubusercontent.com/Ram-0609/Bigfoot-Logistics-Images/main/trucks-on.jpg"
+          src="https://raw.githubusercontent.com/Ram-0609/Bigfoot-Logistics-Images/main/land%20transit%20.jpeg"
           alt="Truck on a highway"
           fill
           priority
