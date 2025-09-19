@@ -179,17 +179,17 @@ export default function Header() {
     )}>
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className={cn(
-                "relative flex items-center justify-center transition-all duration-300 ease-in-out",
+                "relative flex items-center justify-between transition-all duration-300 ease-in-out",
                 scrolled ? "h-20" : "h-24"
             )}>
-                <div className="absolute left-0 flex-shrink-0">
+                <div className="flex-shrink-0">
                     <Link href="/">
                         <Logo className="text-primary-foreground h-20 w-auto transition-all duration-300" priority />
                     </Link>
                 </div>
 
                 <div className={cn(
-                    "hidden md:flex items-center justify-center space-x-2 transition-all duration-300 ease-in-out",
+                    "hidden md:flex items-center justify-center space-x-2 transition-all duration-300 ease-in-out absolute left-1/2 -translate-x-1/2",
                     "bg-foreground/50 backdrop-blur-md shadow-lg rounded-full",
                      scrolled ? "px-2 py-1" : "px-3 py-2"
                     
