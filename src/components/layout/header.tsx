@@ -19,6 +19,7 @@ import {
   CollapsibleTrigger,
 } from "@/components/ui/collapsible";
 import { cn } from '@/lib/utils';
+import { usePathname } from 'next/navigation';
 
 const navLinks = [
   { href: '/', label: 'Home' },
@@ -57,6 +58,9 @@ const NavLink = ({ children, className }: { children: React.ReactNode, className
 )
 
 const DesktopNav = () => {
+    const pathname = usePathname();
+    const isHomePage = pathname === '/';
+
     return (
         <nav className="hidden md:flex items-center">
             {navLinks.map((link) => (
@@ -69,7 +73,10 @@ const DesktopNav = () => {
                                     <ChevronDown className="relative top-[1px] ml-1 h-4 w-4 transition duration-200 group-data-[state=open]:rotate-180" />
                                 </Button>
                             </DropdownMenuTrigger>
-                            <DropdownMenuContent className="bg-primary/90 backdrop-blur-sm text-primary-foreground border-accent/20">
+                            <DropdownMenuContent className={cn(
+                                "bg-primary/90 backdrop-blur-sm text-primary-foreground border-accent/20",
+                                !isHomePage && "bg-primary text-primary-foreground"
+                            )}>
                                 {link.subLinks.map((subLink) => (
                                     <DropdownMenuItem key={subLink.href} asChild className="focus:bg-accent/50 focus:text-accent-foreground">
                                         <Link href={subLink.href}>{subLink.label}</Link>
@@ -162,10 +169,18 @@ const MobileNav = () => {
 
 
 export default function Header() {
+  const pathname = usePathname();
+  const isHomePage = pathname === '/';
+
   return (
-    <header className="fixed top-0 left-0 w-full z-50 group transition-all duration-300 ease-in-out header-scroll">
+    <header className={cn(
+        "fixed top-0 left-0 w-full z-50 transition-all duration-300 ease-in-out header-scroll",
+        !isHomePage && "scrolled-header"
+    )}>
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="relative flex items-center justify-between transition-all duration-300 ease-in-out h-24 group-[.scrolled]:h-20">
+            <div className={cn("relative flex items-center justify-between transition-all duration-300 ease-in-out h-24",
+                isHomePage && "group-[.scrolled-header]:h-20"
+            )}>
                 <div className="flex-shrink-0">
                     <Link href="/">
                         <Logo className="text-primary-foreground h-20 w-auto transition-all duration-300" priority />
@@ -173,10 +188,9 @@ export default function Header() {
                 </div>
 
                 <div className={cn(
-                    "hidden md:flex items-center justify-center space-x-2 transition-all duration-300 ease-in-out absolute left-1/2 -translate-x-1/2",
-                    "bg-foreground/50 backdrop-blur-md shadow-lg rounded-full",
-                     "px-3 py-2 group-[.scrolled]:px-2 group-[.scrolled]:py-1"
-                    
+                    "hidden md:flex items-center justify-center absolute left-1/2 -translate-x-1/2",
+                     "transition-all duration-300 ease-in-out",
+                    isHomePage && "bg-foreground/50 backdrop-blur-md shadow-lg rounded-full px-3 py-2 group-[.scrolled-header]:px-2 group-[.scrolled-header]:py-1"
                     )}>
                     <DesktopNav />
                     <div className="header-separator" />

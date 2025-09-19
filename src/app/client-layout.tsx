@@ -16,20 +16,31 @@ export default function ClientLayout({
     const pathname = usePathname();
 
     useEffect(() => {
-        const body = document.body;
-        const header = document.querySelector('.header-scroll');
+        const handleScroll = () => {
+            const header = document.querySelector('.header-scroll');
+            if (window.scrollY > 50) {
+                header?.classList.add('scrolled-header');
+            } else {
+                header?.classList.remove('scrolled-header');
+            }
+        };
 
+        window.addEventListener('scroll', handleScroll);
+        
+        // Run on mount as well
+        handleScroll();
+
+        // Apply body class based on pathname
+        const body = document.body;
         if (pathname === '/') {
             body.classList.add('is-home');
-             if (header) {
-                header.classList.remove('scrolled-header');
-            }
         } else {
             body.classList.remove('is-home');
-            if (header) {
-                header.classList.add('scrolled-header');
-            }
         }
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
     }, [pathname]);
 
     return (
@@ -44,5 +55,3 @@ export default function ClientLayout({
         </>
     )
 }
-
-    
