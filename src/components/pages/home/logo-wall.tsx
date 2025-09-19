@@ -30,7 +30,7 @@ export default function LogoWall() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center">
           <h2 className="text-4xl font-headline font-bold text-primary">
-            Our Valuable Customers
+            Our Valuable Clients
           </h2>
           <p className="mt-4 max-w-2xl mx-auto text-lg text-muted-foreground">
             We partner with businesses of all sizes to power their supply chains and drive growth.
