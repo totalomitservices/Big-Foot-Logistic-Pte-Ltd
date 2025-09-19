@@ -1,7 +1,7 @@
 
 "use client";
 
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Mail, Phone, Menu, ChevronDown } from 'lucide-react';
 import Link from 'next/link';
 import { Logo } from '@/components/logo';
@@ -178,40 +178,12 @@ function MobileNav() {
 
 
 export default function HeaderClient() {
-  const [hasMounted, setHasMounted] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
-
-  useEffect(() => {
-    setHasMounted(true);
-  }, []);
-
-  useEffect(() => {
-    if (!hasMounted) return;
-
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll();
-    
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, [hasMounted]);
-  
-  const headerProps: { 'data-scrolled'?: boolean } = {};
-  if (hasMounted) {
-    headerProps['data-scrolled'] = isScrolled;
-  }
-
   return (
     <header 
         className="fixed top-4 left-0 w-full z-50 transition-all duration-300"
-        {...headerProps}
     >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="relative flex items-center justify-between backdrop-blur-md shadow-lg rounded-full bg-white/80 transition-all duration-300 data-[scrolled=true]:bg-white/90 py-1 px-4">
+            <div className="relative flex items-center justify-between backdrop-blur-md shadow-lg rounded-full bg-white/80 transition-all duration-300 py-1 px-4">
                 <div className="flex items-center flex-shrink-0">
                     <Link href="/">
                         <Logo/>
