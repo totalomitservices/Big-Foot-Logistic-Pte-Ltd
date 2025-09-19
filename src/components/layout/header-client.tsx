@@ -57,8 +57,8 @@ const NavLink = ({ href, children, className }: { href: string; children: React.
     
     return (
          <Link href={href} className={cn(
-            "font-medium text-base hover:text-accent focus-visible:ring-0 focus-visible:ring-offset-0 hover:bg-transparent text-primary-foreground px-3 py-2",
-            isActive && "underline",
+            "font-medium text-base hover:text-accent focus-visible:ring-0 focus-visible:ring-offset-0 text-primary-foreground px-3 py-2 rounded-md transition-colors",
+            isActive && "bg-white/10",
             className
         )}>
             {children}
@@ -67,25 +67,19 @@ const NavLink = ({ href, children, className }: { href: string; children: React.
 };
 
 const DesktopNav = () => {
-    const pathname = usePathname();
-    const isHomePage = pathname === '/';
-
     return (
-        <nav className="hidden md:flex items-center">
+        <nav className="hidden md:flex items-center gap-1">
             {navLinks.map((link) => (
                 <div key={link.label}>
                     {link.subLinks ? (
                         <DropdownMenu>
                             <DropdownMenuTrigger asChild>
-                                <Button variant="ghost" className="hover:bg-transparent focus:bg-transparent hover:text-accent text-primary-foreground text-base font-medium px-3 py-2">
+                                <Button variant="ghost" className="hover:bg-white/10 focus:bg-transparent hover:text-accent text-primary-foreground text-base font-medium px-3 py-2 flex items-center gap-1">
                                     {link.label}
                                     <ChevronDown className="relative top-[1px] ml-1 h-4 w-4 transition duration-200 group-data-[state=open]:rotate-180" />
                                 </Button>
                             </DropdownMenuTrigger>
-                            <DropdownMenuContent className={cn(
-                                "bg-primary/90 backdrop-blur-sm text-primary-foreground border-accent/20",
-                                !isHomePage && "bg-primary text-primary-foreground"
-                            )}>
+                            <DropdownMenuContent className="bg-primary/90 backdrop-blur-sm text-primary-foreground border-accent/20">
                                 {link.subLinks.map((subLink) => (
                                     <DropdownMenuItem key={subLink.href} asChild className="focus:bg-accent/50 focus:text-accent-foreground">
                                         <Link href={subLink.href}>{subLink.label}</Link>
@@ -109,7 +103,7 @@ const MobileNav = () => {
     const closeMobileMenu = () => setMobileMenuOpen(false);
 
     return (
-        <div className="md:hidden flex-1 flex justify-end">
+        <div className="md:hidden">
             <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
                 <SheetTrigger asChild>
                     <Button variant="ghost" size="icon" className="hover:text-accent text-primary-foreground">
@@ -117,12 +111,14 @@ const MobileNav = () => {
                         <span className="sr-only">Open menu</span>
                     </Button>
                 </SheetTrigger>
-                <SheetContent side="left" className="w-[300px] sm:w-[400px] bg-primary text-primary-foreground">
-                    <div className="flex flex-col h-full p-6">
-                        <Link href="/" onClick={closeMobileMenu} className="mb-8">
-                            <Logo className="text-white" />
-                        </Link>
-                        <nav className="flex flex-col space-y-2">
+                <SheetContent side="left" className="w-[300px] sm:w-[400px] bg-primary text-primary-foreground p-0">
+                    <div className="flex flex-col h-full">
+                         <div className="p-6">
+                            <Link href="/" onClick={closeMobileMenu} className="mb-8">
+                                <Logo className="text-white h-16 w-auto" />
+                            </Link>
+                        </div>
+                        <nav className="flex flex-col space-y-2 px-6">
                             {navLinks.map((link) => (
                                 <div key={link.label}>
                                     {link.subLinks ? (
@@ -150,7 +146,7 @@ const MobileNav = () => {
                                         <Link
                                             href={link.href!}
                                             onClick={closeMobileMenu}
-                                            className={cn("font-bold text-lg hover:text-accent transition-colors block py-2", pathname === link.href && "underline")}
+                                            className={cn("font-bold text-lg hover:text-accent transition-colors block py-2", pathname === link.href && "text-accent")}
                                         >
                                             {link.label}
                                         </Link>
@@ -158,7 +154,7 @@ const MobileNav = () => {
                                 </div>
                             ))}
                         </nav>
-                        <div className="mt-auto space-y-4">
+                        <div className="mt-auto space-y-4 p-6 border-t border-white/10">
                             <a href={`mailto:${contactInfo.email}`} className="flex items-center gap-2 hover:text-accent transition-colors">
                                 <Mail className="h-4 w-4" />
                                 <span>{contactInfo.email}</span>
@@ -177,53 +173,43 @@ const MobileNav = () => {
 
 
 export default function HeaderClient() {
-  const pathname = usePathname();
-  const isHomePage = pathname === '/';
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      setIsScrolled(window.scrollY > 20);
     };
     window.addEventListener('scroll', handleScroll);
+    handleScroll(); 
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   return (
     <header className={cn(
-        "fixed top-0 left-0 w-full z-50 transition-all duration-300 ease-in-out",
-        !isHomePage || isScrolled ? "scrolled-header" : ""
+        "fixed top-0 left-0 w-full z-50 transition-all duration-300 ease-in-out"
     )}>
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className={cn("relative flex items-center justify-between transition-all duration-300 ease-in-out",
-                isHomePage && !isScrolled ? "h-24" : "h-20"
-            )}>
+        <div className={cn("container mx-auto px-4 sm:px-6 lg:px-8 transition-all duration-300 ease-in-out", isScrolled ? 'py-2' : 'py-4')}>
+            <div className="relative flex items-center justify-between bg-black/50 backdrop-blur-md shadow-lg rounded-full px-4 py-2">
                 <div className="flex-shrink-0">
                     <Link href="/">
-                        <Logo className="text-primary-foreground h-20 w-auto transition-all duration-300" priority />
+                        <Logo className="h-12 w-auto transition-all duration-300" priority />
                     </Link>
                 </div>
 
-                <div className={cn(
-                    "hidden md:flex items-center justify-center",
-                    isHomePage && "absolute left-1/2 -translate-x-1/2"
-                )}>
-                    <div className={cn(
-                        "flex items-center",
-                        isHomePage && "bg-foreground/50 backdrop-blur-md shadow-lg rounded-full transition-all duration-300 ease-in-out",
-                        isHomePage && !isScrolled ? "px-3 py-2" : "px-2 py-1"
-                    )}>
-                        <DesktopNav />
-                        <div className="header-separator" />
-                        <a href={`mailto:${contactInfo.email}`} className="text-primary-foreground hover:text-accent transition-colors p-2">
-                            <Mail className="h-5 w-5" />
-                            <span className="sr-only">Email</span>
-                        </a>
-                        <a href={`tel:${contactInfo.phone.replace(/\s/g, '')}`} className="text-primary-foreground hover:text-accent transition-colors p-2">
-                            <Phone className="h-5 w-5" />
-                             <span className="sr-only">Phone</span>
-                        </a>
-                    </div>
+                <div className="flex items-center">
+                    <DesktopNav />
+                </div>
+                
+                <div className="hidden md:flex items-center">
+                    <div className="header-separator mx-2" />
+                    <a href={`mailto:${contactInfo.email}`} className="text-primary-foreground hover:text-accent transition-colors p-2">
+                        <Mail className="h-5 w-5" />
+                        <span className="sr-only">Email</span>
+                    </a>
+                    <a href={`tel:${contactInfo.phone.replace(/\s/g, '')}`} className="text-primary-foreground hover:text-accent transition-colors p-2">
+                        <Phone className="h-5 w-5" />
+                         <span className="sr-only">Phone</span>
+                    </a>
                 </div>
 
                 <MobileNav />
