@@ -10,7 +10,7 @@ export function Logo({ className, ...props }: LogoProps) {
   return (
     <div className={cn('relative h-16 w-32', className)}>
       <Image
-        src="https://github.com/Ram-0609/Bigfoot-Logistics-Images/blob/main/bfl_logo.png?raw=true"
+        src="https://raw.githubusercontent.com/swathitom1207/logo-image-/refs/heads/main/contact%20us%202.png"
         alt="Bigfoot Logistics Logo"
         fill
         sizes="(max-width: 768px) 100vw, 128px"
