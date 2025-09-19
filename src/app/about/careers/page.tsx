@@ -69,9 +69,9 @@ export default function CareersPage() {
             </div>
 
             <div className="mt-12 text-center">
-              <Button asChild size="lg" variant="accent">
+              <Button asChild size="lg" variant="outline" className="btn-animated-border">
                 <Link href="/about/careers/open-positions">
-                  View Open Positions
+                  <span>View Open Positions</span>
                 </Link>
               </Button>
             </div>
