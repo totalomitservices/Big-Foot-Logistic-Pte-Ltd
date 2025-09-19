@@ -31,7 +31,7 @@ type TrackingFormProps = {
 
 
 export default function TrackingForm({ onClose }: TrackingFormProps) {
-    const { toast } = useToast();
+  const { toast } = useToast();
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -48,7 +48,7 @@ export default function TrackingForm({ onClose }: TrackingFormProps) {
     toast({
         title: "Shipment Tracking",
         description: "This is a demo. No real tracking is performed.",
-    })
+    });
     form.reset();
     onClose();
   }
@@ -124,4 +124,3 @@ export default function TrackingForm({ onClose }: TrackingFormProps) {
     </>
   );
 }
-
