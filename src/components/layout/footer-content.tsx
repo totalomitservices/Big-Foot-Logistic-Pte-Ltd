@@ -23,25 +23,25 @@ export default function FooterContent() {
           {/* Quick Links & Follow Us */}
           <div className="md:col-span-4 space-y-8">
             <div>
-              <h3 className="text-lg font-headline font-bold uppercase tracking-wider text-accent">Contact Info</h3>
+              <h3 className="text-lg font-headline font-bold uppercase tracking-wider text-accent text-left">Contact Info</h3>
               <ul className="space-y-3 text-sm mt-4">
-                <li className="flex items-start gap-3 justify-center md:justify-start">
+                <li className="flex items-start gap-3">
                   <MapPin className="h-5 w-5 mt-1 text-accent flex-shrink-0" />
                   <span>8 Joo Koon Rd, Singapore 628972</span>
                 </li>
-                <li className="flex items-center gap-3 justify-center md:justify-start">
+                <li className="flex items-center gap-3">
                   <Mail className="h-5 w-5 text-accent flex-shrink-0" />
                   <a href="mailto:enquiries@bigfoot.com.sg" className="hover:text-accent transition-colors">enquiries@bigfoot.com.sg</a>
                 </li>
-                <li className="flex items-center gap-3 justify-center md:justify-start">
+                <li className="flex items-center gap-3">
                   <Phone className="h-5 w-5 text-accent flex-shrink-0" />
                   <a href="tel:+6563244722" className="hover:text-accent transition-colors">+65 6324 4722</a>
                 </li>
               </ul>
             </div>
-             <div className="space-y-4 pt-4 text-center md:text-left">
+             <div className="space-y-4 pt-4 text-left">
               <h3 className="text-lg font-headline font-bold uppercase tracking-wider text-accent">Follow Us</h3>
-              <div className="flex gap-6 mt-4 justify-center md:justify-start">
+              <div className="flex gap-6 mt-4">
                 <Link href="https://www.facebook.com/BigfootGroups/" target="_blank" rel="noopener noreferrer" className="hover:text-accent hover:scale-125 transition-all duration-200">
                   <Facebook className="h-5 w-5" />
                 </Link>
@@ -57,7 +57,7 @@ export default function FooterContent() {
 
           {/* Google Map */}
           <div className="md:col-span-4">
-            <h3 className="text-lg font-headline font-bold uppercase tracking-wider text-accent mb-4 text-center md:text-left">Our Location</h3>
+            <h3 className="text-lg font-headline font-bold uppercase tracking-wider text-accent mb-4 text-left">Our Location</h3>
             <div className="aspect-video overflow-hidden shadow-lg transition-all duration-300 hover:shadow-accent/30 hover:shadow-2xl hover:scale-105">
               <FooterMapClient />
             </div>
