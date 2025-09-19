@@ -13,7 +13,7 @@ export default function OpenPositionsPage() {
     <div className="relative bg-background text-foreground">
       <section className="relative w-full h-[40vh] md:h-[50vh]">
         <Image
-          src="https://picsum.photos/seed/open-positions-hero/1920/400"
+          src="https://raw.githubusercontent.com/Ram-0609/Bigfoot-Logistics-Images/main/open-positions-hero.jpg"
           alt="We're hiring banner"
           fill
           priority

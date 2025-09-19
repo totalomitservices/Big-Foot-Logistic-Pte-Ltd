@@ -17,7 +17,7 @@ export default function PackersAndMoversPage() {
       {/* Hero Section */}
       <section className="relative w-full h-[40vh] md:h-[50vh]">
         <Image
-          src="https://github.com/Ram-0609/Bigfoot-Logistics-Images/blob/main/Packers-and-Movers-768x513.jpg?raw=true"
+          src="https://raw.githubusercontent.com/Ram-0609/Bigfoot-Logistics-Images/main/Packers-and-Movers-768x513.jpg"
           alt="Packers and movers carefully handling items"
           fill
           priority
@@ -63,7 +63,7 @@ export default function PackersAndMoversPage() {
             
             <div className="relative w-full aspect-video">
                 <Image
-                    src="https://raw.githubusercontent.com/Ram-0609/Bigfoot-Logistics-Images/refs/heads/main/packers%20and%20movers.jpg"
+                    src="https://raw.githubusercontent.com/Ram-0609/Bigfoot-Logistics-Images/main/packers%20and%20movers.jpg"
                     alt="Moving truck"
                     fill
                     className="object-cover shadow-lg"

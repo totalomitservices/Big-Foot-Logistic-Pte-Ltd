@@ -34,7 +34,7 @@ export default function OurStoryPage() {
       {/* Hero Section */}
       <section className="relative w-full h-[40vh] md:h-[50vh]">
         <Image
-          src="https://github.com/Ram-0609/Bigfoot-Logistics-Images/blob/main/Our%20story.jpg?raw=true"
+          src="https://raw.githubusercontent.com/Ram-0609/Bigfoot-Logistics-Images/main/Our%20story.jpg"
           alt="Team collaborating on a logistics plan"
           fill
           priority
@@ -71,7 +71,7 @@ export default function OurStoryPage() {
               <div className="relative md:grid md:grid-cols-2 gap-12 items-center">
                 <div className="md:order-2">
                   <div className="relative aspect-video shadow-xl overflow-hidden rounded-lg">
-                    <Image src="https://github.com/Ram-0609/Bigfoot-Logistics-Images/blob/main/businessman-application-human-digital-business.jpg?raw=true" alt="Team handshake" fill className="object-cover" data-ai-hint="team handshake" />
+                    <Image src="https://raw.githubusercontent.com/Ram-0609/Bigfoot-Logistics-Images/main/businessman-application-human-digital-business.jpg" alt="Team handshake" fill className="object-cover" data-ai-hint="team handshake" />
                   </div>
                 </div>
                 <div className="mt-8 md:mt-0 md:text-right">
@@ -90,7 +90,7 @@ export default function OurStoryPage() {
               <div className="relative md:grid md:grid-cols-2 gap-12 items-center">
                 <div>
                    <div className="relative aspect-video shadow-xl overflow-hidden rounded-lg">
-                    <Image src="https://github.com/Ram-0609/Bigfoot-Logistics-Images/blob/main/our%20story%20img%202.jpg?raw=true" alt="Logistics network" fill className="object-cover" data-ai-hint="logistics network" />
+                    <Image src="https://raw.githubusercontent.com/Ram-0609/Bigfoot-Logistics-Images/main/our%20story%20img%202.jpg" alt="Logistics network" fill className="object-cover" data-ai-hint="logistics network" />
                   </div>
                 </div>
                 <div className="mt-8 md:mt-0">

@@ -96,7 +96,7 @@ export default function ClientsPage() {
         className="relative w-full bg-cover bg-center h-[40vh] md:h-[50vh]"
       >
         <Image 
-            src="https://raw.githubusercontent.com/Ram-0609/Bigfoot-Logistics-Images/refs/heads/main/Clients.jpg" 
+            src="https://raw.githubusercontent.com/Ram-0609/Bigfoot-Logistics-Images/main/Clients.jpg" 
             alt="Clients hero"
             fill
             priority

@@ -17,7 +17,7 @@ export default function CustomClearancePage() {
       {/* Hero Section */}
       <section className="relative w-full h-[40vh] md:h-[50vh]">
         <Image
-          src="https://github.com/Ram-0609/Bigfoot-Logistics-Images/blob/main/Custom-Clearance.jpg?raw=true"
+          src="https://raw.githubusercontent.com/Ram-0609/Bigfoot-Logistics-Images/main/Custom-Clearance.jpg"
           alt="Customs clearance process"
           fill
           priority

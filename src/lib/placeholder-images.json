@@ -4,43 +4,43 @@
     {
       "id": "hero-image",
       "description": "Freight forwarding",
-      "imageUrl": "https://raw.githubusercontent.com/swathitom1207/image1/refs/heads/main/Express%20Logistics.jpg",
+      "imageUrl": "https://raw.githubusercontent.com/Ram-0609/Bigfoot-Logistics-Images/main/Express%20Logistics.jpg",
       "imageHint": "freight forwarding"
     },
     {
       "id": "service-air-freight",
       "description": "An airplane flying over a cargo port.",
-      "imageUrl": "https://github.com/Ram-0609/Bigfoot-Logistics-Images/blob/main/AIR-FREIGHT.jpg?raw=true",
+      "imageUrl": "https://raw.githubusercontent.com/Ram-0609/Bigfoot-Logistics-Images/main/AIR-FREIGHT.jpg",
       "imageHint": "air freight"
     },
     {
       "id": "service-ocean-freight",
       "description": "Container ship on the open ocean.",
-      "imageUrl": "https://github.com/Ram-0609/Bigfoot-Logistics-Images/blob/main/trucks-on.jpg?raw=true",
+      "imageUrl": "https://raw.githubusercontent.com/Ram-0609/Bigfoot-Logistics-Images/main/trucks-on.jpg",
       "imageHint": "land transport"
     },
     {
       "id": "service-road-transport",
       "description": "A fleet of trucks at a depot.",
-      "imageUrl": "https://github.com/Ram-0609/Bigfoot-Logistics-Images/blob/main/Custom-Clearance.jpg?raw=true",
+      "imageUrl": "https://raw.githubusercontent.com/Ram-0609/Bigfoot-Logistics-Images/main/Custom-Clearance.jpg",
       "imageHint": "customs clearance"
     },
     {
       "id": "service-warehouse",
       "description": "A large, modern warehouse with shelves full of boxes.",
-      "imageUrl": "https://github.com/Ram-0609/Bigfoot-Logistics-Images/blob/main/Warehousing-Important-1024x614.jpg?raw=true",
+      "imageUrl": "https://raw.githubusercontent.com/Ram-0609/Bigfoot-Logistics-Images/main/Warehousing-Important-1024x614.jpg",
       "imageHint": "warehouse storage"
     },
     {
       "id": "service-customs",
       "description": "A customs officer inspecting documents.",
-      "imageUrl": "https://github.com/Ram-0609/Bigfoot-Logistics-Images/blob/main/Packers-and-Movers-768x513.jpg?raw=true",
+      "imageUrl": "https://raw.githubusercontent.com/Ram-0609/Bigfoot-Logistics-Images/main/Packers-and-Movers-768x513.jpg",
       "imageHint": "packers movers"
     },
     {
       "id": "service-supply-chain",
       "description": "A diagram showing a complex supply chain network.",
-      "imageUrl": "https://github.com/Ram-0609/Bigfoot-Logistics-Images/blob/main/Live%20Stock%20Handling.jpg?raw=true",
+      "imageUrl": "https://raw.githubusercontent.com/Ram-0609/Bigfoot-Logistics-Images/main/Live%20Stock%20Handling.jpg",
       "imageHint": "livestock handling"
     }
   ]
