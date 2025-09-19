@@ -62,16 +62,20 @@ export default function VisionMissionPage() {
                   return (
                     <div key={index} className={`relative mb-12 animate-fade-in md:flex ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} items-center w-full`}>
                         <div className="md:w-5/12">
-                            <div className="hidden md:flex absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 items-center justify-center">
+                             <div className="hidden md:flex absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 items-center justify-center">
                                 <div className="w-4 h-4 bg-secondary absolute ring-4 ring-border rounded-full z-10"></div>
-                                <div className="p-3 bg-accent text-accent-foreground rounded-full shadow-lg z-20"><Icon className="w-6 h-6" /></div>
                             </div>
                         </div>
                          <div className={`md:w-7/12 ${index % 2 === 0 ? 'md:pl-12' : 'md:pr-12'}`}>
-                             <div className={`p-6 bg-background shadow-lg text-left`}>
-                                 <h3 className="text-2xl font-headline text-primary font-bold mb-2">{item.title}</h3>
-                                 <p className="text-muted-foreground leading-relaxed">{item.description}</p>
-                             </div>
+                            <div className="p-6 bg-background shadow-lg text-left flex items-start gap-4">
+                                <div className="flex-grow">
+                                    <h3 className="text-2xl font-headline text-primary font-bold mb-2">{item.title}</h3>
+                                    <p className="text-muted-foreground leading-relaxed">{item.description}</p>
+                                </div>
+                                <div className="p-3 bg-accent text-accent-foreground rounded-full shadow-lg z-20 flex-shrink-0">
+                                    <Icon className="w-6 h-6" />
+                                </div>
+                            </div>
                          </div>
                     </div>
                   );
