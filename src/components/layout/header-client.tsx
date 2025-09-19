@@ -180,9 +180,10 @@ export default function HeaderClient() {
       setIsScrolled(window.scrollY > 20);
     };
 
-    window.addEventListener('scroll', handleScroll, { passive: true });
     // Set initial state after the component has mounted
     handleScroll();
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
 
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
