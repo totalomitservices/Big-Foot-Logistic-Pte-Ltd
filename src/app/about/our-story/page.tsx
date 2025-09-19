@@ -148,9 +148,9 @@ export default function OurStoryPage() {
       <section className="bg-secondary">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16 text-center">
             <h2 className="text-2xl font-headline font-bold text-primary mb-4">Ready to see our vision in action?</h2>
-            <Button asChild size="lg" variant="accent">
+            <Button asChild size="lg" variant="outline" className="btn-animated-border transform hover:scale-105 transition-all duration-300">
               <Link href="/about/vision-mission">
-                Discover our Vision & Mission <ArrowRight className="ml-2" />
+                <span>Discover our Vision & Mission <ArrowRight className="ml-2 inline" /></span>
               </Link>
             </Button>
         </div>
