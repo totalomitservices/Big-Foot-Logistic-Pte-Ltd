@@ -9,9 +9,9 @@ export default function FooterContent() {
   return (
     <footer id="contact" className="bg-primary text-primary-foreground">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 items-start">
           {/* Company Profile */}
-          <div className="md:col-span-4 flex flex-col items-start text-left space-y-4">
+          <div className="flex flex-col items-start text-left space-y-4">
             <Link href="/">
               <Logo className="text-primary-foreground" />
             </Link>
@@ -20,8 +20,8 @@ export default function FooterContent() {
             </p>
           </div>
 
-          {/* Quick Links & Follow Us */}
-          <div className="md:col-span-4 space-y-8">
+          {/* Contact Info & Follow Us */}
+          <div className="space-y-8">
             <div>
               <h3 className="text-lg font-headline font-bold uppercase tracking-wider text-accent text-left">Contact Info</h3>
               <ul className="space-y-3 text-sm mt-4">
@@ -56,7 +56,7 @@ export default function FooterContent() {
           </div>
 
           {/* Google Map */}
-          <div className="md:col-span-4">
+          <div>
             <h3 className="text-lg font-headline font-bold uppercase tracking-wider text-accent mb-4 text-left">Our Location</h3>
             <div className="aspect-video overflow-hidden shadow-lg transition-all duration-300 hover:shadow-accent/30 hover:shadow-2xl hover:scale-105">
               <FooterMapClient />
