@@ -2,7 +2,6 @@
 'use client';
 
 import Image from 'next/image';
-import type { Metadata } from 'next';
 import { Rocket, Goal, Star } from 'lucide-react';
 
 const values = [
@@ -58,7 +57,7 @@ export default function VisionMissionPage() {
                   const Icon = item.icon;
                   return (
                     <div key={item.title} className="relative mt-8">
-                      <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 text-accent-foreground rounded-full p-4 shadow-lg">
+                      <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-primary text-accent-foreground rounded-full p-4 shadow-lg">
                           <Icon className="w-12 h-12 text-accent" />
                       </div>
                       <div className="bg-card text-card-foreground rounded-lg shadow-lg h-full">
