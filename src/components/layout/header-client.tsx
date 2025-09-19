@@ -193,7 +193,7 @@ export default function HeaderClient() {
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll(); // Initial check
+    handleScroll(); 
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
