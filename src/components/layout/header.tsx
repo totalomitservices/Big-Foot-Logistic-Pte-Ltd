@@ -1,7 +1,7 @@
 
 "use client";
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Mail, Phone, Menu, ChevronDown } from 'lucide-react';
 import Link from 'next/link';
 import { Logo } from '@/components/logo';
@@ -179,15 +179,24 @@ const MobileNav = () => {
 export default function Header() {
   const pathname = usePathname();
   const isHomePage = pathname === '/';
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
     <header className={cn(
         "fixed top-0 left-0 w-full z-50 transition-all duration-300 ease-in-out",
-        !isHomePage && "scrolled-header"
+        !isHomePage || isScrolled ? "scrolled-header" : ""
     )}>
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className={cn("relative flex items-center justify-between transition-all duration-300 ease-in-out h-24",
-                isHomePage && "is-home-header"
+            <div className={cn("relative flex items-center justify-between transition-all duration-300 ease-in-out",
+                isHomePage && !isScrolled ? "h-24" : "h-20"
             )}>
                 <div className="flex-shrink-0">
                     <Link href="/">
@@ -201,7 +210,8 @@ export default function Header() {
                 )}>
                     <div className={cn(
                         "flex items-center",
-                        isHomePage && "bg-foreground/50 backdrop-blur-md shadow-lg rounded-full px-3 py-2 transition-all duration-300 ease-in-out is-home-nav-pill"
+                        isHomePage && "bg-foreground/50 backdrop-blur-md shadow-lg rounded-full transition-all duration-300 ease-in-out",
+                        isHomePage && !isScrolled ? "px-3 py-2" : "px-2 py-1"
                     )}>
                         <DesktopNav />
                         <div className="header-separator" />
