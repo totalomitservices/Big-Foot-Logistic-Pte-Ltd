@@ -62,9 +62,7 @@ export default function VisionMissionPage() {
                   return (
                     <div key={index} className={`relative mb-12 animate-fade-in md:flex ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} items-center w-full`}>
                         <div className="md:w-5/12">
-                             <div className="hidden md:flex absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 items-center justify-center">
-                                <div className="w-4 h-4 bg-secondary absolute ring-4 ring-border rounded-full z-10"></div>
-                            </div>
+                             
                         </div>
                          <div className={`md:w-7/12 ${index % 2 === 0 ? 'md:pl-12' : 'md:pr-12'}`}>
                             <div className="p-6 bg-background shadow-lg text-left flex items-start gap-4">
