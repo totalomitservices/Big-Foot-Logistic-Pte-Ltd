@@ -179,11 +179,11 @@ export default function HeaderClient() {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
     };
-    
-    // Set initial state after mount
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    // Set initial state after the component has mounted
     handleScroll();
 
-    window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
