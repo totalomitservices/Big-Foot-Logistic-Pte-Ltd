@@ -58,6 +58,7 @@ export default function PackersAndMoversPage() {
                 <li>Musical Instruments Move</li>
                 <li>International Move</li>
                 <li>Packing</li>
+                <li>Free Move</li>
               </ul>
             </div>
             
