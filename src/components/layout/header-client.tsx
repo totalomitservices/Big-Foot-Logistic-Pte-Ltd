@@ -185,7 +185,7 @@ export default function HeaderClient() {
       setIsScrolled(window.scrollY > 20);
     };
     window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll();
+    handleScroll(); // Check on mount
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
