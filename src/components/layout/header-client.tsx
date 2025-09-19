@@ -57,8 +57,8 @@ const NavLink = ({ href, children, className }: { href: string; children: React.
     
     return (
          <Link href={href} className={cn(
-            "font-medium text-base hover:text-accent focus-visible:ring-0 focus-visible:ring-offset-0 text-primary-foreground px-3 py-2 rounded-md transition-colors",
-            isActive && "bg-white/10",
+            "font-medium text-base hover:text-accent focus-visible:ring-0 focus-visible:ring-offset-0 text-foreground px-3 py-2 rounded-md transition-colors",
+            isActive && "bg-black/10",
             className
         )}>
             {children}
@@ -74,12 +74,12 @@ const DesktopNav = () => {
                     {link.subLinks ? (
                         <DropdownMenu>
                             <DropdownMenuTrigger asChild>
-                                <Button variant="ghost" className="hover:bg-white/10 focus:bg-transparent hover:text-accent text-primary-foreground text-base font-medium px-3 py-2 flex items-center gap-1">
+                                <Button variant="ghost" className="hover:bg-black/10 focus:bg-transparent hover:text-accent text-foreground text-base font-medium px-3 py-2 flex items-center gap-1">
                                     {link.label}
                                     <ChevronDown className="relative top-[1px] ml-1 h-4 w-4 transition duration-200 group-data-[state=open]:rotate-180" />
                                 </Button>
                             </DropdownMenuTrigger>
-                            <DropdownMenuContent className="bg-primary/90 backdrop-blur-sm text-primary-foreground border-accent/20">
+                            <DropdownMenuContent className="bg-white/90 backdrop-blur-sm text-foreground border-accent/20">
                                 {link.subLinks.map((subLink) => (
                                     <DropdownMenuItem key={subLink.href} asChild className="focus:bg-accent/50 focus:text-accent-foreground">
                                         <Link href={subLink.href}>{subLink.label}</Link>
@@ -106,7 +106,7 @@ const MobileNav = () => {
         <div className="md:hidden">
             <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
                 <SheetTrigger asChild>
-                    <Button variant="ghost" size="icon" className="hover:text-accent text-primary-foreground">
+                    <Button variant="ghost" size="icon" className="hover:text-accent text-foreground">
                         <Menu className="h-6 w-6" />
                         <span className="sr-only">Open menu</span>
                     </Button>
@@ -195,7 +195,7 @@ export default function HeaderClient() {
         isScrolled && "scrolled-header"
     )}>
         <div className={cn("container mx-auto px-4 sm:px-6 lg:px-8 transition-all duration-300 ease-in-out", isScrolled ? 'py-2' : 'py-4')}>
-            <div className="relative flex items-center justify-between bg-black/50 backdrop-blur-md shadow-lg rounded-full px-4 py-2">
+            <div className="relative flex items-center justify-between bg-white backdrop-blur-md shadow-lg rounded-full px-4 py-2">
                 <div className="flex-shrink-0">
                     <Link href="/">
                         <Logo className="h-12 w-auto transition-all duration-300" priority />
@@ -207,12 +207,12 @@ export default function HeaderClient() {
                 </div>
                 
                 <div className="hidden md:flex items-center">
-                    <div className="header-separator mx-2" />
-                    <a href={`mailto:${contactInfo.email}`} className="text-primary-foreground hover:text-accent transition-colors p-2">
+                    <div className="h-6 w-px bg-black/20 mx-2" />
+                    <a href={`mailto:${contactInfo.email}`} className="text-foreground hover:text-accent transition-colors p-2">
                         <Mail className="h-5 w-5" />
                         <span className="sr-only">Email</span>
                     </a>
-                    <a href={`tel:${contactInfo.phone.replace(/\s/g, '')}`} className="text-primary-foreground hover:text-accent transition-colors p-2">
+                    <a href={`tel:${contactInfo.phone.replace(/\s/g, '')}`} className="text-foreground hover:text-accent transition-colors p-2">
                         <Phone className="h-5 w-5" />
                          <span className="sr-only">Phone</span>
                     </a>

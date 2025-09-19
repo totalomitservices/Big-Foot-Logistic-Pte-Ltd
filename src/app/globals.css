@@ -166,11 +166,11 @@
   }
 
   .header-separator {
-    @apply h-6 w-px bg-white/20;
+    @apply h-6 w-px bg-black/20;
   }
   
   .scrolled-header {
-      @apply bg-primary/80 backdrop-blur-sm shadow-lg;
+      @apply bg-white/80 backdrop-blur-sm shadow-lg;
   }
 }
 
