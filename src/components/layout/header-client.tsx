@@ -1,7 +1,7 @@
 
 "use client";
 
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Mail, Phone, Menu, ChevronDown } from 'lucide-react';
 import Link from 'next/link';
 import { Logo } from '@/components/logo';
@@ -51,15 +51,14 @@ const contactInfo = {
   phone: '+65 6324 4722',
 };
 
-const NavLink = ({ href, children, className, isScrolled }: { href: string; children: React.ReactNode, className?: string, isScrolled: boolean }) => {
+const NavLink = ({ href, children, className }: { href: string; children: React.ReactNode, className?: string }) => {
     const pathname = usePathname();
     const isActive = pathname === href;
     
     return (
          <Link href={href} className={cn(
-            "font-medium text-base hover:text-accent focus-visible:ring-0 focus-visible:ring-offset-0 px-3 py-2 rounded-md transition-colors",
-            isScrolled ? "text-foreground" : "text-white",
-            isActive && (isScrolled ? "bg-black/10" : "bg-white/10"),
+            "font-medium text-base hover:text-accent focus-visible:ring-0 focus-visible:ring-offset-0 px-3 py-2 rounded-md transition-colors text-white",
+            isActive && "bg-white/10",
             className
         )}>
             {children}
@@ -67,7 +66,7 @@ const NavLink = ({ href, children, className, isScrolled }: { href: string; chil
     );
 };
 
-const DesktopNav = ({ isScrolled }: { isScrolled: boolean }) => {
+const DesktopNav = () => {
     return (
         <nav className="hidden md:flex items-center gap-1">
             {navLinks.map((link) => (
@@ -75,7 +74,7 @@ const DesktopNav = ({ isScrolled }: { isScrolled: boolean }) => {
                     {link.subLinks ? (
                         <DropdownMenu>
                             <DropdownMenuTrigger asChild>
-                                <Button variant="ghost" className={cn("hover:bg-black/10 focus:bg-transparent hover:text-accent text-base font-medium px-3 py-2 flex items-center gap-1", isScrolled ? "text-foreground" : "text-white")}>
+                                <Button variant="ghost" className={cn("hover:bg-black/10 focus:bg-transparent hover:text-accent text-base font-medium px-3 py-2 flex items-center gap-1 text-white")}>
                                     {link.label}
                                     <ChevronDown className="relative top-[1px] ml-1 h-4 w-4 transition duration-200 group-data-[state=open]:rotate-180" />
                                 </Button>
@@ -89,7 +88,7 @@ const DesktopNav = ({ isScrolled }: { isScrolled: boolean }) => {
                             </DropdownMenuContent>
                         </DropdownMenu>
                     ) : (
-                        <NavLink href={link.href!} isScrolled={isScrolled}>{link.label}</NavLink>
+                        <NavLink href={link.href!}>{link.label}</NavLink>
                     )}
                 </div>
             ))}
@@ -97,7 +96,7 @@ const DesktopNav = ({ isScrolled }: { isScrolled: boolean }) => {
     );
 };
 
-const MobileNav = ({ isScrolled }: { isScrolled: boolean }) => {
+const MobileNav = () => {
     const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
     const pathname = usePathname();
 
@@ -107,7 +106,7 @@ const MobileNav = ({ isScrolled }: { isScrolled: boolean }) => {
         <div className="md:hidden">
             <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
                 <SheetTrigger asChild>
-                    <Button variant="ghost" size="icon" className={cn("hover:text-accent", isScrolled ? "text-foreground" : "text-white")}>
+                    <Button variant="ghost" size="icon" className={cn("hover:text-accent text-white")}>
                         <Menu className="h-6 w-6" />
                         <span className="sr-only">Open menu</span>
                     </Button>
@@ -174,52 +173,33 @@ const MobileNav = ({ isScrolled }: { isScrolled: boolean }) => {
 
 
 export default function HeaderClient() {
-  const [isScrolled, setIsScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
-    
-    // Set initial state after the component has mounted
-    // to avoid hydration mismatch.
-    handleScroll();
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
   return (
-    <header className={cn(
-        "fixed top-0 left-0 w-full z-50 transition-all duration-300 ease-in-out",
-        isScrolled && "scrolled-header"
-    )}>
-        <div className={cn("container mx-auto px-4 sm:px-6 lg:px-8 transition-all duration-300 ease-in-out", isScrolled ? 'py-2' : 'py-4')}>
-            <div className={cn("relative flex items-center justify-between shadow-lg rounded-full px-4 py-2 transition-colors duration-300", isScrolled ? 'bg-white' : 'bg-black/20 backdrop-blur-md')}>
+    <header className="bg-transparent absolute top-0 left-0 w-full z-50">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-4">
+            <div className="relative flex items-center justify-between bg-black/20 backdrop-blur-md shadow-lg rounded-full px-4 py-2">
                 <div className="flex-shrink-0">
                     <Link href="/">
-                        <Logo className="h-12 w-auto transition-all duration-300" priority />
+                        <Logo className="h-12 w-auto" priority />
                     </Link>
                 </div>
 
                 <div className="flex items-center">
-                    <DesktopNav isScrolled={isScrolled} />
+                    <DesktopNav />
                 </div>
                 
                 <div className="hidden md:flex items-center">
-                    <div className={cn("h-6 w-px mx-2 transition-colors", isScrolled ? "bg-black/20" : "bg-white/20")} />
-                    <a href={`mailto:${contactInfo.email}`} className={cn("hover:text-accent transition-colors p-2", isScrolled ? "text-foreground" : "text-white")}>
+                    <div className="h-6 w-px mx-2 bg-white/20" />
+                    <a href={`mailto:${contactInfo.email}`} className="hover:text-accent transition-colors p-2 text-white">
                         <Mail className="h-5 w-5" />
                         <span className="sr-only">Email</span>
                     </a>
-                    <a href={`tel:${contactInfo.phone.replace(/\s/g, '')}`} className={cn("hover:text-accent transition-colors p-2", isScrolled ? "text-foreground" : "text-white")}>
+                    <a href={`tel:${contactInfo.phone.replace(/\s/g, '')}`} className="hover:text-accent transition-colors p-2 text-white">
                         <Phone className="h-5 w-5" />
                          <span className="sr-only">Phone</span>
                     </a>
                 </div>
 
-                <MobileNav isScrolled={isScrolled} />
+                <MobileNav />
             </div>
         </div>
     </header>

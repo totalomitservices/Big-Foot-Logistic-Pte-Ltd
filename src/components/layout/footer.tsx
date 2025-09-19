@@ -3,6 +3,8 @@ import FooterContent from './footer-content';
 
 export default function Footer() {
   return (
-    <FooterContent />
+    <div className="relative z-10">
+      <FooterContent />
+    </div>
   );
 }

@@ -39,9 +39,11 @@ export default function RootLayout({
           federo.variable,
           openSans.variable
       )}>
-        <Header />
-        <main className="flex-grow">{children}</main>
-        <Footer />
+        <div className="relative">
+          <Header />
+          <main className="flex-grow">{children}</main>
+          <Footer />
+        </div>
       </body>
     </html>
   );
