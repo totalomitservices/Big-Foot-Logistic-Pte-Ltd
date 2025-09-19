@@ -1,7 +1,7 @@
 
 "use client";
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Mail, Phone, Menu, ChevronDown } from 'lucide-react';
 import Link from 'next/link';
 import { Logo } from '@/components/logo';
@@ -178,10 +178,43 @@ function MobileNav() {
 
 
 export default function HeaderClient() {
+  const [lastScrollY, setLastScrollY] = useState(0);
+  const [show, setShow] = useState(true);
+  const [hasMounted, setHasMounted] = useState(false);
+
+  useEffect(() => {
+    setHasMounted(true);
+
+    const controlNavbar = () => {
+      if (typeof window !== 'undefined') {
+        if (window.scrollY > lastScrollY && window.scrollY > 100) { // if scroll down & past 100px
+          setShow(false);
+        } else { // if scroll up
+          setShow(true);
+        }
+        setLastScrollY(window.scrollY);
+      }
+    };
+
+    if (typeof window !== 'undefined') {
+      window.addEventListener('scroll', controlNavbar);
+      return () => {
+        window.removeEventListener('scroll', controlNavbar);
+      };
+    }
+  }, [lastScrollY]);
+
+  if (!hasMounted) {
+    return null; // or a placeholder/skeleton header
+  }
+
 
   return (
     <header
-      className="fixed top-4 left-0 w-full z-50 transition-all duration-300"
+      className={cn(
+        "fixed top-4 left-0 w-full z-50 transition-transform duration-300 ease-in-out",
+        show ? "translate-y-0" : "-translate-y-full"
+      )}
     >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="relative flex items-center justify-between backdrop-blur-md shadow-lg rounded-full bg-white/80 transition-all duration-300 py-1 px-4">
