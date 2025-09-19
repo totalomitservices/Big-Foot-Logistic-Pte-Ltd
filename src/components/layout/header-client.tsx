@@ -191,7 +191,8 @@ export default function HeaderClient() {
 
   return (
     <header className={cn(
-        "fixed top-0 left-0 w-full z-50 transition-all duration-300 ease-in-out"
+        "fixed top-0 left-0 w-full z-50 transition-all duration-300 ease-in-out",
+        isScrolled && "scrolled-header"
     )}>
         <div className={cn("container mx-auto px-4 sm:px-6 lg:px-8 transition-all duration-300 ease-in-out", isScrolled ? 'py-2' : 'py-4')}>
             <div className="relative flex items-center justify-between bg-black/50 backdrop-blur-md shadow-lg rounded-full px-4 py-2">
