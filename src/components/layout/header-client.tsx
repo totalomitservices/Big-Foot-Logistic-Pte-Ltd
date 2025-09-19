@@ -179,8 +179,9 @@ export default function HeaderClient() {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
     };
-
+    
     // Set initial state after the component has mounted
+    // to avoid hydration mismatch.
     handleScroll();
 
     window.addEventListener('scroll', handleScroll, { passive: true });
