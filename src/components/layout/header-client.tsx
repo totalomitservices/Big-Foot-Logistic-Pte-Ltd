@@ -196,10 +196,12 @@ export default function HeaderClient() {
     };
   }, []);
   
+  const headerProps = hasMounted ? { 'data-scrolled': isScrolled } : {};
+
   return (
     <header 
         className="fixed top-4 left-0 w-full z-50 transition-all duration-300"
-        data-scrolled={hasMounted ? isScrolled : false}
+        {...headerProps}
     >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="relative flex items-center justify-between backdrop-blur-md shadow-lg rounded-full px-2 bg-white/80 transition-all duration-300 data-[scrolled=true]:bg-white/90 py-1">
