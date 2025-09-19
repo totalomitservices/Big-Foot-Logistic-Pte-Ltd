@@ -57,8 +57,8 @@ const NavLink = ({ href, children, className }: { href: string; children: React.
     
     return (
          <Link href={href} className={cn(
-            "font-medium text-base hover:text-accent focus-visible:ring-0 focus-visible:ring-offset-0 px-3 py-2 rounded-md transition-colors text-white",
-            isActive && "bg-white/10",
+            "font-medium text-base hover:text-accent focus-visible:ring-0 focus-visible:ring-offset-0 px-3 py-2 rounded-md transition-colors text-black",
+            isActive && "bg-black/10",
             className
         )}>
             {children}
@@ -74,7 +74,7 @@ const DesktopNav = () => {
                     {link.subLinks ? (
                         <DropdownMenu>
                             <DropdownMenuTrigger asChild>
-                                <Button variant="ghost" className={cn("hover:bg-black/10 focus:bg-transparent hover:text-accent text-base font-medium px-3 py-2 flex items-center gap-1 text-white")}>
+                                <Button variant="ghost" className={cn("hover:bg-black/10 focus:bg-transparent hover:text-accent text-base font-medium px-3 py-2 flex items-center gap-1 text-black")}>
                                     {link.label}
                                     <ChevronDown className="relative top-[1px] ml-1 h-4 w-4 transition duration-200 group-data-[state=open]:rotate-180" />
                                 </Button>
@@ -106,7 +106,7 @@ const MobileNav = () => {
         <div className="md:hidden">
             <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
                 <SheetTrigger asChild>
-                    <Button variant="ghost" size="icon" className={cn("hover:text-accent text-white")}>
+                    <Button variant="ghost" size="icon" className={cn("hover:text-accent text-black")}>
                         <Menu className="h-6 w-6" />
                         <span className="sr-only">Open menu</span>
                     </Button>
@@ -176,7 +176,7 @@ export default function HeaderClient() {
   return (
     <header className="bg-transparent absolute top-0 left-0 w-full z-50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-4">
-            <div className="relative flex items-center justify-between bg-black/20 backdrop-blur-md shadow-lg rounded-full px-4 py-2">
+            <div className="relative flex items-center justify-between bg-white/20 backdrop-blur-md shadow-lg rounded-full px-4 py-2">
                 <div className="flex-shrink-0">
                     <Link href="/">
                         <Logo className="h-12 w-auto" priority />
@@ -188,12 +188,12 @@ export default function HeaderClient() {
                 </div>
                 
                 <div className="hidden md:flex items-center">
-                    <div className="h-6 w-px mx-2 bg-white/20" />
-                    <a href={`mailto:${contactInfo.email}`} className="hover:text-accent transition-colors p-2 text-white">
+                    <div className="h-6 w-px mx-2 bg-black/20" />
+                    <a href={`mailto:${contactInfo.email}`} className="hover:text-accent transition-colors p-2 text-black">
                         <Mail className="h-5 w-5" />
                         <span className="sr-only">Email</span>
                     </a>
-                    <a href={`tel:${contactInfo.phone.replace(/\s/g, '')}`} className="hover:text-accent transition-colors p-2 text-white">
+                    <a href={`tel:${contactInfo.phone.replace(/\s/g, '')}`} className="hover:text-accent transition-colors p-2 text-black">
                         <Phone className="h-5 w-5" />
                          <span className="sr-only">Phone</span>
                     </a>
