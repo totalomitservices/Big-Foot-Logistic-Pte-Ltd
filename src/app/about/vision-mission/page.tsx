@@ -61,9 +61,9 @@ export default function VisionMissionPage() {
                   return (
                     <div key={item.title} className="relative mt-8">
                       <div className="absolute -top-8 left-8 transform -translate-x-1/2">
-                          <div className="bg-accent text-accent-foreground rounded-full p-4 shadow-lg">
-                              <Icon className="w-8 h-8" />
-                          </div>
+                          
+                              <Icon className="w-8 h-8 text-accent" />
+                          
                       </div>
                       <div className="bg-card text-card-foreground rounded-lg shadow-lg h-full">
                           <div className="p-8 pt-16">
