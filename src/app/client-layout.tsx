@@ -1,9 +1,12 @@
 
 'use client';
 
+import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
 import { usePathname } from 'next/navigation';
 import { useEffect } from 'react';
+import { Toaster } from '@/components/ui/toaster';
+import WhatsappButton from '@/components/whatsapp-button';
 
 export default function ClientLayout({
     children,
@@ -24,10 +27,9 @@ export default function ClientLayout({
 
     return (
         <>
-            <div className="flex flex-col min-h-screen">
-                <main className="flex-grow">{children}</main>
-                <Footer />
-            </div>
+            <Header />
+            <main className="flex-grow">{children}</main>
+            <Footer />
         </>
     )
 }
