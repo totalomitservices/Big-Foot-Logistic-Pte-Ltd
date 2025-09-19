@@ -201,15 +201,15 @@
   }
 
   .icon-btn-phone {
-    background: linear-gradient(135deg, #4CAF50, #81C784);
-    --glow-color: #4CAF50;
-    --focus-color: #81C784;
+    background: #204f92;
+    --glow-color: #204f92;
+    --focus-color: #204f92;
   }
 
   .icon-btn-email {
-    background: linear-gradient(135deg, #2196F3, #64B5F6);
-    --glow-color: #2196F3;
-    --focus-color: #64B5F6;
+    background: #b5222b;
+    --glow-color: #b5222b;
+    --focus-color: #b5222b;
   }
 
 }
