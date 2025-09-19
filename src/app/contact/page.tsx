@@ -99,7 +99,7 @@ export default function ContactPage() {
                 </div>
                 <div className="space-y-4 text-lg">
                   <div className="flex items-center gap-4">
-                    <Phone className="h-6 w-6 text-accent" />
+                    <Phone className="h-6 w-6 text-primary" />
                     <div>
                       <h4 className="font-semibold">Phone</h4>
                       <a href="tel:+6563244722" className="text-muted-foreground hover:text-primary transition-colors">+65 6324 4722</a>
@@ -109,7 +109,7 @@ export default function ContactPage() {
                     <Mail className="h-6 w-6 text-accent" />
                     <div>
                       <h4 className="font-semibold">Email</h4>
-                      <a href="mailto:enquiries@bigfoot.com.sg" className="text-muted-foreground hover:text-primary transition-colors">enquiries@bigfoot.com.sg</a>
+                      <a href="mailto:enquiries@bigfoot.com.sg" className="font-bold text-accent hover:underline transition-colors">enquiries@bigfoot.com.sg</a>
                     </div>
                   </div>
                   <div className="flex items-center gap-4">
