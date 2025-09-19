@@ -184,7 +184,9 @@ export default function HeaderClient() {
 
   useEffect(() => {
     setHasMounted(true);
-    
+  }, []);
+
+  useEffect(() => {
     const controlNavbar = () => {
       if (typeof window !== 'undefined') {
         if (window.scrollY > lastScrollY && window.scrollY > 100) { // if scroll down & past 100px
@@ -242,7 +244,7 @@ export default function HeaderClient() {
     <header
       className={cn(
         "fixed top-4 left-0 w-full z-50 transition-transform duration-300 ease-in-out",
-        show ? "translate-y-0" : "-translate-y-full"
+        show ? "translate-y-0" : "-translate-y-[200%]"
       )}
     >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
