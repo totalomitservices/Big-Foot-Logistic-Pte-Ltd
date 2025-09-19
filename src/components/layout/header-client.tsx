@@ -196,7 +196,7 @@ export default function HeaderClient() {
             <div className={cn("relative flex items-center justify-between backdrop-blur-md shadow-lg rounded-full px-4 py-2 transition-all duration-300", isScrolled ? "bg-white/90" : "bg-white/80")}>
                 <div className="flex-shrink-0">
                     <Link href="/">
-                        <Logo className="h-12 w-auto transition-all duration-300" priority />
+                        <Logo className="h-[50px] w-auto transition-all duration-300" priority />
                     </Link>
                 </div>
 
