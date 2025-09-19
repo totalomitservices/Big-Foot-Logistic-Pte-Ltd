@@ -176,22 +176,25 @@ export default function Header() {
   return (
     <header className={cn(
       "fixed top-0 left-0 w-full z-50 transition-all duration-300 ease-in-out",
-      scrolled ? "bg-foreground/70 backdrop-blur-md shadow-lg" : "bg-transparent"
     )}>
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex items-center justify-between h-24">
+            <div className={cn(
+                "relative flex items-center justify-between transition-all duration-300 ease-in-out",
+                scrolled ? "h-20" : "h-24"
+            )}>
                 <div className="flex-shrink-0">
                     <Link href="/">
                         <Logo className="text-primary-foreground" priority />
                     </Link>
                 </div>
 
-                <div className="hidden md:flex items-center justify-center flex-1">
+                <div className={cn(
+                    "hidden md:flex items-center justify-end space-x-2 transition-all duration-300 ease-in-out",
+                    "bg-foreground/50 backdrop-blur-md shadow-lg rounded-full",
+                     scrolled ? "px-2 py-1" : "px-3 py-2"
+                    
+                    )}>
                     <DesktopNav />
-                </div>
-
-
-                <div className="hidden md:flex items-center justify-end space-x-4">
                     <div className="header-separator" />
                     <a href={`mailto:${contactInfo.email}`} className="text-primary-foreground hover:text-accent transition-colors p-2">
                         <Mail className="h-5 w-5" />
