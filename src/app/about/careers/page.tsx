@@ -27,7 +27,7 @@ export default function CareersPage() {
           <h1 className="font-headline text-4xl md:text-5xl font-bold">
             Join Our Team
           </h1>
-          <p className="mt-4 text-lg md:text-xl font-light">
+          <p className="mt-4 text-lg md:text-xl font-thin">
             Be a part of a company that moves the world.
           </p>
         </div>

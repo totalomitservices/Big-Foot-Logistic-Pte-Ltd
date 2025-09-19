@@ -108,7 +108,7 @@ export default function ClientsPage() {
           <h1 className="font-headline text-4xl md:text-5xl font-bold">
             Our Clients
           </h1>
-          <p className="mt-4 text-lg md:text-xl font-light max-w-2xl">
+          <p className="mt-4 text-lg md:text-xl font-thin max-w-2xl">
             Delivering tailored logistics solutions across industries.
           </p>
           <div className="mt-8">

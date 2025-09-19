@@ -59,7 +59,7 @@ export default function ContactPage() {
           <h1 className="font-headline text-4xl md:text-5xl font-bold">
             Contact Us
           </h1>
-          <p className="mt-4 text-lg md:text-xl font-light">
+          <p className="mt-4 text-lg md:text-xl font-thin">
             We’re here to help with your logistics needs.
           </p>
         </div>

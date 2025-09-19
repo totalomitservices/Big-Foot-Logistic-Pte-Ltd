@@ -43,7 +43,7 @@ export default function VisionMissionPage() {
           <h1 className="font-headline text-4xl md:text-5xl font-bold">
             Vision & Mission
           </h1>
-          <p className="mt-4 text-lg md:text-xl font-light">
+          <p className="mt-4 text-lg md:text-xl font-thin">
             Guiding our journey, defining our purpose.
           </p>
         </div>

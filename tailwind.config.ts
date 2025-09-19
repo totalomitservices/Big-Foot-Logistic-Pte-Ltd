@@ -10,6 +10,9 @@ export default {
   ],
   theme: {
     extend: {
+      fontWeight: {
+        thin: '300',
+      },
       fontFamily: {
         body: ['var(--font-open-sans)', 'sans-serif'],
         headline: ['var(--font-federo)', 'sans-serif'],
