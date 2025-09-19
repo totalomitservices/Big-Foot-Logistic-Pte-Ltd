@@ -33,7 +33,7 @@ export default function OtherExpertisePage() {
             Specialized logistics services for unique requirements.
           </p>
           <div className="mt-8">
-            <Button asChild size="lg" variant="outline" className="btn-animated-border">
+            <Button asChild size="lg" variant="accent">
               <Link href="/contact">Get a Quote</Link>
             </Button>
           </div>

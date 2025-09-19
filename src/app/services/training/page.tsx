@@ -31,7 +31,7 @@ export default function TrainingPage() {
             Empowering our team with knowledge and skills.
           </p>
           <div className="mt-8">
-            <Button asChild size="lg" variant="outline" className="btn-animated-border">
+            <Button asChild size="lg" variant="accent">
               <Link href="/contact">Get a Quote</Link>
             </Button>
           </div>
