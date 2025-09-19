@@ -186,20 +186,24 @@ export default function HeaderClient() {
   }, []);
 
   useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+
     if (hasMounted) {
-      const handleScroll = () => {
-        setIsScrolled(window.scrollY > 20);
-      };
       window.addEventListener('scroll', handleScroll);
-      handleScroll();
-      return () => {
-        window.removeEventListener('scroll', handleScroll);
-      };
+      handleScroll(); 
     }
+
+    return () => {
+      if (hasMounted) {
+        window.removeEventListener('scroll', handleScroll);
+      }
+    };
   }, [hasMounted]);
 
-  const headerClasses = isScrolled ? "py-1" : "py-1";
-  const innerDivClasses = isScrolled ? "bg-white/90" : "bg-white/80";
+  const headerClasses = hasMounted && isScrolled ? "py-1" : "py-1";
+  const innerDivClasses = hasMounted && isScrolled ? "bg-white/90" : "bg-white/80";
 
   return (
     <header className={cn("fixed top-4 left-0 w-full z-50 transition-all duration-300", headerClasses)}>
@@ -231,3 +235,5 @@ export default function HeaderClient() {
     </header>
   );
 }
+
+    
