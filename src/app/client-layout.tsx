@@ -16,8 +16,9 @@ export default function ClientLayout({
     const pathname = usePathname();
 
     useEffect(() => {
+        const header = document.querySelector('header');
+        
         const handleScroll = () => {
-            const header = document.querySelector('.header-scroll');
             if (window.scrollY > 50) {
                 header?.classList.add('scrolled-header');
             } else {

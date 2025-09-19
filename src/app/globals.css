@@ -173,8 +173,14 @@
       @apply bg-primary/80 backdrop-blur-sm shadow-lg;
   }
 
-  .is-home .scrolled-header .relative.flex {
+  .is-home .is-home-header {
+      @apply h-24;
+  }
+  .is-home .scrolled-header .is-home-header {
       @apply h-20;
+  }
+  .is-home .scrolled-header .is-home-nav-pill {
+      @apply px-2 py-1;
   }
 }
 

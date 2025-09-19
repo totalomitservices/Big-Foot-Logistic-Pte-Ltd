@@ -51,11 +51,12 @@ const contactInfo = {
   phone: '+65 6324 4722',
 };
 
-const NavLink = ({ children, className }: { children: React.ReactNode, className?: string }) => {
+const NavLink = ({ href, children, className }: { href: string; children: React.ReactNode, className?: string }) => {
     const pathname = usePathname();
-    const isHome = pathname === '/';
+    const isActive = pathname === href;
+    
     return (
-        <div className={cn("font-medium text-base hover:text-accent focus-visible:ring-0 focus-visible:ring-offset-0 hover:bg-transparent text-primary-foreground px-3 py-2", isHome && children === 'Home' && 'underline', className)}>
+        <div className={cn("font-medium text-base hover:text-accent focus-visible:ring-0 focus-visible:ring-offset-0 hover:bg-transparent text-primary-foreground px-3 py-2", isActive && 'underline', className)}>
             {children}
         </div>
     );
@@ -90,7 +91,7 @@ const DesktopNav = () => {
                         </DropdownMenu>
                     ) : (
                         <Link href={link.href!}>
-                           <NavLink>{link.label}</NavLink>
+                           <NavLink href={link.href!}>{link.label}</NavLink>
                         </Link>
                     )}
                 </div>
@@ -179,12 +180,12 @@ export default function Header() {
 
   return (
     <header className={cn(
-        "fixed top-0 left-0 w-full z-50 transition-all duration-300 ease-in-out header-scroll",
+        "fixed top-0 left-0 w-full z-50 transition-all duration-300 ease-in-out",
         !isHomePage && "scrolled-header"
     )}>
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className={cn("relative flex items-center justify-between transition-all duration-300 ease-in-out h-24",
-                isHomePage && "group-[.scrolled-header]:h-20"
+                isHomePage && "is-home-header"
             )}>
                 <div className="flex-shrink-0">
                     <Link href="/">
@@ -193,20 +194,24 @@ export default function Header() {
                 </div>
 
                 <div className={cn(
-                    "hidden md:flex items-center justify-center absolute left-1/2 -translate-x-1/2",
-                     "transition-all duration-300 ease-in-out",
-                    isHomePage && "bg-foreground/50 backdrop-blur-md shadow-lg rounded-full px-3 py-2 group-[.scrolled-header]:px-2 group-[.scrolled-header]:py-1"
+                    "hidden md:flex items-center justify-center",
+                    isHomePage && "absolute left-1/2 -translate-x-1/2"
+                )}>
+                    <div className={cn(
+                        "flex items-center",
+                        isHomePage && "bg-foreground/50 backdrop-blur-md shadow-lg rounded-full px-3 py-2 transition-all duration-300 ease-in-out is-home-nav-pill"
                     )}>
-                    <DesktopNav />
-                    <div className="header-separator" />
-                    <a href={`mailto:${contactInfo.email}`} className="text-primary-foreground hover:text-accent transition-colors p-2">
-                        <Mail className="h-5 w-5" />
-                        <span className="sr-only">Email</span>
-                    </a>
-                    <a href={`tel:${contactInfo.phone.replace(/\s/g, '')}`} className="text-primary-foreground hover:text-accent transition-colors p-2">
-                        <Phone className="h-5 w-5" />
-                         <span className="sr-only">Phone</span>
-                    </a>
+                        <DesktopNav />
+                        <div className="header-separator" />
+                        <a href={`mailto:${contactInfo.email}`} className="text-primary-foreground hover:text-accent transition-colors p-2">
+                            <Mail className="h-5 w-5" />
+                            <span className="sr-only">Email</span>
+                        </a>
+                        <a href={`tel:${contactInfo.phone.replace(/\s/g, '')}`} className="text-primary-foreground hover:text-accent transition-colors p-2">
+                            <Phone className="h-5 w-5" />
+                             <span className="sr-only">Phone</span>
+                        </a>
+                    </div>
                 </div>
 
                 <MobileNav />
