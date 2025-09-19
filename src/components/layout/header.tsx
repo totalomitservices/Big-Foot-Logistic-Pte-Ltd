@@ -51,11 +51,15 @@ const contactInfo = {
   phone: '+65 6324 4722',
 };
 
-const NavLink = ({ children, className }: { children: React.ReactNode, className?: string }) => (
-    <div className={cn("font-medium text-base hover:text-accent focus-visible:ring-0 focus-visible:ring-offset-0 hover:bg-transparent text-primary-foreground px-3 py-2", className)}>
-        {children}
-    </div>
-)
+const NavLink = ({ children, className }: { children: React.ReactNode, className?: string }) => {
+    const pathname = usePathname();
+    const isHome = pathname === '/';
+    return (
+        <div className={cn("font-medium text-base hover:text-accent focus-visible:ring-0 focus-visible:ring-offset-0 hover:bg-transparent text-primary-foreground px-3 py-2", isHome && children === 'Home' && 'underline', className)}>
+            {children}
+        </div>
+    );
+};
 
 const DesktopNav = () => {
     const pathname = usePathname();
@@ -97,6 +101,7 @@ const DesktopNav = () => {
 
 const MobileNav = () => {
     const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
+    const pathname = usePathname();
 
     const closeMobileMenu = () => setMobileMenuOpen(false);
 
@@ -142,7 +147,7 @@ const MobileNav = () => {
                                         <Link
                                             href={link.href!}
                                             onClick={closeMobileMenu}
-                                            className="font-bold text-lg hover:text-accent transition-colors block py-2"
+                                            className={cn("font-bold text-lg hover:text-accent transition-colors block py-2", pathname === link.href && "underline")}
                                         >
                                             {link.label}
                                         </Link>
