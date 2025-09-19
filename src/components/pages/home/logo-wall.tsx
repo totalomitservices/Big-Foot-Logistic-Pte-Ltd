@@ -1,7 +1,6 @@
 
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
-import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 
 const logos = [
@@ -58,7 +57,7 @@ export default function LogoWall() {
          <div className="mt-12 text-center">
             <Button asChild className="btn-animated-border" variant="outline">
                 <Link href="/clients">
-                    <span>View All Our Clients <ArrowRight className="ml-2 inline"/></span>
+                    <span>View All Our Clients</span>
                 </Link>
             </Button>
         </div>
