@@ -188,8 +188,9 @@ export default function HeaderClient() {
       setIsScrolled(window.scrollY > 20);
     };
 
+    handleScroll();
     window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll(); // Check on mount
+    
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
@@ -198,7 +199,7 @@ export default function HeaderClient() {
   return (
     <header 
         className="fixed top-4 left-0 w-full z-50 transition-all duration-300"
-        {...(hasMounted && { 'data-scrolled': isScrolled })}
+        data-scrolled={hasMounted ? isScrolled : false}
     >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="relative flex items-center justify-between backdrop-blur-md shadow-lg rounded-full px-2 bg-white/80 transition-all duration-300 data-[scrolled=true]:bg-white/90 py-1">
@@ -228,5 +229,3 @@ export default function HeaderClient() {
     </header>
   );
 }
-
-    
