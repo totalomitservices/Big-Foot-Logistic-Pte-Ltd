@@ -22,17 +22,6 @@ export default function Hero() {
         />
       )}
 
-      {/* Logo in top-left corner */}
-      <div className="absolute top-4 left-4 z-20">
-        <Image
-          src="https://github.com/Ram-0609/Bigfoot-Logistics-Images/blob/main/bfl_logo.png?raw=true"
-          alt="Bigfoot Logistics Logo"
-          width={150}
-          height={150}
-          className="object-contain w-24 h-24 md:w-36 md:h-36"
-        />
-      </div>
-
       <div className="relative z-10 flex h-full flex-col items-center justify-center text-center text-white px-4">
         <div className="flex flex-col items-center max-w-3xl">
           <h1 className="font-headline text-4xl md:text-5xl font-bold uppercase tracking-tighter drop-shadow-lg">
