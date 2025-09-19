@@ -55,23 +55,22 @@ export default function VisionMissionPage() {
             <div className="text-center mb-16">
                 <h2 className="text-3xl font-headline font-bold text-primary">Our Guiding Principles</h2>
             </div>
-          <div className="relative max-w-4xl mx-auto">
-             <div className="absolute left-1/2 -translate-x-1/2 h-full w-0.5 bg-border hidden md:block"></div>
-                {values.map((item, index) => {
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-8">
+                {values.map((item) => {
                   const Icon = item.icon;
                   return (
-                    <div key={index} className={`relative mb-12 animate-fade-in md:flex ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} items-center w-full`}>
-                        <div className="md:w-5/12">
-                             
-                        </div>
-                         <div className={`md:w-7/12 ${index % 2 === 0 ? 'md:pl-12' : 'md:pr-12'}`}>
-                            <div className="p-6 bg-background shadow-lg text-left flex items-start gap-4">
-                                <div className="flex-grow">
-                                    <h3 className="text-2xl font-headline text-primary font-bold mb-2">{item.title}</h3>
-                                    <p className="text-muted-foreground leading-relaxed">{item.description}</p>
-                                </div>
-                            </div>
-                         </div>
+                    <div key={item.title} className="relative mt-8">
+                      <div className="absolute -top-8 left-8 transform -translate-x-1/2">
+                          <div className="bg-accent text-accent-foreground rounded-full p-4 shadow-lg">
+                              <Icon className="w-8 h-8" />
+                          </div>
+                      </div>
+                      <div className="bg-card text-card-foreground rounded-lg shadow-lg h-full">
+                          <div className="p-8 pt-16">
+                              <h3 className="text-2xl font-headline text-primary font-bold mb-4">{item.title}</h3>
+                              <p className="text-muted-foreground leading-relaxed">{item.description}</p>
+                          </div>
+                      </div>
                     </div>
                   );
                 })}
