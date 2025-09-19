@@ -33,7 +33,7 @@ export default function CustomClearancePage() {
             Streamlining your import and export processes.
           </p>
           <div className="mt-8">
-            <Button asChild size="lg" variant="accent">
+            <Button asChild size="lg" variant="accent" className="transition-transform duration-300 hover:scale-105">
               <Link href="/contact">Get a Quote</Link>
             </Button>
           </div>
