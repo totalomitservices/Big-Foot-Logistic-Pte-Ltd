@@ -17,7 +17,7 @@ export default function OtherExpertisePage() {
       {/* Hero Section */}
       <section className="relative w-full h-[40vh] md:h-[50vh]">
         <Image
-          src="https://raw.githubusercontent.com/Ram-0609/Bigfoot-Logistics-Images/main/Live%20Stock%20Handling.jpg"
+          src="https://raw.githubusercontent.com/Ram-0609/Bigfoot-Logistics-Images/refs/heads/main/other%20expertise%20.jpeg"
           alt="Safe handling of livestock"
           fill
           priority
