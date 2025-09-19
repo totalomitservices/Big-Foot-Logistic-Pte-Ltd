@@ -51,7 +51,7 @@ const contactInfo = {
 };
 
 const NavLink = ({ children, className }: { children: React.ReactNode, className?: string }) => (
-    <div className={cn("font-medium text-base hover:text-accent focus-visible:ring-0 focus-visible:ring-offset-0 hover:bg-transparent focus:bg-transparent text-primary-foreground px-3 py-2", className)}>
+    <div className={cn("font-medium text-base hover:text-accent focus-visible:ring-0 focus-visible:ring-offset-0 hover:bg-transparent text-primary-foreground px-3 py-2", className)}>
         {children}
     </div>
 )
@@ -105,7 +105,7 @@ const MobileNav = () => {
                 <SheetContent side="left" className="w-[300px] sm:w-[400px] bg-primary text-primary-foreground">
                     <div className="flex flex-col h-full p-6">
                         <Link href="/" onClick={closeMobileMenu} className="mb-8">
-                            <Logo className="text-white h-20 w-20" />
+                            <Logo className="text-white" />
                         </Link>
                         <nav className="flex flex-col space-y-2">
                             {navLinks.map((link) => (
@@ -179,10 +179,10 @@ export default function Header() {
       scrolled ? "bg-foreground/70 backdrop-blur-md shadow-lg" : "bg-transparent"
     )}>
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex items-center justify-between h-16">
+            <div className="flex items-center justify-between h-24">
                 <div className="flex-shrink-0">
                     <Link href="/">
-                        <Logo className="text-primary-foreground h-20 w-20" priority />
+                        <Logo className="text-primary-foreground" priority />
                     </Link>
                 </div>
 
