@@ -19,7 +19,7 @@ export default function TrackingFormDialog() {
         <Button
           size="lg"
           variant="destructive"
-          className="transition-all duration-300 transform hover:scale-105 shadow-lg"
+          className="transition-all duration-300 transform hover:scale-105 shadow-lg w-full sm:w-auto"
         >
           <span>Track Your Shipment</span>
         </Button>

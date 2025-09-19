@@ -56,7 +56,7 @@ const perksAndBenefits = [
     'Many more attractive incentives!'
 ];
 
-function JobCard({ job }: { job: typeof jobOpenings[0] }) {
+function JobCard({ job }: { job: (typeof jobOpenings)[number] }) {
   return (
     <Card className="flex flex-col h-full">
       <CardHeader className="bg-secondary">
@@ -82,10 +82,10 @@ function JobCard({ job }: { job: typeof jobOpenings[0] }) {
                 </ul>
             </div>
         )}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm pt-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-2 text-sm pt-4">
             <p><strong className="text-foreground">Job Type:</strong> {job.type}</p>
             <p><strong className="text-foreground">Location:</strong> {job.location}</p>
-            <p><strong className="text-foreground">Eligibility:</strong> {job.eligibility}</p>
+            <p className="col-span-1 sm:col-span-2"><strong className="text-foreground">Eligibility:</strong> {job.eligibility}</p>
         </div>
         {job.bonus && (
            <CardDescription className="pt-2 text-accent font-semibold italic">
@@ -152,37 +152,38 @@ export default function OpenPositionsClient() {
             Job Opportunities
           </h2>
         </div>
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
-          {jobOpenings.map((job) => (
-            <JobCard key={job.title} job={job} />
-          ))}
+        <div className="grid lg:grid-cols-3 gap-8">
+            <div className="lg:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+                {jobOpenings.map((job) => (
+                    <JobCard key={job.title} job={job} />
+                ))}
+            </div>
+            <div className="lg:col-span-1">
+                <div className="sticky top-28 space-y-8">
+                  <ApplyCard />
+                </div>
+            </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mt-16">
-          <div className="md:col-span-2 space-y-12">
-             <Card>
-              <CardHeader>
+        <div className="mt-16 space-y-12">
+            <Card>
+            <CardHeader>
                 <CardTitle>Perks & Benefits</CardTitle>
-              </CardHeader>
-              <CardContent className="pt-6">
-                 <ul className="list-disc list-inside grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-2 text-muted-foreground">
-                      {perksAndBenefits.map((perk, i) => <li key={i}>{perk}</li>)}
-                  </ul>
-              </CardContent>
+            </CardHeader>
+            <CardContent className="pt-6">
+                <ul className="list-disc list-inside grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-2 text-muted-foreground">
+                    {perksAndBenefits.map((perk, i) => <li key={i}>{perk}</li>)}
+                </ul>
+            </CardContent>
             </Card>
-             <div>
-              <h3 className="text-2xl font-headline font-bold text-primary mb-4">
+            <div>
+            <h3 className="text-2xl font-headline font-bold text-primary mb-4">
                 Life at Big-Foot Group
-              </h3>
-              <p className="text-lg text-muted-foreground leading-relaxed">
+            </h3>
+            <p className="text-lg text-muted-foreground leading-relaxed">
                 We are more than just a logistics company. We are a family of passionate professionals who take pride in delivering top-notch services to our clients. From team-building activities to professional development workshops, there’s always something happening at Big-Foot Logistic.
-              </p>
+            </p>
             </div>
-          </div>
-
-          <div className="space-y-8">
-            <ApplyCard />
-          </div>
         </div>
 
       </div>

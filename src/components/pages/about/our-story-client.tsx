@@ -62,7 +62,7 @@ export default function OurStoryClient() {
           <div className="relative max-w-4xl mx-auto">
             <div className="absolute left-1/2 -translate-x-1/2 h-full w-0.5 bg-border hidden md:block"></div>
             
-            <div className="space-y-20">
+            <div className="space-y-12 md:space-y-20">
 
               {/* Our Journey */}
               <div className="relative md:grid md:grid-cols-2 gap-12 items-center">
@@ -85,12 +85,12 @@ export default function OurStoryClient() {
 
               {/* Complete Solutions */}
               <div className="relative md:grid md:grid-cols-2 gap-12 items-center">
-                <div>
+                <div className="md:order-1">
                    <div className="relative aspect-video shadow-xl overflow-hidden rounded-lg">
                     <Image src="https://raw.githubusercontent.com/Ram-0609/Bigfoot-Logistics-Images/main/our%20story%20img%202.jpg" alt="Logistics network" fill className="object-cover" data-ai-hint="logistics network" />
                   </div>
                 </div>
-                <div className="mt-8 md:mt-0">
+                <div className="mt-8 md:mt-0 md:order-2">
                   <h3 className="text-2xl font-headline font-bold text-primary mb-4">Complete Logistics Solutions</h3>
                   <p className="text-lg text-muted-foreground leading-relaxed">
                     Today, BIG FOOT LOGISTIC is a recognized complete logistics solutions provider. We offer services from transportation and warehousing to freight forwarding, permit clearance, and manpower management. Supported by a skilled team with both local and international expertise, we deliver value-driven solutions that help businesses succeed at every stage of their supply chain.

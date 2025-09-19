@@ -75,7 +75,7 @@ export default function ContactPage() {
               We’re here to help you with reliable logistics solutions. For enquiries, reach out to us at <a href="mailto:enquiries@bigfoot.com.sg" className="font-bold text-accent hover:underline transition-colors">enquiries@bigfoot.com.sg</a>.
             </p>
           </div>
-          <div className="bg-secondary shadow-lg p-8 lg:p-12">
+          <div className="bg-secondary shadow-lg p-6 md:p-8 lg:p-12">
             <div className="mb-12">
               <div className="bg-primary text-primary-foreground p-4 text-center">
                 <h3 className="font-headline text-lg font-semibold mb-2">Our Core Services</h3>
@@ -101,22 +101,22 @@ export default function ContactPage() {
                   <div className="flex items-center gap-4">
                     <Phone className="h-6 w-6 text-primary" />
                     <div>
-                      <h4 className="font-semibold">Phone</h4>
-                      <a href="tel:+6563244722" className="text-muted-foreground hover:text-primary transition-colors">+65 6324 4722</a>
+                      <h4 className="font-semibold text-base">Phone</h4>
+                      <a href="tel:+6563244722" className="text-muted-foreground hover:text-primary transition-colors text-base">+65 6324 4722</a>
                     </div>
                   </div>
                   <div className="flex items-center gap-4">
                     <Mail className="h-6 w-6 text-primary" />
                     <div>
-                      <h4 className="font-semibold">Email</h4>
-                      <a href="mailto:enquiries@bigfoot.com.sg" className="font-bold text-accent hover:underline transition-colors">enquiries@bigfoot.com.sg</a>
+                      <h4 className="font-semibold text-base">Email</h4>
+                      <a href="mailto:enquiries@bigfoot.com.sg" className="font-bold text-accent hover:underline transition-colors text-base">enquiries@bigfoot.com.sg</a>
                     </div>
                   </div>
                   <div className="flex items-center gap-4">
                     <Clock className="h-6 w-6 text-primary" />
                     <div>
-                      <h4 className="font-semibold">Working Hours</h4>
-                      <p className="text-muted-foreground">Mon - Fri: 9am - 6pm</p>
+                      <h4 className="font-semibold text-base">Working Hours</h4>
+                      <p className="text-muted-foreground text-base">Mon - Fri: 9am - 6pm</p>
                     </div>
                   </div>
                 </div>

@@ -32,12 +32,12 @@ export default function Hero() {
           <p className="mt-6 max-w-2xl text-lg md:text-xl text-gray-200 drop-shadow">
             Global logistics and supply chain solutions, tailored for your business needs. We ensure your cargo travels safely and arrives on time, every time.
           </p>
-          <div className="mt-8 flex flex-col sm:flex-row gap-4">
+          <div className="mt-8 flex flex-col items-center sm:flex-row gap-4">
             <Button
               asChild
               size="lg"
               variant="default"
-              className="transition-all duration-300 transform hover:scale-105 shadow-lg"
+              className="transition-all duration-300 transform hover:scale-105 shadow-lg w-full sm:w-auto"
             >
               <Link href="#services">Read More</Link>
             </Button>

@@ -113,7 +113,7 @@ function MobileNav() {
                         <span className="sr-only">Open menu</span>
                     </Button>
                 </SheetTrigger>
-                <SheetContent side="left" className="w-[300px] sm:w-[400px] bg-primary text-primary-foreground p-0">
+                <SheetContent side="left" className="w-[85vw] max-w-sm bg-primary text-primary-foreground p-0">
                     <div className="flex flex-col h-full">
                          <div className="p-6">
                             <SheetClose asChild>
@@ -122,22 +122,22 @@ function MobileNav() {
                                 </Link>
                             </SheetClose>
                         </div>
-                        <nav className="flex flex-col space-y-2 px-6">
+                        <nav className="flex flex-col space-y-1 px-4">
                             {navLinks.map((link) => (
                                 <div key={link.label}>
                                     {link.subLinks ? (
                                         <Collapsible>
-                                            <CollapsibleTrigger className="flex justify-between items-center w-full font-bold text-lg hover:text-accent transition-colors py-2">
-                                                {link.label}
-                                                <ChevronDown className="h-5 w-5" />
+                                            <CollapsibleTrigger className="flex justify-between items-center w-full font-bold text-lg hover:text-accent transition-colors py-3 px-2 rounded-md">
+                                                <span>{link.label}</span>
+                                                <ChevronDown className="h-5 w-5 transition-transform duration-200 [&[data-state=open]]:-rotate-180" />
                                             </CollapsibleTrigger>
                                             <CollapsibleContent>
-                                                <div className="flex flex-col space-y-2 pl-4 py-2 border-l border-accent/50">
+                                                <div className="flex flex-col space-y-2 pl-6 py-2 border-l border-accent/50 ml-2">
                                                     {link.subLinks.map((subLink) => (
                                                         <SheetClose asChild key={subLink.href}>
                                                             <Link
                                                                 href={subLink.href}
-                                                                className="text-base hover:text-accent transition-colors"
+                                                                className="text-base hover:text-accent transition-colors py-1"
                                                             >
                                                                 {subLink.label}
                                                             </Link>
@@ -150,7 +150,7 @@ function MobileNav() {
                                         <SheetClose asChild>
                                             <Link
                                                 href={link.href!}
-                                                className={cn("font-bold text-lg hover:text-accent transition-colors block py-2", pathname === link.href && "text-accent")}
+                                                className={cn("font-bold text-lg hover:text-accent transition-colors block py-3 px-2 rounded-md", pathname === link.href && "text-accent bg-black/10")}
                                             >
                                                 {link.label}
                                             </Link>
@@ -160,12 +160,12 @@ function MobileNav() {
                             ))}
                         </nav>
                         <div className="mt-auto space-y-4 p-6 border-t border-white/10">
-                            <a href={`mailto:${contactInfo.email}`} className="flex items-center gap-2 hover:text-accent transition-colors">
-                                <Mail className="h-4 w-4" />
+                            <a href={`mailto:${contactInfo.email}`} className="flex items-center gap-3 hover:text-accent transition-colors text-sm">
+                                <Mail className="h-5 w-5" />
                                 <span>{contactInfo.email}</span>
                             </a>
-                            <a href={`tel:${contactInfo.phone.replace(/\s/g, '')}`} className="flex items-center gap-2 hover:text-accent transition-colors">
-                                <Phone className="h-4 w-4" />
+                            <a href={`tel:${contactInfo.phone.replace(/\s/g, '')}`} className="flex items-center gap-3 hover:text-accent transition-colors text-sm">
+                                <Phone className="h-5 w-5" />
                                 <span>{contactInfo.phone}</span>
                             </a>
                         </div>
