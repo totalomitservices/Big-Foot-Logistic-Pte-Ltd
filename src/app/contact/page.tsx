@@ -106,14 +106,14 @@ export default function ContactPage() {
                     </div>
                   </div>
                   <div className="flex items-center gap-4">
-                    <Mail className="h-6 w-6 text-accent" />
+                    <Mail className="h-6 w-6 text-primary" />
                     <div>
                       <h4 className="font-semibold">Email</h4>
                       <a href="mailto:enquiries@bigfoot.com.sg" className="font-bold text-accent hover:underline transition-colors">enquiries@bigfoot.com.sg</a>
                     </div>
                   </div>
                   <div className="flex items-center gap-4">
-                    <Clock className="h-6 w-6 text-accent" />
+                    <Clock className="h-6 w-6 text-primary" />
                     <div>
                       <h4 className="font-semibold">Working Hours</h4>
                       <p className="text-muted-foreground">Mon - Fri: 9am - 6pm</p>
