@@ -196,7 +196,10 @@ export default function HeaderClient() {
     };
   }, []);
   
-  const headerProps = hasMounted ? { 'data-scrolled': isScrolled } : {};
+  const headerProps: {[key: string]: any} = {};
+  if (hasMounted) {
+    headerProps['data-scrolled'] = isScrolled;
+  }
 
   return (
     <header 
