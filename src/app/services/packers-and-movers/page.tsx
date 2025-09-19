@@ -63,7 +63,7 @@ export default function PackersAndMoversPage() {
             
             <div className="relative w-full aspect-video">
                 <Image
-                    src="https://raw.githubusercontent.com/swathitom1207/logo-image-/refs/heads/main/Packers%20and%20Movers%202.webp"
+                    src="https://raw.githubusercontent.com/Ram-0609/Bigfoot-Logistics-Images/refs/heads/main/packers%20and%20movers.jpg"
                     alt="Moving truck"
                     fill
                     className="object-cover shadow-lg"

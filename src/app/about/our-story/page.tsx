@@ -71,7 +71,7 @@ export default function OurStoryPage() {
               <div className="relative md:grid md:grid-cols-2 gap-12 items-center">
                 <div className="md:order-2">
                   <div className="relative aspect-video shadow-xl overflow-hidden rounded-lg">
-                    <Image src="https://picsum.photos/seed/journey/800/600" alt="Team handshake" fill className="object-cover" data-ai-hint="team handshake" />
+                    <Image src="https://github.com/Ram-0609/Bigfoot-Logistics-Images/blob/main/businessman-application-human-digital-business.jpg?raw=true" alt="Team handshake" fill className="object-cover" data-ai-hint="team handshake" />
                   </div>
                 </div>
                 <div className="mt-8 md:mt-0 md:text-right">
@@ -90,7 +90,7 @@ export default function OurStoryPage() {
               <div className="relative md:grid md:grid-cols-2 gap-12 items-center">
                 <div>
                    <div className="relative aspect-video shadow-xl overflow-hidden rounded-lg">
-                    <Image src="https://picsum.photos/seed/solutions/800/600" alt="Logistics network" fill className="object-cover" data-ai-hint="logistics network" />
+                    <Image src="https://github.com/Ram-0609/Bigfoot-Logistics-Images/blob/main/our%20story%20img%202.jpg?raw=true" alt="Logistics network" fill className="object-cover" data-ai-hint="logistics network" />
                   </div>
                 </div>
                 <div className="mt-8 md:mt-0">

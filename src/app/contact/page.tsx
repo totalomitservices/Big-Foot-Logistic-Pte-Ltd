@@ -1,4 +1,5 @@
 
+import Image from 'next/image';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -45,12 +46,31 @@ const officeLocations = [
 export default function ContactPage() {
   return (
     <div className="bg-background text-foreground">
+      <section className="relative w-full h-[40vh] md:h-[50vh]">
+        <Image
+          src="https://raw.githubusercontent.com/Ram-0609/Bigfoot-Logistics-Images/refs/heads/main/contact%20us.jpg"
+          alt="Contact us banner"
+          fill
+          priority
+          className="object-cover"
+          data-ai-hint="customer service"
+        />
+        <div className="relative z-10 flex h-full flex-col items-center justify-center text-center text-white px-4">
+          <h1 className="font-headline text-4xl md:text-5xl font-bold">
+            Contact Us
+          </h1>
+          <p className="mt-4 text-lg md:text-xl font-light">
+            We’re here to help with your logistics needs.
+          </p>
+        </div>
+      </section>
+
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <section className="py-16 lg:py-24">
-          <div className="text-center mb-12 pt-20">
-            <h1 className="font-headline text-4xl md:text-5xl font-bold text-primary">
-              Contact Us
-            </h1>
+          <div className="text-center mb-12">
+            <h2 className="font-headline text-3xl md:text-4xl font-bold text-primary">
+              Get In Touch
+            </h2>
             <p className="mt-4 text-lg md:text-xl font-light max-w-2xl mx-auto text-muted-foreground">
               We’re here to help you with reliable logistics solutions. For enquiries, reach out to us at <a href="mailto:enquiries@bigfoot.com.sg" className="underline hover:text-accent transition-colors">enquiries@bigfoot.com.sg</a>.
             </p>
@@ -72,7 +92,7 @@ export default function ContactPage() {
             <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
               <div className="lg:col-span-2 space-y-8">
                 <div>
-                  <h3 className="text-2xl font-headline font-bold text-primary mb-4">Get in Touch</h3>
+                  <h3 className="text-2xl font-headline font-bold text-primary mb-4">Contact Details</h3>
                   <p className="text-muted-foreground mb-6">
                     Have a question or need a quote? Reach out to us. We’re available around the clock to support your logistics needs.
                   </p>
