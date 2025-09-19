@@ -183,15 +183,21 @@ export default function HeaderClient() {
 
   useEffect(() => {
     setHasMounted(true);
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
-    window.addEventListener('scroll', handleScroll);
-    handleScroll();
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
   }, []);
+  
+  useEffect(() => {
+    if (hasMounted) {
+      const handleScroll = () => {
+        setIsScrolled(window.scrollY > 20);
+      };
+      window.addEventListener('scroll', handleScroll);
+      handleScroll(); 
+      return () => {
+        window.removeEventListener('scroll', handleScroll);
+      };
+    }
+  }, [hasMounted]);
+
 
   const headerClasses = hasMounted && isScrolled ? "py-1" : "py-1";
   const innerDivClasses = hasMounted && isScrolled ? "bg-white/90" : "bg-white/80";
