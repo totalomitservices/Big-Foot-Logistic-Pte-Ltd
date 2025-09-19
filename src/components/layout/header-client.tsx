@@ -118,7 +118,7 @@ function MobileNav() {
                          <div className="p-6">
                             <SheetClose asChild>
                                 <Link href="/" className="mb-8">
-                                    <Logo className="text-white h-16 w-auto" />
+                                    <Logo />
                                 </Link>
                             </SheetClose>
                         </div>
@@ -202,7 +202,7 @@ export default function HeaderClient() {
             <div className={cn("relative flex items-center justify-between backdrop-blur-md shadow-lg rounded-full px-4 py-2 transition-all duration-300", innerDivClasses)}>
                 <div className="flex items-center">
                     <Link href="/">
-                        <Logo className="w-auto transition-all duration-300" priority />
+                        <Logo />
                     </Link>
                 </div>
 
@@ -226,7 +226,3 @@ export default function HeaderClient() {
     </header>
   );
 }
-
-    
-
-    
