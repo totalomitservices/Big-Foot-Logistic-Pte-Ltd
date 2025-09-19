@@ -85,7 +85,7 @@
 
 @layer utilities {
   .bg-footer-navy {
-    background-color: hsl(215 62% 35%);
+    background-color: hsl(215 62% 11%);
   }
 
   .flip-card {
@@ -176,6 +176,42 @@
   .scrolled-header {
       @apply bg-white/80 backdrop-blur-sm shadow-lg;
   }
+
+  .icon-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 9999px;
+    color: white;
+    transition: all 0.3s ease-in-out;
+  }
+  .icon-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px 3px var(--glow-color);
+  }
+  .icon-btn:focus-visible {
+    outline: 2px solid var(--focus-color);
+    outline-offset: 2px;
+  }
+  .icon-btn > svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .icon-btn-phone {
+    background: linear-gradient(135deg, #4CAF50, #81C784);
+    --glow-color: #4CAF50;
+    --focus-color: #81C784;
+  }
+
+  .icon-btn-email {
+    background: linear-gradient(135deg, #2196F3, #64B5F6);
+    --glow-color: #2196F3;
+    --focus-color: #64B5F6;
+  }
+
 }
 
 /* Leaflet and Map Styles */
@@ -256,3 +292,5 @@
   color: hsl(var(--accent-foreground)) !important;
   transform: scale(1.1);
 }
+
+    
