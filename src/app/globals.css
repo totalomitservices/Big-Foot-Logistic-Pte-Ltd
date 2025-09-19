@@ -84,6 +84,10 @@
 }
 
 @layer utilities {
+  .bg-footer-navy {
+    background-color: hsl(215 62% 35%);
+  }
+
   .flip-card {
     perspective: 1000px;
   }

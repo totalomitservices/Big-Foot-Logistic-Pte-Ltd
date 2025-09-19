@@ -7,7 +7,7 @@ import FooterMapClient from './footer-map-client';
 
 export default function FooterContent() {
   return (
-    <footer id="contact" className="bg-primary text-primary-foreground">
+    <footer id="contact" className="bg-footer-navy text-primary-foreground">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 items-start">
           {/* Company Profile */}
