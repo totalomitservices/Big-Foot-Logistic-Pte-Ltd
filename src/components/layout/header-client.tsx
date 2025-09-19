@@ -51,14 +51,15 @@ const contactInfo = {
   phone: '+65 6324 4722',
 };
 
-const NavLink = ({ href, children, className }: { href: string; children: React.ReactNode, className?: string }) => {
+const NavLink = ({ href, children, className, isScrolled }: { href: string; children: React.ReactNode, className?: string, isScrolled: boolean }) => {
     const pathname = usePathname();
     const isActive = pathname === href;
     
     return (
          <Link href={href} className={cn(
-            "font-medium text-base hover:text-accent focus-visible:ring-0 focus-visible:ring-offset-0 text-foreground px-3 py-2 rounded-md transition-colors",
-            isActive && "bg-black/10",
+            "font-medium text-base hover:text-accent focus-visible:ring-0 focus-visible:ring-offset-0 px-3 py-2 rounded-md transition-colors",
+            isScrolled ? "text-foreground" : "text-white",
+            isActive && (isScrolled ? "bg-black/10" : "bg-white/10"),
             className
         )}>
             {children}
@@ -66,7 +67,7 @@ const NavLink = ({ href, children, className }: { href: string; children: React.
     );
 };
 
-const DesktopNav = () => {
+const DesktopNav = ({ isScrolled }: { isScrolled: boolean }) => {
     return (
         <nav className="hidden md:flex items-center gap-1">
             {navLinks.map((link) => (
@@ -74,7 +75,7 @@ const DesktopNav = () => {
                     {link.subLinks ? (
                         <DropdownMenu>
                             <DropdownMenuTrigger asChild>
-                                <Button variant="ghost" className="hover:bg-black/10 focus:bg-transparent hover:text-accent text-foreground text-base font-medium px-3 py-2 flex items-center gap-1">
+                                <Button variant="ghost" className={cn("hover:bg-black/10 focus:bg-transparent hover:text-accent text-base font-medium px-3 py-2 flex items-center gap-1", isScrolled ? "text-foreground" : "text-white")}>
                                     {link.label}
                                     <ChevronDown className="relative top-[1px] ml-1 h-4 w-4 transition duration-200 group-data-[state=open]:rotate-180" />
                                 </Button>
@@ -88,7 +89,7 @@ const DesktopNav = () => {
                             </DropdownMenuContent>
                         </DropdownMenu>
                     ) : (
-                        <NavLink href={link.href!}>{link.label}</NavLink>
+                        <NavLink href={link.href!} isScrolled={isScrolled}>{link.label}</NavLink>
                     )}
                 </div>
             ))}
@@ -96,7 +97,7 @@ const DesktopNav = () => {
     );
 };
 
-const MobileNav = () => {
+const MobileNav = ({ isScrolled }: { isScrolled: boolean }) => {
     const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
     const pathname = usePathname();
 
@@ -106,7 +107,7 @@ const MobileNav = () => {
         <div className="md:hidden">
             <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
                 <SheetTrigger asChild>
-                    <Button variant="ghost" size="icon" className="hover:text-accent text-foreground">
+                    <Button variant="ghost" size="icon" className={cn("hover:text-accent", isScrolled ? "text-foreground" : "text-white")}>
                         <Menu className="h-6 w-6" />
                         <span className="sr-only">Open menu</span>
                     </Button>
@@ -195,7 +196,7 @@ export default function HeaderClient() {
         isScrolled && "scrolled-header"
     )}>
         <div className={cn("container mx-auto px-4 sm:px-6 lg:px-8 transition-all duration-300 ease-in-out", isScrolled ? 'py-2' : 'py-4')}>
-            <div className="relative flex items-center justify-between bg-white backdrop-blur-md shadow-lg rounded-full px-4 py-2">
+            <div className={cn("relative flex items-center justify-between shadow-lg rounded-full px-4 py-2 transition-colors duration-300", isScrolled ? 'bg-white' : 'bg-black/20 backdrop-blur-md')}>
                 <div className="flex-shrink-0">
                     <Link href="/">
                         <Logo className="h-12 w-auto transition-all duration-300" priority />
@@ -203,22 +204,22 @@ export default function HeaderClient() {
                 </div>
 
                 <div className="flex items-center">
-                    <DesktopNav />
+                    <DesktopNav isScrolled={isScrolled} />
                 </div>
                 
                 <div className="hidden md:flex items-center">
-                    <div className="h-6 w-px bg-black/20 mx-2" />
-                    <a href={`mailto:${contactInfo.email}`} className="text-foreground hover:text-accent transition-colors p-2">
+                    <div className={cn("h-6 w-px mx-2 transition-colors", isScrolled ? "bg-black/20" : "bg-white/20")} />
+                    <a href={`mailto:${contactInfo.email}`} className={cn("hover:text-accent transition-colors p-2", isScrolled ? "text-foreground" : "text-white")}>
                         <Mail className="h-5 w-5" />
                         <span className="sr-only">Email</span>
                     </a>
-                    <a href={`tel:${contactInfo.phone.replace(/\s/g, '')}`} className="text-foreground hover:text-accent transition-colors p-2">
+                    <a href={`tel:${contactInfo.phone.replace(/\s/g, '')}`} className={cn("hover:text-accent transition-colors p-2", isScrolled ? "text-foreground" : "text-white")}>
                         <Phone className="h-5 w-5" />
                          <span className="sr-only">Phone</span>
                     </a>
                 </div>
 
-                <MobileNav />
+                <MobileNav isScrolled={isScrolled} />
             </div>
         </div>
     </header>
