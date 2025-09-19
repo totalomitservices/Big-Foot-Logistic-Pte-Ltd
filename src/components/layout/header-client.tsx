@@ -206,21 +206,23 @@ export default function HeaderClient() {
                     </Link>
                 </div>
 
-                <DesktopNav />
-                
-                <div className="hidden md:flex items-center">
-                    <div className="h-6 w-px mx-2 bg-black/20" />
-                    <a href={`mailto:${contactInfo.email}`} className="hover:text-accent transition-colors p-2 text-black">
-                        <Mail className="h-5 w-5" />
-                        <span className="sr-only">Email</span>
-                    </a>
-                    <a href={`tel:${contactInfo.phone.replace(/\s/g, '')}`} className="hover:text-accent transition-colors p-2 text-black">
-                        <Phone className="h-5 w-5" />
-                         <span className="sr-only">Phone</span>
-                    </a>
-                </div>
+                <div className="flex-1 flex justify-end items-center">
+                    <DesktopNav />
+                    
+                    <div className="hidden md:flex items-center">
+                        <div className="h-6 w-px mx-2 bg-black/20" />
+                        <a href={`mailto:${contactInfo.email}`} className="hover:text-accent transition-colors p-2 text-black">
+                            <Mail className="h-5 w-5" />
+                            <span className="sr-only">Email</span>
+                        </a>
+                        <a href={`tel:${contactInfo.phone.replace(/\s/g, '')}`} className="hover:text-accent transition-colors p-2 text-black">
+                            <Phone className="h-5 w-5" />
+                             <span className="sr-only">Phone</span>
+                        </a>
+                    </div>
 
-                <MobileNav />
+                    <MobileNav />
+                </div>
             </div>
         </div>
     </header>
