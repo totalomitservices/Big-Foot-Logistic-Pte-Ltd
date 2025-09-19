@@ -16,7 +16,7 @@ export default function WarehousingPage() {
       {/* Hero Section */}
       <section className="relative w-full h-[40vh] md:h-[50vh]">
         <Image
-          src="https://raw.githubusercontent.com/Ram-0609/Bigfoot-Logistics-Images/main/Warehousing-Important-1024x614.jpg"
+          src="https://raw.githubusercontent.com/Ram-0609/Bigfoot-Logistics-Images/refs/heads/main/Warehousing%20.jpeg"
           alt="Large modern warehouse"
           fill
           priority
