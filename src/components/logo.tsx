@@ -8,7 +8,7 @@ type LogoProps = {
 
 export function Logo({ className, ...props }: LogoProps) {
   return (
-    <div className={cn('relative w-32', className)}>
+    <div className={cn('relative w-32 h-12', className)}>
       <Image
         src="https://github.com/Ram-0609/Bigfoot-Logistics-Images/blob/main/bfl_logo.png?raw=true"
         alt="Bigfoot Logistics Logo"
