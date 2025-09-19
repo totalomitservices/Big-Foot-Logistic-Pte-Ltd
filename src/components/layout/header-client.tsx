@@ -51,7 +51,7 @@ const contactInfo = {
   phone: '+65 6324 4722',
 };
 
-const NavLink = ({ href, children, className }: { href: string; children: React.ReactNode, className?: string }) => {
+function NavLink({ href, children, className }: { href: string; children: React.ReactNode, className?: string }) {
     const pathname = usePathname();
     const isActive = pathname === href;
     
@@ -66,7 +66,7 @@ const NavLink = ({ href, children, className }: { href: string; children: React.
     );
 };
 
-const DesktopNav = () => {
+function DesktopNav() {
     return (
         <nav className="hidden md:flex items-center gap-1">
             {navLinks.map((link) => (
@@ -74,7 +74,7 @@ const DesktopNav = () => {
                     {link.subLinks ? (
                         <DropdownMenu>
                             <DropdownMenuTrigger asChild>
-                                <Button variant="ghost" className={cn("hover:bg-black/10 focus:bg-transparent hover:text-accent text-base font-medium px-3 py-2 flex items-center gap-1 text-black")}>
+                                <Button variant="ghost" className="hover:bg-black/10 focus:bg-transparent hover:text-accent text-base font-medium px-3 py-2 flex items-center gap-1 text-black">
                                     {link.label}
                                     <ChevronDown className="relative top-[1px] ml-1 h-4 w-4 transition duration-200 group-data-[state=open]:rotate-180" />
                                 </Button>
@@ -96,7 +96,7 @@ const DesktopNav = () => {
     );
 };
 
-const MobileNav = () => {
+function MobileNav() {
     const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
     const pathname = usePathname();
 
@@ -106,7 +106,7 @@ const MobileNav = () => {
         <div className="md:hidden">
             <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
                 <SheetTrigger asChild>
-                    <Button variant="ghost" size="icon" className={cn("hover:text-accent text-black")}>
+                    <Button variant="ghost" size="icon" className="hover:text-accent text-black">
                         <Menu className="h-6 w-6" />
                         <span className="sr-only">Open menu</span>
                     </Button>
