@@ -1,12 +1,17 @@
 
 "use client";
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Mail, Phone, Menu, ChevronDown } from 'lucide-react';
 import Link from 'next/link';
 import { Logo } from '@/components/logo';
 import { Button } from '../ui/button';
-import { Sheet, SheetContent, SheetTrigger } from '../ui/sheet';
+import {
+  Sheet,
+  SheetContent,
+  SheetTrigger,
+  SheetClose
+} from '../ui/sheet';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -51,12 +56,12 @@ const contactInfo = {
   phone: '+65 6324 4722',
 };
 
-function NavLink({ href, children, className }: { href: string; children: React.ReactNode, className?: string }) {
+function NavLink({ href, children, className, onClick }: { href: string; children: React.ReactNode, className?: string, onClick?: () => void }) {
     const pathname = usePathname();
     const isActive = pathname === href;
     
     return (
-         <Link href={href} className={cn(
+         <Link href={href} onClick={onClick} className={cn(
             "font-medium text-base hover:text-accent focus-visible:ring-0 focus-visible:ring-offset-0 px-3 py-2 rounded-md transition-colors text-black",
             isActive && "bg-black/10",
             className
@@ -74,7 +79,7 @@ function DesktopNav() {
                     {link.subLinks ? (
                         <DropdownMenu>
                             <DropdownMenuTrigger asChild>
-                                <Button variant="ghost" className="hover:bg-black/10 focus:bg-transparent hover:text-accent text-base font-medium px-3 py-2 flex items-center gap-1 text-black">
+                                <Button variant="ghost" className="hover:bg-black/10 focus:bg-black/10 hover:text-accent text-base font-medium px-3 py-2 flex items-center gap-1 text-black data-[state=open]:bg-black/10">
                                     {link.label}
                                     <ChevronDown className="relative top-[1px] ml-1 h-4 w-4 transition duration-200 group-data-[state=open]:rotate-180" />
                                 </Button>
@@ -97,14 +102,11 @@ function DesktopNav() {
 };
 
 function MobileNav() {
-    const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
     const pathname = usePathname();
-
-    const closeMobileMenu = () => setMobileMenuOpen(false);
 
     return (
         <div className="md:hidden">
-            <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
+            <Sheet>
                 <SheetTrigger asChild>
                     <Button variant="ghost" size="icon" className="hover:text-accent text-black">
                         <Menu className="h-6 w-6" />
@@ -114,9 +116,11 @@ function MobileNav() {
                 <SheetContent side="left" className="w-[300px] sm:w-[400px] bg-primary text-primary-foreground p-0">
                     <div className="flex flex-col h-full">
                          <div className="p-6">
-                            <Link href="/" onClick={closeMobileMenu} className="mb-8">
-                                <Logo className="text-white h-16 w-auto" />
-                            </Link>
+                            <SheetClose asChild>
+                                <Link href="/" className="mb-8">
+                                    <Logo className="text-white h-16 w-auto" />
+                                </Link>
+                            </SheetClose>
                         </div>
                         <nav className="flex flex-col space-y-2 px-6">
                             {navLinks.map((link) => (
@@ -130,26 +134,27 @@ function MobileNav() {
                                             <CollapsibleContent>
                                                 <div className="flex flex-col space-y-2 pl-4 py-2 border-l border-accent/50">
                                                     {link.subLinks.map((subLink) => (
-                                                        <Link
-                                                            key={subLink.href}
-                                                            href={subLink.href}
-                                                            onClick={closeMobileMenu}
-                                                            className="text-base hover:text-accent transition-colors"
-                                                        >
-                                                            {subLink.label}
-                                                        </Link>
+                                                        <SheetClose asChild key={subLink.href}>
+                                                            <Link
+                                                                href={subLink.href}
+                                                                className="text-base hover:text-accent transition-colors"
+                                                            >
+                                                                {subLink.label}
+                                                            </Link>
+                                                        </SheetClose>
                                                     ))}
                                                 </div>
                                             </CollapsibleContent>
                                         </Collapsible>
                                     ) : (
-                                        <Link
-                                            href={link.href!}
-                                            onClick={closeMobileMenu}
-                                            className={cn("font-bold text-lg hover:text-accent transition-colors block py-2", pathname === link.href && "text-accent")}
-                                        >
-                                            {link.label}
-                                        </Link>
+                                        <SheetClose asChild>
+                                            <Link
+                                                href={link.href!}
+                                                className={cn("font-bold text-lg hover:text-accent transition-colors block py-2", pathname === link.href && "text-accent")}
+                                            >
+                                                {link.label}
+                                            </Link>
+                                        </SheetClose>
                                     )}
                                 </div>
                             ))}
@@ -173,19 +178,29 @@ function MobileNav() {
 
 
 export default function HeaderClient() {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   return (
-    <header className="bg-transparent absolute top-0 left-0 w-full z-50">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-4">
-            <div className="relative flex items-center justify-between bg-white/80 backdrop-blur-md shadow-lg rounded-full px-4 py-2">
+    <header className={cn("fixed top-0 left-0 w-full z-50 transition-all duration-300", isScrolled ? "py-2" : "py-4")}>
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div className={cn("relative flex items-center justify-between backdrop-blur-md shadow-lg rounded-full px-4 py-2 transition-all duration-300", isScrolled ? "bg-white/90" : "bg-white/80")}>
                 <div className="flex-shrink-0">
                     <Link href="/">
-                        <Logo className="h-12 w-auto" priority />
+                        <Logo className="h-12 w-auto transition-all duration-300" priority />
                     </Link>
                 </div>
 
-                <div className="flex items-center">
-                    <DesktopNav />
-                </div>
+                <DesktopNav />
                 
                 <div className="hidden md:flex items-center">
                     <div className="h-6 w-px mx-2 bg-black/20" />
