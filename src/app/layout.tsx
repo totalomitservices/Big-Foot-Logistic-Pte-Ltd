@@ -3,7 +3,6 @@ import type { Metadata } from 'next';
 import './globals.css';
 import { federo, openSans } from '@/app/fonts';
 import { cn } from '@/lib/utils';
-import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
 import { Toaster } from '@/components/ui/toaster';
 import WhatsappButton from '@/components/whatsapp-button';
@@ -42,7 +41,6 @@ export default function RootLayout({
           openSans.variable
       )}>
         <div className="relative">
-          <Header />
           <main className="flex-grow">{children}</main>
           <Footer />
           <Toaster />
