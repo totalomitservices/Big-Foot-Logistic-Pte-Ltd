@@ -184,7 +184,7 @@ export default function HeaderClient() {
 
   useEffect(() => {
     setHasMounted(true);
-
+    
     const controlNavbar = () => {
       if (typeof window !== 'undefined') {
         if (window.scrollY > lastScrollY && window.scrollY > 100) { // if scroll down & past 100px
@@ -205,9 +205,38 @@ export default function HeaderClient() {
   }, [lastScrollY]);
 
   if (!hasMounted) {
-    return null; // or a placeholder/skeleton header
-  }
+    // Render a static header on the server and during initial client render
+    // to avoid hydration mismatch.
+    return (
+        <header
+          className="fixed top-4 left-0 w-full z-50 transition-transform duration-300 ease-in-out"
+        >
+            <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="relative flex items-center justify-between backdrop-blur-md shadow-lg rounded-full bg-white/80 transition-all duration-300 py-1 px-4">
+                    <div className="flex items-center flex-shrink-0">
+                        <Link href="/">
+                            <Logo/>
+                        </Link>
+                    </div>
+                    
+                    <DesktopNav />
+                    
+                    <div className="hidden md:flex items-center gap-2">
+                        <div className="h-6 w-px mx-2 bg-black/20" />
+                        <a href={`mailto:${contactInfo.email}`} className="icon-btn icon-btn-email" aria-label="Email Us">
+                             <Mail />
+                        </a>
+                        <a href={`tel:${contactInfo.phone.replace(/\s/g, '')}`} className="icon-btn icon-btn-phone" aria-label="Call Us">
+                             <Phone />
+                        </a>
+                    </div>
 
+                    <MobileNav />
+                </div>
+            </div>
+        </header>
+    );
+  }
 
   return (
     <header
