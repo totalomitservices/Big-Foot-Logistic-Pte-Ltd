@@ -183,6 +183,10 @@ export default function HeaderClient() {
 
   useEffect(() => {
     setHasMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (!hasMounted) return;
 
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
@@ -194,7 +198,7 @@ export default function HeaderClient() {
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, []);
+  }, [hasMounted]);
   
   const headerProps: { 'data-scrolled'?: boolean } = {};
   if (hasMounted) {
