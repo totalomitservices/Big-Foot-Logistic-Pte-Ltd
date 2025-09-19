@@ -179,21 +179,27 @@ function MobileNav() {
 
 export default function HeaderClient() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [hasMounted, setHasMounted] = useState(false);
 
   useEffect(() => {
+    setHasMounted(true);
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
     };
     window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Check scroll position on mount
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
 
+  const headerClasses = hasMounted && isScrolled ? "py-2" : "py-4";
+  const innerDivClasses = hasMounted && isScrolled ? "bg-white/90" : "bg-white/80";
+
   return (
-    <header className={cn("fixed top-0 left-0 w-full z-50 transition-all duration-300", isScrolled ? "py-2" : "py-4")}>
+    <header className={cn("fixed top-0 left-0 w-full z-50 transition-all duration-300", headerClasses)}>
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className={cn("relative flex items-center justify-between backdrop-blur-md shadow-lg rounded-full px-4 py-2 transition-all duration-300", isScrolled ? "bg-white/90" : "bg-white/80")}>
+            <div className={cn("relative flex items-center justify-between backdrop-blur-md shadow-lg rounded-full px-4 py-2 transition-all duration-300", innerDivClasses)}>
                 <div className="flex-shrink-0">
                     <Link href="/">
                         <Logo className="h-[50px] w-auto transition-all duration-300" priority />
