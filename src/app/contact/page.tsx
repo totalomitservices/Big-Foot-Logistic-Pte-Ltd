@@ -146,16 +146,16 @@ export default function ContactPage() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {officeLocations.map(office => (
-              <Card key={office.name} className="flex flex-col text-center">
+              <Card key={office.name} className="flex flex-col text-center bg-primary text-primary-foreground">
                 <CardHeader>
                   <CardTitle className="flex items-center justify-center gap-2 text-xl text-accent">
                     <Building />{office.name}
                   </CardTitle>
                 </CardHeader>
-                <CardContent className="space-y-3 text-muted-foreground flex-grow">
+                <CardContent className="space-y-3 text-primary-foreground/80 flex-grow">
                   <p>{office.address}</p>
                   <p className="flex items-center justify-center gap-2"><Phone className="h-4 w-4" />{office.phone}</p>
-                  <a href={`mailto:${office.email}`} className="flex items-center justify-center gap-2 hover:text-primary transition-colors"><Mail className="h-4 w-4" />{office.email}</a>
+                  <a href={`mailto:${office.email}`} className="flex items-center justify-center gap-2 hover:text-accent transition-colors"><Mail className="h-4 w-4" />{office.email}</a>
                 </CardContent>
               </Card>
             ))}
