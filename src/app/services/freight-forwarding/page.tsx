@@ -17,7 +17,7 @@ export default function FreightForwardingPage() {
       {/* Hero Section */}
       <section className="relative w-full h-[40vh] md:h-[50vh]">
         <Image
-          src="https://raw.githubusercontent.com/Ram-0609/Bigfoot-Logistics-Images/main/AIR-FREIGHT.jpg"
+          src="https://raw.githubusercontent.com/Ram-0609/Bigfoot-Logistics-Images/refs/heads/main/freight%20forwarding%20.jpeg"
           alt="Freight forwarding services"
           fill
           priority
