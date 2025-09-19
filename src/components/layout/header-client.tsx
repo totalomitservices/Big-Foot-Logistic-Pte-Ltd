@@ -179,8 +179,11 @@ export default function HeaderClient() {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
     };
+    
+    // Set initial state after mount
+    handleScroll();
+
     window.addEventListener('scroll', handleScroll);
-    handleScroll(); 
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
