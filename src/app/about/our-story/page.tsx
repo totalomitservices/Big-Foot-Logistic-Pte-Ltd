@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card, CardHeader, CardTitle } from '@/components/ui/card';
-import { ArrowRight, Users, ShieldCheck, Truck, Rocket, Award } from 'lucide-react';
+import { ArrowRight, Users, ShieldCheck, Truck, Rocket, Award, CalendarDays } from 'lucide-react';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -12,9 +12,9 @@ export const metadata: Metadata = {
 
 const coreValues = [
     {
-        icon: Users,
-        title: "Customer-Centric",
-        description: "We build lasting relationships based on trust and mutual success, putting our clients at the heart of everything we do.",
+        icon: CalendarDays,
+        title: "30+ Years of Experience",
+        description: "With over three decades in the logistics industry, we have the expertise to handle all your shipping needs.",
     },
     {
         icon: ShieldCheck,
