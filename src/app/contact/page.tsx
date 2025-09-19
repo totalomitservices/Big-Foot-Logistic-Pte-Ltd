@@ -72,7 +72,7 @@ export default function ContactPage() {
               Get In Touch
             </h2>
             <p className="mt-4 text-lg md:text-xl font-light max-w-2xl mx-auto text-muted-foreground">
-              We’re here to help you with reliable logistics solutions. For enquiries, reach out to us at <a href="mailto:enquiries@bigfoot.com.sg" className="underline hover:text-accent transition-colors">enquiries@bigfoot.com.sg</a>.
+              We’re here to help you with reliable logistics solutions. For enquiries, reach out to us at <a href="mailto:enquiries@bigfoot.com.sg" className="font-bold text-accent hover:underline transition-colors">enquiries@bigfoot.com.sg</a>.
             </p>
           </div>
           <div className="bg-secondary shadow-lg p-8 lg:p-12">
