@@ -60,13 +60,11 @@ export default function VisionMissionPage() {
                   const Icon = item.icon;
                   return (
                     <div key={item.title} className="relative mt-8">
-                      <div className="absolute -top-8 left-8 transform -translate-x-1/2">
-                          
-                              <Icon className="w-8 h-8 text-accent" />
-                          
+                      <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-accent text-accent-foreground rounded-full p-4 shadow-lg">
+                          <Icon className="w-12 h-12" />
                       </div>
                       <div className="bg-card text-card-foreground rounded-lg shadow-lg h-full">
-                          <div className="p-8 pt-16">
+                          <div className="p-8 pt-20 text-center">
                               <h3 className="text-2xl font-headline text-primary font-bold mb-4">{item.title}</h3>
                               <p className="text-muted-foreground leading-relaxed">{item.description}</p>
                           </div>
