@@ -1,7 +1,7 @@
 
 "use client";
 
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Mail, Phone, Menu, ChevronDown } from 'lucide-react';
 import Link from 'next/link';
 import { Logo } from '@/components/logo';
@@ -178,39 +178,10 @@ function MobileNav() {
 
 
 export default function HeaderClient() {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isHidden, setIsHidden] = useState(false);
-  const [lastScrollY, setLastScrollY] = useState(0);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      
-      if (currentScrollY > lastScrollY && currentScrollY > 100) {
-        // Scrolling down
-        setIsHidden(true);
-      } else {
-        // Scrolling up
-        setIsHidden(false);
-      }
-      
-      setIsScrolled(currentScrollY > 50);
-      setLastScrollY(currentScrollY);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, [lastScrollY]);
 
   return (
     <header
-      data-scrolled={isScrolled}
-      className={cn(
-        "fixed top-4 left-0 w-full z-50 transition-all duration-300",
-        isHidden ? "-translate-y-[150%]" : "translate-y-0"
-      )}
+      className="fixed top-4 left-0 w-full z-50 transition-all duration-300"
     >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="relative flex items-center justify-between backdrop-blur-md shadow-lg rounded-full bg-white/80 transition-all duration-300 py-1 px-4">
