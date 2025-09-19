@@ -1,7 +1,7 @@
 
 "use client";
 
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Mail, Phone, Menu, ChevronDown } from 'lucide-react';
 import Link from 'next/link';
 import { Logo } from '@/components/logo';
@@ -162,26 +162,10 @@ const MobileNav = () => {
 
 
 export default function Header() {
-  const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
-    };
-    window.addEventListener('scroll', handleScroll);
-    handleScroll();
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
   return (
-    <header className={cn(
-      "fixed top-0 left-0 w-full z-50 transition-all duration-300 ease-in-out",
-    )}>
+    <header className="fixed top-0 left-0 w-full z-50 group transition-all duration-300 ease-in-out header-scroll">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className={cn(
-                "relative flex items-center justify-between transition-all duration-300 ease-in-out",
-                scrolled ? "h-20" : "h-24"
-            )}>
+            <div className="relative flex items-center justify-between transition-all duration-300 ease-in-out h-24 group-[.scrolled]:h-20">
                 <div className="flex-shrink-0">
                     <Link href="/">
                         <Logo className="text-primary-foreground h-20 w-auto transition-all duration-300" priority />
@@ -191,7 +175,7 @@ export default function Header() {
                 <div className={cn(
                     "hidden md:flex items-center justify-center space-x-2 transition-all duration-300 ease-in-out absolute left-1/2 -translate-x-1/2",
                     "bg-foreground/50 backdrop-blur-md shadow-lg rounded-full",
-                     scrolled ? "px-2 py-1" : "px-3 py-2"
+                     "px-3 py-2 group-[.scrolled]:px-2 group-[.scrolled]:py-1"
                     
                     )}>
                     <DesktopNav />
@@ -212,3 +196,5 @@ export default function Header() {
     </header>
   );
 }
+
+    

@@ -168,6 +168,18 @@
   .header-separator {
     @apply h-6 w-px bg-white/20;
   }
+  
+  .header-scroll {
+    animation: scroll-header linear both;
+    animation-timeline: scroll(root);
+    animation-range: 0 100px;
+  }
+
+  @keyframes scroll-header {
+    to {
+      @apply bg-primary/80 backdrop-blur-sm shadow-lg;
+    }
+  }
 }
 
 /* Leaflet and Map Styles */
@@ -248,3 +260,5 @@
   color: hsl(var(--accent-foreground)) !important;
   transform: scale(1.1);
 }
+
+    
