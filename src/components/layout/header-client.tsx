@@ -193,16 +193,16 @@ export default function HeaderClient() {
     };
   }, []);
 
-  const headerClasses = hasMounted && isScrolled ? "py-2" : "py-4";
+  const headerClasses = hasMounted && isScrolled ? "py-1" : "py-2";
   const innerDivClasses = hasMounted && isScrolled ? "bg-white/90" : "bg-white/80";
 
   return (
     <header className={cn("fixed top-0 left-0 w-full z-50 transition-all duration-300", headerClasses)}>
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className={cn("relative flex items-center justify-between backdrop-blur-md shadow-lg rounded-full px-4 py-2 transition-all duration-300", innerDivClasses)}>
-                <div className="flex-shrink-0">
+            <div className={cn("relative flex items-center justify-between backdrop-blur-md shadow-lg rounded-full px-2 py-2 transition-all duration-300", innerDivClasses)}>
+                <div className="flex items-center flex-shrink-0">
                     <Link href="/">
-                        <Logo />
+                        <Logo/>
                     </Link>
                 </div>
 
@@ -226,6 +226,3 @@ export default function HeaderClient() {
     </header>
   );
 }
-
-    
-    
