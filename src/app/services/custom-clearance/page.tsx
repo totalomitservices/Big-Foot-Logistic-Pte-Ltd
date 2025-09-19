@@ -33,7 +33,7 @@ export default function CustomClearancePage() {
             Streamlining your import and export processes.
           </p>
           <div className="mt-8">
-            <Button asChild size="lg" variant="accent">
+            <Button asChild size="lg" variant="outline" className="btn-animated-border">
               <Link href="/contact">Get a Quote</Link>
             </Button>
           </div>
