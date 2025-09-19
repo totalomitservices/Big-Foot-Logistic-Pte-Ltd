@@ -13,7 +13,7 @@ export default function FooterContent() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 items-start">
           {/* Company Profile */}
-          <div className="md:col-span-4 flex flex-col items-center md:items-start text-center md:text-left space-y-4">
+          <div className="md:col-span-4 flex flex-col items-center text-center md:text-left md:items-start space-y-4">
             <Link href="/">
               <Logo className="text-primary-foreground" />
             </Link>
