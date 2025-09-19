@@ -55,7 +55,7 @@ export default function ContactPage() {
           className="object-cover"
           data-ai-hint="customer service"
         />
-        <div className="relative z-10 flex h-full flex-col items-center justify-center text-center text-white px-4">
+        <div className="relative z-10 flex h-full flex-col items-start justify-center text-left text-white px-4 md:px-12 lg:px-24">
           <h1 className="font-headline text-4xl md:text-5xl font-bold">
             Contact Us
           </h1>
