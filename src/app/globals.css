@@ -181,8 +181,8 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 40px;
-    height: 40px;
+    width: 36px;
+    height: 36px;
     border-radius: 9999px;
     color: white;
     transition: all 0.3s ease-in-out;
@@ -196,8 +196,8 @@
     outline-offset: 2px;
   }
   .icon-btn > svg {
-    width: 20px;
-    height: 20px;
+    width: 18px;
+    height: 18px;
   }
 
   .icon-btn-phone {
