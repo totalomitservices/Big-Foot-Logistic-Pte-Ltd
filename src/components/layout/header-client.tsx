@@ -67,7 +67,8 @@ function NavLink({ href, children, className, onClick }: { href: string; childre
     
     return (
          <Link href={href} onClick={onClick} className={cn(
-            "font-medium text-base hover:text-accent focus-visible:ring-0 focus-visible:ring-offset-0 px-3 py-2 rounded-md transition-colors text-black active:bg-black/10",
+            "font-medium text-base hover:text-accent focus-visible:ring-0 focus-visible:ring-offset-0 px-3 py-2 rounded-md transition-colors text-black",
+            isActive && "bg-black/10",
             className
         )}>
             {children}
@@ -83,14 +84,14 @@ function DesktopNav() {
                     {link.subLinks ? (
                          <DropdownMenu>
                             <DropdownMenuTrigger asChild>
-                                <Button variant="ghost" className="hover:bg-transparent hover:text-accent focus:bg-black/10 text-base font-medium px-3 py-2 flex items-center gap-1 text-black focus-visible:ring-0 focus-visible:ring-offset-0">
+                                <Button variant="ghost" className="hover:bg-transparent hover:text-accent focus:bg-black/10 text-base font-medium px-3 py-2 flex items-center gap-1 text-black focus-visible:ring-0 focus-visible:ring-offset-0 data-[state=open]:bg-black/10">
                                     {link.label}
                                     <ChevronDown className="relative top-[1px] ml-1 h-4 w-4 transition duration-200 group-data-[state=open]:rotate-180" />
                                 </Button>
                             </DropdownMenuTrigger>
                             <DropdownMenuContent className="bg-white/90 backdrop-blur-sm text-foreground border-accent/20">
                                 {link.subLinks.map((subLink) => (
-                                    <DropdownMenuItem key={subLink.href} asChild className="focus:bg-accent focus:text-accent-foreground">
+                                    <DropdownMenuItem key={subLink.href} asChild className="focus:bg-accent/50 focus:text-accent-foreground">
                                         <Link href={subLink.href}>{subLink.label}</Link>
                                     </DropdownMenuItem>
                                 ))}
@@ -184,26 +185,41 @@ function MobileNav() {
 export default function HeaderClient() {
   const [lastScrollY, setLastScrollY] = useState(0);
   const [show, setShow] = useState(true);
+  const [hasMounted, setHasMounted] = useState(false);
 
   useEffect(() => {
+    setHasMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (!hasMounted) return;
+
     const controlNavbar = () => {
-      if (typeof window !== 'undefined') {
-        if (window.scrollY > lastScrollY && window.scrollY > 100) { // if scroll down & past 100px
-          setShow(false);
-        } else { // if scroll up
-          setShow(true);
-        }
-        setLastScrollY(window.scrollY);
+      if (window.scrollY > lastScrollY && window.scrollY > 100) { // if scroll down & past 100px
+        setShow(false);
+      } else { // if scroll up
+        setShow(true);
       }
+      setLastScrollY(window.scrollY);
     };
 
-    if (typeof window !== 'undefined') {
-      window.addEventListener('scroll', controlNavbar);
-      return () => {
-        window.removeEventListener('scroll', controlNavbar);
-      };
-    }
-  }, [lastScrollY]);
+    window.addEventListener('scroll', controlNavbar);
+    return () => {
+      window.removeEventListener('scroll', controlNavbar);
+    };
+  }, [lastScrollY, hasMounted]);
+
+  if (!hasMounted) {
+    // Render a simplified or empty header on the server to avoid hydration mismatch
+    return (
+        <header className="fixed top-4 left-0 w-full z-50 opacity-0">
+             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+                 <div className="relative flex items-center justify-between backdrop-blur-md shadow-lg rounded-full bg-white/80 transition-all duration-300 px-2 h-[68px]">
+                 </div>
+             </div>
+        </header>
+    );
+  }
 
   return (
     <header
