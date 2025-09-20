@@ -27,8 +27,7 @@ import { cn } from '@/lib/utils';
 import { usePathname } from 'next/navigation';
 
 const navLinks = [
-  { href: '/home', label: 'Home' },
-
+  { href: '/', label: 'Home' },
   { 
     label: 'About Us',
     subLinks: [
@@ -156,7 +155,10 @@ function MobileNav({ hasMounted }: { hasMounted: boolean }) {
                                         <SheetClose asChild>
                                             <Link
                                                 href={link.href!}
-                                                className={cn("font-bold text-lg hover:text-red-500 transition-colors block py-3 px-2 rounded-md", hasMounted && pathname === link.href && "text-red-500 bg-black/10")}
+                                                className={cn(
+                                                    "font-bold text-lg hover:text-red-500 transition-colors block py-3 px-2 rounded-md",
+                                                    hasMounted && pathname === link.href && "text-red-500 bg-black/10"
+                                                )}
                                             >
                                                 {link.label}
                                             </Link>
