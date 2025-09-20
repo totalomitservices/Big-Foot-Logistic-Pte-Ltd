@@ -4,7 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
-import { Phone, Mail, Clock, ArrowRight, Building } from 'lucide-react';
+import { Phone, Mail, Clock, ArrowRight, Building, Printer } from 'lucide-react';
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import ContactPageClient from '@/components/pages/contact/contact-page-client';
@@ -103,6 +103,13 @@ export default function ContactPage() {
                     <div>
                       <h4 className="font-semibold text-base">Phone</h4>
                       <a href="tel:+6563244722" className="text-muted-foreground hover:text-primary transition-colors text-base">+65 6324 4722</a>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-4">
+                    <Printer className="h-6 w-6 text-primary" />
+                    <div>
+                      <h4 className="font-semibold text-base">Fax</h4>
+                      <p className="text-muted-foreground text-base">+65 6324 4711</p>
                     </div>
                   </div>
                   <div className="flex items-center gap-4">
