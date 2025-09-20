@@ -13,7 +13,7 @@ const mapLocations = [
 
 const WORLD_VIEW = { center: [20, 0], zoom: 2 };
 
-export default function Globe() {
+export default function Map() {
   const mapRef = useRef<HTMLDivElement>(null);
   const mapInstance = useRef<any>(null);
 
@@ -22,7 +22,6 @@ export default function Globe() {
       return;
     }
 
-    // Prevent re-initialization
     if (mapInstance.current) {
       return;
     }
@@ -31,7 +30,6 @@ export default function Globe() {
     const initMap = async () => {
       const L = await import('leaflet');
       
-      // Check if the map container is already initialized by Leaflet
       if (mapRef.current?.['_leaflet_id']) {
         return;
       }
@@ -78,7 +76,6 @@ export default function Globe() {
     
     initMap();
 
-    // Cleanup function to run when the component unmounts
     return () => {
       if (mapInstance.current) {
         mapInstance.current.remove();
