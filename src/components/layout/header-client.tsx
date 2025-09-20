@@ -62,8 +62,8 @@ function NavLink({ href, children, className, onClick, hasMounted }: { href: str
     
     return (
          <Link href={href} onClick={onClick} className={cn(
-            "font-medium text-base focus-visible:ring-0 focus-visible:ring-offset-0 px-3 py-2 rounded-md transition-colors text-black hover:text-accent",
-            isActive && "text-accent",
+            "font-medium text-base focus-visible:ring-0 focus-visible:ring-offset-0 px-3 py-2 rounded-md transition-colors text-black hover:text-red-500",
+            isActive && "text-red-500",
             className
         )}>
             {children}
@@ -84,14 +84,14 @@ function DesktopNav({ hasMounted }: { hasMounted: boolean }) {
                     {link.subLinks ? (
                          <DropdownMenu>
                             <DropdownMenuTrigger asChild>
-                                <Button variant="ghost" className={cn("hover:bg-transparent focus:bg-transparent text-base font-medium px-3 py-2 flex items-center gap-1 text-black hover:text-accent focus-visible:ring-0 focus-visible:ring-offset-0 data-[state=open]:text-accent", (link.label === "About Us" && isAboutActive) && "text-accent", (link.label === "Services" && isServicesActive) && "text-accent")}>
+                                <Button variant="ghost" className={cn("hover:bg-transparent focus:bg-transparent text-base font-medium px-3 py-2 flex items-center gap-1 text-black hover:text-red-500 focus-visible:ring-0 focus-visible:ring-offset-0 data-[state=open]:text-red-500", (link.label === "About Us" && isAboutActive) && "text-red-500", (link.label === "Services" && isServicesActive) && "text-red-500")}>
                                     {link.label}
                                     <ChevronDown className="relative top-[1px] ml-1 h-4 w-4 transition duration-200 group-data-[state=open]:rotate-180" />
                                 </Button>
                             </DropdownMenuTrigger>
-                            <DropdownMenuContent className="bg-white/90 backdrop-blur-sm text-foreground border-accent/20">
+                            <DropdownMenuContent className="bg-white/90 backdrop-blur-sm text-foreground border-red-500/20">
                                 {link.subLinks.map((subLink) => (
-                                    <DropdownMenuItem key={subLink.href} asChild className="focus:bg-accent focus:text-accent-foreground">
+                                    <DropdownMenuItem key={subLink.href} asChild className="focus:bg-red-500 focus:text-accent-foreground">
                                         <Link href={subLink.href}>{subLink.label}</Link>
                                     </DropdownMenuItem>
                                 ))}
@@ -113,7 +113,7 @@ function MobileNav({ hasMounted }: { hasMounted: boolean }) {
         <div className="md:hidden">
             <Sheet>
                 <SheetTrigger asChild>
-                    <Button variant="ghost" size="icon" className="hover:text-accent text-black">
+                    <Button variant="ghost" size="icon" className="hover:text-red-500 text-black">
                         <Menu className="h-6 w-6" />
                         <span className="sr-only">Open menu</span>
                     </Button>
@@ -132,17 +132,17 @@ function MobileNav({ hasMounted }: { hasMounted: boolean }) {
                                 <div key={link.label}>
                                     {link.subLinks ? (
                                         <Collapsible>
-                                            <CollapsibleTrigger className="flex justify-between items-center w-full font-bold text-lg hover:text-accent transition-colors py-3 px-2 rounded-md">
+                                            <CollapsibleTrigger className="flex justify-between items-center w-full font-bold text-lg hover:text-red-500 transition-colors py-3 px-2 rounded-md">
                                                 <span>{link.label}</span>
                                                 <ChevronDown className="h-5 w-5 transition-transform duration-200 [&[data-state=open]]:-rotate-180" />
                                             </CollapsibleTrigger>
                                             <CollapsibleContent>
-                                                <div className="flex flex-col space-y-2 pl-6 py-2 border-l border-accent/50 ml-2">
+                                                <div className="flex flex-col space-y-2 pl-6 py-2 border-l border-red-500/50 ml-2">
                                                     {link.subLinks.map((subLink) => (
                                                         <SheetClose asChild key={subLink.href}>
                                                             <Link
                                                                 href={subLink.href}
-                                                                className="text-base hover:text-accent transition-colors py-1"
+                                                                className="text-base hover:text-red-500 transition-colors py-1"
                                                             >
                                                                 {subLink.label}
                                                             </Link>
@@ -155,7 +155,7 @@ function MobileNav({ hasMounted }: { hasMounted: boolean }) {
                                         <SheetClose asChild>
                                             <Link
                                                 href={link.href!}
-                                                className={cn("font-bold text-lg hover:text-accent transition-colors block py-3 px-2 rounded-md", hasMounted && pathname === link.href && "text-accent bg-black/10")}
+                                                className={cn("font-bold text-lg hover:text-red-500 transition-colors block py-3 px-2 rounded-md", hasMounted && pathname === link.href && "text-red-500 bg-black/10")}
                                             >
                                                 {link.label}
                                             </Link>
@@ -165,11 +165,11 @@ function MobileNav({ hasMounted }: { hasMounted: boolean }) {
                             ))}
                         </nav>
                         <div className="mt-auto space-y-4 p-6 border-t border-white/10">
-                            <a href={`mailto:${contactInfo.email}`} className="flex items-center gap-3 hover:text-accent transition-colors text-sm">
+                            <a href={`mailto:${contactInfo.email}`} className="flex items-center gap-3 hover:text-red-500 transition-colors text-sm">
                                 <Mail className="h-5 w-5" />
                                 <span>{contactInfo.email}</span>
                             </a>
-                            <a href={`tel:${contactInfo.phone.replace(/\s/g, '')}`} className="flex items-center gap-3 hover:text-accent transition-colors text-sm">
+                            <a href={`tel:${contactInfo.phone.replace(/\s/g, '')}`} className="flex items-center gap-3 hover:text-red-500 transition-colors text-sm">
                                 <Phone className="h-5 w-5" />
                                 <span>{contactInfo.phone}</span>
                             </a>
