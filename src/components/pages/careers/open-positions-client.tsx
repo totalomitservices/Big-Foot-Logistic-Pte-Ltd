@@ -79,7 +79,7 @@ function JobCard({ job }: { job: (typeof jobOpenings)[number] | typeof conemanJo
             <div>
                 <h4 className="font-semibold mb-2 text-foreground">Job Scopes:</h4>
                 <ul className="list-disc list-inside space-y-1 text-muted-foreground">
-                    {job.jobScopes.map((scope, i) => <li key_={i}>{scope}</li>)}
+                    {job.jobScopes.map((scope, i) => <li key={i}>{scope}</li>)}
                 </ul>
             </div>
         )}
