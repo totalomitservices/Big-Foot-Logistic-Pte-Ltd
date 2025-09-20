@@ -39,7 +39,7 @@ export default function FooterContent() {
                 </li>
                 <li className="flex items-center gap-3">
                   <Printer className="h-5 w-5 text-accent flex-shrink-0" />
-                  <span>+65 6324 4711 (Fax)</span>
+                  <span>+65 6324 4711</span>
                 </li>
               </ul>
             </div>
