@@ -21,20 +21,6 @@ export default function RootLayout({
   return (
     <html lang="en" className="!scroll-smooth">
       <head>
-          <link
-            rel="preload"
-            href="/_next/static/media/3e0eca94.p.woff2"
-            as="font"
-            type="font/woff2"
-            crossOrigin="anonymous"
-          />
-          <link
-            rel="preload"
-            href="/_next/static/media/2af60835.p.woff2"
-            as="font"
-            type="font/woff2"
-            crossOrigin="anonymous"
-          />
       </head>
       <body className={cn(
           'font-body antialiased bg-background text-foreground',
