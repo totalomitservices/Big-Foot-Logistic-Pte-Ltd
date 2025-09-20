@@ -12,7 +12,7 @@ import {
   SheetTrigger,
   SheetClose
 } from '../ui/sheet';
-import {
+import { 
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
@@ -27,7 +27,8 @@ import { cn } from '@/lib/utils';
 import { usePathname } from 'next/navigation';
 
 const navLinks = [
-  { href: '/', label: 'Home' },
+  { href: '/home', label: 'Home' },
+
   { 
     label: 'About Us',
     subLinks: [
