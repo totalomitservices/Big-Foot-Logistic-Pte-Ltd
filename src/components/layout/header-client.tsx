@@ -8,7 +8,6 @@ import { Logo } from '@/components/logo';
 import { Button } from '../ui/button';
 import {
   Sheet,
-  SheetTitle,
   SheetContent,
   SheetTrigger,
   SheetClose
@@ -18,10 +17,6 @@ import {
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-  DropdownMenuSub,
-  DropdownMenuSubTrigger,
-  DropdownMenuSubContent,
-  DropdownMenuPortal
 } from "@/components/ui/dropdown-menu";
 import {
   Collapsible,
@@ -64,6 +59,7 @@ const contactInfo = {
 function NavLink({ href, children, className, onClick }: { href: string; children: React.ReactNode, className?: string, onClick?: () => void }) {
     const pathname = usePathname();
     const [hasMounted, setHasMounted] = useState(false);
+
     useEffect(() => {
         setHasMounted(true);
     }, []);
