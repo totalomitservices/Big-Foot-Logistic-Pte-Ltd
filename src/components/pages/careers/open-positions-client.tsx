@@ -100,7 +100,7 @@ function JobCard({ job }: { job: (typeof jobOpenings)[number] | typeof conemanJo
 
 function ApplyCard() {
   return (
-    <Card className="sticky top-28 bg-gradient-to-br from-primary to-blue-900 text-primary-foreground border-accent shadow-2xl">
+    <Card className="bg-gradient-to-br from-primary to-blue-900 text-primary-foreground border-accent shadow-2xl">
       <CardHeader className="text-center">
         <CardTitle className="text-2xl font-bold text-white">How to Apply?</CardTitle>
       </CardHeader>
@@ -185,7 +185,9 @@ export default function OpenPositionsClient() {
                 {jobOpenings.map((job) => (
                     <JobCard key={job.title} job={job} />
                 ))}
-                <ApplyCard />
+                <div className="md:col-span-2">
+                    <ApplyCard />
+                </div>
             </div>
             <div className="lg:col-span-1">
                 <div className="sticky top-28 space-y-8">
