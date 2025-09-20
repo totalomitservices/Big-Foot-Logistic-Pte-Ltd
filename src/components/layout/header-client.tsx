@@ -58,13 +58,7 @@ const contactInfo = {
 
 function NavLink({ href, children, className, onClick }: { href: string; children: React.ReactNode, className?: string, onClick?: () => void }) {
     const pathname = usePathname();
-    const [hasMounted, setHasMounted] = useState(false);
-
-    useEffect(() => {
-        setHasMounted(true);
-    }, []);
-
-    const isActive = hasMounted && pathname === href;
+    const isActive = pathname === href;
     
     return (
          <Link href={href} onClick={onClick} className={cn(
@@ -79,13 +73,8 @@ function NavLink({ href, children, className, onClick }: { href: string; childre
 
 function DesktopNav() {
     const pathname = usePathname();
-    const [hasMounted, setHasMounted] = useState(false);
-    useEffect(() => {
-        setHasMounted(true);
-    }, []);
-
-    const isAboutActive = hasMounted && pathname.startsWith('/about');
-    const isServicesActive = hasMounted && pathname.startsWith('/services');
+    const isAboutActive = pathname.startsWith('/about');
+    const isServicesActive = pathname.startsWith('/services');
     
     return (
         <nav className="hidden md:flex items-center gap-1">
@@ -118,10 +107,6 @@ function DesktopNav() {
 
 function MobileNav() {
     const pathname = usePathname();
-    const [hasMounted, setHasMounted] = useState(false);
-    useEffect(() => {
-        setHasMounted(true);
-    }, []);
 
     return (
         <div className="md:hidden">
@@ -169,7 +154,7 @@ function MobileNav() {
                                         <SheetClose asChild>
                                             <Link
                                                 href={link.href!}
-                                                className={cn("font-bold text-lg hover:text-accent transition-colors block py-3 px-2 rounded-md", hasMounted && pathname === link.href && "text-accent bg-black/10")}
+                                                className={cn("font-bold text-lg hover:text-accent transition-colors block py-3 px-2 rounded-md", pathname === link.href && "text-accent bg-black/10")}
                                             >
                                                 {link.label}
                                             </Link>
@@ -199,10 +184,8 @@ function MobileNav() {
 export default function HeaderClient() {
   const [lastScrollY, setLastScrollY] = useState(0);
   const [show, setShow] = useState(true);
-  const [hasMounted, setHasMounted] = useState(false);
 
   useEffect(() => {
-    setHasMounted(true);
     const controlNavbar = () => {
       if (typeof window !== 'undefined') {
         if (window.scrollY > lastScrollY && window.scrollY > 100) { // if scroll down & past 100px
@@ -224,7 +207,7 @@ export default function HeaderClient() {
     <header
       className={cn(
         "fixed top-4 left-0 w-full z-50 transition-all duration-300 ease-in-out",
-        hasMounted ? (show ? "translate-y-0 opacity-100" : "-translate-y-[200%] opacity-0") : "opacity-0"
+        show ? "translate-y-0 opacity-100" : "-translate-y-[200%] opacity-0"
       )}
     >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -253,5 +236,3 @@ export default function HeaderClient() {
     </header>
   );
 }
-
-  
