@@ -15,7 +15,7 @@ export default function TrainingPage() {
       {/* Hero Section */}
       <section className="relative w-full h-[40vh] md:h-[50vh]">
         <Image
-          src="https://github.com/kaviyag601/watch-wise/blob/main/meeting-mature-office-showing-presenter.jpg?raw=true"
+          src="https://github.com/KAVI9715/sample-content/blob/main/meeting-mature-office-showing-presenter.jpg?raw=true"
           alt="Team in a training session"
           fill
           priority
