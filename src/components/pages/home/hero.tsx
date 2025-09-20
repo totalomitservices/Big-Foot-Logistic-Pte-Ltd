@@ -23,7 +23,7 @@ export default function Hero() {
       )}
 
       <div className="relative z-10 flex h-full flex-col items-center justify-center text-center text-white px-4">
-        <div className="flex flex-col items-center max-w-3xl">
+        <div className="flex flex-col items-center max-w-3xl bg-black/50 p-8 rounded-lg">
           <h1 className="font-headline text-4xl md:text-5xl font-bold uppercase tracking-tighter drop-shadow-lg">
             Moving Your World,
             <br />
