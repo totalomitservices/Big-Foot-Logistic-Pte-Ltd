@@ -72,8 +72,8 @@ function NavLink({ href, children, className, onClick }: { href: string; childre
     
     return (
          <Link href={href} onClick={onClick} className={cn(
-            "font-medium text-base hover:text-accent focus-visible:ring-0 focus-visible:ring-offset-0 px-3 py-2 rounded-md transition-colors text-black active:bg-black/10",
-            isActive && "bg-accent text-accent-foreground hover:text-accent-foreground",
+            "font-medium text-base focus-visible:ring-0 focus-visible:ring-offset-0 px-3 py-2 rounded-md transition-colors text-black active:bg-black/10",
+            isActive && "text-black",
             className
         )}>
             {children}
@@ -98,7 +98,7 @@ function DesktopNav() {
                     {link.subLinks ? (
                          <DropdownMenu>
                             <DropdownMenuTrigger asChild>
-                                <Button variant="ghost" className={cn("hover:bg-transparent hover:text-accent focus:bg-black/10 text-base font-medium px-3 py-2 flex items-center gap-1 text-black focus-visible:ring-0 focus-visible:ring-offset-0 data-[state=open]:bg-accent data-[state=open]:text-accent-foreground", (link.label === "About Us" && isAboutActive) && "bg-accent text-accent-foreground hover:text-accent-foreground", (link.label === "Services" && isServicesActive) && "bg-accent text-accent-foreground hover:text-accent-foreground")}>
+                                <Button variant="ghost" className={cn("hover:bg-transparent focus:bg-black/10 text-base font-medium px-3 py-2 flex items-center gap-1 text-black focus-visible:ring-0 focus-visible:ring-offset-0 data-[state=open]:text-black", (link.label === "About Us" && isAboutActive) && "text-black", (link.label === "Services" && isServicesActive) && "text-black")}>
                                     {link.label}
                                     <ChevronDown className="relative top-[1px] ml-1 h-4 w-4 transition duration-200 group-data-[state=open]:rotate-180" />
                                 </Button>
@@ -199,8 +199,10 @@ function MobileNav() {
 export default function HeaderClient() {
   const [lastScrollY, setLastScrollY] = useState(0);
   const [show, setShow] = useState(true);
+  const [hasMounted, setHasMounted] = useState(false);
 
   useEffect(() => {
+    setHasMounted(true);
     const controlNavbar = () => {
       if (typeof window !== 'undefined') {
         if (window.scrollY > lastScrollY && window.scrollY > 100) { // if scroll down & past 100px
@@ -217,6 +219,17 @@ export default function HeaderClient() {
       window.removeEventListener('scroll', controlNavbar);
     };
   }, [lastScrollY]);
+
+  if (!hasMounted) {
+    return (
+      <header className="fixed top-4 left-0 w-full z-50 opacity-0">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="relative flex items-center justify-between backdrop-blur-md shadow-lg rounded-full bg-white/80 transition-all duration-300 px-2 h-[68px]">
+              </div>
+          </div>
+        </header>
+    );
+  }
 
   return (
     <header
