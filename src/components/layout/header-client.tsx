@@ -181,8 +181,15 @@ function MobileNav() {
 export default function HeaderClient() {
   const [lastScrollY, setLastScrollY] = useState(0);
   const [show, setShow] = useState(true);
+  const [hasMounted, setHasMounted] = useState(false);
 
   useEffect(() => {
+    setHasMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (!hasMounted) return;
+    
     const controlNavbar = () => {
       if (typeof window !== 'undefined') {
         if (window.scrollY > lastScrollY && window.scrollY > 100) { // if scroll down & past 100px
@@ -200,7 +207,11 @@ export default function HeaderClient() {
         window.removeEventListener('scroll', controlNavbar);
       };
     }
-  }, [lastScrollY]);
+  }, [lastScrollY, hasMounted]);
+
+  if (!hasMounted) {
+    return null;
+  }
 
   return (
     <header
