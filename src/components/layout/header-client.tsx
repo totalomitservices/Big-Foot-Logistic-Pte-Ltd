@@ -189,10 +189,8 @@ function MobileNav() {
 export default function HeaderClient() {
   const [lastScrollY, setLastScrollY] = useState(0);
   const [show, setShow] = useState(true);
-  const [hasMounted, setHasMounted] = useState(false);
 
   useEffect(() => {
-    setHasMounted(true);
     const controlNavbar = () => {
       if (typeof window !== 'undefined') {
         if (window.scrollY > lastScrollY && window.scrollY > 100) { // if scroll down & past 100px
@@ -209,19 +207,6 @@ export default function HeaderClient() {
       window.removeEventListener('scroll', controlNavbar);
     };
   }, [lastScrollY]);
-
-  if (!hasMounted) {
-    return (
-      <header
-        className={"fixed top-4 left-0 w-full z-50 opacity-0"}
-      >
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="relative flex items-center justify-between backdrop-blur-md shadow-lg rounded-full bg-white/80 transition-all duration-300 px-2 h-[68px]">
-            </div>
-        </div>
-      </header>
-    );
-  }
 
   return (
     <header
