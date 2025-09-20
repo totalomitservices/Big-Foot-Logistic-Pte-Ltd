@@ -122,6 +122,10 @@ function DesktopNav() {
 
 function MobileNav() {
     const pathname = usePathname();
+    const [hasMounted, setHasMounted] = useState(false);
+    useEffect(() => {
+        setHasMounted(true);
+    }, []);
 
     return (
         <div className="md:hidden">
@@ -169,7 +173,7 @@ function MobileNav() {
                                         <SheetClose asChild>
                                             <Link
                                                 href={link.href!}
-                                                className={cn("font-bold text-lg hover:text-accent transition-colors block py-3 px-2 rounded-md", pathname === link.href && "text-accent bg-black/10")}
+                                                className={cn("font-bold text-lg hover:text-accent transition-colors block py-3 px-2 rounded-md", hasMounted && pathname === link.href && "text-accent bg-black/10")}
                                             >
                                                 {link.label}
                                             </Link>
