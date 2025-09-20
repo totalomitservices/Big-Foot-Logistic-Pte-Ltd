@@ -3,6 +3,7 @@ import { Facebook, Instagram, Linkedin, Mail, MapPin, Phone, Printer } from 'luc
 import Link from 'next/link';
 import { Logo } from '@/components/logo';
 import FooterMapClient from './footer-map-client';
+import WhatsappButton from '../whatsapp-button';
 
 
 export default function FooterContent() {
@@ -77,6 +78,7 @@ export default function FooterContent() {
           </p>
         </div>
       </div>
+      <WhatsappButton />
     </footer>
   );
 }

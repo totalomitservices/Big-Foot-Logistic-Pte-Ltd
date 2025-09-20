@@ -6,7 +6,6 @@ import { cn } from '@/lib/utils';
 import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
 import { Toaster } from '@/components/ui/toaster';
-import WhatsappButton from '@/components/whatsapp-button';
 
 export const metadata: Metadata = {
   title: 'Bigfoot Logistics',
@@ -30,7 +29,6 @@ export default function RootLayout({
           <main className="flex-grow">{children}</main>
           <Footer />
           <Toaster />
-          <WhatsappButton />
         </div>
       </body>
     </html>
