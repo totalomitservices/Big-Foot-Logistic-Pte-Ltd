@@ -84,14 +84,14 @@ function DesktopNav() {
                     {link.subLinks ? (
                          <DropdownMenu>
                             <DropdownMenuTrigger asChild>
-                                <Button variant="ghost" className="hover:bg-black/10 focus:bg-black/10 text-base font-medium px-3 py-2 flex items-center gap-1 text-black focus-visible:ring-0 focus-visible:ring-offset-0 data-[state=open]:bg-black/10">
+                                <Button variant="ghost" className="hover:bg-transparent hover:text-accent focus:bg-black/10 text-base font-medium px-3 py-2 flex items-center gap-1 text-black focus-visible:ring-0 focus-visible:ring-offset-0 data-[state=open]:bg-black/10">
                                     {link.label}
                                     <ChevronDown className="relative top-[1px] ml-1 h-4 w-4 transition duration-200 group-data-[state=open]:rotate-180" />
                                 </Button>
                             </DropdownMenuTrigger>
                             <DropdownMenuContent className="bg-white/90 backdrop-blur-sm text-foreground border-accent/20">
                                 {link.subLinks.map((subLink) => (
-                                    <DropdownMenuItem key={subLink.href} asChild className="focus:bg-accent/50 focus:text-accent-foreground">
+                                    <DropdownMenuItem key={subLink.href} asChild className="focus:bg-accent focus:text-accent-foreground">
                                         <Link href={subLink.href}>{subLink.label}</Link>
                                     </DropdownMenuItem>
                                 ))}
