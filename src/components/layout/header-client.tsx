@@ -82,16 +82,16 @@ function DesktopNav() {
             {navLinks.map((link) => (
                 <div key={link.label}>
                     {link.subLinks ? (
-                        <DropdownMenu>
+                         <DropdownMenu>
                             <DropdownMenuTrigger asChild>
-                                <Button variant="ghost" className="hover:bg-black/10 focus:bg-black/10 hover:text-accent text-base font-medium px-3 py-2 flex items-center gap-1 text-black focus-visible:ring-0 focus-visible:ring-offset-0">
+                                <Button variant="ghost" className="hover:bg-black/10 focus:bg-black/10 text-base font-medium px-3 py-2 flex items-center gap-1 text-black focus-visible:ring-0 focus-visible:ring-offset-0 data-[state=open]:bg-black/10">
                                     {link.label}
                                     <ChevronDown className="relative top-[1px] ml-1 h-4 w-4 transition duration-200 group-data-[state=open]:rotate-180" />
                                 </Button>
                             </DropdownMenuTrigger>
                             <DropdownMenuContent className="bg-white/90 backdrop-blur-sm text-foreground border-accent/20">
                                 {link.subLinks.map((subLink) => (
-                                    <DropdownMenuItem key={subLink.href} asChild className="focus:bg-accent focus:text-accent-foreground">
+                                    <DropdownMenuItem key={subLink.href} asChild className="focus:bg-accent/50 focus:text-accent-foreground">
                                         <Link href={subLink.href}>{subLink.label}</Link>
                                     </DropdownMenuItem>
                                 ))}
@@ -185,15 +185,8 @@ function MobileNav() {
 export default function HeaderClient() {
   const [lastScrollY, setLastScrollY] = useState(0);
   const [show, setShow] = useState(true);
-  const [hasMounted, setHasMounted] = useState(false);
 
   useEffect(() => {
-    setHasMounted(true);
-  }, []);
-
-  useEffect(() => {
-    if (!hasMounted) return;
-    
     const controlNavbar = () => {
       if (typeof window !== 'undefined') {
         if (window.scrollY > lastScrollY && window.scrollY > 100) { // if scroll down & past 100px
@@ -211,23 +204,7 @@ export default function HeaderClient() {
         window.removeEventListener('scroll', controlNavbar);
       };
     }
-  }, [lastScrollY, hasMounted]);
-
-  if (!hasMounted) {
-    return (
-        <header className="fixed top-4 left-0 w-full z-50 transition-transform duration-300 ease-in-out">
-            <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="relative flex items-center justify-between backdrop-blur-md shadow-lg rounded-full bg-white/80 transition-all duration-300 h-[68px] px-2">
-                     <div className="flex items-center flex-shrink-0">
-                        <Link href="/">
-                            <Logo/>
-                        </Link>
-                    </div>
-                </div>
-            </div>
-        </header>
-    );
-  }
+  }, [lastScrollY]);
 
   return (
     <header
@@ -237,7 +214,7 @@ export default function HeaderClient() {
       )}
     >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="relative flex items-center justify-between backdrop-blur-md shadow-lg rounded-full bg-white/80 transition-all duration-300 px-2">
+            <div className="relative flex items-center justify-between backdrop-blur-md shadow-lg rounded-full bg-white/80 transition-all duration-300 px-2 h-[68px]">
                 <div className="flex items-center flex-shrink-0">
                     <Link href="/">
                         <Logo/>
@@ -262,5 +239,3 @@ export default function HeaderClient() {
     </header>
   );
 }
-
-    
