@@ -20,8 +20,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="!scroll-smooth">
-      <head>
-      </head>
       <body className={cn(
           'font-body antialiased bg-background text-foreground',
           federo.variable,
