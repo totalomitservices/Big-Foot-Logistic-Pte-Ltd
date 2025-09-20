@@ -26,10 +26,10 @@ export default function WarehousingPage() {
         
         <div className="relative z-10 flex h-full flex-col items-start justify-center text-left text-white px-4 md:px-12 lg:px-24">
           <h1 className="font-headline text-4xl md:text-5xl font-semibold text-white drop-shadow-lg">
-            <span style={{ backgroundColor: '#154ccf', padding: '0.2rem 0.6rem' }}>Warehousing</span>
+            <span style={{ backgroundColor: 'hsl(var(--primary))', padding: '0.2rem 0.6rem' }}>Warehousing</span>
           </h1>
           <p className="mt-4 text-lg md:text-xl font-light text-white drop-shadow-lg max-w-2xl">
-            <span style={{ backgroundColor: '#154ccf', padding: '0.2rem 0.6rem' }}>Secure, scalable, and strategic storage solutions.</span>
+            <span style={{ backgroundColor: 'hsl(var(--primary))', padding: '0.2rem 0.6rem' }}>Secure, scalable, and strategic storage solutions.</span>
           </p>
           <div className="mt-8">
             <Button asChild size="lg" variant="accent" className="transition-transform duration-300 hover:scale-105">

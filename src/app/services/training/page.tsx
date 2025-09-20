@@ -25,10 +25,10 @@ export default function TrainingPage() {
         
         <div className="relative z-10 flex h-full flex-col items-start justify-center text-left text-white px-4 md:px-12 lg:px-24">
           <h1 className="font-headline text-4xl md:text-5xl font-bold text-white drop-shadow-lg">
-            Training
+            <span style={{ backgroundColor: 'hsl(var(--primary))', padding: '0.2rem 0.6rem' }}>Training</span>
           </h1>
           <p className="mt-4 text-lg md:text-xl font-light text-white drop-shadow-lg max-w-2xl">
-            Empowering our team with knowledge and skills.
+            <span style={{ backgroundColor: 'hsl(var(--primary))', padding: '0.2rem 0.6rem' }}>Empowering our team with knowledge and skills.</span>
           </p>
           <div className="mt-8">
             <Button asChild size="lg" variant="accent" className="transition-transform duration-300 hover:scale-105">
