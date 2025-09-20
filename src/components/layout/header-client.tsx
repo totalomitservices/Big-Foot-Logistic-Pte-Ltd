@@ -56,13 +56,8 @@ const contactInfo = {
   phone: '+65 6324 4722',
 };
 
-function NavLink({ href, children, className, onClick }: { href: string; children: React.ReactNode, className?: string, onClick?: () => void }) {
+function NavLink({ href, children, className, onClick, hasMounted }: { href: string; children: React.ReactNode, className?: string, onClick?: () => void, hasMounted: boolean }) {
     const pathname = usePathname();
-    const [hasMounted, setHasMounted] = useState(false);
-    useEffect(() => {
-        setHasMounted(true);
-    }, []);
-    
     const isActive = hasMounted && pathname === href;
     
     return (
@@ -76,12 +71,8 @@ function NavLink({ href, children, className, onClick }: { href: string; childre
     );
 };
 
-function DesktopNav() {
+function DesktopNav({ hasMounted }: { hasMounted: boolean }) {
     const pathname = usePathname();
-    const [hasMounted, setHasMounted] = useState(false);
-    useEffect(() => {
-        setHasMounted(true);
-    }, []);
 
     const isAboutActive = hasMounted && pathname.startsWith('/about');
     const isServicesActive = hasMounted && pathname.startsWith('/services');
@@ -107,7 +98,7 @@ function DesktopNav() {
                             </DropdownMenuContent>
                         </DropdownMenu>
                     ) : (
-                        <NavLink href={link.href!}>{link.label}</NavLink>
+                        <NavLink href={link.href!} hasMounted={hasMounted}>{link.label}</NavLink>
                     )}
                 </div>
             ))}
@@ -115,12 +106,8 @@ function DesktopNav() {
     );
 };
 
-function MobileNav() {
+function MobileNav({ hasMounted }: { hasMounted: boolean }) {
     const pathname = usePathname();
-    const [hasMounted, setHasMounted] = useState(false);
-    useEffect(() => {
-        setHasMounted(true);
-    }, []);
 
     return (
         <div className="md:hidden">
@@ -239,7 +226,7 @@ export default function HeaderClient() {
                     </Link>
                 </div>
                 
-                <DesktopNav />
+                <DesktopNav hasMounted={hasMounted} />
                 
                 <div className="hidden md:flex items-center gap-2">
                     <div className="h-6 w-px mx-2 bg-black/20" />
@@ -251,7 +238,7 @@ export default function HeaderClient() {
                     </a>
                 </div>
 
-                <MobileNav />
+                <MobileNav hasMounted={hasMounted} />
             </div>
         </div>
     </header>
