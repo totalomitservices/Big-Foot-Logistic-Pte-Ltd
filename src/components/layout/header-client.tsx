@@ -67,8 +67,7 @@ function NavLink({ href, children, className, onClick }: { href: string; childre
     
     return (
          <Link href={href} onClick={onClick} className={cn(
-            "font-medium text-base hover:text-accent focus-visible:ring-0 focus-visible:ring-offset-0 px-3 py-2 rounded-md transition-colors text-black",
-            isActive && "bg-black/10",
+            "font-medium text-base hover:text-accent focus-visible:ring-0 focus-visible:ring-offset-0 px-3 py-2 rounded-md transition-colors text-black active:bg-black/10",
             className
         )}>
             {children}
@@ -84,7 +83,7 @@ function DesktopNav() {
                     {link.subLinks ? (
                          <DropdownMenu>
                             <DropdownMenuTrigger asChild>
-                                <Button variant="ghost" className="hover:bg-transparent hover:text-accent focus:bg-black/10 text-base font-medium px-3 py-2 flex items-center gap-1 text-black focus-visible:ring-0 focus-visible:ring-offset-0 data-[state=open]:bg-black/10">
+                                <Button variant="ghost" className="hover:bg-transparent hover:text-accent focus:bg-black/10 text-base font-medium px-3 py-2 flex items-center gap-1 text-black focus-visible:ring-0 focus-visible:ring-offset-0">
                                     {link.label}
                                     <ChevronDown className="relative top-[1px] ml-1 h-4 w-4 transition duration-200 group-data-[state=open]:rotate-180" />
                                 </Button>
