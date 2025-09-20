@@ -180,7 +180,7 @@ export default function OpenPositionsClient() {
             Job Opportunities
           </h2>
         </div>
-        <div className="grid lg:grid-cols-3 gap-8">
+        <div className="grid lg:grid-cols-3 gap-8 items-start">
             <div className="lg:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
                 {jobOpenings.map((job) => (
                     <JobCard key={job.title} job={job} />
