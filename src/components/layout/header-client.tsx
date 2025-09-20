@@ -192,24 +192,22 @@ export default function HeaderClient() {
   }, []);
 
   useEffect(() => {
-    if (!hasMounted) return;
-
-    const controlNavbar = () => {
-      if (typeof window !== 'undefined') {
+    if (typeof window !== 'undefined') {
+      const controlNavbar = () => {
         if (window.scrollY > lastScrollY && window.scrollY > 100) { // if scroll down & past 100px
           setShow(false);
         } else { // if scroll up
           setShow(true);
         }
         setLastScrollY(window.scrollY);
-      }
-    };
+      };
 
-    window.addEventListener('scroll', controlNavbar);
-    return () => {
-      window.removeEventListener('scroll', controlNavbar);
-    };
-  }, [lastScrollY, hasMounted]);
+      window.addEventListener('scroll', controlNavbar);
+      return () => {
+        window.removeEventListener('scroll', controlNavbar);
+      };
+    }
+  }, [lastScrollY]);
 
   return (
     <header
