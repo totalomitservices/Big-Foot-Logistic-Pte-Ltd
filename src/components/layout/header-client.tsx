@@ -63,7 +63,12 @@ const contactInfo = {
 
 function NavLink({ href, children, className, onClick }: { href: string; children: React.ReactNode, className?: string, onClick?: () => void }) {
     const pathname = usePathname();
-    const isActive = pathname === href;
+    const [hasMounted, setHasMounted] = useState(false);
+    useEffect(() => {
+        setHasMounted(true);
+    }, []);
+
+    const isActive = hasMounted && pathname === href;
     
     return (
          <Link href={href} onClick={onClick} className={cn(
@@ -78,8 +83,13 @@ function NavLink({ href, children, className, onClick }: { href: string; childre
 
 function DesktopNav() {
     const pathname = usePathname();
-    const isAboutActive = pathname.startsWith('/about');
-    const isServicesActive = pathname.startsWith('/services');
+    const [hasMounted, setHasMounted] = useState(false);
+    useEffect(() => {
+        setHasMounted(true);
+    }, []);
+
+    const isAboutActive = hasMounted && pathname.startsWith('/about');
+    const isServicesActive = hasMounted && pathname.startsWith('/services');
     
     return (
         <nav className="hidden md:flex items-center gap-1">
@@ -189,8 +199,10 @@ function MobileNav() {
 export default function HeaderClient() {
   const [lastScrollY, setLastScrollY] = useState(0);
   const [show, setShow] = useState(true);
+  const [hasMounted, setHasMounted] = useState(false);
 
   useEffect(() => {
+    setHasMounted(true);
     const controlNavbar = () => {
       if (typeof window !== 'undefined') {
         if (window.scrollY > lastScrollY && window.scrollY > 100) { // if scroll down & past 100px
@@ -207,6 +219,19 @@ export default function HeaderClient() {
       window.removeEventListener('scroll', controlNavbar);
     };
   }, [lastScrollY]);
+
+  if (!hasMounted) {
+    return (
+      <header
+        className={"fixed top-4 left-0 w-full z-50 transition-transform duration-300 ease-in-out opacity-0"}
+      >
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="relative flex items-center justify-between backdrop-blur-md shadow-lg rounded-full bg-white/80 transition-all duration-300 px-2 h-[68px]">
+            </div>
+        </div>
+      </header>
+    );
+  }
 
   return (
     <header
