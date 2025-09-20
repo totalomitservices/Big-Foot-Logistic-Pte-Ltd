@@ -18,6 +18,10 @@ import {
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
+  DropdownMenuSub,
+  DropdownMenuSubTrigger,
+  DropdownMenuSubContent,
+  DropdownMenuPortal
 } from "@/components/ui/dropdown-menu";
 import {
   Collapsible,
@@ -80,14 +84,14 @@ function DesktopNav() {
                     {link.subLinks ? (
                         <DropdownMenu>
                             <DropdownMenuTrigger asChild>
-                                <Button variant="ghost" className="hover:bg-black/10 focus:bg-black/10 hover:text-accent text-base font-medium px-3 py-2 flex items-center gap-1 text-black data-[state=open]:bg-black/10 focus-visible:ring-0 focus-visible:ring-offset-0">
+                                <Button variant="ghost" className="hover:bg-black/10 focus:bg-black/10 hover:text-accent text-base font-medium px-3 py-2 flex items-center gap-1 text-black data-[state=open]:bg-accent data-[state=open]:text-accent-foreground focus-visible:ring-0 focus-visible:ring-offset-0">
                                     {link.label}
                                     <ChevronDown className="relative top-[1px] ml-1 h-4 w-4 transition duration-200 group-data-[state=open]:rotate-180" />
                                 </Button>
                             </DropdownMenuTrigger>
                             <DropdownMenuContent className="bg-white/90 backdrop-blur-sm text-foreground border-accent/20">
                                 {link.subLinks.map((subLink) => (
-                                    <DropdownMenuItem key={subLink.href} asChild className="focus:bg-accent/50 focus:text-accent-foreground">
+                                    <DropdownMenuItem key={subLink.href} asChild className="focus:bg-accent focus:text-accent-foreground">
                                         <Link href={subLink.href}>{subLink.label}</Link>
                                     </DropdownMenuItem>
                                 ))}
@@ -210,7 +214,19 @@ export default function HeaderClient() {
   }, [lastScrollY, hasMounted]);
 
   if (!hasMounted) {
-    return null;
+    return (
+        <header className="fixed top-4 left-0 w-full z-50 transition-transform duration-300 ease-in-out">
+            <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="relative flex items-center justify-between backdrop-blur-md shadow-lg rounded-full bg-white/80 transition-all duration-300 h-[68px] px-2">
+                     <div className="flex items-center flex-shrink-0">
+                        <Link href="/">
+                            <Logo/>
+                        </Link>
+                    </div>
+                </div>
+            </div>
+        </header>
+    );
   }
 
   return (
@@ -246,3 +262,5 @@ export default function HeaderClient() {
     </header>
   );
 }
+
+    
