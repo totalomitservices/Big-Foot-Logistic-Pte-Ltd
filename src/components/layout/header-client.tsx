@@ -63,12 +63,18 @@ const contactInfo = {
 
 function NavLink({ href, children, className, onClick }: { href: string; children: React.ReactNode, className?: string, onClick?: () => void }) {
     const pathname = usePathname();
-    const isActive = pathname === href;
+    const [hasMounted, setHasMounted] = useState(false);
+    
+    useEffect(() => {
+        setHasMounted(true);
+    }, []);
+
+    const isActive = hasMounted && pathname === href;
     
     return (
          <Link href={href} onClick={onClick} className={cn(
             "font-medium text-base hover:text-accent focus-visible:ring-0 focus-visible:ring-offset-0 px-3 py-2 rounded-md transition-colors text-black active:bg-black/10",
-            isActive && "bg-black/10",
+            isActive && "bg-accent text-accent-foreground hover:text-accent-foreground",
             className
         )}>
             {children}
@@ -77,6 +83,16 @@ function NavLink({ href, children, className, onClick }: { href: string; childre
 };
 
 function DesktopNav() {
+    const pathname = usePathname();
+    const [hasMounted, setHasMounted] = useState(false);
+    
+    useEffect(() => {
+        setHasMounted(true);
+    }, []);
+
+    const isAboutActive = hasMounted && pathname.startsWith('/about');
+    const isServicesActive = hasMounted && pathname.startsWith('/services');
+    
     return (
         <nav className="hidden md:flex items-center gap-1">
             {navLinks.map((link) => (
@@ -84,7 +100,7 @@ function DesktopNav() {
                     {link.subLinks ? (
                          <DropdownMenu>
                             <DropdownMenuTrigger asChild>
-                                <Button variant="ghost" className="hover:bg-transparent hover:text-accent focus:bg-black/10 text-base font-medium px-3 py-2 flex items-center gap-1 text-black focus-visible:ring-0 focus-visible:ring-offset-0 data-[state=open]:bg-black/10">
+                                <Button variant="ghost" className={cn("hover:bg-transparent hover:text-accent focus:bg-black/10 text-base font-medium px-3 py-2 flex items-center gap-1 text-black focus-visible:ring-0 focus-visible:ring-offset-0 data-[state=open]:bg-accent data-[state=open]:text-accent-foreground", (link.label === "About Us" && isAboutActive) && "bg-accent text-accent-foreground hover:text-accent-foreground", (link.label === "Services" && isServicesActive) && "bg-accent text-accent-foreground hover:text-accent-foreground")}>
                                     {link.label}
                                     <ChevronDown className="relative top-[1px] ml-1 h-4 w-4 transition duration-200 group-data-[state=open]:rotate-180" />
                                 </Button>
