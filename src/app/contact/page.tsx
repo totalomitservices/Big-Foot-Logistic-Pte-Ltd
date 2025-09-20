@@ -155,7 +155,7 @@ export default function ContactPage() {
             {officeLocations.map(office => (
               <Card key={office.name} className="flex flex-col text-center bg-primary text-primary-foreground">
                 <CardHeader>
-                  <CardTitle className="flex items-center justify-center gap-2 text-xl" style={{ color: '#EC0628' }}>
+                  <CardTitle className="flex items-center justify-center gap-2 text-xl text-accent-foreground">
                     <Building />{office.name}
                   </CardTitle>
                 </CardHeader>
