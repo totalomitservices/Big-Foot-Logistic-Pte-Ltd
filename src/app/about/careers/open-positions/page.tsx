@@ -13,7 +13,7 @@ export default function OpenPositionsPage() {
     <div className="relative bg-background text-foreground">
       <section className="relative w-full h-[40vh] md:h-[50vh]">
         <Image
-          src="https://raw.githubusercontent.com/kaviyag601/watch-wise/75d74a1881e04426062891e40f7d45da79f7eafa/we-are-hiring-digital-collage.jpg"
+          src="https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=2070&auto=format&fit=crop"
           alt="We're hiring banner"
           fill
           priority
