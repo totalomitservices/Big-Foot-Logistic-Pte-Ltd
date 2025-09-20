@@ -19,7 +19,7 @@ export default function TrainingPage() {
           alt="Team in a training session"
           fill
           priority
-          className="object-cover object-center"
+          className="object-cover object-top"
           data-ai-hint="corporate training"
         />
         
