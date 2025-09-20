@@ -27,10 +27,10 @@ export default function PackersAndMoversPage() {
         
         <div className="relative z-10 flex h-full flex-col items-start justify-center text-left px-4 md:px-12 lg:px-24">
           <h1 className="font-headline text-4xl md:text-5xl font-semibold text-black drop-shadow-lg">
-            Packers and Movers
+            <span style={{ backgroundColor: '#154ccf', padding: '0.2rem 0.6rem', color: 'white' }}>Packers and Movers</span>
           </h1>
           <p className="mt-4 text-lg md:text-xl font-light text-black drop-shadow-lg max-w-2xl">
-            Your trusted partner for a seamless move.
+            <span style={{ backgroundColor: '#154ccf', padding: '0.2rem 0.6rem', color: 'white' }}>Your trusted partner for a seamless move.</span>
           </p>
           <div className="mt-8">
             <Button asChild size="lg" variant="accent" className="transition-transform duration-300 hover:scale-105">
