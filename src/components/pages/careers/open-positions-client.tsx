@@ -32,7 +32,9 @@ const jobOpenings = [
     eligibility: 'Singaporean & PR Only',
     bonus: '$25,000 in Joining & Quarterly Bonuses *T&C Applies',
   },
-  {
+];
+
+const conemanJob = {
     title: 'Coneman / Lashing Specialist',
     requirements: 'No experience needed',
     type: 'Full Time',
@@ -44,8 +46,7 @@ const jobOpenings = [
       'Assist in water bunkering operations.',
       'Any other ad-hoc duties as and when assigned',
     ],
-  },
-];
+};
 
 const perksAndBenefits = [
     'Over Time Pay',
@@ -56,29 +57,29 @@ const perksAndBenefits = [
     'Many more attractive incentives!'
 ];
 
-function JobCard({ job }: { job: (typeof jobOpenings)[number] }) {
+function JobCard({ job }: { job: (typeof jobOpenings)[number] | typeof conemanJob }) {
   return (
     <Card className="flex flex-col h-full">
       <CardHeader className="bg-secondary">
         <CardTitle className="text-xl text-primary">{job.title}</CardTitle>
       </CardHeader>
       <CardContent className="p-6 space-y-4 flex-grow">
-        {job.details && (
+        {'details' in job && job.details && (
           <ul className="list-disc list-inside space-y-1 text-muted-foreground">
             {job.details.map((detail, i) => <li key={i}>{detail}</li>)}
           </ul>
         )}
-         {job.requirements && (
+         {'requirements' in job && job.requirements && (
            <div>
                 <h4 className="font-semibold mb-1 text-foreground">Requirements:</h4>
                 <p className="text-muted-foreground">{job.requirements}</p>
            </div>
         )}
-        {job.jobScopes && (
+        {'jobScopes' in job && job.jobScopes && (
             <div>
                 <h4 className="font-semibold mb-2 text-foreground">Job Scopes:</h4>
                 <ul className="list-disc list-inside space-y-1 text-muted-foreground">
-                    {job.jobScopes.map((scope, i) => <li key={i}>{scope}</li>)}
+                    {job.jobScopes.map((scope, i) => <li key_={i}>{scope}</li>)}
                 </ul>
             </div>
         )}
@@ -87,7 +88,7 @@ function JobCard({ job }: { job: (typeof jobOpenings)[number] }) {
             <p><strong className="text-foreground">Location:</strong> {job.location}</p>
             <p className="col-span-1 sm:col-span-2"><strong className="text-foreground">Eligibility:</strong> {job.eligibility}</p>
         </div>
-        {job.bonus && (
+        {'bonus' in job && job.bonus && (
            <CardDescription className="pt-2 text-accent font-semibold italic">
             {job.bonus}
            </CardDescription>
@@ -143,6 +144,33 @@ function ApplyCard() {
   );
 }
 
+function ConemanSpecialistCard() {
+    return (
+        <Card className="flex flex-col h-full">
+            <CardHeader className="bg-secondary">
+                <CardTitle className="text-xl text-primary">{conemanJob.title}</CardTitle>
+            </CardHeader>
+            <CardContent className="p-6 space-y-4 flex-grow">
+                <div>
+                    <h4 className="font-semibold mb-1 text-foreground">Requirements:</h4>
+                    <p className="text-muted-foreground">{conemanJob.requirements}</p>
+                </div>
+                <div>
+                    <h4 className="font-semibold mb-2 text-foreground">Job Scopes:</h4>
+                    <ul className="list-disc list-inside space-y-1 text-muted-foreground">
+                        {conemanJob.jobScopes.map((scope, i) => <li key={i}>{scope}</li>)}
+                    </ul>
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-2 text-sm pt-4">
+                    <p><strong className="text-foreground">Job Type:</strong> {conemanJob.type}</p>
+                    <p><strong className="text-foreground">Location:</strong> {conemanJob.location}</p>
+                    <p className="col-span-1 sm:col-span-2"><strong className="text-foreground">Eligibility:</strong> {conemanJob.eligibility}</p>
+                </div>
+            </CardContent>
+        </Card>
+    );
+}
+
 export default function OpenPositionsClient() {
   return (
     <section className="py-16 lg:py-24">
@@ -157,10 +185,11 @@ export default function OpenPositionsClient() {
                 {jobOpenings.map((job) => (
                     <JobCard key={job.title} job={job} />
                 ))}
+                <ApplyCard />
             </div>
             <div className="lg:col-span-1">
                 <div className="sticky top-28 space-y-8">
-                  <ApplyCard />
+                  <ConemanSpecialistCard />
                 </div>
             </div>
         </div>
