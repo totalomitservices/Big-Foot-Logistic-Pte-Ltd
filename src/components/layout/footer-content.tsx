@@ -1,5 +1,5 @@
 
-import { Facebook, Instagram, Linkedin, Mail, MapPin, Phone } from 'lucide-react';
+import { Facebook, Instagram, Linkedin, Mail, MapPin, Phone, Printer } from 'lucide-react';
 import Link from 'next/link';
 import { Logo } from '@/components/logo';
 import FooterMapClient from './footer-map-client';
@@ -36,6 +36,10 @@ export default function FooterContent() {
                 <li className="flex items-center gap-3">
                   <Phone className="h-5 w-5 text-accent flex-shrink-0" />
                   <a href="tel:+6563244722" className="hover:text-accent transition-colors">+65 6324 4722</a>
+                </li>
+                <li className="flex items-center gap-3">
+                  <Printer className="h-5 w-5 text-accent flex-shrink-0" />
+                  <span>+65 6324 4711 (Fax)</span>
                 </li>
               </ul>
             </div>
