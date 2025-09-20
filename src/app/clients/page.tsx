@@ -129,9 +129,9 @@ export default function ClientsPage() {
                 className="grid md:grid-cols-2 gap-12 items-center"
               >
                 <div
-                  className={`relative h-56 w-full md:h-72 ${index % 2 === 0 ? 'md:order-1' : 'md:order-2'}`}
+                  className={`relative h-64 w-full md:h-80 ${index % 2 === 0 ? 'md:order-1' : 'md:order-2'}`}
                 >
-                  <Card className="h-full w-full bg-background flex items-center justify-center p-8">
+                  <Card className="h-full w-full bg-background flex items-center justify-center p-4">
                     <div className="relative h-full w-full">
                          <Image
                             src={client.logoUrl}
