@@ -18,23 +18,18 @@ export default function Map() {
   const mapInstance = useRef<any>(null);
 
   useEffect(() => {
-    if (typeof window === 'undefined' || !mapRef.current) {
+    if (typeof window === 'undefined') {
       return;
     }
 
-    if (mapInstance.current) {
-      return;
-    }
-
-    let map: any;
     const initMap = async () => {
-      const L = await import('leaflet');
-      
-      if (mapRef.current?.['_leaflet_id']) {
+      if (!mapRef.current || mapRef.current.hasAttribute('data-leaflet-container')) {
         return;
       }
-
-      map = L.map(mapRef.current!, {
+      
+      const L = await import('leaflet');
+      
+      const map = L.map(mapRef.current!, {
         center: WORLD_VIEW.center as L.LatLngTuple,
         zoom: WORLD_VIEW.zoom,
         minZoom: WORLD_VIEW.zoom,
@@ -106,3 +101,4 @@ export default function Map() {
     </section>
   );
 }
+
