@@ -78,7 +78,7 @@ function DesktopNav({ hasMounted }: { hasMounted: boolean }) {
     const isServicesActive = hasMounted && pathname.startsWith('/services');
     
     return (
-        <nav className="hidden md:flex items-center gap-1">
+        <nav className="hidden md:flex items-center gap-1" aria-label="Main navigation">
             {navLinks.map((link) => (
                 <div key={link.label}>
                     {link.subLinks ? (
@@ -86,7 +86,7 @@ function DesktopNav({ hasMounted }: { hasMounted: boolean }) {
                             <DropdownMenuTrigger asChild>
                                 <Button variant="ghost" className={cn("hover:bg-transparent focus:bg-transparent text-base font-medium px-3 py-2 flex items-center gap-1 text-black hover:text-red-500 focus-visible:ring-0 focus-visible:ring-offset-0 data-[state=open]:text-red-500", (link.label === "About Us" && isAboutActive) && "text-red-500", (link.label === "Services" && isServicesActive) && "text-red-500")}>
                                     {link.label}
-                                    <ChevronDown className="relative top-[1px] ml-1 h-4 w-4 transition duration-200 group-data-[state=open]:rotate-180" />
+                                    <ChevronDown className="relative top-[1px] ml-1 h-4 w-4 transition duration-200 group-data-[state=open]:rotate-180" aria-hidden="true" />
                                 </Button>
                             </DropdownMenuTrigger>
                             <DropdownMenuContent className="bg-white/90 backdrop-blur-sm text-foreground border-red-500/20">
@@ -122,19 +122,19 @@ function MobileNav({ hasMounted }: { hasMounted: boolean }) {
                     <div className="flex flex-col h-full">
                          <div className="p-6">
                             <SheetClose asChild>
-                                <Link href="/" className="mb-8">
+                                <Link href="/" className="mb-8" aria-label="Back to homepage">
                                     <Logo />
                                 </Link>
                             </SheetClose>
                         </div>
-                        <nav className="flex flex-col space-y-1 px-4">
+                        <nav className="flex flex-col space-y-1 px-4" aria-label="Mobile navigation">
                             {navLinks.map((link) => (
                                 <div key={link.label}>
                                     {link.subLinks ? (
                                         <Collapsible>
                                             <CollapsibleTrigger className="flex justify-between items-center w-full font-bold text-lg hover:text-red-500 transition-colors py-3 px-2 rounded-md">
                                                 <span>{link.label}</span>
-                                                <ChevronDown className="h-5 w-5 transition-transform duration-200 [&[data-state=open]]:-rotate-180" />
+                                                <ChevronDown className="h-5 w-5 transition-transform duration-200 data-[state=open]:-rotate-180" aria-hidden="true" />
                                             </CollapsibleTrigger>
                                             <CollapsibleContent>
                                                 <div className="flex flex-col space-y-2 pl-6 py-2 border-l border-red-500/50 ml-2">
@@ -169,11 +169,11 @@ function MobileNav({ hasMounted }: { hasMounted: boolean }) {
                         </nav>
                         <div className="mt-auto space-y-4 p-6 border-t border-white/10">
                             <a href={`mailto:${contactInfo.email}`} className="flex items-center gap-3 hover:text-red-500 transition-colors text-sm">
-                                <Mail className="h-5 w-5" />
+                                <Mail className="h-5 w-5" aria-hidden="true" />
                                 <span>{contactInfo.email}</span>
                             </a>
                             <a href={`tel:${contactInfo.phone.replace(/\s/g, '')}`} className="flex items-center gap-3 hover:text-red-500 transition-colors text-sm">
-                                <Phone className="h-5 w-5" />
+                                <Phone className="h-5 w-5" aria-hidden="true" />
                                 <span>{contactInfo.phone}</span>
                             </a>
                         </div>
@@ -222,7 +222,7 @@ export default function HeaderClient() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="relative flex items-center justify-between backdrop-blur-md shadow-lg rounded-full bg-white/80 transition-all duration-300 px-2 h-[68px]">
                 <div className="flex items-center flex-shrink-0">
-                    <Link href="/">
+                    <Link href="/" aria-label="Bigfoot Logistics Homepage">
                         <Logo/>
                     </Link>
                 </div>

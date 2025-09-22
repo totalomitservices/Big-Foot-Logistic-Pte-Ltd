@@ -4,58 +4,7 @@
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Mail, Phone } from 'lucide-react';
-
-const jobOpenings = [
-  {
-    title: 'IGH Driver (Up to $6,000)',
-    details: [
-      'Minimum of Class 4 Driving License',
-      'Minimum of PSLE Pass in English',
-      'Minimum of 23 Workdays',
-      '12 Hours Rotating Shifts',
-    ],
-    type: 'Full Time',
-    location: 'Pasir Panjang',
-    eligibility: 'Singaporean & PR Only',
-    bonus: '$25,000 in Joining & Quarterly Bonuses *T&C Applies',
-  },
-  {
-    title: 'Prime Mover Driver (Up to $4,800)',
-    details: [
-      'Minimum of Class 3 Driving License',
-      'Minimum of PSLE Pass in English',
-      'Minimum of 22 Workdays',
-      '12 Hours Rotating Shifts',
-    ],
-    type: 'Full Time',
-    location: 'Pasir Panjang',
-    eligibility: 'Singaporean & PR Only',
-    bonus: '$25,000 in Joining & Quarterly Bonuses *T&C Applies',
-  },
-];
-
-const conemanJob = {
-    title: 'Coneman / Lashing Specialist',
-    requirements: 'No experience needed',
-    type: 'Full Time',
-    location: 'Pasir Panjang',
-    eligibility: 'Singaporean & PR Only',
-    jobScopes: [
-      'Conning & de-conning twist locks from container at wharfside.',
-      'Twist locks lashing gears, while using such equipment, work in a safe and efficient manner, adhering to standard operating procedures and complying to safety rules and regulations in the operational areas',
-      'Assist in water bunkering operations.',
-      'Any other ad-hoc duties as and when assigned',
-    ],
-};
-
-const perksAndBenefits = [
-    'Over Time Pay',
-    'Transport Incentives',
-    'Performance Bonuses',
-    'Medical Benefits',
-    'Referral Scheme',
-    'Many more attractive incentives!'
-];
+import { jobOpenings, conemanJob, perksAndBenefits } from '@/data/careers';
 
 function JobCard({ job }: { job: (typeof jobOpenings)[number] | typeof conemanJob }) {
   return (
@@ -110,7 +59,7 @@ function ApplyCard() {
         </p>
         <Button asChild variant="secondary" className="w-full bg-white/10 hover:bg-white/20 text-white border border-white/20 transition-all duration-300 transform hover:scale-105">
           <a href="mailto:recruitment@bigfoot.com.sg">
-            <Mail className="mr-2 h-5 w-5"/>
+            <Mail className="mr-2 h-5 w-5" aria-hidden="true"/>
             recruitment@bigfoot.com.sg
           </a>
         </Button>
@@ -128,13 +77,13 @@ function ApplyCard() {
          <div className="flex flex-col space-y-3">
            <Button asChild variant="secondary" className="w-full bg-green-500/10 hover:bg-green-500/20 text-white border border-green-400/50 transition-all duration-300 transform hover:scale-105">
             <a href="https://api.whatsapp.com/send/?phone=6592713514&text&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer">
-              <Phone className="mr-2 h-5 w-5"/>
+              <Phone className="mr-2 h-5 w-5" aria-hidden="true"/>
               +65 9271 3514
             </a>
           </Button>
            <Button asChild variant="secondary" className="w-full bg-green-500/10 hover:bg-green-500/20 text-white border border-green-400/50 transition-all duration-300 transform hover:scale-105">
             <a href="https://wa.me/6593850651" target="_blank" rel="noopener noreferrer">
-              <Phone className="mr-2 h-5 w-5"/>
+              <Phone className="mr-2 h-5 w-5" aria-hidden="true"/>
               +65 9385 0651
             </a>
           </Button>

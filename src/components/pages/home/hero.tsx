@@ -9,7 +9,7 @@ const heroImage = PlaceHolderImages.find((img) => img.id === 'hero-image');
 
 export default function Hero() {
   return (
-    <section id="home" className="relative w-full h-[90vh] md:h-screen">
+    <section id="home" className="relative w-full h-[90vh] md:h-screen" aria-labelledby="hero-heading">
       {heroImage && (
         <Image
           src={heroImage.imageUrl}
@@ -24,7 +24,7 @@ export default function Hero() {
 
       <div className="relative z-10 flex h-full flex-col items-center justify-center text-center text-white px-4">
         <div className="flex flex-col items-center max-w-3xl bg-black/50 p-8 rounded-lg">
-          <h1 className="font-headline text-4xl md:text-5xl font-bold uppercase tracking-tighter drop-shadow-lg">
+          <h1 id="hero-heading" className="font-headline text-4xl md:text-5xl font-bold uppercase tracking-tighter drop-shadow-lg">
             Moving Your World,
             <br />
             One Shipment at a Time.

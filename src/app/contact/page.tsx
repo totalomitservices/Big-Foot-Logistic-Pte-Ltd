@@ -11,6 +11,7 @@ import ContactPageClient from '@/components/pages/contact/contact-page-client';
 
 export const metadata: Metadata = {
   title: 'Contact Us | Bigfoot Logistics',
+  description: 'Get in touch with Bigfoot Logistics. Find our office locations, contact details, and send us a message for your logistics needs. We are here to help you.',
 };
 
 const coreServices = [
@@ -49,7 +50,7 @@ export default function ContactPage() {
       <section className="relative w-full h-[40vh] md:h-[50vh]">
         <Image
           src="https://raw.githubusercontent.com/Ram-0609/Bigfoot-Logistics-Images/main/contact%20us.png"
-          alt="Contact us banner"
+          alt="Contact us banner showing customer service representatives"
           fill
           priority
           className="object-cover"
@@ -99,28 +100,28 @@ export default function ContactPage() {
                 </div>
                 <div className="space-y-4 text-lg">
                   <div className="flex items-center gap-4">
-                    <Phone className="h-6 w-6 text-primary" />
+                    <Phone className="h-6 w-6 text-primary" aria-hidden="true" />
                     <div>
                       <h4 className="font-semibold text-base">Phone</h4>
                       <a href="tel:+6563244722" className="text-muted-foreground hover:text-primary transition-colors text-base">+65 6324 4722</a>
                     </div>
                   </div>
                   <div className="flex items-center gap-4">
-                    <Printer className="h-6 w-6 text-primary" />
+                    <Printer className="h-6 w-6 text-primary" aria-hidden="true" />
                     <div>
                       <h4 className="font-semibold text-base">Fax</h4>
                       <p className="text-muted-foreground text-base">+65 6324 4711</p>
                     </div>
                   </div>
                   <div className="flex items-center gap-4">
-                    <Mail className="h-6 w-6 text-primary" />
+                    <Mail className="h-6 w-6 text-primary" aria-hidden="true" />
                     <div>
                       <h4 className="font-semibold text-base">Email</h4>
                       <a href="mailto:enquiries@bigfoot.com.sg" className="font-bold text-accent hover:underline transition-colors text-base">enquiries@bigfoot.com.sg</a>
                     </div>
                   </div>
                   <div className="flex items-center gap-4">
-                    <Clock className="h-6 w-6 text-primary" />
+                    <Clock className="h-6 w-6 text-primary" aria-hidden="true" />
                     <div>
                       <h4 className="font-semibold text-base">Working Hours</h4>
                       <p className="text-muted-foreground text-base">Mon - Fri: 9am - 6pm</p>
@@ -133,11 +134,11 @@ export default function ContactPage() {
                 <h3 className="text-2xl font-headline font-bold text-primary mb-6">Send Us a Message</h3>
                 <form className="space-y-6">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                    <Input type="text" placeholder="Your Name" required />
-                    <Input type="email" placeholder="Your Email" required />
+                    <Input type="text" placeholder="Your Name" required aria-label="Your Name" />
+                    <Input type="email" placeholder="Your Email" required aria-label="Your Email" />
                   </div>
-                  <Input type="tel" placeholder="Your Phone Number" />
-                  <Textarea placeholder="Your Message" rows={6} required />
+                  <Input type="tel" placeholder="Your Phone Number" aria-label="Your Phone Number" />
+                  <Textarea placeholder="Your Message" rows={6} required aria-label="Your Message" />
                   <Button type="submit" variant="accent" size="lg" className="w-full">
                     Send Message
                   </Button>
@@ -156,13 +157,13 @@ export default function ContactPage() {
               <Card key={office.name} className="flex flex-col text-center bg-primary text-primary-foreground">
                 <CardHeader>
                   <CardTitle className="flex items-center justify-center gap-2 text-xl text-accent-foreground">
-                    <Building />{office.name}
+                    <Building aria-hidden="true" />{office.name}
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-3 text-primary-foreground/80 flex-grow">
                   <p>{office.address}</p>
-                  <p className="flex items-center justify-center gap-2"><Phone className="h-4 w-4" />{office.phone}</p>
-                  <a href={`mailto:${office.email}`} className="flex items-center justify-center gap-2 hover:text-accent transition-colors"><Mail className="h-4 w-4" />{office.email}</a>
+                  <p className="flex items-center justify-center gap-2"><Phone className="h-4 w-4" aria-hidden="true" />{office.phone}</p>
+                  <a href={`mailto:${office.email}`} className="flex items-center justify-center gap-2 hover:text-accent transition-colors"><Mail className="h-4 w-4" aria-hidden="true" />{office.email}</a>
                 </CardContent>
               </Card>
             ))}

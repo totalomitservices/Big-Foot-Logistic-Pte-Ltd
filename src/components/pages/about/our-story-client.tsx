@@ -32,7 +32,7 @@ export default function OurStoryClient() {
       <section className="relative w-full h-[40vh] md:h-[50vh]">
         <Image
           src="https://raw.githubusercontent.com/Ram-0609/Bigfoot-Logistics-Images/main/Our%20story.jpg"
-          alt="Team collaborating on a logistics plan"
+          alt="Team collaborating on a logistics plan at Bigfoot Logistics"
           fill
           priority
           className="object-cover"
@@ -60,7 +60,7 @@ export default function OurStoryClient() {
           </div>
 
           <div className="relative max-w-4xl mx-auto">
-            <div className="absolute left-1/2 -translate-x-1/2 h-full w-0.5 bg-border hidden md:block"></div>
+            <div className="absolute left-1/2 -translate-x-1/2 h-full w-0.5 bg-border hidden md:block" aria-hidden="true"></div>
             
             <div className="space-y-12 md:space-y-20">
 
@@ -68,7 +68,7 @@ export default function OurStoryClient() {
               <div className="relative md:grid md:grid-cols-2 gap-12 items-center">
                 <div className="md:order-2">
                   <div className="relative aspect-video shadow-xl overflow-hidden rounded-lg">
-                    <Image src="https://raw.githubusercontent.com/Ram-0609/Bigfoot-Logistics-Images/main/businessman-application-human-digital-business.jpg" alt="Team handshake" fill className="object-cover" data-ai-hint="team handshake" />
+                    <Image src="https://raw.githubusercontent.com/Ram-0609/Bigfoot-Logistics-Images/main/businessman-application-human-digital-business.jpg" alt="Businessmen shaking hands, symbolizing a trusted partnership" fill className="object-cover" data-ai-hint="team handshake" />
                   </div>
                 </div>
                 <div className="mt-8 md:mt-0 md:text-right">
@@ -78,8 +78,8 @@ export default function OurStoryClient() {
                   </p>
                 </div>
                 <div className="hidden md:flex absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 items-center justify-center">
-                    <div className="w-4 h-4 bg-secondary absolute ring-4 ring-border rounded-full z-10"></div>
-                    <div className="p-3 bg-accent text-accent-foreground rounded-full shadow-lg z-20"><Rocket className="w-6 h-6" /></div>
+                    <div className="w-4 h-4 bg-secondary absolute ring-4 ring-border rounded-full z-10" aria-hidden="true"></div>
+                    <div className="p-3 bg-accent text-accent-foreground rounded-full shadow-lg z-20"><Rocket className="w-6 h-6" aria-hidden="true" /></div>
                 </div>
               </div>
 
@@ -87,7 +87,7 @@ export default function OurStoryClient() {
               <div className="relative md:grid md:grid-cols-2 gap-12 items-center">
                 <div className="md:order-1">
                    <div className="relative aspect-video shadow-xl overflow-hidden rounded-lg">
-                    <Image src="https://raw.githubusercontent.com/Ram-0609/Bigfoot-Logistics-Images/main/our%20story%20img%202.jpg" alt="Logistics network" fill className="object-cover" data-ai-hint="logistics network" />
+                    <Image src="https://raw.githubusercontent.com/Ram-0609/Bigfoot-Logistics-Images/main/our%20story%20img%202.jpg" alt="A digital representation of a global logistics network" fill className="object-cover" data-ai-hint="logistics network" />
                   </div>
                 </div>
                 <div className="mt-8 md:mt-0 md:order-2">
@@ -97,8 +97,8 @@ export default function OurStoryClient() {
                   </p>
                 </div>
                 <div className="hidden md:flex absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 items-center justify-center">
-                    <div className="w-4 h-4 bg-secondary absolute ring-4 ring-border rounded-full z-10"></div>
-                    <div className="p-3 bg-accent text-accent-foreground rounded-full shadow-lg z-20"><Award className="w-6 h-6" /></div>
+                    <div className="w-4 h-4 bg-secondary absolute ring-4 ring-border rounded-full z-10" aria-hidden="true"></div>
+                    <div className="p-3 bg-accent text-accent-foreground rounded-full shadow-lg z-20"><Award className="w-6 h-6" aria-hidden="true" /></div>
                 </div>
               </div>
             </div>
@@ -129,7 +129,7 @@ export default function OurStoryClient() {
                   <Card key={value.title} className="text-center border-0 shadow-none bg-transparent group">
                     <CardHeader className="items-center">
                       <div className="bg-secondary p-4 shadow-lg transition-all duration-300 group-hover:scale-110 group-hover:shadow-accent/30 group-hover:shadow-xl">
-                        <Icon className="h-10 w-10 text-accent" />
+                        <Icon className="h-10 w-10 text-accent" aria-hidden="true" />
                       </div>
                       <CardTitle className="mt-4 font-headline text-xl">{value.title}</CardTitle>
                       <p className="mt-2 text-base text-muted-foreground">{value.description}</p>
@@ -147,7 +147,7 @@ export default function OurStoryClient() {
             <h2 className="text-2xl font-headline font-bold text-primary mb-4">Ready to see our vision in action?</h2>
             <Button asChild size="lg" variant="outline" className="btn-animated-border transition-all duration-300 transform hover:scale-105">
               <Link href="/about/vision-mission">
-                <span>Discover our Vision & Mission <ArrowRight className="ml-2 inline" /></span>
+                <span>Discover our Vision & Mission <ArrowRight className="ml-2 inline" aria-hidden="true" /></span>
               </Link>
             </Button>
         </div>

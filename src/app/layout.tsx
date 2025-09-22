@@ -8,8 +8,12 @@ import Footer from '@/components/layout/footer';
 import { Toaster } from '@/components/ui/toaster';
 
 export const metadata: Metadata = {
-  title: 'Bigfoot Logistics',
-  description: 'Trusted logistics and supply chain solutions worldwide, driven by innovation and reliability.',
+  title: {
+    default: 'Bigfoot Logistics | Your Trusted Partner in Global Supply Chain Solutions',
+    template: '%s | Bigfoot Logistics',
+  },
+  description: 'Bigfoot Logistics offers reliable and innovative logistics and supply chain solutions worldwide. From freight forwarding to warehousing, we are committed to driving your business forward.',
+  keywords: ['logistics', 'supply chain', 'freight forwarding', 'warehousing', 'custom clearance', 'packers and movers', 'Singapore logistics'],
 };
 
 export default function RootLayout({
@@ -24,7 +28,7 @@ export default function RootLayout({
           federo.variable,
           openSans.variable
       )}>
-        <div className="relative">
+        <div className="relative flex flex-col min-h-screen">
           <Header />
           <main className="flex-grow">{children}</main>
           <Footer />

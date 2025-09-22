@@ -1,11 +1,11 @@
 
 import Image from 'next/image';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import type { Metadata } from 'next';
 import OpenPositionsClient from '@/components/pages/careers/open-positions-client';
 
 export const metadata: Metadata = {
   title: 'Open Positions | Bigfoot Logistics',
+  description: 'Find your next career opportunity at Bigfoot Logistics. We are hiring for various roles. Apply now and join our growing team.',
 };
 
 export default function OpenPositionsPage() {
@@ -14,7 +14,7 @@ export default function OpenPositionsPage() {
       <section className="relative w-full h-[40vh] md:h-[50vh]">
         <Image
           src="https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=2070&auto=format&fit=crop"
-          alt="We're hiring banner"
+          alt="We're hiring banner with a group of diverse professionals"
           fill
           priority
           className="object-cover"

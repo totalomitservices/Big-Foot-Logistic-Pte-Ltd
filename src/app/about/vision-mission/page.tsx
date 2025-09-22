@@ -1,8 +1,7 @@
 
-'use client';
-
 import Image from 'next/image';
 import { Rocket, Goal, Star } from 'lucide-react';
+import type { Metadata } from 'next';
 
 const values = [
   {
@@ -22,6 +21,11 @@ const values = [
   },
 ];
 
+export const metadata: Metadata = {
+    title: 'Vision & Mission | Bigfoot Logistics',
+    description: 'Learn about the vision, mission, and guiding principles of Bigfoot Logistics. Discover what drives us to deliver excellence in logistics and supply chain management.',
+};
+
 export default function VisionMissionPage() {
   return (
     <div className="relative bg-background text-foreground">
@@ -29,7 +33,7 @@ export default function VisionMissionPage() {
       <section className="relative w-full h-[40vh] md:h-[50vh]">
         <Image
           src="https://raw.githubusercontent.com/Ram-0609/Bigfoot-Logistics-Images/main/vision-mission.jpg"
-          alt="Compass pointing towards a destination"
+          alt="Compass pointing towards a destination, symbolizing our vision"
           fill
           priority
           className="object-cover"
@@ -58,7 +62,7 @@ export default function VisionMissionPage() {
                   return (
                     <div key={item.title} className="relative mt-8">
                       <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-primary text-accent-foreground rounded-full p-4 shadow-lg">
-                          <Icon className="w-12 h-12 text-accent" />
+                          <Icon className="w-12 h-12 text-accent" aria-hidden="true" />
                       </div>
                       <div className="bg-card text-card-foreground rounded-lg shadow-lg h-full">
                           <div className="p-8 pt-20 text-center">

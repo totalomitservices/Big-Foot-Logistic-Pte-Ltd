@@ -6,6 +6,7 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Careers | Bigfoot Logistics',
+  description: 'Join the Bigfoot Logistics family. Explore career opportunities in a dynamic, inclusive, and growth-oriented workplace. Be a part of a company that moves the world.',
 };
 
 
@@ -16,7 +17,7 @@ export default function CareersPage() {
       <section className="relative w-full h-[40vh] md:h-[50vh]">
         <Image
           src="https://raw.githubusercontent.com/Ram-0609/Bigfoot-Logistics-Images/main/career.jpg"
-          alt="Diverse team working together in an office"
+          alt="Diverse team working together in an office at Bigfoot Logistics"
           fill
           priority
           className="object-cover"

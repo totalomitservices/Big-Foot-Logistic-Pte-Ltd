@@ -13,7 +13,7 @@ export default function FooterContent() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 items-start">
           {/* Company Profile */}
           <div className="flex flex-col items-start text-left space-y-4">
-            <Link href="/">
+            <Link href="/" aria-label="Back to homepage">
               <Logo className="text-primary-foreground" />
             </Link>
             <p className="text-primary-foreground/80 text-sm text-justify">
@@ -27,19 +27,19 @@ export default function FooterContent() {
               <h3 className="text-lg font-headline font-bold uppercase tracking-wider text-accent text-left">Contact Info</h3>
               <ul className="space-y-3 text-sm mt-4">
                 <li className="flex items-start gap-3">
-                  <MapPin className="h-5 w-5 mt-1 text-accent flex-shrink-0" />
+                  <MapPin className="h-5 w-5 mt-1 text-accent flex-shrink-0" aria-hidden="true" />
                   <span>8 Joo Koon Rd, Singapore 628972</span>
                 </li>
                 <li className="flex items-center gap-3">
-                  <Mail className="h-5 w-5 text-accent flex-shrink-0" />
+                  <Mail className="h-5 w-5 text-accent flex-shrink-0" aria-hidden="true" />
                   <a href="mailto:enquiries@bigfoot.com.sg" className="hover:text-accent transition-colors">enquiries@bigfoot.com.sg</a>
                 </li>
                 <li className="flex items-center gap-3">
-                  <Phone className="h-5 w-5 text-accent flex-shrink-0" />
+                  <Phone className="h-5 w-5 text-accent flex-shrink-0" aria-hidden="true" />
                   <a href="tel:+6563244722" className="hover:text-accent transition-colors">+65 6324 4722</a>
                 </li>
                 <li className="flex items-center gap-3">
-                  <Printer className="h-5 w-5 text-accent flex-shrink-0" />
+                  <Printer className="h-5 w-5 text-accent flex-shrink-0" aria-hidden="true" />
                   <span>+65 6324 4711</span>
                 </li>
               </ul>
@@ -47,13 +47,13 @@ export default function FooterContent() {
              <div className="space-y-4 pt-4 text-left">
               <h3 className="text-lg font-headline font-bold uppercase tracking-wider text-accent">Follow Us</h3>
               <div className="flex gap-6 mt-4">
-                <Link href="https://www.facebook.com/BigfootGroups/" target="_blank" rel="noopener noreferrer" className="hover:text-accent hover:scale-125 transition-all duration-200">
+                <Link href="https://www.facebook.com/BigfootGroups/" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Facebook" className="hover:text-accent hover:scale-125 transition-all duration-200">
                   <Facebook className="h-5 w-5" />
                 </Link>
-                <Link href="https://sg.linkedin.com/company/big-foot-logistic" target="_blank" rel="noopener noreferrer" className="hover:text-accent hover:scale-125 transition-all duration-200">
+                <Link href="https://sg.linkedin.com/company/big-foot-logistic" target="_blank" rel="noopener noreferrer" aria-label="Follow us on LinkedIn" className="hover:text-accent hover:scale-125 transition-all duration-200">
                   <Linkedin className="h-5 w-5" />
                 </Link>
-                <Link href="https://www.instagram.com/reel/DOoFDBfDhch/?utm_source=ig_web_copy_link" target="_blank" rel="noopener noreferrer" className="hover:text-accent hover:scale-125 transition-all duration-200">
+                <Link href="https://www.instagram.com/reel/DOoFDBfDhch/?utm_source=ig_web_copy_link" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Instagram" className="hover:text-accent hover:scale-125 transition-all duration-200">
                   <Instagram className="h-5 w-5" />
                 </Link>
               </div>
@@ -74,7 +74,7 @@ export default function FooterContent() {
       <div className="bg-black/20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6 text-center text-primary-foreground/70">
           <p className="text-sm">
-            © 2025 <Link href="/" className="hover:underline hover:text-accent transition-colors">Bigfoot Logistic Pte Ltd.</Link> All Rights Reserved.
+            © {new Date().getFullYear()} <Link href="/" className="hover:underline hover:text-accent transition-colors">Bigfoot Logistic Pte Ltd.</Link> All Rights Reserved.
           </p>
         </div>
       </div>
