@@ -6,7 +6,7 @@ export const groupOfCompanies = [
     { name: 'BIGFOOT Shipping (S) Pte Ltd' },
     { name: 'BIGFOOT International (S) Pte Ltd' },
     { name: 'BIGFOOT Medicare Pte. Ltd.' },
-    { name: 'BIGFOOT Worldwide Pte Ltd' },
+    { name: 'BIGFOOT WORLDWIDE PTE. LTD.' },
     { name: 'Bigfoot International Network Sdn. Bhd.' },
     { name: 'BIGFOOT COLD STORAGE AND WAREHOUSE SERVICES PVT. LTD.' },
     { name: 'BIGFOOT Logistic (India) Pvt Ltd' },

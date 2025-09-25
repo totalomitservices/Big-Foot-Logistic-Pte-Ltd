@@ -58,7 +58,7 @@ export const groupOfCompaniesDetails: CompanyDetails[] = [
         address: 'Singapore'
     },
     {
-        name: 'BIGFOOT Worldwide Pte Ltd',
+        name: 'BIGFOOT WORLDWIDE PTE. LTD.',
         uen: '201438007Z',
         description: 'Established on 23 December 2014, is another entity within the Bigfoot Group. Operating from the same address at 8 Joo Koon Road, Singapore, the company specializes in wholesale trade of a variety of goods without a dominant product. It is an exempt private company with a paid-up capital of SGD 150,000 and remains active to date. By handling a wide range of products across multiple industries, BIGFOOT Worldwide strengthens the group’s international trading and distribution capabilities, complementing its core logistics and freight operations.',
         address: 'Singapore'
