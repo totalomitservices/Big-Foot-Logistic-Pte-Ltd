@@ -8,18 +8,18 @@ import WhatsappButton from '../whatsapp-button';
 
 export default function FooterContent() {
   const groupOfCompanies = [
-    'BIGFOOT Meats Pte Ltd',
-    'BIGFOOT Engineering Pte Ltd',
-    'BIGFOOT Shipping (S) Pte Ltd',
-    'BIGFOOT International (S) Pte Ltd',
-    'BIGFOOT Medicare Pte Ltd',
-    'BIGFOOT Worldwide Pte Ltd',
-    'Bigfoot International Network Sdn. Bhd.',
-    'BIGFOOT (India) Pvt Ltd',
-    'BIGFOOT Logistic (India) Pvt Ltd',
-    'BIGFOOT Trading (Australia) Pty Ltd',
-    'Independent Livestock Services Pty Ltd',
-    'BIGFOOT Global Academy Pte Ltd',
+    { name: 'BIGFOOT Meats Pte Ltd' },
+    { name: 'BIGFOOT Engineering Pte Ltd' },
+    { name: 'BIGFOOT Shipping (S) Pte Ltd' },
+    { name: 'BIGFOOT International (S) Pte Ltd' },
+    { name: 'BIGFOOT Medicare Pte Ltd', href: '/about/medicare' },
+    { name: 'BIGFOOT Worldwide Pte Ltd' },
+    { name: 'Bigfoot International Network Sdn. Bhd.' },
+    { name: 'BIGFOOT (India) Pvt Ltd' },
+    { name: 'BIGFOOT Logistic (India) Pvt Ltd' },
+    { name: 'BIGFOOT Trading (Australia) Pty Ltd' },
+    { name: 'Independent Livestock Services Pty Ltd' },
+    { name: 'BIGFOOT Global Academy Pte Ltd' },
   ];
 
   return (
@@ -40,11 +40,21 @@ export default function FooterContent() {
           <div>
             <h3 className="text-lg font-headline font-bold uppercase tracking-wider text-accent text-left">Group of Companies</h3>
             <ul className="space-y-2 text-sm mt-4">
-              <li className="text-primary-foreground/80 hover:text-accent transition-colors">
-                <Link href="/">BIGFOOT Logistic Pte Ltd</Link>
+              <li>
+                <Link href="/" className="text-primary-foreground/80 hover:text-accent transition-colors">
+                  BIGFOOT Logistic Pte Ltd
+                </Link>
               </li>
-              {groupOfCompanies.map((company, index) => (
-                <li key={index} className="text-primary-foreground/80">{company}</li>
+              {groupOfCompanies.map((company) => (
+                <li key={company.name}>
+                  {company.href ? (
+                    <Link href={company.href} className="text-primary-foreground/80 hover:text-accent transition-colors">
+                      {company.name}
+                    </Link>
+                  ) : (
+                    <span className="text-primary-foreground/80">{company.name}</span>
+                  )}
+                </li>
               ))}
             </ul>
           </div>
