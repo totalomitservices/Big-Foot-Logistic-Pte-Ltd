@@ -4,23 +4,10 @@ import Link from 'next/link';
 import { Logo } from '@/components/logo';
 import FooterMapClient from './footer-map-client';
 import WhatsappButton from '../whatsapp-button';
+import { groupOfCompanies } from '@/data/group-of-companies';
 
 
 export default function FooterContent() {
-  const groupOfCompanies = [
-    { name: 'BIGFOOT Meats Pte Ltd' },
-    { name: 'BIGFOOT Engineering Pte Ltd' },
-    { name: 'BIGFOOT Shipping (S) Pte Ltd' },
-    { name: 'BIGFOOT International (S) Pte Ltd' },
-    { name: 'BIGFOOT Medicare Pte Ltd' },
-    { name: 'BIGFOOT Worldwide Pte Ltd' },
-    { name: 'Bigfoot International Network Sdn. Bhd.' },
-    { name: 'BIGFOOT (India) Pvt Ltd' },
-    { name: 'BIGFOOT Logistic (India) Pvt Ltd' },
-    { name: 'BIGFOOT Trading (Australia) Pty Ltd' },
-    { name: 'Independent Livestock Services Pty Ltd' },
-    { name: 'BIGFOOT Global Academy Pte Ltd' },
-  ];
 
   return (
     <footer id="contact" className="bg-footer-navy text-primary-foreground">
@@ -38,14 +25,13 @@ export default function FooterContent() {
 
           {/* Group of Companies */}
           <div>
-            <h3 className="text-lg font-headline font-bold uppercase tracking-wider text-accent text-left">Group of Companies</h3>
+            <h3 className="text-lg font-headline font-bold uppercase tracking-wider text-accent text-left">
+              <Link href="/about/group-of-companies" className="hover:text-accent transition-colors">
+                Group of Companies
+              </Link>
+            </h3>
             <ul className="space-y-2 text-sm mt-4">
-              <li>
-                <Link href="/" className="text-primary-foreground/80 hover:text-accent transition-colors">
-                  BIGFOOT Logistic Pte Ltd
-                </Link>
-              </li>
-              {groupOfCompanies.map((company) => (
+              {groupOfCompanies.slice(0, 5).map((company) => (
                 <li key={company.name}>
                   {company.href ? (
                     <Link href={company.href} className="text-primary-foreground/80 hover:text-accent transition-colors">
@@ -56,6 +42,11 @@ export default function FooterContent() {
                   )}
                 </li>
               ))}
+                <li>
+                    <Link href="/about/group-of-companies" className="text-accent hover:underline text-sm">
+                        View all...
+                    </Link>
+                </li>
             </ul>
           </div>
 

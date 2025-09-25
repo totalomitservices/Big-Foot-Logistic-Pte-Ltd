@@ -39,7 +39,7 @@ export default function Hero() {
               variant="default"
               className="transition-all duration-300 transform hover:scale-105 shadow-lg w-full sm:w-auto"
             >
-              <Link href="#services">Read More</Link>
+              <Link href="/about/group-of-companies">Group Of Companies</Link>
             </Button>
             <TrackingFormDialog />
           </div>
