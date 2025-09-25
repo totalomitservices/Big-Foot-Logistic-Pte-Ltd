@@ -7,18 +7,42 @@ import WhatsappButton from '../whatsapp-button';
 
 
 export default function FooterContent() {
+  const groupOfCompanies = [
+    'BIGFOOT Logistic Pte Ltd',
+    'BIGFOOT Meats Pte Ltd',
+    'BIGFOOT Engineering Pte Ltd',
+    'BIGFOOT Shipping (S) Pte Ltd',
+    'BIGFOOT International (S) Pte Ltd',
+    'BIGFOOT Medicare Pte Ltd',
+    'BIGFOOT Worldwide Pte Ltd',
+    'Bigfoot International Network Sdn. Bhd.',
+    'BIGFOOT (India) Pvt Ltd',
+    'BIGFOOT Logistic (India) Pvt Ltd',
+    'BIGFOOT Trading (Australia) Pty Ltd',
+    'Independent Livestock Services Pty Ltd',
+    'BIGFOOT Global Academy Pte Ltd',
+  ];
+
   return (
     <footer id="contact" className="bg-footer-navy text-primary-foreground">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 items-start">
-          {/* Company Profile */}
-          <div className="flex flex-col items-start text-left space-y-4">
-            <Link href="/" aria-label="Back to homepage">
-              <Logo className="text-primary-foreground" />
-            </Link>
-            <p className="text-primary-foreground/80 text-sm text-justify">
-              BIG FOOT LOGISTIC PTE LTD was founded in the year 1992. The Company had since developed a wide range of logistic and port services in tune with current market demands. Built with a strong customer focus as its foundation, the company has been garnering intense support from our customers, whom till today still form the backbone of the company’s continual growth.
-            </p>
+          {/* Google Map */}
+          <div>
+            <h3 className="text-lg font-headline font-bold uppercase tracking-wider text-accent mb-4 text-left">Our Location</h3>
+            <div className="aspect-video overflow-hidden shadow-lg transition-all duration-300 hover:shadow-accent/30 hover:shadow-2xl hover:scale-105">
+              <FooterMapClient />
+            </div>
+          </div>
+          
+          {/* Group of Companies */}
+          <div>
+            <h3 className="text-lg font-headline font-bold uppercase tracking-wider text-accent text-left">Group of Companies</h3>
+            <ul className="space-y-2 text-sm mt-4">
+              {groupOfCompanies.map((company, index) => (
+                <li key={index} className="text-primary-foreground/80">{company}</li>
+              ))}
+            </ul>
           </div>
 
           {/* Contact Info & Follow Us */}
@@ -57,14 +81,6 @@ export default function FooterContent() {
                   <Instagram className="h-5 w-5" />
                 </Link>
               </div>
-            </div>
-          </div>
-
-          {/* Google Map */}
-          <div>
-            <h3 className="text-lg font-headline font-bold uppercase tracking-wider text-accent mb-4 text-left">Our Location</h3>
-            <div className="aspect-video overflow-hidden shadow-lg transition-all duration-300 hover:shadow-accent/30 hover:shadow-2xl hover:scale-105">
-              <FooterMapClient />
             </div>
           </div>
         </div>
