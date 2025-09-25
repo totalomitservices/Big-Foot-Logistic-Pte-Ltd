@@ -56,14 +56,10 @@ const contactInfo = {
   phone: '+65 6324 4722',
 };
 
-function NavLink({ href, children, className, onClick, hasMounted }: { href: string; children: React.ReactNode, className?: string, onClick?: () => void, hasMounted: boolean }) {
-    const pathname = usePathname();
-    const isActive = hasMounted && pathname === href;
-    
+function NavLink({ href, children, className, onClick }: { href: string; children: React.ReactNode, className?: string, onClick?: () => void }) {
     return (
          <Link href={href} onClick={onClick} className={cn(
             "font-medium text-base focus-visible:ring-0 focus-visible:ring-offset-0 px-3 py-2 rounded-md transition-colors text-black hover:text-red-500",
-            isActive && "text-red-500",
             className
         )}>
             {children}
@@ -71,12 +67,7 @@ function NavLink({ href, children, className, onClick, hasMounted }: { href: str
     );
 };
 
-function DesktopNav({ hasMounted }: { hasMounted: boolean }) {
-    const pathname = usePathname();
-
-    const isAboutActive = hasMounted && pathname.startsWith('/about');
-    const isServicesActive = hasMounted && pathname.startsWith('/services');
-    
+function DesktopNav() {
     return (
         <nav className="hidden md:flex items-center gap-1" aria-label="Main navigation">
             {navLinks.map((link) => (
@@ -84,7 +75,7 @@ function DesktopNav({ hasMounted }: { hasMounted: boolean }) {
                     {link.subLinks ? (
                          <DropdownMenu>
                             <DropdownMenuTrigger asChild>
-                                <Button variant="ghost" className={cn("hover:bg-transparent focus:bg-transparent text-base font-medium px-3 py-2 flex items-center gap-1 text-black hover:text-red-500 focus-visible:ring-0 focus-visible:ring-offset-0 data-[state=open]:text-red-500", (link.label === "About Us" && isAboutActive) && "text-red-500", (link.label === "Services" && isServicesActive) && "text-red-500")}>
+                                <Button variant="ghost" className="hover:bg-transparent focus:bg-transparent text-base font-medium px-3 py-2 flex items-center gap-1 text-black hover:text-red-500 focus-visible:ring-0 focus-visible:ring-offset-0 data-[state=open]:text-red-500">
                                     {link.label}
                                     <ChevronDown className="relative top-[1px] ml-1 h-4 w-4 transition duration-200 group-data-[state=open]:rotate-180" aria-hidden="true" />
                                 </Button>
@@ -98,7 +89,7 @@ function DesktopNav({ hasMounted }: { hasMounted: boolean }) {
                             </DropdownMenuContent>
                         </DropdownMenu>
                     ) : (
-                        <NavLink href={link.href!} hasMounted={hasMounted}>{link.label}</NavLink>
+                        <NavLink href={link.href!}>{link.label}</NavLink>
                     )}
                 </div>
             ))}
@@ -106,8 +97,12 @@ function DesktopNav({ hasMounted }: { hasMounted: boolean }) {
     );
 };
 
-function MobileNav({ hasMounted }: { hasMounted: boolean }) {
+function MobileNav() {
     const pathname = usePathname();
+    const [hasMounted, setHasMounted] = useState(false);
+    useEffect(() => {
+        setHasMounted(true);
+    }, []);
 
     return (
         <div className="md:hidden">
@@ -186,14 +181,10 @@ function MobileNav({ hasMounted }: { hasMounted: boolean }) {
 
 
 export default function HeaderClient() {
-  const [hasMounted, setHasMounted] = useState(false);
-
-  useEffect(() => {
-    setHasMounted(true);
-  }, []);
-
   return (
-    <header className="fixed top-4 left-0 w-full z-50 transition-all duration-300 ease-in-out">
+    <header
+      className="fixed top-4 left-0 w-full z-50 transition-all duration-300 ease-in-out"
+    >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="relative flex items-center justify-between backdrop-blur-md shadow-lg rounded-full bg-white/80 transition-all duration-300 px-2 h-[68px]">
                 <div className="flex items-center flex-shrink-0">
@@ -202,7 +193,7 @@ export default function HeaderClient() {
                     </Link>
                 </div>
                 
-                <DesktopNav hasMounted={hasMounted} />
+                <DesktopNav />
                 
                 <div className="hidden md:flex items-center gap-2">
                     <div className="h-6 w-px mx-2 bg-black/20" />
@@ -214,7 +205,7 @@ export default function HeaderClient() {
                     </a>
                 </div>
 
-                <MobileNav hasMounted={hasMounted} />
+                <MobileNav />
             </div>
         </div>
     </header>
