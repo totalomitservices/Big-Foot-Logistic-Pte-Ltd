@@ -33,7 +33,7 @@ export default function FooterContent() {
             <ul className="space-y-2 text-sm mt-4">
               {groupOfCompanies.map((company) => (
                 <li key={company.name}>
-                  <Link href="/about/group-of-companies" className="text-primary-foreground/80 hover:text-accent transition-colors">
+                  <Link href={company.name === 'BIGFOOT Logistic Pte Ltd' ? '/' : '/about/group-of-companies'} className="text-primary-foreground/80 hover:text-accent transition-colors">
                     {company.name}
                   </Link>
                 </li>
