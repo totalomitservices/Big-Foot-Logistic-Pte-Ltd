@@ -37,14 +37,6 @@ export default function FooterContent() {
             </p>
           </div>
 
-          {/* Google Map */}
-          <div>
-            <h3 className="text-lg font-headline font-bold uppercase tracking-wider text-accent mb-4 text-left">Our Location</h3>
-            <div className="aspect-video overflow-hidden shadow-lg transition-all duration-300 hover:shadow-accent/30 hover:shadow-2xl hover:scale-105">
-              <FooterMapClient />
-            </div>
-          </div>
-          
           {/* Group of Companies */}
           <div>
             <h3 className="text-lg font-headline font-bold uppercase tracking-wider text-accent text-left">Group of Companies</h3>
@@ -91,6 +83,14 @@ export default function FooterContent() {
                   <Instagram className="h-5 w-5" />
                 </Link>
               </div>
+            </div>
+          </div>
+          
+          {/* Google Map */}
+          <div>
+            <h3 className="text-lg font-headline font-bold uppercase tracking-wider text-accent mb-4 text-left">Our Location</h3>
+            <div className="aspect-video overflow-hidden shadow-lg transition-all duration-300 hover:shadow-accent/30 hover:shadow-2xl hover:scale-105">
+              <FooterMapClient />
             </div>
           </div>
         </div>
