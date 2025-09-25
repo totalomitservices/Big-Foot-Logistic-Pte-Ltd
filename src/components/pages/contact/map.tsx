@@ -15,7 +15,7 @@ const WORLD_VIEW = { center: [20, 0], zoom: 2 };
 
 export default function Map() {
   const mapRef = useRef<HTMLDivElement>(null);
-  const mapInstance = useRef<any>(null);
+  const mapInstanceRef = useRef<any>(null);
 
   useEffect(() => {
     if (typeof window === 'undefined' || !mapRef.current) {
@@ -23,20 +23,23 @@ export default function Map() {
     }
 
     // Check if the map is already initialized
-    if (mapInstance.current) {
+    if ((mapRef.current as any)._leaflet_id) {
       return;
     }
     
+    let mapInstance: any;
+
     const initMap = async () => {
       const L = await import('leaflet');
       
-      mapInstance.current = L.map(mapRef.current!, {
+      mapInstance = L.map(mapRef.current!, {
         center: WORLD_VIEW.center as L.LatLngTuple,
         zoom: WORLD_VIEW.zoom,
         minZoom: WORLD_VIEW.zoom,
         zoomControl: false,
         scrollWheelZoom: false,
       });
+      mapInstanceRef.current = mapInstance;
 
       L.tileLayer(
         'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
@@ -45,7 +48,7 @@ export default function Map() {
             '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
           noWrap: true,
         }
-      ).addTo(mapInstance.current);
+      ).addTo(mapInstance);
 
       const createPulsingIcon = () => {
         return L.divIcon({
@@ -58,10 +61,10 @@ export default function Map() {
 
       mapLocations.forEach((loc) => {
         L.marker([loc.lat, loc.lon], { icon: createPulsingIcon() })
-          .addTo(mapInstance.current)
+          .addTo(mapInstance)
           .bindTooltip(`${loc.city} — ${loc.country}`)
           .on('click', () => {
-            mapInstance.current.flyTo([loc.lat, loc.lon], 6, {
+            mapInstance.flyTo([loc.lat, loc.lon], 6, {
               animate: true,
               duration: 1.5,
             });
@@ -73,15 +76,15 @@ export default function Map() {
 
     // Cleanup function to run when the component unmounts
     return () => {
-      if (mapInstance.current) {
-        mapInstance.current.remove();
-        mapInstance.current = null;
+      if (mapInstance) {
+        mapInstance.remove();
+        mapInstanceRef.current = null;
       }
     };
   }, []);
 
-  const handleZoomIn = () => mapInstance.current?.zoomIn();
-  const handleGoHome = () => mapInstance.current?.flyTo(WORLD_VIEW.center as L.LatLngTuple, WORLD_VIEW.zoom);
+  const handleZoomIn = () => mapInstanceRef.current?.zoomIn();
+  const handleGoHome = () => mapInstanceRef.current?.flyTo(WORLD_VIEW.center as L.LatLngTuple, WORLD_VIEW.zoom);
 
   return (
     <section className="relative h-[50vh] w-full">
