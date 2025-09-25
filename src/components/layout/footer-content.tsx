@@ -8,7 +8,6 @@ import WhatsappButton from '../whatsapp-button';
 
 export default function FooterContent() {
   const groupOfCompanies = [
-    'BIGFOOT Logistic Pte Ltd',
     'BIGFOOT Meats Pte Ltd',
     'BIGFOOT Engineering Pte Ltd',
     'BIGFOOT Shipping (S) Pte Ltd',
@@ -41,6 +40,9 @@ export default function FooterContent() {
           <div>
             <h3 className="text-lg font-headline font-bold uppercase tracking-wider text-accent text-left">Group of Companies</h3>
             <ul className="space-y-2 text-sm mt-4">
+              <li className="text-primary-foreground/80 hover:text-accent transition-colors">
+                <Link href="/">BIGFOOT Logistic Pte Ltd</Link>
+              </li>
               {groupOfCompanies.map((company, index) => (
                 <li key={index} className="text-primary-foreground/80">{company}</li>
               ))}
