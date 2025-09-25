@@ -19,7 +19,7 @@ export const groupOfCompaniesDetails: CompanyDetails[] = [
         name: 'BIGFOOT MEATS PTE. LTD.',
         uen: '200412500R',
         description: 'Your trusted source in Singapore for high-quality frozen meats, poultry, and more — wholesale or retail, fresh to frozen, all with care. Founded decades ago, they blend consistency, scale, and passion so your kitchen never has to compromise. Straight from Jurong Food Hub to your plate, BIGFOOT delivers the meat you trust, every single time.',
-        address: '15 Jalan Tepong, #02-13/14, Jurong Food Hub, Singapore 619336',
+        address: 'Singapore',
         phone: '+65 6324 4722',
         email: 'enquiries@bigfoot.com.sg'
     },
