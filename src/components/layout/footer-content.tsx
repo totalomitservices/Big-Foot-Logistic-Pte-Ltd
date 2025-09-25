@@ -31,7 +31,7 @@ export default function FooterContent() {
               </Link>
             </h3>
             <ul className="space-y-2 text-sm mt-4">
-              {groupOfCompanies.slice(0, 5).map((company) => (
+              {groupOfCompanies.map((company) => (
                 <li key={company.name}>
                   {company.href ? (
                     <Link href={company.href} className="text-primary-foreground/80 hover:text-accent transition-colors">
@@ -42,11 +42,6 @@ export default function FooterContent() {
                   )}
                 </li>
               ))}
-                <li>
-                    <Link href="/about/group-of-companies" className="text-accent hover:underline text-sm">
-                        View all...
-                    </Link>
-                </li>
             </ul>
           </div>
 
