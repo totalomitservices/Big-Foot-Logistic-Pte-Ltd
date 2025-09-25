@@ -61,12 +61,6 @@ export default function GroupOfCompaniesPage() {
                       <span>{company.phone}</span>
                     </div>
                   )}
-                  {company.fax && (
-                    <div className="flex items-center gap-3 text-muted-foreground">
-                      <Printer className="h-4 w-4 text-destructive flex-shrink-0" />
-                      <span>{company.fax}</span>
-                    </div>
-                  )}
                   {company.email && (
                     <div className="flex items-center gap-3 text-muted-foreground">
                       <Mail className="h-4 w-4 text-destructive flex-shrink-0" />
