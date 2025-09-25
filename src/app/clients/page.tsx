@@ -1,15 +1,10 @@
+'use client';
 
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { Card } from '@/components/ui/card';
-import type { Metadata } from 'next';
 import { clients } from '@/data/clients';
-
-export const metadata: Metadata = {
-  title: 'Our Clients | Bigfoot Logistics',
-  description: 'We are proud to partner with a diverse range of clients across various industries. Discover the companies that trust Bigfoot Logistics for their supply chain and logistics needs.',
-};
 
 export default function ClientsPage() {
   return (
