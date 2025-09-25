@@ -55,12 +55,6 @@ export default function GroupOfCompaniesPage() {
                 </Accordion>
 
                 <div className="space-y-3 text-xs pt-4 border-t border-border">
-                  {company.address && (
-                    <div className="flex items-start gap-3 text-muted-foreground">
-                      <Building className="h-4 w-4 mt-0.5 text-primary flex-shrink-0" />
-                      <span>{company.address}</span>
-                    </div>
-                  )}
                   {company.phone && (
                     <div className="flex items-center gap-3 text-muted-foreground">
                       <Phone className="h-4 w-4 text-primary flex-shrink-0" />
