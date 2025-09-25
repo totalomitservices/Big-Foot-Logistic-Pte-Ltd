@@ -1,6 +1,7 @@
 
 "use client";
 
+import { useState, useEffect } from 'react';
 import { Mail, Phone, Menu, ChevronDown } from 'lucide-react';
 import Link from 'next/link';
 import { Logo } from '@/components/logo';
@@ -57,7 +58,13 @@ const contactInfo = {
 
 function NavLink({ href, children, className, onClick }: { href: string; children: React.ReactNode, className?: string, onClick?: () => void }) {
     const pathname = usePathname();
-    const isActive = pathname === href;
+    const [hasMounted, setHasMounted] = useState(false);
+
+    useEffect(() => {
+        setHasMounted(true);
+    }, []);
+
+    const isActive = hasMounted && pathname === href;
     
     return (
          <Link href={href} onClick={onClick} className={cn(
@@ -72,9 +79,14 @@ function NavLink({ href, children, className, onClick }: { href: string; childre
 
 function DesktopNav() {
     const pathname = usePathname();
+    const [hasMounted, setHasMounted] = useState(false);
 
-    const isAboutActive = pathname.startsWith('/about');
-    const isServicesActive = pathname.startsWith('/services');
+    useEffect(() => {
+        setHasMounted(true);
+    }, []);
+
+    const isAboutActive = hasMounted && pathname.startsWith('/about');
+    const isServicesActive = hasMounted && pathname.startsWith('/services');
     
     return (
         <nav className="hidden md:flex items-center gap-1" aria-label="Main navigation">
@@ -107,6 +119,11 @@ function DesktopNav() {
 
 function MobileNav() {
     const pathname = usePathname();
+    const [hasMounted, setHasMounted] = useState(false);
+
+    useEffect(() => {
+        setHasMounted(true);
+    }, []);
 
     return (
         <div className="md:hidden">
@@ -156,7 +173,7 @@ function MobileNav() {
                                                 href={link.href!}
                                                 className={cn(
                                                     "font-bold text-lg hover:text-red-500 transition-colors block py-3 px-2 rounded-md",
-                                                    pathname === link.href && "text-red-500 bg-black/10"
+                                                    hasMounted && pathname === link.href && "text-red-500 bg-black/10"
                                                 )}
                                             >
                                                 {link.label}
