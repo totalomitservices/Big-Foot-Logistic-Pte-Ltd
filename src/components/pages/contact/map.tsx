@@ -24,20 +24,19 @@ export default function Map() {
 
     const initMap = async () => {
       // Check if the map is already initialized
-      if (mapRef.current?.hasAttribute('data-leaflet-container')) {
+      if (mapInstance.current) {
         return;
       }
       
       const L = await import('leaflet');
       
-      const map = L.map(mapRef.current!, {
+      mapInstance.current = L.map(mapRef.current!, {
         center: WORLD_VIEW.center as L.LatLngTuple,
         zoom: WORLD_VIEW.zoom,
         minZoom: WORLD_VIEW.zoom,
         zoomControl: false,
         scrollWheelZoom: false,
       });
-      mapInstance.current = map;
 
       L.tileLayer(
         'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
@@ -46,7 +45,7 @@ export default function Map() {
             '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
           noWrap: true,
         }
-      ).addTo(map);
+      ).addTo(mapInstance.current);
 
       const createPulsingIcon = () => {
         return L.divIcon({
@@ -59,10 +58,10 @@ export default function Map() {
 
       mapLocations.forEach((loc) => {
         L.marker([loc.lat, loc.lon], { icon: createPulsingIcon() })
-          .addTo(map)
+          .addTo(mapInstance.current)
           .bindTooltip(`${loc.city} — ${loc.country}`)
           .on('click', () => {
-            map.flyTo([loc.lat, loc.lon], 6, {
+            mapInstance.current.flyTo([loc.lat, loc.lon], 6, {
               animate: true,
               duration: 1.5,
             });
