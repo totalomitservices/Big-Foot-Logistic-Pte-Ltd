@@ -70,7 +70,7 @@ export const groupOfCompaniesDetails: CompanyDetails[] = [
         address: 'Malaysia'
     },
     {
-        name: 'BIGFOOT (India) Pvt Ltd',
+        name: 'BIGFOOT COLD STORAGE AND WAREHOUSE SERVICES PVT. LTD.',
         description: 'Represents the group’s footprint in the Indian market, though publicly available details are limited compared to its Singapore and Malaysian counterparts. The company is recognized as part of the Bigfoot Group’s expansion strategy in Asia, focusing on logistics, freight solutions, and healthcare-related services. While its precise incorporation details and capital structure are not widely disclosed, the entity is positioned to strengthen Bigfoot’s cross-border operations between South Asia and Southeast Asia. Its presence in India underscores the group’s ambition to build a robust regional network across healthcare, trade, and logistics services.'
     },
     {
