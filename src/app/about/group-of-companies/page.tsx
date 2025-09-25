@@ -27,7 +27,7 @@ export default function GroupOfCompaniesPage() {
           {groupOfCompaniesDetails.map((company) => (
             <Card key={company.name} className="flex flex-col h-full bg-background shadow-lg hover:shadow-xl transition-shadow duration-300">
               <CardHeader>
-                <CardTitle className="text-primary font-headline text-xl">{company.name}</CardTitle>
+                <CardTitle className="text-primary font-headline text-xl uppercase">{company.name}</CardTitle>
                 {company.uen && <CardDescription>UEN: {company.uen}</CardDescription>}
               </CardHeader>
               <CardContent className="flex-grow space-y-4">
