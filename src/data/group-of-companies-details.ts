@@ -52,7 +52,7 @@ export const groupOfCompaniesDetails: CompanyDetails[] = [
         website: 'https://bigfoot-groups.com'
     },
     {
-        name: 'BIGFOOT Medicare Pte Ltd',
+        name: 'BIGFOOT Medicare Pte. Ltd.',
         uen: '200600180R',
         description: 'A Singapore-based company incorporated on 4 January 2006. It is an exempt private company limited by shares with its registered office at 8 Joo Koon Road, Singapore 628972. The company’s core activity is home healthcare and emergency medical services, while its secondary activity includes freight transport arrangement, reflecting its integration with the broader logistics network of the Bigfoot Group. With a paid-up capital of SGD 100,000, the company plays a dual role in supporting healthcare delivery and logistical efficiency. Formerly known as Huk Seng Container 2006 Pte Ltd, it has since evolved under the Bigfoot brand to focus on healthcare logistics and services.',
         address: 'Singapore'
@@ -75,28 +75,27 @@ export const groupOfCompaniesDetails: CompanyDetails[] = [
         address: 'India'
     },
     {
-        name: 'BIGFOOT Logistic (India) Pvt Ltd',
+        name: 'BIGFOOT Logistic (India) Pvt. Ltd.',
         description: 'Bigfoot Logistic (India) Pvt Ltd provides reliable end-to-end logistics solutions, including transportation, storage, and related services across Tamil Nadu. The company focuses on safe, efficient goods movement and streamlined supply-chain support, helping businesses reduce operational challenges, improve efficiency, and ensure timely delivery while serving as a trusted logistics partner.',
         address: 'India',
         phone: '+91 90156 44441',
         email: 'ashish.kumar@kartrocket.com'
     },
     {
-        name: 'BIGFOOT Trading (Australia) Pty Ltd',
+        name: 'BIGFOOT Trading (Australia) Pty. Ltd.',
         description: 'BIGFOOT Trading (Australia) Pty Ltd is a trading and distribution company that manages procurement, import, and supply of goods in the Australian market. It streamlines commercial trade by handling logistics and regulatory compliance, offering businesses a reliable channel to access quality products on time and at competitive prices while supporting long-term partnerships.',
         address: 'Australia',
-        phone: '+618 9575 1222',
-        email: 'enquiries@bigfoot.com.sg'
+        phone: '+618 9575 1222'
     },
     {
-        name: 'Independent Livestock Services Pty Ltd',
+        name: 'Independent Livestock Services Pty. Ltd.',
         description: 'Independent Livestock Services Pty Ltd is a privately registered company specializing in the safe, humane, and efficient transportation of livestock, offering professional logistics tailored to the animal transport industry while ensuring compliance with welfare regulations. It operates independently and has no ownership or subsidiary connection with Bigfoot Logistics Pvt Ltd despite both being in the logistics sector.',
         phone: '+04 1841 0313',
         address: 'Australia',
         email: 'enquiries@bigfoot.com.sg'
     },
     {
-        name: 'BIGFOOT Global Academy Pte Ltd',
+        name: 'BIGFOOT Global Academy Pte. Ltd.',
         uen: '201133521Z',
         description: 'BIGFOOT Global Academy Pte. Ltd.’s website serves as a professional platform to showcase its products, services, and brand identity, clearly presenting its vision and offerings while providing essential details like services, pricing, and contact information. It functions as both a marketing and communication tool, helping customers explore services, view updates, and connect easily, while supporting the company in building credibility and expanding its global reach.',
         address: 'Singapore',
