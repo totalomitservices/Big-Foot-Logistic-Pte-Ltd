@@ -64,7 +64,7 @@ export const groupOfCompaniesDetails: CompanyDetails[] = [
         address: 'Singapore'
     },
     {
-        name: 'Bigfoot International Network Sdn. Bhd.',
+        name: 'BIGFOOT International Network Sdn. Bhd.',
         uen: '1269063-T',
         description: 'Incorporated in Malaysia on 20 February 2018, expands the Bigfoot brand into the Malaysian healthcare sector. Its registered office is located in Taman Tun Dr Ismail, Kuala Lumpur. The company is primarily engaged in medical and healthcare services, including dialysis centres, ambulance operations, and other general healthcare provisions. This healthcare arm of the group illustrates Bigfoot’s strategic diversification, blending logistics expertise with critical health services to cater to regional demand. By combining healthcare support and logistics, it plays a unique role in Malaysia’s service landscape.',
         address: 'Malaysia'
@@ -79,13 +79,11 @@ export const groupOfCompaniesDetails: CompanyDetails[] = [
         description: 'Bigfoot Logistic (India) Pvt Ltd provides reliable end-to-end logistics solutions, including transportation, storage, and related services across Tamil Nadu. The company focuses on safe, efficient goods movement and streamlined supply-chain support, helping businesses reduce operational challenges, improve efficiency, and ensure timely delivery while serving as a trusted logistics partner.',
         address: 'India',
         phone: '+91 90156 44441',
-        email: 'ashish.kumar@kartrocket.com'
     },
     {
         name: 'BIGFOOT Trading (Australia) Pty. Ltd.',
         description: 'BIGFOOT Trading (Australia) Pty Ltd is a trading and distribution company that manages procurement, import, and supply of goods in the Australian market. It streamlines commercial trade by handling logistics and regulatory compliance, offering businesses a reliable channel to access quality products on time and at competitive prices while supporting long-term partnerships.',
         address: 'Australia',
-        phone: '+618 9575 1222'
     },
     {
         name: 'Independent Livestock Services Pty. Ltd.',
