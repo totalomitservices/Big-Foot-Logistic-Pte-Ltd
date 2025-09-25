@@ -211,13 +211,18 @@ export default function HeaderClient() {
       };
     }
   }, [lastScrollY]);
+  
+  const headerStyle: React.CSSProperties = hasMounted
+    ? {
+        transform: show ? 'translateY(0)' : 'translateY(-200%)',
+        opacity: show ? 1 : 0,
+      }
+    : {};
 
   return (
     <header
-      className={cn(
-        "fixed top-4 left-0 w-full z-50 transition-all duration-300 ease-in-out",
-        hasMounted && (show ? "translate-y-0 opacity-100" : "-translate-y-[200%] opacity-0")
-      )}
+      className="fixed top-4 left-0 w-full z-50 transition-all duration-300 ease-in-out"
+      style={headerStyle}
     >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="relative flex items-center justify-between backdrop-blur-md shadow-lg rounded-full bg-white/80 transition-all duration-300 px-2 h-[68px]">
@@ -245,3 +250,5 @@ export default function HeaderClient() {
     </header>
   );
 }
+
+    
