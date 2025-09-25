@@ -11,7 +11,7 @@ export default function GroupOfCompaniesPage() {
     <div className="bg-secondary text-foreground py-16 lg:py-24">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto text-center mb-16">
-          <h1 className="text-4xl md:text-5xl font-headline font-bold text-primary">
+          <h1 className="text-4xl md:text-5xl font-headline font-bold text-accent">
             Our Group of Companies
           </h1>
           <p className="mt-4 text-lg text-muted-foreground">
@@ -49,7 +49,7 @@ export default function GroupOfCompaniesPage() {
                   )}
                 </Accordion>
 
-                <div className="space-y-3 text-sm pt-4 border-t border-border">
+                <div className="space-y-3 pt-4 border-t border-border">
                   {company.address && (
                     <div className="flex items-start gap-3 text-muted-foreground text-sm">
                       <MapPin className="h-4 w-4 text-destructive flex-shrink-0 mt-0.5" />
