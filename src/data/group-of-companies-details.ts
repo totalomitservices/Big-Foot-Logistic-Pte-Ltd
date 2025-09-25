@@ -52,7 +52,7 @@ export const groupOfCompaniesDetails: CompanyDetails[] = [
         website: 'https://bigfoot-groups.com'
     },
     {
-        name: 'BIGFOOT Medicare Pte Ltd',
+        name: 'BIGFOOT Medicare Pte. Ltd.',
         uen: '200600180R',
         description: 'A Singapore-based company incorporated on 4 January 2006. It is an exempt private company limited by shares with its registered office at 8 Joo Koon Road, Singapore 628972. The company’s core activity is home healthcare and emergency medical services, while its secondary activity includes freight transport arrangement, reflecting its integration with the broader logistics network of the Bigfoot Group. With a paid-up capital of SGD 100,000, the company plays a dual role in supporting healthcare delivery and logistical efficiency. Formerly known as Huk Seng Container 2006 Pte Ltd, it has since evolved under the Bigfoot brand to focus on healthcare logistics and services.',
         address: 'Singapore'
