@@ -89,7 +89,8 @@ export const groupOfCompaniesDetails: CompanyDetails[] = [
         name: 'BIGFOOT Global Academy Pte Ltd',
         uen: '201133521Z',
         description: 'BIGFOOT Global Academy Pte Ltd’s website serves as a professional platform to showcase its products, services, and brand identity, clearly presenting its vision and offerings while providing essential details like services, pricing, and contact information. It functions as both a marketing and communication tool, helping customers explore services, view updates, and connect easily, while supporting the company in building credibility and expanding its global reach.',
-        address: 'Singapore'
+        address: 'Singapore',
+        phone: '+65 8066 3057',
+        email: 'enquiry.sg@bfga.edu.sg'
     }
 ];
-
