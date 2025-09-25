@@ -78,18 +78,22 @@ export const groupOfCompaniesDetails: CompanyDetails[] = [
         name: 'BIGFOOT Logistic (India) Pvt. Ltd.',
         description: 'Bigfoot Logistic (India) Pvt Ltd provides reliable end-to-end logistics solutions, including transportation, storage, and related services across Tamil Nadu. The company focuses on safe, efficient goods movement and streamlined supply-chain support, helping businesses reduce operational challenges, improve efficiency, and ensure timely delivery while serving as a trusted logistics partner.',
         address: 'India',
+        phone: '+91 90156 44441',
         email: 'ashish.kumar@kartrocket.com'
     },
     {
         name: 'BIGFOOT Trading (Australia) Pty. Ltd.',
         description: 'BIGFOOT Trading (Australia) Pty Ltd is a trading and distribution company that manages procurement, import, and supply of goods in the Australian market. It streamlines commercial trade by handling logistics and regulatory compliance, offering businesses a reliable channel to access quality products on time and at competitive prices while supporting long-term partnerships.',
-        address: 'Australia'
+        address: 'Australia',
+        phone: '+61 8 9575 1222',
+        email: 'enquiries@bigfoot.com.sg'
     },
     {
         name: 'Independent Livestock Services Pty. Ltd.',
         description: 'Independent Livestock Services Pty Ltd is a privately registered company specializing in the safe, humane, and efficient transportation of livestock, offering professional logistics tailored to the animal transport industry while ensuring compliance with welfare regulations. It operates independently and has no ownership or subsidiary connection with Bigfoot Logistics Pvt Ltd despite both being in the logistics sector.',
         phone: '0418 410 313',
-        address: 'Australia'
+        address: 'Australia',
+        email: 'enquiries@bigfoot.com.sg'
     },
     {
         name: 'BIGFOOT Global Academy Pte. Ltd.',
