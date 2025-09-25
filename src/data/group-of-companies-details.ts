@@ -16,7 +16,7 @@ export type CompanyDetails = {
 
 export const groupOfCompaniesDetails: CompanyDetails[] = [
     {
-        name: 'BIGFOOT Meats Pte Ltd',
+        name: 'BIGFOOT MEATS PTE. LTD. ( Singapore)',
         uen: '200412500R',
         description: 'Your trusted source in Singapore for high-quality frozen meats, poultry, and more — wholesale or retail, fresh to frozen, all with care. Founded decades ago, they blend consistency, scale, and passion so your kitchen never has to compromise. Straight from Jurong Food Hub to your plate, BIGFOOT delivers the meat you trust, every single time.',
         address: '15 Jalan Tepong, #02-13/14, Jurong Food Hub, Singapore 619336',
