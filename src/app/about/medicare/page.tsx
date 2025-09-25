@@ -1,5 +1,8 @@
 
 import type { Metadata } from 'next';
+import { groupOfCompaniesDetails } from '@/data/group-of-companies-details';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Building, Mail, Phone } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'BIGFOOT Medicare Pte Ltd | Bigfoot Logistics',
@@ -7,22 +10,57 @@ export const metadata: Metadata = {
 };
 
 export default function MedicarePage() {
+  const medicareInfo = groupOfCompaniesDetails.find(c => c.name === 'BIGFOOT Medicare Pte Ltd');
+
+  if (!medicareInfo) {
+    return (
+        <div className="bg-background text-foreground py-16 lg:py-24">
+            <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h1 className="text-2xl font-bold text-destructive">Company information not found.</h1>
+            </div>
+      </div>
+    )
+  }
+
   return (
-    <div className="bg-background text-foreground">
+    <div className="bg-secondary text-foreground">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
-        <div className="max-w-4xl mx-auto">
-          <h1 className="text-3xl md:text-4xl font-headline font-bold text-primary mb-8">
-            BIGFOOT Medicare Pte Ltd
-          </h1>
-          <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">
-            <p>
-              BIGFOOT Medicare Pte Ltd is a Singapore-based company incorporated on 4 January 2006 under UEN 200600180R. It is an exempt private company limited by shares with its registered office at 8 Joo Koon Road, Singapore 628972. The company’s core activity is home healthcare and emergency medical services, while its secondary activity includes freight transport arrangement, reflecting its integration with the broader logistics network of the Bigfoot Group.
-            </p>
-            <p>
-              With a paid-up capital of SGD 100,000, the company plays a dual role in supporting healthcare delivery and logistical efficiency. Formerly known as Huk Seng Container 2006 Pte Ltd, it has since evolved under the Bigfoot brand to focus on healthcare logistics and services.
-            </p>
-          </div>
-        </div>
+        <Card className="max-w-4xl mx-auto bg-background shadow-xl">
+            <CardHeader>
+                <CardTitle className="text-3xl md:text-4xl font-headline font-bold text-primary mb-2">
+                    {medicareInfo.name}
+                </CardTitle>
+            </CardHeader>
+            <CardContent>
+                <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">
+                    <p>{medicareInfo.description}</p>
+                </div>
+
+                <div className="mt-8 pt-6 border-t border-border space-y-4">
+                    <h3 className="text-xl font-semibold text-primary">Contact Information</h3>
+                    <div className="space-y-3 text-muted-foreground">
+                        {medicareInfo.address && (
+                            <div className="flex items-start gap-3">
+                                <Building className="h-5 w-5 mt-1 text-primary flex-shrink-0" />
+                                <span>{medicareInfo.address}</span>
+                            </div>
+                        )}
+                         {medicareInfo.phone && (
+                            <div className="flex items-center gap-3">
+                                <Phone className="h-5 w-5 text-primary flex-shrink-0" />
+                                <a href={`tel:${medicareInfo.phone.replace(/\s/g, '')}`} className="hover:text-primary">{medicareInfo.phone}</a>
+                            </div>
+                        )}
+                        {medicareInfo.email && (
+                            <div className="flex items-center gap-3">
+                                <Mail className="h-5 w-5 text-primary flex-shrink-0" />
+                                <a href={`mailto:${medicareInfo.email}`} className="hover:text-primary">{medicareInfo.email}</a>
+                            </div>
+                        )}
+                    </div>
+                </div>
+            </CardContent>
+        </Card>
       </div>
     </div>
   );

@@ -1,7 +1,10 @@
 
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { groupOfCompanies } from '@/data/group-of-companies';
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+import { groupOfCompaniesDetails } from '@/data/group-of-companies-details';
 import type { Metadata } from 'next';
+import { Globe, Phone, Mail, Building, Link as LinkIcon, Printer } from 'lucide-react';
+import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: 'Group of Companies | Bigfoot Logistics',
@@ -10,28 +13,83 @@ export const metadata: Metadata = {
 
 export default function GroupOfCompaniesPage() {
   return (
-    <div className="bg-background text-foreground py-16 lg:py-24">
+    <div className="bg-secondary text-foreground py-16 lg:py-24">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-3xl mx-auto text-center mb-12">
-          <h1 className="text-3xl md:text-4xl font-headline font-bold text-primary">
+        <div className="max-w-3xl mx-auto text-center mb-16">
+          <h1 className="text-4xl md:text-5xl font-headline font-bold text-primary">
             Our Group of Companies
           </h1>
           <p className="mt-4 text-lg text-muted-foreground">
             Bigfoot Logistics is a diversified organization with a global presence across various industries. Discover the companies that make up our group.
           </p>
         </div>
-        <Card className="max-w-4xl mx-auto">
-          <CardHeader>
-            <CardTitle className="text-primary">Companies in the Bigfoot Group</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-4 text-muted-foreground">
-              {groupOfCompanies.map((company) => (
-                <li key={company.name}>{company.name}</li>
-              ))}
-            </ul>
-          </CardContent>
-        </Card>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {groupOfCompaniesDetails.map((company) => (
+            <Card key={company.name} className="flex flex-col h-full bg-background shadow-lg hover:shadow-xl transition-shadow duration-300">
+              <CardHeader>
+                <CardTitle className="text-primary font-headline text-xl">{company.name}</CardTitle>
+                {company.uen && <CardDescription>UEN: {company.uen}</CardDescription>}
+              </CardHeader>
+              <CardContent className="flex-grow space-y-4">
+                {company.description && <p className="text-muted-foreground text-sm leading-relaxed">{company.description}</p>}
+                
+                <Accordion type="single" collapsible className="w-full">
+                  {(company.businessPurpose || company.userPurpose || company.corePurpose) && (
+                    <AccordionItem value="purpose">
+                      <AccordionTrigger className="text-sm font-semibold">Purpose</AccordionTrigger>
+                      <AccordionContent className="text-sm text-muted-foreground space-y-3">
+                        {company.businessPurpose && <div><h4 className="font-bold text-foreground">Business Purpose</h4><p>{company.businessPurpose}</p></div>}
+                        {company.userPurpose && <div><h4 className="font-bold text-foreground">User Purpose</h4><p>{company.userPurpose}</p></div>}
+                        {company.corePurpose && <div><h4 className="font-bold text-foreground">Core Purpose</h4><p>{company.corePurpose}</p></div>}
+                      </AccordionContent>
+                    </AccordionItem>
+                  )}
+                  {company.relationship && (
+                    <AccordionItem value="relationship">
+                      <AccordionTrigger className="text-sm font-semibold">Relationship to Bigfoot</AccordionTrigger>
+                      <AccordionContent className="text-sm text-muted-foreground">
+                        {company.relationship}
+                      </AccordionContent>
+                    </AccordionItem>
+                  )}
+                </Accordion>
+
+                <div className="space-y-3 text-xs pt-4 border-t border-border">
+                  {company.address && (
+                    <div className="flex items-start gap-3 text-muted-foreground">
+                      <Building className="h-4 w-4 mt-0.5 text-primary flex-shrink-0" />
+                      <span>{company.address}</span>
+                    </div>
+                  )}
+                  {company.phone && (
+                    <div className="flex items-center gap-3 text-muted-foreground">
+                      <Phone className="h-4 w-4 text-primary flex-shrink-0" />
+                      <a href={`tel:${company.phone.replace(/\s/g, '')}`} className="hover:text-primary">{company.phone}</a>
+                    </div>
+                  )}
+                  {company.fax && (
+                    <div className="flex items-center gap-3 text-muted-foreground">
+                      <Printer className="h-4 w-4 text-primary flex-shrink-0" />
+                      <span>{company.fax}</span>
+                    </div>
+                  )}
+                  {company.email && (
+                    <div className="flex items-center gap-3 text-muted-foreground">
+                      <Mail className="h-4 w-4 text-primary flex-shrink-0" />
+                      <a href={`mailto:${company.email}`} className="hover:text-primary truncate">{company.email}</a>
+                    </div>
+                  )}
+                  {company.website && (
+                    <div className="flex items-center gap-3 text-muted-foreground">
+                      <LinkIcon className="h-4 w-4 text-primary flex-shrink-0" />
+                      <Link href={company.website} target="_blank" rel="noopener noreferrer" className="hover:text-primary truncate">{company.website}</Link>
+                    </div>
+                  )}
+                </div>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
       </div>
     </div>
   );

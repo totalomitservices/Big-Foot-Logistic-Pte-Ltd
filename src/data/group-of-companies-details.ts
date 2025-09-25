@@ -1,0 +1,100 @@
+
+export type CompanyDetails = {
+    name: string;
+    uen?: string;
+    description: string;
+    address?: string;
+    phone?: string;
+    fax?: string;
+    email?: string;
+    website?: string;
+    businessPurpose?: string;
+    userPurpose?: string;
+    corePurpose?: string;
+    relationship?: string;
+};
+
+export const groupOfCompaniesDetails: CompanyDetails[] = [
+    {
+        name: 'BIGFOOT Meats Pte Ltd',
+        uen: '200412500R',
+        description: 'Your trusted source in Singapore for high-quality frozen meats, poultry, and more — wholesale or retail, fresh to frozen, all with care. Founded decades ago, they blend consistency, scale, and passion so your kitchen never has to compromise. Straight from Jurong Food Hub to your plate, BIGFOOT delivers the meat you trust, every single time.',
+        address: '15 Jalan Tepong, #02-13/14, Jurong Food Hub, Singapore 619336',
+        phone: '+65 6324 4722',
+        email: 'enquiries@bigfoot.com.sg'
+    },
+    {
+        name: 'BIG-FOOT ENGINEERING PTE. LTD.',
+        uen: '200416199R',
+        description: 'Specializes in steel works and welding, including structural steel fabrication and welding services. Their expertise also extends to building and repairing ships, tankers, and other ocean-going vessels, including conversions to offshore structures.',
+        address: '8 Joo Koon Road, #01-0, Singapore 628972',
+        phone: '+65 6362 4575',
+        email: 'enquiries@bigfoot.com.sg',
+        website: 'https://bigfoot.com.sg'
+    },
+    {
+        name: 'BIG-FOOT SHIPPING (S) PTE. LTD.',
+        uen: '200416196D',
+        description: 'Incorporated on 16 December 2004, is an Exempt Private Company Limited by Shares in Singapore. Based at 8 Joo Koon Road, Singapore 628972, it operates as part of Big-Foot Logistics, delivering end-to-end logistics solutions — including transportation, warehousing, freight forwarding, permit clearance, packing, and manpower supply.',
+        address: '8 Joo Koon Road #01-0, Singapore 628972',
+        phone: '+65 6324 4722',
+        fax: '+65 6324 4711',
+        email: 'enquiries@bigfoot.com.sg',
+        website: 'https://bigfoot.com.sg'
+    },
+    {
+        name: 'BIG-FOOT INTERNATIONAL (S) PTE. LTD.',
+        uen: '200823528W',
+        description: 'Incorporated on 22 December 2008, is a live local company with a paid-up capital of $200,000. Registered at 8 Joo Koon Road #01-01-02, Singapore 628972, it has two officers/shareholders and filed its latest annual return on 31 May 2024. Its core business is Process Plant Engineering Services, serving as both its principal and secondary activity.',
+        address: '8 Joo Koon Road, Singapore 628972',
+        phone: '+65 6324 4722',
+        email: 'enquiries@bigfoot.com.sg',
+        website: 'https://bigfoot-groups.com'
+    },
+    {
+        name: 'BIGFOOT Medicare Pte Ltd',
+        uen: '200600180R',
+        description: 'A Singapore-based company incorporated on 4 January 2006. It is an exempt private company limited by shares with its registered office at 8 Joo Koon Road, Singapore 628972. The company’s core activity is home healthcare and emergency medical services, while its secondary activity includes freight transport arrangement, reflecting its integration with the broader logistics network of the Bigfoot Group. With a paid-up capital of SGD 100,000, the company plays a dual role in supporting healthcare delivery and logistical efficiency. Formerly known as Huk Seng Container 2006 Pte Ltd, it has since evolved under the Bigfoot brand to focus on healthcare logistics and services.',
+        address: '8 Joo Koon Road, Singapore 628972'
+    },
+    {
+        name: 'BIGFOOT Worldwide Pte Ltd',
+        uen: '201438007Z',
+        description: 'Established on 23 December 2014, is another entity within the Bigfoot Group. Operating from the same address at 8 Joo Koon Road, Singapore, the company specializes in wholesale trade of a variety of goods without a dominant product. It is an exempt private company with a paid-up capital of SGD 150,000 and remains active to date. By handling a wide range of products across multiple industries, BIGFOOT Worldwide strengthens the group’s international trading and distribution capabilities, complementing its core logistics and freight operations.',
+        address: '8 Joo Koon Road, Singapore'
+    },
+    {
+        name: 'Bigfoot International Network Sdn. Bhd.',
+        uen: '1269063-T',
+        description: 'Incorporated in Malaysia on 20 February 2018, expands the Bigfoot brand into the Malaysian healthcare sector. Its registered office is located in Taman Tun Dr Ismail, Kuala Lumpur. The company is primarily engaged in medical and healthcare services, including dialysis centres, ambulance operations, and other general healthcare provisions. This healthcare arm of the group illustrates Bigfoot’s strategic diversification, blending logistics expertise with critical health services to cater to regional demand. By combining healthcare support and logistics, it plays a unique role in Malaysia’s service landscape.',
+        address: 'Taman Tun Dr Ismail, Kuala Lumpur'
+    },
+    {
+        name: 'BIGFOOT (India) Pvt Ltd',
+        description: 'Represents the group’s footprint in the Indian market, though publicly available details are limited compared to its Singapore and Malaysian counterparts. The company is recognized as part of the Bigfoot Group’s expansion strategy in Asia, focusing on logistics, freight solutions, and healthcare-related services. While its precise incorporation details and capital structure are not widely disclosed, the entity is positioned to strengthen Bigfoot’s cross-border operations between South Asia and Southeast Asia. Its presence in India underscores the group’s ambition to build a robust regional network across healthcare, trade, and logistics services.'
+    },
+    {
+        name: 'BIGFOOT Logistic (India) Pvt Ltd',
+        businessPurpose: 'The main purpose of Bigfoot Logistic (India) Pvt Ltd is to provide reliable logistics solutions through transportation, storage, and related services. Established in Tamil Nadu, the company is engaged in moving goods safely and efficiently while supporting businesses with end-to-end logistics needs. By focusing on transport and warehousing, it helps industries streamline their supply chain and ensure timely delivery of products.',
+        userPurpose: 'For customers, the company serves as a trusted logistics partner, offering services that simplify the movement and management of goods. It enables businesses to reduce operational challenges, improve efficiency, and focus on their core activities while relying on Bigfoot Logistic for dependable transportation and storage. In this way, the company’s purpose is both functional and supportive—designed to connect businesses with their markets effectively.',
+        description: ''
+    },
+    {
+        name: 'BIGFOOT Trading (Australia) Pty Ltd',
+        businessPurpose: 'The main purpose of BIGFOOT Trading (Australia) Pty Ltd is to operate as a trading and distribution company within the Australian market. By managing the procurement, import, and supply of goods, it aims to connect suppliers with buyers efficiently. The company’s activities are centered around ensuring smooth commercial trade, handling logistics associated with products, and maintaining compliance with Australian trade regulations.',
+        userPurpose: 'For customers and partners, the company serves as a reliable channel to access quality goods and trading services. It provides businesses with a structured supply chain, enabling them to obtain products on time and at competitive prices. In this way, the company functions both as a trading facilitator and as a support system for businesses seeking long-term partnerships in the Australian market.',
+        description: ''
+    },
+    {
+        name: 'Independent Livestock Services Pty Ltd',
+        description: 'A stand-alone company, not a branch or division of Bigfoot Logistics Pvt Ltd. The use of “Pty Ltd” indicates it is registered as a private limited company under Australian or South African business law, completely separate from “Pvt Ltd” (commonly used in India, South Asia, and other regions).',
+        corePurpose: 'This company specializes in the transportation of livestock, focusing on the safe, humane, and efficient movement of animals. Its main purpose is to provide professional logistics services tailored specifically to the livestock industry, ensuring compliance with animal welfare regulations and transportation standards.',
+        relationship: 'Currently, there is no evidence of ownership, partnership, or subsidiary status linking Independent Livestock Services Pty Ltd to Bigfoot Logistics Pvt Ltd. They operate in different corporate frameworks and jurisdictions. While both companies work in the logistics and transport industry, their operations, management, and legal structures are independent.'
+    },
+    {
+        name: 'BIGFOOT Global Academy Pte Ltd',
+        businessPurpose: 'The main purpose of this company’s website is to present its products, services, and brand identity to customers and potential partners. It serves as an online platform to communicate the company’s vision, mission, and expertise, helping visitors quickly understand what the business offers. Through a professional layout, it highlights the key solutions or products, providing easy access to essential information such as services, pricing, contact details, and company background.',
+        userPurpose: 'The website also functions as a bridge between the company and its audience. For customers, it provides a simple way to explore services, view past projects, read company updates, and connect through inquiries or applications. For the business, it acts as a marketing and communication tool, helping build credibility, attract clients, and expand its reach globally. In short, the website’s main purpose is both promotional and functional—designed to showcase the company while engaging users effectively.',
+        description: ''
+    }
+];
