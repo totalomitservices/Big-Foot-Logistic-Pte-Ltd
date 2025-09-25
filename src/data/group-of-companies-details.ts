@@ -85,7 +85,7 @@ export const groupOfCompaniesDetails: CompanyDetails[] = [
         name: 'BIGFOOT Trading (Australia) Pty. Ltd.',
         description: 'BIGFOOT Trading (Australia) Pty Ltd is a trading and distribution company that manages procurement, import, and supply of goods in the Australian market. It streamlines commercial trade by handling logistics and regulatory compliance, offering businesses a reliable channel to access quality products on time and at competitive prices while supporting long-term partnerships.',
         address: 'Australia',
-        phone: '+61 8 9575 1222',
+        phone: '+618 9575 1222',
         email: 'enquiries@bigfoot.com.sg'
     },
     {
