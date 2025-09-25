@@ -1,13 +1,13 @@
 
+'use client';
+
 import type { Metadata } from 'next';
 import { groupOfCompaniesDetails } from '@/data/group-of-companies-details';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Building, Mail, Phone } from 'lucide-react';
 
-export const metadata: Metadata = {
-  title: 'BIGFOOT Medicare Pte Ltd | Bigfoot Logistics',
-  description: 'Learn about BIGFOOT Medicare Pte Ltd, a Singapore-based company providing home healthcare, emergency medical services, and healthcare logistics.',
-};
+// Note: Metadata export is not supported in client components.
+// If you need to set metadata, this should be done in a parent server component or layout.
 
 export default function MedicarePage() {
   const medicareInfo = groupOfCompaniesDetails.find(c => c.name === 'BIGFOOT Medicare Pte Ltd');
