@@ -22,12 +22,12 @@ export default function Map() {
       return;
     }
 
+    // Check if the map is already initialized
+    if (mapInstance.current) {
+      return;
+    }
+    
     const initMap = async () => {
-      // Check if the map is already initialized
-      if (mapInstance.current) {
-        return;
-      }
-      
       const L = await import('leaflet');
       
       mapInstance.current = L.map(mapRef.current!, {
@@ -71,6 +71,7 @@ export default function Map() {
     
     initMap();
 
+    // Cleanup function to run when the component unmounts
     return () => {
       if (mapInstance.current) {
         mapInstance.current.remove();
