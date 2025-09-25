@@ -11,6 +11,6 @@ export const groupOfCompanies = [
     { name: 'BIGFOOT COLD STORAGE AND WAREHOUSE SERVICES PVT. LTD.' },
     { name: 'BIGFOOT Logistic (India) Pvt. Ltd.' },
     { name: 'BIGFOOT Trading (Australia) Pty. Ltd.' },
-    { name: 'Independent Livestock Services Pty Ltd' },
+    { name: 'Independent Livestock Services Pty. Ltd.' },
     { name: 'BIGFOOT Global Academy Pte Ltd' },
 ];
