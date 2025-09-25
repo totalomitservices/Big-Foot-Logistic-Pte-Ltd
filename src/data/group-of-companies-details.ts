@@ -16,7 +16,7 @@ export type CompanyDetails = {
 
 export const groupOfCompaniesDetails: CompanyDetails[] = [
     {
-        name: 'BIGFOOT MEATS PTE LTD',
+        name: 'BIGFOOT MEATS PTE. LTD.',
         uen: '200412500R',
         description: 'Your trusted source in Singapore for high-quality frozen meats, poultry, and more — wholesale or retail, fresh to frozen, all with care. Founded decades ago, they blend consistency, scale, and passion so your kitchen never has to compromise. Straight from Jurong Food Hub to your plate, BIGFOOT delivers the meat you trust, every single time.',
         address: 'Singapore',
@@ -46,7 +46,7 @@ export const groupOfCompaniesDetails: CompanyDetails[] = [
         name: 'BIG-FOOT INTERNATIONAL (S) PTE. LTD.',
         uen: '200823528W',
         description: 'Incorporated on 22 December 2008, is a live local company with a paid-up capital of $200,000. Registered at 8 Joo Koon Road #01-01-02, Singapore 628972, it has two officers/shareholders and filed its latest annual return on 31 May 2024. Its core business is Process Plant Engineering Services, serving as both its principal and secondary activity.',
-        address: '8 Joo Koon Road, Singapore 628972',
+        address: 'Singapore',
         phone: '+65 6324 4722',
         email: 'enquiries@bigfoot.com.sg',
         website: 'https://bigfoot-groups.com'
