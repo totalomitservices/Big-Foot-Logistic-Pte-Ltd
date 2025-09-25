@@ -1,3 +1,4 @@
+
 'use client';
 
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
@@ -48,7 +49,7 @@ export default function GroupOfCompaniesPage() {
                   )}
                 </Accordion>
 
-                <div className="space-y-3 text-xs pt-4 border-t border-border">
+                <div className="space-y-3 text-sm pt-4 border-t border-border">
                   {company.address && (
                     <div className="flex items-start gap-3 text-muted-foreground">
                       <MapPin className="h-4 w-4 text-destructive flex-shrink-0 mt-0.5" />
