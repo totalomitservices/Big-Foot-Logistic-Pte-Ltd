@@ -212,15 +212,11 @@ export default function HeaderClient() {
     }
   }, [lastScrollY]);
 
-  if (!hasMounted) {
-    return null;
-  }
-
   return (
     <header
       className={cn(
         "fixed top-4 left-0 w-full z-50 transition-all duration-300 ease-in-out",
-        show ? "translate-y-0 opacity-100" : "-translate-y-[200%] opacity-0"
+        hasMounted && (show ? "translate-y-0 opacity-100" : "-translate-y-[200%] opacity-0")
       )}
     >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
