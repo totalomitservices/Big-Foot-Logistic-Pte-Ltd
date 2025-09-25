@@ -1,15 +1,9 @@
+'use client';
 
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { groupOfCompaniesDetails } from '@/data/group-of-companies-details';
-import type { Metadata } from 'next';
-import { Globe, Phone, Mail, Building, Link as LinkIcon, Printer } from 'lucide-react';
-import Link from 'next/link';
-
-export const metadata: Metadata = {
-  title: 'Group of Companies | Bigfoot Logistics',
-  description: 'Explore the diverse companies that form the Bigfoot Logistics group, from engineering and shipping to medicare and global trading.',
-};
+import { Phone, Mail } from 'lucide-react';
 
 export default function GroupOfCompaniesPage() {
   return (
