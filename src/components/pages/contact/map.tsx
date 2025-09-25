@@ -18,15 +18,16 @@ export default function Map() {
   const mapInstance = useRef<any>(null);
 
   useEffect(() => {
-    if (typeof window === 'undefined') {
+    if (typeof window === 'undefined' || !mapRef.current) {
       return;
+    }
+    
+    // Check if the map is already initialized
+    if (mapRef.current.hasAttribute('data-leaflet-container')) {
+        return;
     }
 
     const initMap = async () => {
-      if (!mapRef.current || mapRef.current.hasAttribute('data-leaflet-container')) {
-        return;
-      }
-      
       const L = await import('leaflet');
       
       const map = L.map(mapRef.current!, {
@@ -101,4 +102,3 @@ export default function Map() {
     </section>
   );
 }
-
