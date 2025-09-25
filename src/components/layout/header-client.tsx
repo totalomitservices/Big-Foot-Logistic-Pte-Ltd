@@ -216,6 +216,7 @@ export default function HeaderClient() {
     <header
       className={cn(
         "fixed top-4 left-0 w-full z-50 transition-all duration-300 ease-in-out",
+        !hasMounted && "transform-none opacity-100",
         hasMounted && (show ? "translate-y-0 opacity-100" : "-translate-y-[200%] opacity-0")
       )}
     >
