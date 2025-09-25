@@ -75,9 +75,7 @@ export const groupOfCompaniesDetails: CompanyDetails[] = [
     },
     {
         name: 'BIGFOOT Logistic (India) Pvt Ltd',
-        businessPurpose: 'The main purpose of Bigfoot Logistic (India) Pvt Ltd is to provide reliable logistics solutions through transportation, storage, and related services. Established in Tamil Nadu, the company is engaged in moving goods safely and efficiently while supporting businesses with end-to-end logistics needs. By focusing on transport and warehousing, it helps industries streamline their supply chain and ensure timely delivery of products.',
-        userPurpose: 'For customers, the company serves as a trusted logistics partner, offering services that simplify the movement and management of goods. It enables businesses to reduce operational challenges, improve efficiency, and focus on their core activities while relying on Bigfoot Logistic for dependable transportation and storage. In this way, the company’s purpose is both functional and supportive—designed to connect businesses with their markets effectively.',
-        description: ''
+        description: 'Bigfoot Logistic (India) Pvt Ltd provides reliable end-to-end logistics solutions, including transportation, storage, and related services across Tamil Nadu. The company focuses on safe, efficient goods movement and streamlined supply-chain support, helping businesses reduce operational challenges, improve efficiency, and ensure timely delivery while serving as a trusted logistics partner.'
     },
     {
         name: 'BIGFOOT Trading (Australia) Pty Ltd',
