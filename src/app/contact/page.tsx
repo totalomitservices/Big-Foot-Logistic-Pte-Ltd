@@ -110,7 +110,7 @@ export default function ContactPage() {
                     <Printer className="h-6 w-6 text-primary" aria-hidden="true" />
                     <div>
                       <h4 className="font-semibold text-base">Fax</h4>
-                      <p className="text-muted-foreground text-base">+65 6324 4711</p>
+                      <a href="tel:+6563244711" className="text-muted-foreground hover:text-primary transition-colors text-base">+65 6324 4711</a>
                     </div>
                   </div>
                   <div className="flex items-center gap-4">

@@ -60,7 +60,7 @@ export default function FooterContent() {
                 </li>
                 <li className="flex items-center gap-3">
                   <Printer className="h-5 w-5 text-accent flex-shrink-0" aria-hidden="true" />
-                  <span>+65 6324 4711</span>
+                  <a href="tel:+6563244711" className="hover:text-accent transition-colors">+65 6324 4711</a>
                 </li>
               </ul>
             </div>
