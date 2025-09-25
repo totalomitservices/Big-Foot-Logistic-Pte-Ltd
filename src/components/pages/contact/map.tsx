@@ -21,13 +21,13 @@ export default function Map() {
     if (typeof window === 'undefined' || !mapRef.current) {
       return;
     }
-    
-    // Check if the map is already initialized
-    if (mapRef.current.hasAttribute('data-leaflet-container')) {
-        return;
-    }
 
     const initMap = async () => {
+      // Check if the map is already initialized
+      if (mapRef.current?.hasAttribute('data-leaflet-container')) {
+        return;
+      }
+      
       const L = await import('leaflet');
       
       const map = L.map(mapRef.current!, {
