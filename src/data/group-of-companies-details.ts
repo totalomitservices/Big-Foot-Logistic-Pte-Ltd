@@ -88,7 +88,8 @@ export const groupOfCompaniesDetails: CompanyDetails[] = [
     {
         name: 'Independent Livestock Services Pty. Ltd.',
         description: 'Independent Livestock Services Pty Ltd is a privately registered company specializing in the safe, humane, and efficient transportation of livestock, offering professional logistics tailored to the animal transport industry while ensuring compliance with welfare regulations. It operates independently and has no ownership or subsidiary connection with Bigfoot Logistics Pvt Ltd despite both being in the logistics sector.',
-        phone: '0418 410 313'
+        phone: '0418 410 313',
+        address: 'Australia'
     },
     {
         name: 'BIGFOOT Global Academy Pte. Ltd.',
@@ -99,4 +100,3 @@ export const groupOfCompaniesDetails: CompanyDetails[] = [
         email: 'enquiry.sg@bfga.edu.sg'
     }
 ];
-
