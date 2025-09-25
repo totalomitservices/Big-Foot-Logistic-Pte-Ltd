@@ -1,9 +1,9 @@
-
 'use client';
 
 import 'leaflet/dist/leaflet.css';
 import { useEffect, useRef } from 'react';
 import { Home as HomeIcon, Plus } from 'lucide-react';
+import type L from 'leaflet';
 
 const mapLocations = [
   { lat: 1.3159, lon: 103.7023, city: 'Singapore HQ', country: 'Singapore' },
@@ -11,29 +11,35 @@ const mapLocations = [
   { lat: -34.195, lon: 142.148, city: 'Australia Office', country: 'Australia' },
 ];
 
-const WORLD_VIEW = { center: [20, 0], zoom: 2 };
+const WORLD_VIEW = { center: [20, 0] as L.LatLngTuple, zoom: 2 };
 
 export default function Map() {
   const mapRef = useRef<HTMLDivElement>(null);
-  const mapInstanceRef = useRef<any>(null);
+  const mapInstanceRef = useRef<L.Map | null>(null);
 
   useEffect(() => {
+    // Ensure this code only runs in the browser
     if (typeof window === 'undefined' || !mapRef.current) {
       return;
     }
 
-    // Check if the map is already initialized
-    if ((mapRef.current as any)._leaflet_id) {
+    // If map is already initialized, do nothing.
+    if (mapInstanceRef.current) {
       return;
     }
-    
-    let mapInstance: any;
+
+    let mapInstance: L.Map;
 
     const initMap = async () => {
       const L = await import('leaflet');
+
+      // Check if the DOM element is already used by another map instance
+      if ((mapRef.current as any)._leaflet_id) {
+        return;
+      }
       
       mapInstance = L.map(mapRef.current!, {
-        center: WORLD_VIEW.center as L.LatLngTuple,
+        center: WORLD_VIEW.center,
         zoom: WORLD_VIEW.zoom,
         minZoom: WORLD_VIEW.zoom,
         zoomControl: false,
@@ -76,15 +82,15 @@ export default function Map() {
 
     // Cleanup function to run when the component unmounts
     return () => {
-      if (mapInstance) {
-        mapInstance.remove();
+      if (mapInstanceRef.current) {
+        mapInstanceRef.current.remove();
         mapInstanceRef.current = null;
       }
     };
-  }, []);
+  }, []); // Empty dependency array ensures this effect runs only once
 
   const handleZoomIn = () => mapInstanceRef.current?.zoomIn();
-  const handleGoHome = () => mapInstanceRef.current?.flyTo(WORLD_VIEW.center as L.LatLngTuple, WORLD_VIEW.zoom);
+  const handleGoHome = () => mapInstanceRef.current?.flyTo(WORLD_VIEW.center, WORLD_VIEW.zoom);
 
   return (
     <section className="relative h-[50vh] w-full">
