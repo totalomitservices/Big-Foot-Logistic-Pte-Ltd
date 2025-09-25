@@ -51,19 +51,19 @@ export default function GroupOfCompaniesPage() {
 
                 <div className="space-y-3 text-sm pt-4 border-t border-border">
                   {company.address && (
-                    <div className="flex items-start gap-3 text-muted-foreground">
+                    <div className="flex items-start gap-3 text-muted-foreground text-sm">
                       <MapPin className="h-4 w-4 text-destructive flex-shrink-0 mt-0.5" />
                       <span>{company.address}</span>
                     </div>
                   )}
                   {company.phone && (
-                    <div className="flex items-center gap-3 text-muted-foreground">
+                    <div className="flex items-center gap-3 text-muted-foreground text-sm">
                       <Phone className="h-4 w-4 text-destructive flex-shrink-0" />
                       <span>{company.phone}</span>
                     </div>
                   )}
                   {company.email && (
-                    <div className="flex items-center gap-3 text-muted-foreground">
+                    <div className="flex items-center gap-3 text-muted-foreground text-sm">
                       <Mail className="h-4 w-4 text-destructive flex-shrink-0" />
                       <span className="truncate">{company.email}</span>
                     </div>
