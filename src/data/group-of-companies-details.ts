@@ -67,7 +67,7 @@ export const groupOfCompaniesDetails: CompanyDetails[] = [
         name: 'Bigfoot International Network Sdn. Bhd.',
         uen: '1269063-T',
         description: 'Incorporated in Malaysia on 20 February 2018, expands the Bigfoot brand into the Malaysian healthcare sector. Its registered office is located in Taman Tun Dr Ismail, Kuala Lumpur. The company is primarily engaged in medical and healthcare services, including dialysis centres, ambulance operations, and other general healthcare provisions. This healthcare arm of the group illustrates Bigfoot’s strategic diversification, blending logistics expertise with critical health services to cater to regional demand. By combining healthcare support and logistics, it plays a unique role in Malaysia’s service landscape.',
-        address: 'Taman Tun Dr Ismail, Kuala Lumpur'
+        address: 'Malaysia'
     },
     {
         name: 'BIGFOOT (India) Pvt Ltd',
