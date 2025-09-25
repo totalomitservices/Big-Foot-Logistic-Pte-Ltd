@@ -57,26 +57,26 @@ export default function GroupOfCompaniesPage() {
                 <div className="space-y-3 text-xs pt-4 border-t border-border">
                   {company.phone && (
                     <div className="flex items-center gap-3 text-muted-foreground">
-                      <Phone className="h-4 w-4 text-primary flex-shrink-0" />
-                      <a href={`tel:${company.phone.replace(/\s/g, '')}`} className="hover:text-primary">{company.phone}</a>
+                      <Phone className="h-4 w-4 text-destructive flex-shrink-0" />
+                      <span>{company.phone}</span>
                     </div>
                   )}
                   {company.fax && (
                     <div className="flex items-center gap-3 text-muted-foreground">
-                      <Printer className="h-4 w-4 text-primary flex-shrink-0" />
+                      <Printer className="h-4 w-4 text-destructive flex-shrink-0" />
                       <span>{company.fax}</span>
                     </div>
                   )}
                   {company.email && (
                     <div className="flex items-center gap-3 text-muted-foreground">
-                      <Mail className="h-4 w-4 text-primary flex-shrink-0" />
-                      <a href={`mailto:${company.email}`} className="hover:text-primary truncate">{company.email}</a>
+                      <Mail className="h-4 w-4 text-destructive flex-shrink-0" />
+                      <span className="truncate">{company.email}</span>
                     </div>
                   )}
                   {company.website && (
                     <div className="flex items-center gap-3 text-muted-foreground">
-                      <LinkIcon className="h-4 w-4 text-primary flex-shrink-0" />
-                      <Link href={company.website} target="_blank" rel="noopener noreferrer" className="hover:text-primary truncate">{company.website}</Link>
+                      <LinkIcon className="h-4 w-4 text-destructive flex-shrink-0" />
+                      <span className="truncate">{company.website}</span>
                     </div>
                   )}
                 </div>
