@@ -1,7 +1,7 @@
 
 export const groupOfCompanies = [
     { name: 'BIGFOOT Logistic Pte Ltd', href: '/' },
-    { name: 'BIGFOOT MEATS PTE. LTD.' },
+    { name: 'BIGFOOT MEATS PTE LTD' },
     { name: 'BIGFOOT Engineering Pte Ltd' },
     { name: 'BIGFOOT Shipping (S) Pte Ltd' },
     { name: 'BIGFOOT International (S) Pte Ltd' },
@@ -14,3 +14,4 @@ export const groupOfCompanies = [
     { name: 'Independent Livestock Services Pty Ltd' },
     { name: 'BIGFOOT Global Academy Pte Ltd' },
 ];
+
