@@ -83,9 +83,7 @@ export const groupOfCompaniesDetails: CompanyDetails[] = [
     },
     {
         name: 'Independent Livestock Services Pty Ltd',
-        description: 'A stand-alone company, not a branch or division of Bigfoot Logistics Pvt Ltd. The use of “Pty Ltd” indicates it is registered as a private limited company under Australian or South African business law, completely separate from “Pvt Ltd” (commonly used in India, South Asia, and other regions).',
-        corePurpose: 'This company specializes in the transportation of livestock, focusing on the safe, humane, and efficient movement of animals. Its main purpose is to provide professional logistics services tailored specifically to the livestock industry, ensuring compliance with animal welfare regulations and transportation standards.',
-        relationship: 'Currently, there is no evidence of ownership, partnership, or subsidiary status linking Independent Livestock Services Pty Ltd to Bigfoot Logistics Pvt Ltd. They operate in a different corporate frameworks and jurisdictions. While both companies work in the logistics and transport industry, their operations, management, and legal structures are independent.'
+        description: 'Independent Livestock Services Pty Ltd is a privately registered company specializing in the safe, humane, and efficient transportation of livestock, offering professional logistics tailored to the animal transport industry while ensuring compliance with welfare regulations. It operates independently and has no ownership or subsidiary connection with Bigfoot Logistics Pvt Ltd despite both being in the logistics sector.'
     },
     {
         name: 'BIGFOOT Global Academy Pte Ltd',
