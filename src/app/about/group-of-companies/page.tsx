@@ -73,12 +73,6 @@ export default function GroupOfCompaniesPage() {
                       <span className="truncate">{company.email}</span>
                     </div>
                   )}
-                  {company.website && (
-                    <div className="flex items-center gap-3 text-muted-foreground">
-                      <LinkIcon className="h-4 w-4 text-destructive flex-shrink-0" />
-                      <span className="truncate">{company.website}</span>
-                    </div>
-                  )}
                 </div>
               </CardContent>
             </Card>
