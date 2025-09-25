@@ -5,7 +5,9 @@ import { federo, openSans } from '@/app/fonts';
 import { cn } from '@/lib/utils';
 import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
-import { Toaster } from '@/components/ui/toaster';
+import dynamic from 'next/dynamic';
+
+const Toaster = dynamic(() => import('@/components/ui/toaster').then(mod => mod.Toaster), { ssr: false });
 
 export const metadata: Metadata = {
   title: {
