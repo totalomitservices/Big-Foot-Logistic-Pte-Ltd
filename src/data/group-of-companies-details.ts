@@ -75,7 +75,9 @@ export const groupOfCompaniesDetails: CompanyDetails[] = [
     },
     {
         name: 'BIGFOOT Logistic (India) Pvt Ltd',
-        description: 'Bigfoot Logistic (India) Pvt Ltd provides reliable end-to-end logistics solutions, including transportation, storage, and related services across Tamil Nadu. The company focuses on safe, efficient goods movement and streamlined supply-chain support, helping businesses reduce operational challenges, improve efficiency, and ensure timely delivery while serving as a trusted logistics partner.'
+        description: 'Bigfoot Logistic (India) Pvt Ltd provides reliable end-to-end logistics solutions, including transportation, storage, and related services across Tamil Nadu. The company focuses on safe, efficient goods movement and streamlined supply-chain support, helping businesses reduce operational challenges, improve efficiency, and ensure timely delivery while serving as a trusted logistics partner.',
+        address: 'India',
+        email: 'ashish.kumar@kartrocket.com'
     },
     {
         name: 'BIGFOOT Trading (Australia) Pty Ltd',
