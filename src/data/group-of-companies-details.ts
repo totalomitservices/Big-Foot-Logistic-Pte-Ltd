@@ -16,7 +16,7 @@ export type CompanyDetails = {
 
 export const groupOfCompaniesDetails: CompanyDetails[] = [
     {
-        name: 'BIGFOOT Meats Pte Ltd',
+        name: 'BIGFOOT Meats Pte. Ltd.',
         uen: '200412500R',
         description: 'Your trusted source in Singapore for high-quality frozen meats, poultry, and more — wholesale or retail, fresh to frozen, all with care. Founded decades ago, they blend consistency, scale, and passion so your kitchen never has to compromise. Straight from Jurong Food Hub to your plate, BIGFOOT delivers the meat you trust, every single time.',
         address: 'Singapore',
@@ -24,7 +24,7 @@ export const groupOfCompaniesDetails: CompanyDetails[] = [
         email: 'enquiries@bigfoot.com.sg'
     },
     {
-        name: 'BIGFOOT Engineering Pte Ltd',
+        name: 'BIGFOOT Engineering Pte. Ltd.',
         uen: '200416199R',
         description: 'Specializes in steel works and welding, including structural steel fabrication and welding services. Their expertise also extends to building and repairing ships, tankers, and other ocean-going vessels, including conversions to offshore structures.',
         address: 'Singapore',
@@ -33,7 +33,7 @@ export const groupOfCompaniesDetails: CompanyDetails[] = [
         website: 'https://bigfoot.com.sg'
     },
     {
-        name: 'BIGFOOT Shipping (S) Pte Ltd',
+        name: 'BIGFOOT Shipping (S) Pte. Ltd.',
         uen: '200416196D',
         description: 'Incorporated on 16 December 2004, is an Exempt Private Company Limited by Shares in Singapore. Based at 8 Joo Koon Road, Singapore 628972, it operates as part of Big-Foot Logistics, delivering end-to-end logistics solutions — including transportation, warehousing, freight forwarding, permit clearance, packing, and manpower supply.',
         address: 'Singapore',
@@ -43,7 +43,7 @@ export const groupOfCompaniesDetails: CompanyDetails[] = [
         website: 'https://bigfoot.com.sg'
     },
     {
-        name: 'BIGFOOT International (S) Pte Ltd',
+        name: 'BIGFOOT International (S) Pte. Ltd.',
         uen: '200823528W',
         description: 'Incorporated on 22 December 2008, is a live local company with a paid-up capital of $200,000. Registered at 8 Joo Koon Road #01-01-02, Singapore 628972, it has two officers/shareholders and filed its latest annual return on 31 May 2024. Its core business is Process Plant Engineering Services, serving as both its principal and secondary activity.',
         address: 'Singapore',
@@ -58,7 +58,7 @@ export const groupOfCompaniesDetails: CompanyDetails[] = [
         address: 'Singapore'
     },
     {
-        name: 'BIGFOOT Worldwide Pte Ltd',
+        name: 'BIGFOOT Worldwide Pte. Ltd.',
         uen: '201438007Z',
         description: 'Established on 23 December 2014, is another entity within the Bigfoot Group. Operating from the same address at 8 Joo Koon Road, Singapore, the company specializes in wholesale trade of a variety of goods without a dominant product. It is an exempt private company with a paid-up capital of SGD 150,000 and remains active to date. By handling a wide range of products across multiple industries, BIGFOOT Worldwide strengthens the group’s international trading and distribution capabilities, complementing its core logistics and freight operations.',
         address: 'Singapore'
@@ -84,14 +84,14 @@ export const groupOfCompaniesDetails: CompanyDetails[] = [
     {
         name: 'BIGFOOT Trading (Australia) Pty. Ltd.',
         description: 'BIGFOOT Trading (Australia) Pty Ltd is a trading and distribution company that manages procurement, import, and supply of goods in the Australian market. It streamlines commercial trade by handling logistics and regulatory compliance, offering businesses a reliable channel to access quality products on time and at competitive prices while supporting long-term partnerships.',
-        address: 'Australia'
+        address: 'Australia',
+        phone: '+618 9575 1222'
     },
     {
         name: 'Independent Livestock Services Pty. Ltd.',
         description: 'Independent Livestock Services Pty Ltd is a privately registered company specializing in the safe, humane, and efficient transportation of livestock, offering professional logistics tailored to the animal transport industry while ensuring compliance with welfare regulations. It operates independently and has no ownership or subsidiary connection with Bigfoot Logistics Pvt Ltd despite both being in the logistics sector.',
         phone: '+04 1841 0313',
-        address: 'Australia',
-        email: 'enquiries@bigfoot.com.sg'
+        address: 'Australia'
     },
     {
         name: 'BIGFOOT Global Academy Pte. Ltd.',
