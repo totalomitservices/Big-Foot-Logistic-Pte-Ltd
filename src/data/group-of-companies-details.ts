@@ -27,7 +27,7 @@ export const groupOfCompaniesDetails: CompanyDetails[] = [
         name: 'BIG-FOOT ENGINEERING PTE. LTD.',
         uen: '200416199R',
         description: 'Specializes in steel works and welding, including structural steel fabrication and welding services. Their expertise also extends to building and repairing ships, tankers, and other ocean-going vessels, including conversions to offshore structures.',
-        address: '8 Joo Koon Road, #01-0, Singapore 628972',
+        address: 'Singapore',
         phone: '+65 6362 4575',
         email: 'enquiries@bigfoot.com.sg',
         website: 'https://bigfoot.com.sg'
@@ -36,7 +36,7 @@ export const groupOfCompaniesDetails: CompanyDetails[] = [
         name: 'BIG-FOOT SHIPPING (S) PTE. LTD.',
         uen: '200416196D',
         description: 'Incorporated on 16 December 2004, is an Exempt Private Company Limited by Shares in Singapore. Based at 8 Joo Koon Road, Singapore 628972, it operates as part of Big-Foot Logistics, delivering end-to-end logistics solutions — including transportation, warehousing, freight forwarding, permit clearance, packing, and manpower supply.',
-        address: '8 Joo Koon Road #01-0, Singapore 628972',
+        address: 'Singapore',
         phone: '+65 6324 4722',
         fax: '+65 6324 4711',
         email: 'enquiries@bigfoot.com.sg',
@@ -55,13 +55,13 @@ export const groupOfCompaniesDetails: CompanyDetails[] = [
         name: 'BIGFOOT Medicare Pte Ltd',
         uen: '200600180R',
         description: 'A Singapore-based company incorporated on 4 January 2006. It is an exempt private company limited by shares with its registered office at 8 Joo Koon Road, Singapore 628972. The company’s core activity is home healthcare and emergency medical services, while its secondary activity includes freight transport arrangement, reflecting its integration with the broader logistics network of the Bigfoot Group. With a paid-up capital of SGD 100,000, the company plays a dual role in supporting healthcare delivery and logistical efficiency. Formerly known as Huk Seng Container 2006 Pte Ltd, it has since evolved under the Bigfoot brand to focus on healthcare logistics and services.',
-        address: '8 Joo Koon Road, Singapore 628972'
+        address: 'Singapore'
     },
     {
         name: 'BIGFOOT Worldwide Pte Ltd',
         uen: '201438007Z',
         description: 'Established on 23 December 2014, is another entity within the Bigfoot Group. Operating from the same address at 8 Joo Koon Road, Singapore, the company specializes in wholesale trade of a variety of goods without a dominant product. It is an exempt private company with a paid-up capital of SGD 150,000 and remains active to date. By handling a wide range of products across multiple industries, BIGFOOT Worldwide strengthens the group’s international trading and distribution capabilities, complementing its core logistics and freight operations.',
-        address: '8 Joo Koon Road, Singapore'
+        address: 'Singapore'
     },
     {
         name: 'Bigfoot International Network Sdn. Bhd.',
@@ -88,6 +88,7 @@ export const groupOfCompaniesDetails: CompanyDetails[] = [
     {
         name: 'BIGFOOT Global Academy Pte Ltd',
         uen: '201133521Z',
-        description: 'BIGFOOT Global Academy Pte Ltd’s website serves as a professional platform to showcase its products, services, and brand identity, clearly presenting its vision and offerings while providing essential details like services, pricing, and contact information. It functions as both a marketing and communication tool, helping customers explore services, view updates, and connect easily, while supporting the company in building credibility and expanding its global reach.'
+        description: 'BIGFOOT Global Academy Pte Ltd’s website serves as a professional platform to showcase its products, services, and brand identity, clearly presenting its vision and offerings while providing essential details like services, pricing, and contact information. It functions as both a marketing and communication tool, helping customers explore services, view updates, and connect easily, while supporting the company in building credibility and expanding its global reach.',
+        address: 'Singapore'
     }
 ];
