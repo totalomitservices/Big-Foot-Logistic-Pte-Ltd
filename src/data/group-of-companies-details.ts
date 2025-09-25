@@ -79,9 +79,7 @@ export const groupOfCompaniesDetails: CompanyDetails[] = [
     },
     {
         name: 'BIGFOOT Trading (Australia) Pty Ltd',
-        businessPurpose: 'The main purpose of BIGFOOT Trading (Australia) Pty Ltd is to operate as a trading and distribution company within the Australian market. By managing the procurement, import, and supply of goods, it aims to connect suppliers with buyers efficiently. The company’s activities are centered around ensuring smooth commercial trade, handling logistics associated with products, and maintaining compliance with Australian trade regulations.',
-        userPurpose: 'For customers and partners, the company serves as a reliable channel to access quality goods and trading services. It provides businesses with a structured supply chain, enabling them to obtain products on time and at competitive prices. In this way, the company functions both as a trading facilitator and as a support system for businesses seeking long-term partnerships in the Australian market.',
-        description: ''
+        description: 'BIGFOOT Trading (Australia) Pty Ltd is a trading and distribution company that manages procurement, import, and supply of goods in the Australian market. It streamlines commercial trade by handling logistics and regulatory compliance, offering businesses a reliable channel to access quality products on time and at competitive prices while supporting long-term partnerships.'
     },
     {
         name: 'Independent Livestock Services Pty Ltd',
