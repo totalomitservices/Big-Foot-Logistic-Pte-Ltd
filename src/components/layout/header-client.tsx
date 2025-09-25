@@ -1,7 +1,6 @@
 
 "use client";
 
-import { useState, useEffect } from 'react';
 import { Mail, Phone, Menu, ChevronDown } from 'lucide-react';
 import Link from 'next/link';
 import { Logo } from '@/components/logo';
@@ -56,9 +55,9 @@ const contactInfo = {
   phone: '+65 6324 4722',
 };
 
-function NavLink({ href, children, className, onClick, hasMounted }: { href: string; children: React.ReactNode, className?: string, onClick?: () => void, hasMounted: boolean }) {
+function NavLink({ href, children, className, onClick }: { href: string; children: React.ReactNode, className?: string, onClick?: () => void }) {
     const pathname = usePathname();
-    const isActive = hasMounted && pathname === href;
+    const isActive = pathname === href;
     
     return (
          <Link href={href} onClick={onClick} className={cn(
@@ -71,11 +70,11 @@ function NavLink({ href, children, className, onClick, hasMounted }: { href: str
     );
 };
 
-function DesktopNav({ hasMounted }: { hasMounted: boolean }) {
+function DesktopNav() {
     const pathname = usePathname();
 
-    const isAboutActive = hasMounted && pathname.startsWith('/about');
-    const isServicesActive = hasMounted && pathname.startsWith('/services');
+    const isAboutActive = pathname.startsWith('/about');
+    const isServicesActive = pathname.startsWith('/services');
     
     return (
         <nav className="hidden md:flex items-center gap-1" aria-label="Main navigation">
@@ -98,7 +97,7 @@ function DesktopNav({ hasMounted }: { hasMounted: boolean }) {
                             </DropdownMenuContent>
                         </DropdownMenu>
                     ) : (
-                        <NavLink href={link.href!} hasMounted={hasMounted}>{link.label}</NavLink>
+                        <NavLink href={link.href!}>{link.label}</NavLink>
                     )}
                 </div>
             ))}
@@ -106,7 +105,7 @@ function DesktopNav({ hasMounted }: { hasMounted: boolean }) {
     );
 };
 
-function MobileNav({ hasMounted }: { hasMounted: boolean }) {
+function MobileNav() {
     const pathname = usePathname();
 
     return (
@@ -157,7 +156,7 @@ function MobileNav({ hasMounted }: { hasMounted: boolean }) {
                                                 href={link.href!}
                                                 className={cn(
                                                     "font-bold text-lg hover:text-red-500 transition-colors block py-3 px-2 rounded-md",
-                                                    hasMounted && pathname === link.href && "text-red-500 bg-black/10"
+                                                    pathname === link.href && "text-red-500 bg-black/10"
                                                 )}
                                             >
                                                 {link.label}
@@ -186,12 +185,6 @@ function MobileNav({ hasMounted }: { hasMounted: boolean }) {
 
 
 export default function HeaderClient() {
-  const [hasMounted, setHasMounted] = useState(false);
-
-  useEffect(() => {
-    setHasMounted(true);
-  }, []);
-
   return (
     <header className="fixed top-4 left-0 w-full z-50 transition-all duration-300 ease-in-out">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -202,7 +195,7 @@ export default function HeaderClient() {
                     </Link>
                 </div>
                 
-                <DesktopNav hasMounted={hasMounted} />
+                <DesktopNav />
                 
                 <div className="hidden md:flex items-center gap-2">
                     <div className="h-6 w-px mx-2 bg-black/20" />
@@ -214,7 +207,7 @@ export default function HeaderClient() {
                     </a>
                 </div>
 
-                <MobileNav hasMounted={hasMounted} />
+                <MobileNav />
             </div>
         </div>
     </header>
