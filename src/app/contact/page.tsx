@@ -31,7 +31,7 @@ const officeLocations = [
   },
   {
     name: 'India Office',
-    address: 'SHOP NO 1, NATIONAL LODGE BUILDING, TS NO 3607/25, SATHIYAMOORTHY ROAD, PUDUKKOTTAI, Tamil Nadu, 622001, India',
+    address: 'Shop No 1, National Lodge Building, Ts No 3607/25, Sathiyamoorthy Road, Pudukkottai, Tamil Nadu, 622001, India',
     phone: '+91 22 1234 5678',
     email: 'in.office@bigfoot.com.sg',
   },
