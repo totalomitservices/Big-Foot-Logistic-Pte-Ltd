@@ -206,7 +206,7 @@ export default function HeaderClient() {
     <header
       className={cn(
         "fixed top-4 left-0 w-full z-50 transition-transform duration-300 ease-in-out",
-        isVisible ? "translate-y-0" : "-translate-y-full"
+        isVisible ? "translate-y-0" : "-translate-y-[calc(100%-1rem)]"
       )}
     >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
