@@ -95,7 +95,7 @@ export default function Map() {
   return (
     <section className="relative h-[50vh] w-full">
       <div ref={mapRef} className="w-full h-full" id="map-container"></div>
-      <div className="leaflet-top leaflet-right absolute top-0 right-0 z-[1000] p-2.5">
+      <div className="leaflet-top leaflet-right absolute top-0 right-0 z-40 p-2.5">
         <div className="leaflet-control leaflet-bar glassmorphic-controls">
           <button type="button" onClick={handleZoomIn} title="Zoom in" role="button" aria-label="Zoom in" className="cursor-pointer">
             <Plus size={18} />
@@ -105,7 +105,7 @@ export default function Map() {
           </button>
         </div>
       </div>
-      <div className="absolute bottom-5 left-5 text-black/50 text-xs pointer-events-none z-[1000]">
+      <div className="absolute bottom-5 left-5 text-black/50 text-xs pointer-events-none z-40">
         🗺️ Drag to move • Hover pins • Click pins to zoom
       </div>
     </section>
