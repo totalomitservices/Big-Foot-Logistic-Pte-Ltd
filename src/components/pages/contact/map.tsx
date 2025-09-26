@@ -93,7 +93,7 @@ export default function Map() {
   const handleGoHome = () => mapInstanceRef.current?.flyTo(WORLD_VIEW.center, WORLD_VIEW.zoom);
 
   return (
-    <section className="relative h-[50vh] w-full">
+    <section className="relative h-[50vh] w-full z-10">
       <div ref={mapRef} className="w-full h-full" id="map-container"></div>
       <div className="leaflet-top leaflet-right absolute top-0 right-0 z-40 p-2.5">
         <div className="leaflet-control leaflet-bar glassmorphic-controls">
