@@ -8,7 +8,7 @@ import { Phone, Mail, MapPin } from 'lucide-react';
 
 export default function GroupOfCompaniesPage() {
   return (
-    <div className="bg-secondary text-foreground py-16 lg:py-24">
+    <div className="bg-secondary text-foreground pt-32 pb-16 lg:pt-48 lg:pb-24">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto text-center mb-16">
           <h1 className="text-4xl md:text-5xl font-headline font-bold text-accent">
