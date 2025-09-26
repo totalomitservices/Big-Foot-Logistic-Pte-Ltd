@@ -83,7 +83,7 @@ export default function FooterContent() {
           {/* Google Map */}
           <div>
             <h3 className="text-lg font-headline font-bold uppercase tracking-wider text-accent mb-4 text-left">Our Location</h3>
-            <div className="aspect-video overflow-hidden shadow-lg transition-all duration-300 hover:shadow-accent/30 hover:shadow-2xl hover:scale-105">
+            <div className="aspect-video overflow-hidden shadow-lg">
               <FooterMapClient />
             </div>
           </div>
