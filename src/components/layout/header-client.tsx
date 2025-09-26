@@ -188,10 +188,8 @@ export default function HeaderClient() {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
       if (currentScrollY > lastScrollY && currentScrollY > 100) {
-        // Scrolling down
         setIsVisible(false);
       } else {
-        // Scrolling up
         setIsVisible(true);
       }
       setLastScrollY(currentScrollY);
